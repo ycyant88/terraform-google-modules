@@ -1,0 +1,58 @@
+[
+  {
+    "name": "bigquery_dataset",
+    "description": "Bigquery dataset resource."
+  },
+  {
+    "name": "bigquery_tables",
+    "description": "Map of bigquery table resources being provisioned."
+  },
+  {
+    "name": "bigquery_views",
+    "description": "Map of bigquery view resources being provisioned."
+  },
+  {
+    "name": "project",
+    "description": "Project where the dataset and tables are created"
+  },
+  {
+    "name": "table_ids",
+    "description": "Unique id for the table being provisioned"
+  },
+  {
+    "name": "table_fqns",
+    "description": "Fully qualified names for the table with format projects/{{project}}/datasets/{{dataset}}/tables/{{name}}"
+  },
+  {
+    "name": "table_names",
+    "description": "Friendly name for the table being provisioned"
+  },
+  {
+    "name": "view_names",
+    "description": "friendlyname for the view being provisioned"
+  },
+  {
+    "name": "bigquery_external_tables",
+    "description": "Map of BigQuery external table resources being provisioned."
+  },
+  {
+    "name": "view_ids",
+    "description": "Unique id for the view being provisioned"
+  },
+  {
+    "name": "external_table_ids",
+    "description": "Unique IDs for any external tables being provisioned"
+  },
+  {
+    "name": "external_table_names",
+    "description": "Friendly names for any external tables being provisioned"
+  },
+  {
+    "name": "routine_ids",
+    "description": "Unique IDs for any routine being provisioned"
+  },
+  {
+    "name": "env_vars",
+    "description": "Exported environment variables"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "cloudbuild_apply_trigger_id",
+    "description": "Trigger used for running TF apply"
+  },
+  {
+    "name": "cloudbuild_sa",
+    "description": "SA used by Cloud Build triggers"
+  },
+  {
+    "name": "state_bucket",
+    "description": "Bucket for storing TF state"
+  },
+  {
+    "name": "logs_bucket",
+    "description": "Bucket for storing TF logs"
+  },
+  {
+    "name": "artifacts_bucket",
+    "description": "Bucket for storing TF plans"
+  },
+  {
+    "name": "cloudbuild_plan_trigger_id",
+    "description": "Trigger used for running TF plan"
+  }
+]

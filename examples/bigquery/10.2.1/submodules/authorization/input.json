@@ -1,0 +1,44 @@
+[
+  {
+    "name": "authorized_routines",
+    "type": "list(object({\n    project_id = string,\n    dataset_id = string,\n    routine_id = string\n  }))",
+    "description": "An array of authorized routine to be authorized on the dataset",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "dataset_id",
+    "type": "string",
+    "description": "Unique ID for the dataset being provisioned.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project where the dataset and table are created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "roles",
+    "type": "any",
+    "description": "An array of objects that define dataset access for one or more entities.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "authorized_views",
+    "type": "list(object({\n    dataset_id = string,\n    project_id = string,\n    table_id   = string # this is the view id, but we keep table_id to stay consistent as the resource\n  }))",
+    "description": "An array of views to give authorize for the dataset",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "authorized_datasets",
+    "type": "list(object({\n    dataset_id = string,\n    project_id = string,\n  }))",
+    "description": "An array of datasets to be authorized on the dataset",
+    "default": "[]",
+    "required": false
+  }
+]

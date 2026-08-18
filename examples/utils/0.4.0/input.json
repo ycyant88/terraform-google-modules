@@ -1,0 +1,9 @@
+[
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The GCP region to retrieve a short name for (ex. `us-central1).",
+    "default": "",
+    "required": true
+  }
+]

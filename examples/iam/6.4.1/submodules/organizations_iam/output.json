@@ -1,0 +1,14 @@
+[
+  {
+    "name": "roles",
+    "description": "Roles which were assigned to members."
+  },
+  {
+    "name": "members",
+    "description": "Members which were bound to organizations."
+  },
+  {
+    "name": "organizations",
+    "description": "Organizations which received bindings."
+  }
+]

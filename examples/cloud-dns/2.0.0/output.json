@@ -1,0 +1,18 @@
+[
+  {
+    "name": "name",
+    "description": "The DNS zone name."
+  },
+  {
+    "name": "type",
+    "description": "The DNS zone type."
+  },
+  {
+    "name": "domain",
+    "description": "The DNS zone domain."
+  },
+  {
+    "name": "name_servers",
+    "description": "The DNS zone name servers."
+  }
+]

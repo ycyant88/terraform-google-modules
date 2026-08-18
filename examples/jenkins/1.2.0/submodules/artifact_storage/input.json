@@ -1,0 +1,23 @@
+[
+  {
+    "name": "jobs",
+    "type": "list(object({\n    name     = string\n    builders = list(string)\n  }))",
+    "description": "A list of Jenkins jobs to populate",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "jobs_count",
+    "type": "number",
+    "description": "Amount of jobs to populate",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to deploy to",
+    "default": "",
+    "required": true
+  }
+]

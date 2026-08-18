@@ -1,0 +1,26 @@
+[
+  {
+    "name": "tags",
+    "description": "Tags that will be associated with instance(s)"
+  },
+  {
+    "name": "service_account_info",
+    "description": "Service account id and email"
+  },
+  {
+    "name": "network_interface_details",
+    "description": "The names and VLAN tags of the template interfaces."
+  },
+  {
+    "name": "self_link_unique",
+    "description": "Unique self-link of instance template (recommended output to use instead of self_link)"
+  },
+  {
+    "name": "self_link",
+    "description": "Self-link of instance template"
+  },
+  {
+    "name": "name",
+    "description": "Name of instance template"
+  }
+]

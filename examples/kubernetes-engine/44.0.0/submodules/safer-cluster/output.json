@@ -1,0 +1,94 @@
+[
+  {
+    "name": "endpoint",
+    "description": "Cluster endpoint"
+  },
+  {
+    "name": "min_master_version",
+    "description": "Minimum master kubernetes version"
+  },
+  {
+    "name": "network_policy_enabled",
+    "description": "Whether network policy enabled"
+  },
+  {
+    "name": "horizontal_pod_autoscaling_enabled",
+    "description": "Whether horizontal pod autoscaling enabled"
+  },
+  {
+    "name": "peering_name",
+    "description": "The name of the peering between this cluster and the Google owned VPC."
+  },
+  {
+    "name": "zones",
+    "description": "List of zones in which the cluster resides"
+  },
+  {
+    "name": "master_version",
+    "description": "Current master kubernetes version"
+  },
+  {
+    "name": "http_load_balancing_enabled",
+    "description": "Whether http load balancing enabled"
+  },
+  {
+    "name": "master_ipv4_cidr_block",
+    "description": "The IP range in CIDR notation used for the hosted master network"
+  },
+  {
+    "name": "enable_mesh_certificates",
+    "description": "Mesh certificate configuration value"
+  },
+  {
+    "name": "name",
+    "description": "Cluster name"
+  },
+  {
+    "name": "type",
+    "description": "Cluster type (regional / zonal)"
+  },
+  {
+    "name": "region",
+    "description": "Cluster region"
+  },
+  {
+    "name": "monitoring_service",
+    "description": "Monitoring service used"
+  },
+  {
+    "name": "node_pools_names",
+    "description": "List of node pools names"
+  },
+  {
+    "name": "node_pools_versions",
+    "description": "Node pool versions by node pool name"
+  },
+  {
+    "name": "cluster_id",
+    "description": "Cluster ID"
+  },
+  {
+    "name": "location",
+    "description": "Cluster location (region if regional cluster, zone if zonal cluster)"
+  },
+  {
+    "name": "endpoint_dns",
+    "description": "Cluster endpoint DNS"
+  },
+  {
+    "name": "logging_service",
+    "description": "Logging service used"
+  },
+  {
+    "name": "master_authorized_networks_config",
+    "description": "Networks from which access to master is permitted"
+  },
+  {
+    "name": "ca_certificate",
+    "description": "Cluster ca certificate (base64 encoded)"
+  },
+  {
+    "name": "service_account",
+    "description": "The service account to default running nodes as if not overridden in `node_pools`."
+  }
+]

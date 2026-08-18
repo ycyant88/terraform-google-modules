@@ -1,0 +1,58 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Google Project ID that you want Forseti deployed into",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "GCP Organization ID that Forseti will have purview over",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "folder_id",
+    "type": "string",
+    "description": "GCP Folder that the Forseti project will be deployed into",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloud_profiler_enabled",
+    "type": "bool",
+    "description": "Enable the Cloud Profiler",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_write",
+    "type": "bool",
+    "description": "Enabling/Disabling write actions",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "suffix",
+    "type": "string",
+    "description": "The random suffix to append to all Forseti resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cscc_violations_enabled",
+    "type": "bool",
+    "description": "Notify for CSCC violations",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "server_service_account",
+    "type": "string",
+    "description": "Service account email to assign to the Server VM. If empty, a new Service Account will be created",
+    "default": "\"\"",
+    "required": false
+  }
+]

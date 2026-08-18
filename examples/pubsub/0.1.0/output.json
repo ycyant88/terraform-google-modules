@@ -1,0 +1,14 @@
+[
+  {
+    "name": "topic",
+    "description": "The name of the Pub/Sub topic"
+  },
+  {
+    "name": "subscription_names",
+    "description": "The name list of Pub/Sub subscriptions"
+  },
+  {
+    "name": "subscription_paths",
+    "description": "The path list of Pub/Sub subscriptions"
+  }
+]

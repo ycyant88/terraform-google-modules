@@ -1,0 +1,128 @@
+[
+  {
+    "name": "storage_bucket_labels",
+    "type": "map(string)",
+    "description": "Labels to apply to the storage bucket.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "org_admins_org_iam_permissions",
+    "type": "list(string)",
+    "description": "List of permissions granted to the group supplied in group_org_admins variable across the GCP organization.",
+    "default": "[\n  \"roles/billing.user\",\n  \"roles/resourcemanager.organizationAdmin\"\n]",
+    "required": false
+  },
+  {
+    "name": "folder_id",
+    "type": "string",
+    "description": "The ID of a folder to host this project",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "org_project_creators",
+    "type": "list(string)",
+    "description": "Additional list of members to have project creator role accross the organization. Prefix of group: user: or serviceAccount: is required.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "group_billing_admins",
+    "type": "string",
+    "description": "Google Group for GCP Billing Administrators",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sa_org_iam_permissions",
+    "type": "list(string)",
+    "description": "List of permissions granted to Terraform service account across the GCP organization.",
+    "default": "[\n  \"roles/billing.user\",\n  \"roles/compute.networkAdmin\",\n  \"roles/compute.xpnAdmin\",\n  \"roles/iam.securityAdmin\",\n  \"roles/iam.serviceAccountAdmin\",\n  \"roles/logging.configWriter\",\n  \"roles/orgpolicy.policyAdmin\",\n  \"roles/resourcemanager.folderAdmin\",\n  \"roles/resourcemanager.organizationViewer\"\n]",
+    "required": false
+  },
+  {
+    "name": "grant_billing_user",
+    "type": "bool",
+    "description": "Grant roles/billing.user role to CFT service account",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "activate_apis",
+    "type": "list(string)",
+    "description": "List of APIs to enable in the seed project.",
+    "default": "[\n  \"serviceusage.googleapis.com\",\n  \"servicenetworking.googleapis.com\",\n  \"compute.googleapis.com\",\n  \"logging.googleapis.com\",\n  \"bigquery.googleapis.com\",\n  \"cloudresourcemanager.googleapis.com\",\n  \"cloudbilling.googleapis.com\",\n  \"iam.googleapis.com\",\n  \"admin.googleapis.com\",\n  \"appengine.googleapis.com\",\n  \"storage-api.googleapis.com\",\n  \"monitoring.googleapis.com\"\n]",
+    "required": false
+  },
+  {
+    "name": "parent_folder",
+    "type": "string",
+    "description": "GCP parent folder ID in the form folders/{id}",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "project_labels",
+    "type": "map(string)",
+    "description": "Labels to apply to the project.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Custom project ID to use for project created. If not supplied, the default id is {project_prefix}-seed-{random suffix}.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "project_prefix",
+    "type": "string",
+    "description": "Name prefix to use for projects created.",
+    "default": "\"cft\"",
+    "required": false
+  },
+  {
+    "name": "sa_enable_impersonation",
+    "type": "bool",
+    "description": "Allow org_admins group to impersonate service account & enable APIs required.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "default_region",
+    "type": "string",
+    "description": "Default region to create resources where applicable.",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "state_bucket_name",
+    "type": "string",
+    "description": "Custom state bucket name. If not supplied, the default name is {project_prefix}-tfstate-{random suffix}.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "GCP Organization ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "billing_account",
+    "type": "string",
+    "description": "The ID of the billing account to associate projects with.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "group_org_admins",
+    "type": "string",
+    "description": "Google Group for GCP Organization Administrators",
+    "default": "",
+    "required": true
+  }
+]

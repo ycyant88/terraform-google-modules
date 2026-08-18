@@ -1,0 +1,135 @@
+[
+  {
+    "name": "ipv6_access_config",
+    "type": "list(object({\n    network_tier = string\n  }))",
+    "description": "IPv6 access configurations. Currently a max of 1 IPv6 access configuration is supported. If not specified, the instance will have no external IPv6 Internet access.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "resource_policies",
+    "type": "list(string)",
+    "description": "(Optional) A list of short names or self_links of resource policies to attach to the instance. Modifying this list will cause the instance to recreate. Currently a max of 1 resource policy is supported.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "(Optional) Labels to override those from the template, provided as a map",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "Zone where the instances should be created. If not specified, instances will be spread across available zones in the region.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "hostname_suffix_separator",
+    "type": "string",
+    "description": "Separator character to compose hostname when add_hostname_suffix is set to true.",
+    "default": "\"-\"",
+    "required": false
+  },
+  {
+    "name": "hostname",
+    "type": "string",
+    "description": "Hostname of instances",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "static_ips",
+    "type": "list(string)",
+    "description": "List of static IPs for VM instances",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "instance_template",
+    "type": "string",
+    "description": "Instance template self_link used to create compute instances",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "alias_ip_ranges",
+    "type": "list(object({\n    ip_cidr_range         = string\n    subnetwork_range_name = string\n  }))",
+    "description": "(Optional) An array of alias IP ranges for this network interface. Can only be specified for network interfaces on subnet-mode networks.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "resource_manager_tags",
+    "type": "map(string)",
+    "description": "(Optional) A tag is a key-value pair that can be attached to a Google Cloud resource. You can use tags to conditionally allow or deny policies based on whether a resource has a specific tag. This value is not returned by the API. In Terraform, this value cannot be updated and changing it will recreate the resource.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "add_hostname_suffix",
+    "type": "bool",
+    "description": "Adds a suffix to the hostname",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "access_config",
+    "type": "list(object({\n    nat_ip       = string\n    network_tier = string\n  }))",
+    "description": "Access configurations, i.e. IPs via which the VM instance can be accessed via the Internet.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project in which the compute instance will be created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Network to deploy to. Only one of network or subnetwork should be specified.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnetwork_project",
+    "type": "string",
+    "description": "The project that subnetwork belongs to",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "num_instances",
+    "type": "number",
+    "description": "Number of instances to create. This value is ignored if static_ips is provided.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the instances should be created.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "deletion_protection",
+    "type": "bool",
+    "description": "Enable deletion protection on this instance. Note: you must disable deletion protection before removing the resource, or the instance cannot be deleted and the Terraform run will not complete successfully.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "Subnet to deploy to. Only one of network or subnetwork should be specified.",
+    "default": "\"\"",
+    "required": false
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "name": "location",
+    "description": "Cluster location (region if regional cluster, zone if zonal cluster)"
+  },
+  {
+    "name": "cloudrun_enabled",
+    "description": "Whether CloudRun enabled"
+  },
+  {
+    "name": "zones",
+    "description": "List of zones in which the cluster resides"
+  },
+  {
+    "name": "release_channel",
+    "description": "The release channel of this cluster"
+  },
+  {
+    "name": "dns_cache_enabled",
+    "description": "Whether DNS Cache enabled"
+  },
+  {
+    "name": "http_load_balancing_enabled",
+    "description": "Whether http load balancing enabled"
+  },
+  {
+    "name": "service_account",
+    "description": "The service account to default running nodes as if not overridden in `node_pools`."
+  },
+  {
+    "name": "identity_namespace",
+    "description": "Workload Identity namespace"
+  },
+  {
+    "name": "intranode_visibility_enabled",
+    "description": "Whether intra-node visibility is enabled"
+  },
+  {
+    "name": "endpoint",
+    "description": "Cluster endpoint"
+  },
+  {
+    "name": "min_master_version",
+    "description": "Minimum master kubernetes version"
+  },
+  {
+    "name": "istio_enabled",
+    "description": "Whether Istio is enabled"
+  },
+  {
+    "name": "vertical_pod_autoscaling_enabled",
+    "description": "Whether veritical pod autoscaling is enabled"
+  },
+  {
+    "name": "logging_service",
+    "description": "Logging service used"
+  },
+  {
+    "name": "monitoring_service",
+    "description": "Monitoring service used"
+  },
+  {
+    "name": "master_authorized_networks_config",
+    "description": "Networks from which access to master is permitted"
+  },
+  {
+    "name": "ca_certificate",
+    "description": "Cluster ca certificate (base64 encoded)"
+  },
+  {
+    "name": "horizontal_pod_autoscaling_enabled",
+    "description": "Whether horizontal pod autoscaling enabled"
+  },
+  {
+    "name": "type",
+    "description": "Cluster type (regional / zonal)"
+  },
+  {
+    "name": "region",
+    "description": "Cluster region"
+  },
+  {
+    "name": "node_pools_versions",
+    "description": "List of node pools versions"
+  },
+  {
+    "name": "master_version",
+    "description": "Current master kubernetes version"
+  },
+  {
+    "name": "node_pools_names",
+    "description": "List of node pools names"
+  },
+  {
+    "name": "master_ipv4_cidr_block",
+    "description": "The IP range in CIDR notation used for the hosted master network"
+  },
+  {
+    "name": "peering_name",
+    "description": "The name of the peering between this cluster and the Google owned VPC."
+  },
+  {
+    "name": "name",
+    "description": "Cluster name"
+  },
+  {
+    "name": "network_policy_enabled",
+    "description": "Whether network policy enabled"
+  },
+  {
+    "name": "pod_security_policy_enabled",
+    "description": "Whether pod security policy is enabled"
+  }
+]

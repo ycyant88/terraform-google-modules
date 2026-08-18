@@ -1,0 +1,37 @@
+[
+  {
+    "name": "services",
+    "type": "list(string)",
+    "description": "An artificial dependency to bypass #10462",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Google Project ID that you want Forseti deployed into",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "suffix",
+    "type": "string",
+    "description": "The random suffix to append to all Forseti resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "client_enabled",
+    "type": "bool",
+    "description": "Enable Client VM",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "storage_bucket_location",
+    "type": "string",
+    "description": "GCS storage bucket location",
+    "default": "\"us-central1\"",
+    "required": false
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to manage the Pub/Sub resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "topic",
+    "type": "string",
+    "description": "The Pub/Sub topic name",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "topic_labels",
+    "type": "map(string)",
+    "description": "A map of labels to assign to the Pub/Sub topic",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "push_subscriptions",
+    "type": "list(map(string))",
+    "description": "The list of the push subscriptions",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "pull_subscriptions",
+    "type": "list(map(string))",
+    "description": "The list of the pull subscriptions",
+    "default": "[]",
+    "required": false
+  }
+]

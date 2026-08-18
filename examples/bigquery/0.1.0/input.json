@@ -1,0 +1,79 @@
+[
+  {
+    "name": "schema_file",
+    "type": "string",
+    "description": "A JSON schema for the table",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "table_labels",
+    "type": "map",
+    "description": "Key value pairs in a map for table labels",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "expiration",
+    "type": "string",
+    "description": "TTL of tables using the dataset in MS",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "table_id",
+    "type": "string",
+    "description": "Unique ID for the table being provisioned",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Dataset description",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The regional location for the dataset only US and EU are allowed in module",
+    "default": "\"US\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project wheree the dataset and table are created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "time_partitioning",
+    "type": "string",
+    "description": "Configures time-based partitioning for this table",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "dataset_labels",
+    "type": "map",
+    "description": "Key value pairs in a map for dataset labels",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "dataset_id",
+    "type": "string",
+    "description": "Unique ID for the dataset being provisioned",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "dataset_name",
+    "type": "string",
+    "description": "Friendly name for the dataset being provisioned",
+    "default": "",
+    "required": true
+  }
+]

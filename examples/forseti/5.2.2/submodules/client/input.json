@@ -1,0 +1,163 @@
+[
+  {
+    "name": "client_ssh_allow_ranges",
+    "type": "list(string)",
+    "description": "List of CIDRs that will be allowed ssh access to forseti server",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "client_iam_module",
+    "type": "string",
+    "description": "The Forseti Client IAM module",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Google Project ID that you want Forseti deployed into",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "client_type",
+    "type": "string",
+    "description": "GCE Forseti Client machine type",
+    "default": "\"n1-standard-2\"",
+    "required": false
+  },
+  {
+    "name": "client_access_config",
+    "type": "map(any)",
+    "description": "Client instance 'access_config' block",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "client_private",
+    "type": "string",
+    "description": "Enable private Forseti client VM (no public IP)",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "suffix",
+    "type": "string",
+    "description": "The random suffix to append to all Forseti resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "client_gcs_module",
+    "type": "string",
+    "description": "The Forseti Client GCS module",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "client_config_module",
+    "type": "string",
+    "description": "The Forseti Client config module",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "forseti_repo_url",
+    "type": "string",
+    "description": "Git repo for the Forseti installation",
+    "default": "\"https://github.com/forseti-security/forseti-security\"",
+    "required": false
+  },
+  {
+    "name": "client_instance_metadata",
+    "type": "map(string)",
+    "description": "Metadata key/value pairs to make available from within the client instance",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The VPC subnetwork where the Forseti client and server will be created",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "network_project",
+    "type": "string",
+    "description": "The project containing the VPC and subnetwork where the Forseti client and server will be created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "client_tags",
+    "type": "list(string)",
+    "description": "VM instance tags",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "services",
+    "type": "list(string)",
+    "description": "An artificial dependency to bypass #10462",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "manage_firewall_rules",
+    "type": "string",
+    "description": "Create client firewall rules",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "forseti_home",
+    "type": "string",
+    "description": "Forseti installation directory",
+    "default": "\"$USER_HOME/forseti-security\"",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "The VPC where the Forseti client and server will be created",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "client_boot_image",
+    "type": "string",
+    "description": "GCE Forseti Client boot image",
+    "default": "\"ubuntu-os-cloud/ubuntu-1804-lts\"",
+    "required": false
+  },
+  {
+    "name": "client_shielded_instance_config",
+    "type": "map(string)",
+    "description": "Client instance 'shielded_instance_config' block if using shielded VM image",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "client_region",
+    "type": "string",
+    "description": "GCE Forseti Client region",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "forseti_version",
+    "type": "string",
+    "description": "The version of Forseti to install",
+    "default": "\"v2.25.2\"",
+    "required": false
+  },
+  {
+    "name": "client_enabled",
+    "type": "bool",
+    "description": "Enable Client VM",
+    "default": "true",
+    "required": false
+  }
+]

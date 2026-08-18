@@ -1,0 +1,14 @@
+[
+  {
+    "name": "service_accounts",
+    "description": "Service Accounts which received bindings."
+  },
+  {
+    "name": "roles",
+    "description": "Roles which were assigned to members."
+  },
+  {
+    "name": "members",
+    "description": "Members which were bound to the Service Account."
+  }
+]

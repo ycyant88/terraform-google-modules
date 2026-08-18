@@ -1,0 +1,18 @@
+[
+  {
+    "name": "preemptible_self_link",
+    "description": "Self-link of preemptible instance template"
+  },
+  {
+    "name": "preemptible_name",
+    "description": "Name of preemptible instance template"
+  },
+  {
+    "name": "regular_self_link",
+    "description": "Self-link of regular instance template"
+  },
+  {
+    "name": "regular_name",
+    "description": "Name of regular instance template"
+  }
+]

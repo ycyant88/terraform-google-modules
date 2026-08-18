@@ -1,0 +1,14 @@
+[
+  {
+    "name": "pubsub_topics",
+    "description": "PubSub Topics which received for bindings."
+  },
+  {
+    "name": "roles",
+    "description": "Roles which were assigned to members."
+  },
+  {
+    "name": "members",
+    "description": "Members which were bound to the PubSub Topics."
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "mode",
+    "type": "string",
+    "description": "Mode for adding the IAM policies/bindings, additive and authoritative",
+    "default": "\"additive\"",
+    "required": false
+  },
+  {
+    "name": "bindings",
+    "type": "map(list(string))",
+    "description": "Map of role (key) and list of members (value) to add the IAM policies/bindings",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "bindings_num",
+    "type": "number",
+    "description": "Number of bindings, in case using dependencies of other resources' outputs",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "Project to add the IAM policies/bindings",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "pubsub_subscriptions",
+    "type": "list(string)",
+    "description": "PubSub Subscriptions list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "pubsub_subscriptions_num",
+    "type": "number",
+    "description": "Number of PubSub Subscriptions, in case using dependencies of other resources' outputs",
+    "default": "0",
+    "required": false
+  }
+]

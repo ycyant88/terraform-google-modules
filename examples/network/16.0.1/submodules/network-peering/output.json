@@ -1,0 +1,14 @@
+[
+  {
+    "name": "peer_network_peering",
+    "description": "Peer network peering resource."
+  },
+  {
+    "name": "complete",
+    "description": "Output to be used as a module dependency."
+  },
+  {
+    "name": "local_network_peering",
+    "description": "Network peering resource."
+  }
+]

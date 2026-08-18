@@ -1,0 +1,30 @@
+[
+  {
+    "name": "client_gcs_module",
+    "type": "string",
+    "description": "The Forseti Client GCS module",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "forseti_home",
+    "type": "string",
+    "description": "Forseti installation directory",
+    "default": "\"$USER_HOME/forseti-security\"",
+    "required": false
+  },
+  {
+    "name": "server_address",
+    "type": "string",
+    "description": "The Forseti server address",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "client_enabled",
+    "type": "bool",
+    "description": "Enable Client VM",
+    "default": "true",
+    "required": false
+  }
+]

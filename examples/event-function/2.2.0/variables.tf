@@ -1,0 +1,164 @@
+variable "available_memory_mb" {
+  description = "The amount of memory in megabytes allotted for the function to use."
+  type        = number
+  default     = 256
+}
+
+variable "bucket_force_destroy" {
+  description = "When deleting the GCS bucket containing the cloud function, delete all objects in the bucket first."
+  type        = bool
+  default     = false
+}
+
+variable "bucket_labels" {
+  description = "A set of key/value label pairs to assign to the function source archive bucket."
+  type        = map(string)
+  default     = {}
+}
+
+variable "bucket_name" {
+  description = "The name to apply to the bucket. Will default to a string of the function name."
+  type        = string
+  default     = ""
+}
+
+variable "create_bucket" {
+  description = "Whether to create a new bucket or use an existing one. If false, bucket_name should reference the name of the alternate bucket to use."
+  type        = bool
+  default     = true
+}
+
+variable "description" {
+  description = "The description of the function."
+  type        = string
+  default     = "Processes events."
+}
+
+variable "entry_point" {
+  description = "The name of a method in the function source which will be invoked when the function is executed."
+  type        = string
+  default     = ""
+}
+
+variable "environment_variables" {
+  description = "A set of key/value environment variable pairs to assign to the function."
+  type        = map(string)
+  default     = {}
+}
+
+variable "event_trigger" {
+  description = "A source that fires events in response to a condition in another service."
+  type        = map(string)
+  default     = {}
+}
+
+variable "event_trigger_failure_policy_retry" {
+  description = "A toggle to determine if the function should be retried on failure."
+  type        = bool
+  default     = false
+}
+
+variable "files_to_exclude_in_source_dir" {
+  description = "Specify files to ignore when reading the source_dir"
+  type        = list(string)
+  default     = []
+}
+
+variable "ingress_settings" {
+  description = "The ingress settings for the function. Allowed values are ALLOW_ALL, ALLOW_INTERNAL_AND_GCLB and ALLOW_INTERNAL_ONLY. Changes to this field will recreate the cloud function."
+  type        = string
+  default     = "ALLOW_ALL"
+}
+
+variable "labels" {
+  description = "A set of key/value label pairs to assign to the Cloud Function."
+  type        = map(string)
+  default     = {}
+}
+
+variable "log_bucket" {
+  description = "Log bucket"
+  type        = string
+  default     = ""
+}
+
+variable "log_object_prefix" {
+  description = "Log object prefix"
+  type        = string
+  default     = ""
+}
+
+variable "max_instances" {
+  description = "The maximum number of parallel executions of the function."
+  type        = number
+  default     = 0
+}
+
+variable "name" {
+  description = "The name to apply to any nameable resources."
+  type        = string
+  default     = ""
+}
+
+variable "project_id" {
+  description = "The ID of the project to which resources will be applied."
+  type        = string
+  default     = ""
+}
+
+variable "region" {
+  description = "The region in which resources will be applied."
+  type        = string
+  default     = ""
+}
+
+variable "runtime" {
+  description = "The runtime in which the function will be executed."
+  type        = string
+  default     = ""
+}
+
+variable "service_account_email" {
+  description = "The service account to run the function as."
+  type        = string
+  default     = ""
+}
+
+variable "source_dependent_files" {
+  description = "A list of any Terraform created local_files that the module will wait for before creating the archive."
+  type = list(object({
+    filename = string
+    id       = string
+  }))
+  default = []
+}
+
+variable "source_directory" {
+  description = "The pathname of the directory which contains the function source code."
+  type        = string
+  default     = ""
+}
+
+variable "timeout_s" {
+  description = "The amount of time in seconds allotted for the execution of the function."
+  type        = number
+  default     = 60
+}
+
+variable "trigger_http" {
+  description = "Wheter to use HTTP trigger instead of the event trigger."
+  type        = bool
+  default     = ""
+}
+
+variable "vpc_connector" {
+  description = "The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*."
+  type        = string
+  default     = ""
+}
+
+variable "vpc_connector_egress_settings" {
+  description = "The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value."
+  type        = string
+  default     = ""
+}

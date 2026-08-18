@@ -1,0 +1,14 @@
+[
+  {
+    "name": "managed_zones",
+    "description": "DNS Managed Zones which received for bindings."
+  },
+  {
+    "name": "roles",
+    "description": "Roles which were assigned to members."
+  },
+  {
+    "name": "members",
+    "description": "Members which were bound to the DNS managed zones."
+  }
+]

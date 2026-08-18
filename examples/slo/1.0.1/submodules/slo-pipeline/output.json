@@ -1,0 +1,26 @@
+[
+  {
+    "name": "project_id",
+    "description": "Project id"
+  },
+  {
+    "name": "exporters",
+    "description": "Exporter config"
+  },
+  {
+    "name": "function_name",
+    "description": "Cloud Function name"
+  },
+  {
+    "name": "function_bucket_name",
+    "description": "Cloud Function bucket name"
+  },
+  {
+    "name": "pubsub_topic_name",
+    "description": "Ingress PubSub topic to SLO pipeline"
+  },
+  {
+    "name": "service_account_email",
+    "description": "Service account email used to run the Cloud Function"
+  }
+]

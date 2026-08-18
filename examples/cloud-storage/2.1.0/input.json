@@ -1,0 +1,212 @@
+[
+  {
+    "name": "bucket_policy_only",
+    "type": "map(bool)",
+    "description": "Disable ad-hoc ACLs on specified buckets. Defaults to true. Map of lowercase unprefixed name => boolean",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "bucket_hmac_key_admins",
+    "type": "map(string)",
+    "description": "Map of lowercase unprefixed name => comma-delimited IAM-style per-bucket HMAC Key admins.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "lifecycle_rules",
+    "type": "set(object({\n    # Object with keys:\n    # - type - The type of the action of this Lifecycle Rule. Supported values: Delete and SetStorageClass.\n    # - storage_class - (Required if action type is SetStorageClass) The target Storage Class of objects affected by this Lifecycle Rule.\n    action = map(string)\n\n    # Object with keys:\n    # - age - (Optional) Minimum age of an object in days to satisfy this condition.\n    # - created_before - (Optional) Creation date of an object in RFC 3339 (e.g. 2017-06-13) to satisfy this condition.\n    # - with_state - (Optional) Match to live and/or archived objects. Supported values include: \"LIVE\", \"ARCHIVED\", \"ANY\".\n    # - matches_storage_class - (Optional) Comma delimited string for storage class of objects to satisfy this condition. Supported values include: MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, STANDARD, DURABLE_REDUCED_AVAILABILITY.\n    # - num_newer_versions - (Optional) Relevant only for versioned objects. The number of newer versions of an object to satisfy this condition.\n    # - days_since_custom_time - (Optional) The number of days from the Custom-Time metadata attribute after which this condition becomes true.\n    condition = map(string)\n  }))",
+    "description": "List of lifecycle rules to configure. Format is the same as described in provider documentation https://www.terraform.io/docs/providers/google/r/storage_bucket.html#lifecycle_rule except condition.matches_storage_class should be a comma delimited string.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "names",
+    "type": "list(string)",
+    "description": "Bucket name suffixes.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "Bucket location.",
+    "default": "\"EU\"",
+    "required": false
+  },
+  {
+    "name": "folders",
+    "type": "map(list(string))",
+    "description": "Map of lowercase unprefixed name => list of top level folder objects.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "admins",
+    "type": "list(string)",
+    "description": "IAM-style members who will be granted roles/storage.objectAdmin on all buckets.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "bucket_storage_admins",
+    "type": "map(string)",
+    "description": "Map of lowercase unprefixed name => comma-delimited IAM-style per-bucket storage admins.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "set_creator_roles",
+    "type": "bool",
+    "description": "Grant roles/storage.objectCreator role to creators and bucket_creators.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "website",
+    "type": "any",
+    "description": "Map of website values. Supported attributes: main_page_suffix, not_found_page",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "storage_class",
+    "type": "string",
+    "description": "Bucket storage class.",
+    "default": "\"MULTI_REGIONAL\"",
+    "required": false
+  },
+  {
+    "name": "storage_admins",
+    "type": "list(string)",
+    "description": "IAM-style members who will be granted roles/storage.admin on all buckets.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "bucket_admins",
+    "type": "map(string)",
+    "description": "Map of lowercase unprefixed name => comma-delimited IAM-style per-bucket admins.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cors",
+    "type": "any",
+    "description": "Map of maps of mixed type attributes for CORS values. See appropriate attribute types here: https://www.terraform.io/docs/providers/google/r/storage_bucket.html#cors",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "bucket_creators",
+    "type": "map(string)",
+    "description": "Map of lowercase unprefixed name => comma-delimited IAM-style per-bucket creators.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Bucket project id.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "set_viewer_roles",
+    "type": "bool",
+    "description": "Grant roles/storage.objectViewer role to viewers and bucket_viewers.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "set_storage_admin_roles",
+    "type": "bool",
+    "description": "Grant roles/storage.admin role to storage_admins and bucket_storage_admins.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "Labels to be attached to the buckets",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "set_hmac_key_admin_roles",
+    "type": "bool",
+    "description": "Grant roles/storage.hmacKeyAdmin role to hmac_key_admins and bucket_hmac_key_admins.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "logging",
+    "type": "any",
+    "description": "Map of lowercase unprefixed name => bucket logging config object. Format is the same as described in provider documentation https://www.terraform.io/docs/providers/google/r/storage_bucket.html#logging",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "prefix",
+    "type": "string",
+    "description": "Prefix used to generate the bucket name.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "versioning",
+    "type": "map(bool)",
+    "description": "Optional map of lowercase unprefixed name => boolean, defaults to false.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "encryption_key_names",
+    "type": "map(string)",
+    "description": "Optional map of lowercase unprefixed name => string, empty strings are ignored.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "hmac_key_admins",
+    "type": "list(string)",
+    "description": "IAM-style members who will be granted roles/storage.hmacKeyAdmin on all buckets.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "set_admin_roles",
+    "type": "bool",
+    "description": "Grant roles/storage.objectAdmin role to admins and bucket_admins.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "force_destroy",
+    "type": "map(bool)",
+    "description": "Optional map of lowercase unprefixed name => boolean, defaults to false.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "creators",
+    "type": "list(string)",
+    "description": "IAM-style members who will be granted roles/storage.objectCreators on all buckets.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "viewers",
+    "type": "list(string)",
+    "description": "IAM-style members who will be granted roles/storage.objectViewer on all buckets.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "bucket_viewers",
+    "type": "map(string)",
+    "description": "Map of lowercase unprefixed name => comma-delimited IAM-style per-bucket viewers.",
+    "default": "{}",
+    "required": false
+  }
+]

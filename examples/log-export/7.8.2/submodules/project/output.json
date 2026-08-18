@@ -1,0 +1,10 @@
+[
+  {
+    "name": "destination_uri",
+    "description": "The destination URI for project."
+  },
+  {
+    "name": "project",
+    "description": "The ID of the project to which logs will be routed."
+  }
+]

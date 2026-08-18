@@ -1,0 +1,10 @@
+[
+  {
+    "name": "policy_id",
+    "description": "Resource name of the AccessPolicy."
+  },
+  {
+    "name": "policy_name",
+    "description": "The policy's name."
+  }
+]

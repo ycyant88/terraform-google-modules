@@ -1,0 +1,14 @@
+[
+  {
+    "name": "authorized_views",
+    "description": "Authorized views for the dataset"
+  },
+  {
+    "name": "authorized_roles",
+    "description": "Authorized roles for the dataset"
+  },
+  {
+    "name": "authorized_dataset",
+    "description": "Authorized datasets for the BQ dataset"
+  }
+]

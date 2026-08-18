@@ -1,0 +1,39 @@
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 7.0"
+    }
+  }
+}
+
+provider "google" {
+  project = var.project
+  region  = var.region
+}
+
+module "cloud-dns" {
+  source                             = "terraform-google-modules/cloud-dns/google"
+  version                            = "6.2.0"
+  default_key_specs_key              = var.default_key_specs_key
+  default_key_specs_zone             = var.default_key_specs_zone
+  description                        = var.description
+  dnssec_config                      = var.dnssec_config
+  domain                             = var.domain
+  enable_logging                     = var.enable_logging
+  force_destroy                      = var.force_destroy
+  gke_clusters_list                  = var.gke_clusters_list
+  iam_choice                         = var.iam_choice
+  labels                             = var.labels
+  member                             = var.member
+  members                            = var.members
+  name                               = var.name
+  private_visibility_config_networks = var.private_visibility_config_networks
+  project_id                         = var.project_id
+  recordsets                         = var.recordsets
+  role                               = var.role
+  service_namespace_url              = var.service_namespace_url
+  target_name_server_addresses       = var.target_name_server_addresses
+  target_network                     = var.target_network
+  type                               = var.type
+}

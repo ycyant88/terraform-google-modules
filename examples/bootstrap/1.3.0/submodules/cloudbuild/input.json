@@ -1,0 +1,149 @@
+[
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "GCP Organization ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "group_org_admins",
+    "type": "string",
+    "description": "Google Group for GCP Organization Administrators",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "activate_apis",
+    "type": "list(string)",
+    "description": "List of APIs to enable in the Cloudbuild project.",
+    "default": "[\n  \"serviceusage.googleapis.com\",\n  \"servicenetworking.googleapis.com\",\n  \"compute.googleapis.com\",\n  \"logging.googleapis.com\",\n  \"bigquery.googleapis.com\",\n  \"cloudresourcemanager.googleapis.com\",\n  \"cloudbilling.googleapis.com\",\n  \"iam.googleapis.com\",\n  \"admin.googleapis.com\",\n  \"appengine.googleapis.com\",\n  \"storage-api.googleapis.com\"\n]",
+    "required": false
+  },
+  {
+    "name": "terraform_validator_release",
+    "type": "string",
+    "description": "Default terraform-validator release.",
+    "default": "\"2020-03-05\"",
+    "required": false
+  },
+  {
+    "name": "cloudbuild_apply_filename",
+    "type": "string",
+    "description": "Path and name of Cloud Build YAML definition used for terraform apply.",
+    "default": "\"cloudbuild-tf-apply.yaml\"",
+    "required": false
+  },
+  {
+    "name": "terraform_version",
+    "type": "string",
+    "description": "Default terraform version.",
+    "default": "\"0.12.24\"",
+    "required": false
+  },
+  {
+    "name": "cloudbuild_plan_filename",
+    "type": "string",
+    "description": "Path and name of Cloud Build YAML definition used for terraform plan.",
+    "default": "\"cloudbuild-tf-plan.yaml\"",
+    "required": false
+  },
+  {
+    "name": "default_region",
+    "type": "string",
+    "description": "Default region to create resources where applicable.",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "terraform_sa_name",
+    "type": "string",
+    "description": "Fully-qualified name of the terraform service account.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "terraform_state_bucket",
+    "type": "string",
+    "description": "Default state bucket, used in Cloud Build substitutions.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sa_enable_impersonation",
+    "type": "bool",
+    "description": "Allow org_admins group to impersonate service account & enable APIs required.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cloud_source_repos",
+    "type": "list(string)",
+    "description": "List of Cloud Source Repo's to create with CloudBuild triggers.",
+    "default": "[\n  \"gcp-org\",\n  \"gcp-networks\",\n  \"gcp-projects\"\n]",
+    "required": false
+  },
+  {
+    "name": "folder_id",
+    "type": "string",
+    "description": "The ID of a folder to host this project",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "skip_gcloud_download",
+    "type": "bool",
+    "description": "Whether to skip downloading gcloud (assumes gcloud is already available outside the module)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "terraform_apply_branches",
+    "type": "list(string)",
+    "description": "List of git branches configured to run terraform apply Cloud Build trigger. All other branches will run plan by default.",
+    "default": "[\n  \"master\"\n]",
+    "required": false
+  },
+  {
+    "name": "billing_account",
+    "type": "string",
+    "description": "The ID of the billing account to associate projects with.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "terraform_sa_email",
+    "type": "string",
+    "description": "Email for terraform service account.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_labels",
+    "type": "map(string)",
+    "description": "Labels to apply to the project.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "project_prefix",
+    "type": "string",
+    "description": "Name prefix to use for projects created.",
+    "default": "\"cft\"",
+    "required": false
+  },
+  {
+    "name": "storage_bucket_labels",
+    "type": "map(string)",
+    "description": "Labels to apply to the storage bucket.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "terraform_version_sha256sum",
+    "type": "string",
+    "description": "sha256sum for default terraform version.",
+    "default": "\"602d2529aafdaa0f605c06adb7c72cfb585d8aa19b3f4d8d189b42589e27bf11\"",
+    "required": false
+  }
+]

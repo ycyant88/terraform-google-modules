@@ -1,0 +1,18 @@
+[
+  {
+    "name": "host",
+    "description": "The IP address of the instance."
+  },
+  {
+    "name": "region",
+    "description": "The region the instance lives in."
+  },
+  {
+    "name": "current_location_id",
+    "description": "The current zone where the Redis endpoint is placed."
+  },
+  {
+    "name": "id",
+    "description": "The memorystore instance ID."
+  }
+]

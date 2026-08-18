@@ -1,0 +1,42 @@
+[
+  {
+    "name": "gateway",
+    "description": "HA VPN gateway resource."
+  },
+  {
+    "name": "external_gateway",
+    "description": "External VPN gateway resource."
+  },
+  {
+    "name": "name",
+    "description": "VPN gateway name."
+  },
+  {
+    "name": "router",
+    "description": "Router resource (only if auto-created)."
+  },
+  {
+    "name": "router_name",
+    "description": "Router name."
+  },
+  {
+    "name": "random_secret",
+    "description": "Generated secret."
+  },
+  {
+    "name": "self_link",
+    "description": "HA VPN gateway self link."
+  },
+  {
+    "name": "tunnels",
+    "description": "VPN tunnel resources."
+  },
+  {
+    "name": "tunnel_names",
+    "description": "VPN tunnel names."
+  },
+  {
+    "name": "tunnel_self_links",
+    "description": "VPN tunnel self links."
+  }
+]

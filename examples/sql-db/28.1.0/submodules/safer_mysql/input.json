@@ -1,0 +1,408 @@
+[
+  {
+    "name": "additional_databases",
+    "type": "list(object({\n    name      = string\n    charset   = string\n    collation = string\n  }))",
+    "description": "A list of databases to be created in your cluster",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_default_user",
+    "type": "bool",
+    "description": "Enable or disable the creation of the default user",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "user_name",
+    "type": "string",
+    "description": "The name of the default user",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "deletion_protection",
+    "type": "bool",
+    "description": "Used to block Terraform from deleting a SQL Instance.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region of the Cloud SQL resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "vpc_network",
+    "type": "string",
+    "description": "Existing VPC network to which instances are connected. The networks needs to be configured with https://cloud.google.com/vpc/docs/configure-private-services-access.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "data_cache_enabled",
+    "type": "bool",
+    "description": "Whether data cache is enabled for the instance. Defaults to false. Feature is only available for ENTERPRISE_PLUS tier and supported database_versions",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "read_replica_name_suffix",
+    "type": "string",
+    "description": "The optional suffix to add to the read instance name",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "maintenance_version",
+    "type": "string",
+    "description": "The current software version on the instance. This attribute can not be set during creation. Refer to available_maintenance_versions attribute to see what maintenance_version are available for upgrade. When this attribute gets updated, it will cause an instance restart. Setting a maintenance_version value that is older than the current one on the instance will be ignored",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "availability_type",
+    "type": "string",
+    "description": "The availability type for the master instance. Can be either `REGIONAL` or `null`.",
+    "default": "\"REGIONAL\"",
+    "required": false
+  },
+  {
+    "name": "backup_configuration",
+    "type": "object({\n    binary_log_enabled             = bool\n    enabled                        = bool\n    start_time                     = string\n    location                       = string\n    transaction_log_retention_days = string\n    retained_backups               = number\n    retention_unit                 = string\n  })",
+    "description": "The backup_configuration settings subblock for the database settings",
+    "default": "{\n  \"binary_log_enabled\": false,\n  \"enabled\": false,\n  \"location\": null,\n  \"retained_backups\": null,\n  \"retention_unit\": null,\n  \"start_time\": null,\n  \"transaction_log_retention_days\": null\n}",
+    "required": false
+  },
+  {
+    "name": "db_charset",
+    "type": "string",
+    "description": "The charset for the default database",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "follow_gae_application",
+    "type": "string",
+    "description": "A Google App Engine application whose zone to remain in. Must be in the same region as this instance.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "deletion_protection_enabled",
+    "type": "bool",
+    "description": "Enables protection of an instance from accidental deletion across all surfaces (API, gcloud, Cloud Console and Terraform).",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "pricing_plan",
+    "type": "string",
+    "description": "The pricing plan for the master instance.",
+    "default": "\"PER_USE\"",
+    "required": false
+  },
+  {
+    "name": "db_collation",
+    "type": "string",
+    "description": "The collation for the default database. Example: 'utf8_general_ci'",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "iam_users",
+    "type": "list(object({\n    id    = string,\n    email = string,\n    type  = optional(string)\n  }))",
+    "description": "A list of IAM users to be created in your CloudSQL instance. iam.users.type can be CLOUD_IAM_USER, CLOUD_IAM_SERVICE_ACCOUNT, CLOUD_IAM_GROUP and is required for type CLOUD_IAM_GROUP (IAM groups)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "tier",
+    "type": "string",
+    "description": "The tier for the master instance.",
+    "default": "\"db-n1-standard-1\"",
+    "required": false
+  },
+  {
+    "name": "activation_policy",
+    "type": "string",
+    "description": "The activation policy for the master instance. Can be either `ALWAYS`, `NEVER` or `ON_DEMAND`.",
+    "default": "\"ALWAYS\"",
+    "required": false
+  },
+  {
+    "name": "maintenance_window_day",
+    "type": "number",
+    "description": "The day of week (1-7) for the master instance maintenance.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "db_name",
+    "type": "string",
+    "description": "The name of the default database to create",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the Cloud SQL resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "edition",
+    "type": "string",
+    "description": "The edition of the instance, can be ENTERPRISE or ENTERPRISE_PLUS.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "secondary_zone",
+    "type": "string",
+    "description": "The preferred zone for the secondary/failover instance, it should be something like: `us-central1-a`, `us-east1-c`.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_timeout",
+    "type": "string",
+    "description": "The optional timout that is applied to limit long database creates.",
+    "default": "\"30m\"",
+    "required": false
+  },
+  {
+    "name": "insights_config",
+    "type": "object({\n    enhanced_query_insights_enabled = bool\n    query_plans_per_minute          = number\n    query_string_length             = number\n    record_application_tags         = bool\n    record_client_address           = bool\n  })",
+    "description": "The insights_config settings for the database.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "failover_dr_replica_name",
+    "type": "string",
+    "description": "If the instance is a primary instance, then this field identifies the disaster recovery (DR) replica. The standard format of this field is \"your-project:your-instance\". You can also set this field to \"your-instance\", but cloud SQL backend will convert it to the aforementioned standard format.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "allocated_ip_range",
+    "type": "string",
+    "description": "Existing allocated IP range name for the Private IP CloudSQL instance. The networks needs to be configured with https://cloud.google.com/vpc/docs/configure-private-services-access.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "retain_backups_on_delete",
+    "type": "bool",
+    "description": "When this parameter is set to true, Cloud SQL retains backups of the instance even after the instance is deleted. The ON_DEMAND backup will be retained until customer deletes the backup or the project. The AUTOMATED backup will be retained based on the backups retention setting.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "additional_users",
+    "type": "list(object({\n    name            = string\n    password        = string\n    host            = string\n    type            = string\n    random_password = bool\n  }))",
+    "description": "A list of users to be created in your cluster. A random password would be set for the user if the `random_password` variable is set.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "random_instance_name",
+    "type": "bool",
+    "description": "Sets random suffix at the end of the Cloud SQL resource name",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "module_depends_on",
+    "type": "list(any)",
+    "description": "List of modules or resources this module depends on.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "final_backup_config",
+    "type": "object({\n    enabled        = bool\n    retention_days = number\n  })",
+    "description": "The final_backup_config settings for the database.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "instance_type",
+    "type": "string",
+    "description": "Users can upgrade a read replica instance to a stand-alone Cloud SQL instance with the help of instance_type. To promote, users have to set the instance_type property as CLOUD_SQL_INSTANCE and remove/unset master_instance_name and replica_configuration from instance configuration. This operation might cause your instance to restart.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "read_replica_deletion_protection_enabled",
+    "type": "bool",
+    "description": "Enables protection of a read replica from accidental deletion across all surfaces (API, gcloud, Cloud Console and Terraform).",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "disk_size",
+    "type": "number",
+    "description": "The disk size for the master instance",
+    "default": "10",
+    "required": false
+  },
+  {
+    "name": "database_flags",
+    "type": "list(object({\n    name  = string\n    value = string\n  }))",
+    "description": "The database flags for the master instance. See [more details](https://cloud.google.com/sql/docs/mysql/flags)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "user_labels",
+    "type": "map(string)",
+    "description": "The key/value labels for the master instances.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "update_timeout",
+    "type": "string",
+    "description": "The optional timout that is applied to limit long database updates.",
+    "default": "\"30m\"",
+    "required": false
+  },
+  {
+    "name": "disk_autoresize_limit",
+    "type": "number",
+    "description": "The maximum size to which storage can be auto increased.",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "user_password",
+    "type": "string",
+    "description": "The password for the default user. If not set, a random one will be generated and available in the generated_user_password output variable.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to manage the Cloud SQL resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "read_replica_deletion_protection",
+    "type": "bool",
+    "description": "Used to block Terraform from deleting replica SQL Instances.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "disk_type",
+    "type": "string",
+    "description": "The disk type for the master instance.",
+    "default": "\"PD_SSD\"",
+    "required": false
+  },
+  {
+    "name": "read_replicas",
+    "type": "list(object({\n    name                  = string\n    name_override         = optional(string)\n    tier                  = string\n    edition               = string\n    availability_type     = string\n    zone                  = string\n    disk_type             = string\n    disk_autoresize       = bool\n    disk_autoresize_limit = number\n    disk_size             = string\n    user_labels           = map(string)\n    database_flags = list(object({\n      name  = string\n      value = string\n    }))\n    insights_config = optional(object({\n      enhanced_query_insights_enabled = bool\n      query_plans_per_minute          = number\n      query_string_length             = number\n      record_application_tags         = bool\n      record_client_address           = bool\n    }))\n    ip_configuration = object({\n      authorized_networks = list(map(string))\n      ipv4_enabled        = bool\n      private_network     = string\n      allocated_ip_range  = string\n    })\n    encryption_key_name = string\n  }))",
+    "description": "List of read replicas to create. Encryption key is required for replica in different region. For replica in same region as master set encryption_key_name = null",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_default_db",
+    "type": "bool",
+    "description": "Enable or disable the creation of the default database",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "delete_timeout",
+    "type": "string",
+    "description": "The optional timout that is applied to limit long database deletes.",
+    "default": "\"30m\"",
+    "required": false
+  },
+  {
+    "name": "database_version",
+    "type": "string",
+    "description": "The database version to use",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "disk_autoresize",
+    "type": "bool",
+    "description": "Configuration to increase storage size",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "connection_pool_config",
+    "type": "object({\n    enabled = optional(bool, false)\n    flags = optional(list(object({\n      name  = string\n      value = string\n    })), [])\n  })",
+    "description": "Manager connection pooling configuration",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "The zone for the master instance, it should be something like: `us-central1-a`, `us-east1-c`.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "master_instance_name",
+    "type": "string",
+    "description": "The name of the existing instance that will act as the master in the replication setup.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "auto_upgrade_enabled",
+    "type": "bool",
+    "description": "Enables Automatic Version Upgrade for MYSQL_8_0 based minor versions. The database_version must be MYSQL_8_0_35 or higher. Once enabled, this cannot be unset.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "maintenance_window_hour",
+    "type": "number",
+    "description": "The hour of day (0-23) maintenance window for the master instance maintenance.",
+    "default": "23",
+    "required": false
+  },
+  {
+    "name": "maintenance_window_update_track",
+    "type": "string",
+    "description": "The update track of maintenance window for the master instance maintenance. Can be either `canary` or `stable`.",
+    "default": "\"stable\"",
+    "required": false
+  },
+  {
+    "name": "encryption_key_name",
+    "type": "string",
+    "description": "The full path to the encryption key used for the CMEK disk encryption",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "deny_maintenance_period",
+    "type": "list(object({\n    end_date   = string\n    start_date = string\n    time       = string\n  }))",
+    "description": "The Deny Maintenance Period fields to prevent automatic maintenance from occurring during a 90-day time period. List accepts only one value. See [more details](https://cloud.google.com/sql/docs/mysql/maintenance)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "assign_public_ip",
+    "type": "bool",
+    "description": "Set to true if the master instance should also have a public IP (less secure).",
+    "default": "false",
+    "required": false
+  }
+]

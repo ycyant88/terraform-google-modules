@@ -1,0 +1,29 @@
+output "network" {
+  value       = module.network_vpc.network
+  description = "The VPC resource being created"
+}
+
+output "network_id" {
+  value       = module.network_vpc.network_id
+  description = "The ID of the VPC being created"
+}
+
+output "network_name" {
+  value       = module.network_vpc.network_name
+  description = "The name of the VPC being created"
+}
+
+output "network_self_link" {
+  value       = module.network_vpc.network_self_link
+  description = "The URI of the VPC being created"
+}
+
+output "network_unique_id" {
+  value       = module.network_vpc.network_unique_id
+  description = "The unique identifier for the resource, defined by the server"
+}
+
+output "project_id" {
+  value       = module.network_vpc.project_id
+  description = "VPC project id"
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "name": "instance_ip_address",
+    "description": "The IPv4 address assigned for the master instance"
+  },
+  {
+    "name": "instance_connection_name",
+    "description": "The connection name of the master instance to be used in connection strings"
+  },
+  {
+    "name": "instance_service_account_email_address",
+    "description": "The service account email address assigned to the master instance"
+  },
+  {
+    "name": "replicas_instance_service_account_email_addresses",
+    "description": "The service account email addresses assigned to the replica instances"
+  },
+  {
+    "name": "replicas_instance_connection_names",
+    "description": "The connection names of the replica instances to be used in connection strings"
+  },
+  {
+    "name": "failover-replica_instance_connection_name",
+    "description": "The connection name of the failover-replica instance to be used in connection strings"
+  },
+  {
+    "name": "instance_name",
+    "description": "The instance name for the master instance"
+  },
+  {
+    "name": "instance_first_ip_address",
+    "description": "The first IPv4 address of the addresses assigned for the master instance."
+  },
+  {
+    "name": "replicas_instance_self_links",
+    "description": "The URIs of the replica instances"
+  },
+  {
+    "name": "replicas_instance_server_ca_certs",
+    "description": "The CA certificates information used to connect to the replica instances via SSL"
+  },
+  {
+    "name": "read_replica_instance_names",
+    "description": "The instance names for the read replica instances"
+  },
+  {
+    "name": "failover-replica_instance_first_ip_address",
+    "description": "The first IPv4 address of the addesses assigned for the failover-replica instance"
+  },
+  {
+    "name": "generated_user_password",
+    "description": "The auto generated default user password if not input password was provided"
+  },
+  {
+    "name": "instance_self_link",
+    "description": "The URI of the master instance"
+  },
+  {
+    "name": "instance_server_ca_cert",
+    "description": "The CA certificate information used to connect to the SQL instance via SSL"
+  },
+  {
+    "name": "replicas_instance_first_ip_addresses",
+    "description": "The first IPv4 addresses of the addresses assigned for the replica instances"
+  },
+  {
+    "name": "failover-replica_instance_self_link",
+    "description": "The URI of the failover-replica instance"
+  },
+  {
+    "name": "failover-replica_instance_server_ca_cert",
+    "description": "The CA certificate information used to connect to the failover-replica instance via SSL"
+  },
+  {
+    "name": "failover-replica_instance_service_account_email_address",
+    "description": "The service account email addresses assigned to the failover-replica instance"
+  },
+  {
+    "name": "failover-replica_instance_name",
+    "description": "The instance name for the failover replica instance"
+  }
+]

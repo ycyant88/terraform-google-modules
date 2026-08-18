@@ -1,0 +1,10 @@
+[
+  {
+    "name": "response_policy_id",
+    "description": "An identifier for the resource with format projects/{{project}}/responsePolicies/{{response_policy_name}}."
+  },
+  {
+    "name": "response_policy_rule_ids",
+    "description": "List of response rules with format projects/{{project}}/responsePolicies/{{response_policy}}/rules/{{rule_name}}."
+  }
+]

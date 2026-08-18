@@ -1,0 +1,18 @@
+[
+  {
+    "name": "id",
+    "description": "The memorystore instance ID."
+  },
+  {
+    "name": "region",
+    "description": "The region the instance lives in."
+  },
+  {
+    "name": "nodes",
+    "description": "Data about the memcache nodes"
+  },
+  {
+    "name": "discovery",
+    "description": "The memorystore discovery endpoint."
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "name": "internal_ranges_enabled",
+    "type": "bool",
+    "description": "Create rules for intra-VPC ranges.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ssh_target_tags",
+    "type": "list(string)",
+    "description": "List of target tags for tag-based SSH rule, defaults to ssh.",
+    "default": "[\n  \"ssh\"\n]",
+    "required": false
+  },
+  {
+    "name": "custom_rules",
+    "type": "map(object({\n    description          = string\n    direction            = string\n    action               = string # (allow|deny)\n    ranges               = list(string)\n    sources              = list(string)\n    targets              = list(string)\n    use_service_accounts = bool\n    rules = list(object({\n      protocol = string\n      ports    = list(string)\n    }))\n    extra_attributes = map(string)\n  }))",
+    "description": "List of custom rule definitions (refer to variables file for syntax).",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "admin_ranges_enabled",
+    "type": "bool",
+    "description": "Enable admin ranges-based rules.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "https_target_tags",
+    "type": "list(string)",
+    "description": "List of target tags for tag-based HTTPS rule, defaults to https-server.",
+    "default": "[\n  \"https-server\"\n]",
+    "required": false
+  },
+  {
+    "name": "internal_ranges",
+    "type": "list(string)",
+    "description": "IP CIDR ranges for intra-VPC rules.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "internal_target_tags",
+    "type": "list(string)",
+    "description": "List of target tags for intra-VPC rules.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "http_source_ranges",
+    "type": "list(string)",
+    "description": "List of IP CIDR ranges for tag-based HTTP rule, defaults to 0.0.0.0/0.",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "http_target_tags",
+    "type": "list(string)",
+    "description": "List of target tags for tag-based HTTP rule, defaults to http-server.",
+    "default": "[\n  \"http-server\"\n]",
+    "required": false
+  },
+  {
+    "name": "https_source_ranges",
+    "type": "list(string)",
+    "description": "List of IP CIDR ranges for tag-based HTTPS rule, defaults to 0.0.0.0/0.",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Name of the network this set of firewall rules applies to.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project id of the project that holds the network.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "internal_allow",
+    "type": "list(object({\n    protocol = string\n    ports    = optional(list(string))\n  }))",
+    "description": "Allow rules for internal ranges.",
+    "default": "[\n  {\n    \"protocol\": \"icmp\"\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "admin_ranges",
+    "type": "list(string)",
+    "description": "IP CIDR ranges that have complete access to all subnets.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ssh_source_ranges",
+    "type": "list(string)",
+    "description": "List of IP CIDR ranges for tag-based SSH rule, defaults to 0.0.0.0/0.",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  }
+]

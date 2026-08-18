@@ -1,0 +1,380 @@
+[
+  {
+    "name": "network_ip",
+    "type": "string",
+    "description": "Private IP address to assign to the instance if desired.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "stack_type",
+    "type": "string",
+    "description": "The stack type for this network interface to identify whether the IPv6 feature is enabled or not. Values are `IPV4_IPV6` or `IPV4_ONLY`. Default behavior is equivalent to IPV4_ONLY.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "service_account",
+    "type": "object({\n    email  = string\n    scopes = optional(set(string), [\"cloud-platform\"])\n  })",
+    "description": "Service account to attach to the instance. See https://www.terraform.io/docs/providers/google/r/compute_instance_template#service_account.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "resource_policies",
+    "type": "list(string)",
+    "description": "A list of self_links of resource policies to attach to the instance. Modifying this list will cause the instance to recreate. Currently a max of 1 resource policy is supported.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "source_image_family",
+    "type": "string",
+    "description": "Source image family. If neither source_image nor source_image_family is specified, defaults to the latest public Rocky Linux 9 optimized for GCP image.",
+    "default": "\"rocky-linux-9-optimized-gcp\"",
+    "required": false
+  },
+  {
+    "name": "nic_type",
+    "type": "string",
+    "description": "Valid values are \"VIRTIO_NET\", \"GVNIC\" or set to null to accept API default behavior.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "service_account_project_roles",
+    "type": "list(string)",
+    "description": "Roles to grant to the newly created cloud run SA in specified project. Should be used with create_service_account set to true and no input for service_account",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_shielded_vm",
+    "type": "bool",
+    "description": "Whether to enable the Shielded VM configuration on the instance. Note that the instance image must support Shielded VMs. See https://cloud.google.com/compute/docs/images",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "shielded_instance_config",
+    "type": "object({\n    enable_secure_boot          = bool\n    enable_vtpm                 = bool\n    enable_integrity_monitoring = bool\n  })",
+    "description": "Not used unless enable_shielded_vm is true. Shielded VM configuration for the instance.",
+    "default": "{\n  \"enable_integrity_monitoring\": true,\n  \"enable_secure_boot\": true,\n  \"enable_vtpm\": true\n}",
+    "required": false
+  },
+  {
+    "name": "ipv6_access_config",
+    "type": "list(object({\n    network_tier = string\n  }))",
+    "description": "IPv6 access configurations. Currently a max of 1 IPv6 access configuration is supported. If not specified, the instance will have no external IPv6 Internet access.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "gpu",
+    "type": "object({\n    type  = string\n    count = number\n  })",
+    "description": "GPU information. Type and count of GPU to attach to the instance template. See https://cloud.google.com/compute/docs/gpus more details",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "maintenance_interval",
+    "type": "string",
+    "description": "Specifies the frequency of planned maintenance events",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The name of the subnetwork to attach this interface to. The subnetwork must exist in the same region this instance will be created in. Either network or subnetwork must be provided.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnetwork_project",
+    "type": "string",
+    "description": "The ID of the project in which the subnetwork belongs. If it is not provided, the provider project is used.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "metadata",
+    "type": "map(string)",
+    "description": "Metadata, provided as a map",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_service_account",
+    "type": "bool",
+    "description": "Create a new service account to attach to the instance. This is alternate to providing the service_account input variable. Please provide the service_account input if setting this to false.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "enable_confidential_vm",
+    "type": "bool",
+    "description": "Whether to enable the Confidential VM configuration on the instance. Note that the instance image must support Confidential VMs. See https://cloud.google.com/compute/docs/images",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "alias_ip_range",
+    "type": "object({\n    ip_cidr_range         = string\n    subnetwork_range_name = string\n  })",
+    "description": "An array of alias IP ranges for this network interface. Can only be specified for network interfaces on subnet-mode networks.\nip_cidr_range: The IP CIDR range represented by this alias IP range. This IP CIDR range must belong to the specified subnetwork and cannot contain IP addresses reserved by system or used by other network interfaces. At the time of writing only a netmask (e.g. /24) may be supplied, with a CIDR format resulting in an API error.\nsubnetwork_range_name: The subnetwork secondary range name specifying the secondary range from which to allocate the IP CIDR range for this alias IP range. If left unspecified, the primary range of the subnetwork will be used.\n",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "on_host_maintenance",
+    "type": "string",
+    "description": "Instance availability Policy",
+    "default": "\"MIGRATE\"",
+    "required": false
+  },
+  {
+    "name": "enable_nested_virtualization",
+    "type": "bool",
+    "description": "Defines whether the instance should have nested virtualization enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "threads_per_core",
+    "type": "number",
+    "description": "The number of threads per physical core. To disable simultaneous multithreading (SMT) set this to 1.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnets",
+    "type": "list(object({\n    id      = string\n    region  = string\n    purpose = string\n  }))",
+    "description": "Optional: A map containing subnet details Used to derive the subnetwork URI if subnetwork is not provided.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "confidential_instance_type",
+    "type": "string",
+    "description": "Defines the confidential computing technology the instance uses. If this is set to \"SEV_SNP\", var.min_cpu_platform will be automatically set to \"AMD Milan\". See https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#confidential_instance_type.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "The template's description",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "network_attachment",
+    "type": "string",
+    "description": "The self_link of the network attachment for PSC-I connection.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "additional_networks",
+    "type": "list(object({\n    network            = optional(string)\n    subnetwork         = optional(string)\n    subnetwork_project = optional(string)\n    network_ip         = optional(string)\n    nic_type           = optional(string)\n    stack_type         = optional(string)\n\n    # New Fields\n    queue_count        = optional(number) # Multi-queue count (Rx/Tx)\n    network_attachment = optional(string) # Consumer link for PSC-I\n    vlan               = optional(number) # VLAN tag (2-255)\n\n    # Access Config (External IPv4)\n    access_config = optional(list(object({\n      nat_ip       = optional(string)\n      network_tier = optional(string) # PREMIUM or STANDARD\n    })), [])\n\n    # IPv6 Access Config (External IPv6)\n    ipv6_access_config = optional(list(object({\n      network_tier = string # Always PREMIUM for IPv6\n    })), [])\n\n    # Alias IP Ranges (Secondary ranges)\n    alias_ip_range = optional(list(object({\n      ip_cidr_range         = string\n      subnetwork_range_name = optional(string)\n    })), [])\n  }))",
+    "description": "Additional network interface details for GCE, if any.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "total_egress_bandwidth_tier",
+    "type": "string",
+    "description": "Egress bandwidth tier setting for supported VM families",
+    "default": "\"DEFAULT\"",
+    "required": false
+  },
+  {
+    "name": "startup_script",
+    "type": "string",
+    "description": "User startup script to run when instances spin up",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "access_config",
+    "type": "list(object({\n    nat_ip       = optional(string)\n    network_tier = string\n  }))",
+    "description": "Access configurations, i.e. IPs via which the VM instance can be accessed via the Internet.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "resource_manager_tags",
+    "type": "map(string)",
+    "description": "(Optional) A set of key/value resource manager tag pairs to bind to the instances. Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/456",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "spot",
+    "type": "bool",
+    "description": "Provision a SPOT instance",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "disk_type",
+    "type": "string",
+    "description": "Boot disk type, can be either pd-ssd, local-ssd, or pd-standard",
+    "default": "\"pd-standard\"",
+    "required": false
+  },
+  {
+    "name": "disk_labels",
+    "type": "map(string)",
+    "description": "Labels to be assigned to boot disk, provided as a map",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "disk_size_gb",
+    "type": "string",
+    "description": "Boot disk size in GB",
+    "default": "\"100\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The GCP project ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the instance template should be created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "name_prefix",
+    "type": "string",
+    "description": "Name prefix for the instance template",
+    "default": "\"default-instance-template\"",
+    "required": false
+  },
+  {
+    "name": "instance_description",
+    "type": "string",
+    "description": "Description of the generated instances",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "list(string)",
+    "description": "Network tags, provided as a list",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "Labels, provided as a map",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "spot_instance_termination_action",
+    "type": "string",
+    "description": "Action to take when Compute Engine preempts a Spot VM.",
+    "default": "\"STOP\"",
+    "required": false
+  },
+  {
+    "name": "additional_disks",
+    "type": "list(object({\n    auto_delete     = optional(bool, true)\n    boot            = optional(bool, false)\n    device_name     = optional(string)\n    disk_name       = optional(string)\n    disk_size_gb    = optional(number)\n    disk_type       = optional(string)\n    disk_labels     = optional(map(string), {})\n    interface       = optional(string)\n    mode            = optional(string)\n    source          = optional(string)\n    source_image    = optional(string)\n    source_snapshot = optional(string)\n  }))",
+    "description": "List of maps of additional disks. See https://www.terraform.io/docs/providers/google/r/compute_instance_template#disk_name",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "machine_type",
+    "type": "string",
+    "description": "Machine type to create, e.g. n1-standard-1",
+    "default": "\"n1-standard-1\"",
+    "required": false
+  },
+  {
+    "name": "min_cpu_platform",
+    "type": "string",
+    "description": "Specifies a minimum CPU platform. Applicable values are the friendly names of CPU platforms, such as Intel Haswell or Intel Skylake. See the complete list: https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "preemptible",
+    "type": "bool",
+    "description": "Allow the instance to be preempted",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "source_image",
+    "type": "string",
+    "description": "Source disk image. If neither source_image nor source_image_family is specified, defaults to the latest public Rocky Linux 9 optimized for GCP image.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "source_image_project",
+    "type": "string",
+    "description": "Project where the source image comes from. The default project contains Rocky Linux images.",
+    "default": "\"rocky-linux-cloud\"",
+    "required": false
+  },
+  {
+    "name": "disk_resource_policies",
+    "type": "list(string)",
+    "description": "A list (short name or id) of resource policies to attach to this disk for automatic snapshot creations",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "The name or self_link of the network to attach this interface to. Use network attribute for Legacy or Auto subnetted networks and subnetwork for custom subnetted networks.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "can_ip_forward",
+    "type": "string",
+    "description": "Enable IP forwarding, for NAT instances for example",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "automatic_restart",
+    "type": "bool",
+    "description": "(Optional) Specifies whether the instance should be automatically restarted if it is terminated by Compute Engine (not terminated by a user).",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "disk_encryption_key",
+    "type": "string",
+    "description": "The id of the encryption key that is stored in Google Cloud KMS to use to encrypt all the disks on this instance",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "auto_delete",
+    "type": "string",
+    "description": "Whether or not the boot disk should be auto-deleted",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "vlan",
+    "type": "number",
+    "description": "The VLAN ID for the primary network interface (Dynamic NIC), must be an integer from 2 to 255.",
+    "default": "null",
+    "required": false
+  }
+]

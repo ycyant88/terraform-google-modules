@@ -1,0 +1,44 @@
+[
+  {
+    "name": "bgp",
+    "type": "any",
+    "description": "BGP information specific to this router.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "nats",
+    "type": "any",
+    "description": "NATs to deploy on this router.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the router",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "A reference to the network to which this router belongs",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The project ID to deploy to",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the router resides",
+    "default": "",
+    "required": true
+  }
+]

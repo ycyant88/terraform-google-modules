@@ -1,0 +1,10 @@
+[
+  {
+    "name": "key",
+    "description": "Name of the Key created for the attestor"
+  },
+  {
+    "name": "attestor",
+    "description": "Name of the built attestor"
+  }
+]

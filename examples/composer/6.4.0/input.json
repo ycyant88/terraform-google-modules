@@ -1,0 +1,51 @@
+[
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "Zone where the Cloud Composer Environment is created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Network where Cloud Composer is created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "Subetwork where Cloud Composer is created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enable_private_endpoint",
+    "type": "bool",
+    "description": "Configure public access to the cluster endpoint.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project ID where Cloud Composer Environment is created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "composer_env_name",
+    "type": "string",
+    "description": "Name of Cloud Composer Environment",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the Cloud Composer Environment is created.",
+    "default": "",
+    "required": true
+  }
+]

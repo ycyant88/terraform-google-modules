@@ -1,0 +1,14 @@
+[
+  {
+    "name": "members",
+    "description": "Members which were bound to the Tag keys."
+  },
+  {
+    "name": "tag_keys",
+    "description": "Tag keys which received for bindings."
+  },
+  {
+    "name": "roles",
+    "description": "Roles which were assigned to members."
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "service_url",
+    "description": ""
+  },
+  {
+    "name": "service_name",
+    "description": ""
+  },
+  {
+    "name": "bucket_name",
+    "description": ""
+  },
+  {
+    "name": "service_account_email",
+    "description": ""
+  },
+  {
+    "name": "authorized_members",
+    "description": ""
+  }
+]

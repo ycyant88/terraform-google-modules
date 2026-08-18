@@ -1,0 +1,26 @@
+[
+  {
+    "name": "secondary_instance_machine_type",
+    "description": "Secondary GCE instance/machine type."
+  },
+  {
+    "name": "primary_instance_name",
+    "description": "Name of sap primary instance"
+  },
+  {
+    "name": "primary_zone",
+    "description": "Compute Engine primary instance deployment zone"
+  },
+  {
+    "name": "primary_instance_machine_type",
+    "description": "Primary GCE instance/machine type."
+  },
+  {
+    "name": "secondary_instance_name",
+    "description": "Name of sap secondary instance"
+  },
+  {
+    "name": "secondary_zone",
+    "description": "Compute Engine secondary instance deployment zone"
+  }
+]

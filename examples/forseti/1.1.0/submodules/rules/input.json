@@ -1,0 +1,23 @@
+[
+  {
+    "name": "bucket",
+    "type": "string",
+    "description": "The GCS bucket where rules will be uploaded",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "The organization ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "domain",
+    "type": "string",
+    "description": "The domain associated with the GCP Organization ID",
+    "default": "",
+    "required": true
+  }
+]

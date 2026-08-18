@@ -1,0 +1,4 @@
+output "service_endpoint" {
+  value       = module.data-fusion_wait_healthy.service_endpoint
+  description = "The input service_endpoint. Useful for creating a dependency on this module."
+}

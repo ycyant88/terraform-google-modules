@@ -1,0 +1,58 @@
+[
+  {
+    "name": "parent_type",
+    "type": "string",
+    "description": "Type of the parent reosurce, defaults to organization.",
+    "default": "\"organization\"",
+    "required": false
+  },
+  {
+    "name": "names",
+    "type": "list",
+    "description": "Folder names.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "set_roles",
+    "type": "string",
+    "description": "Set roles to actors passed in role_members variable.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "per_folder_admins",
+    "type": "list",
+    "description": "List of IAM-style members per folder who will get extended permissions.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "all_folder_admins",
+    "type": "list",
+    "description": "List of IAM-style members that will get the extended permissions across all the folders.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "prefix",
+    "type": "string",
+    "description": "Optional prefix to enforce uniqueness of folder names.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "folder_admin_roles",
+    "type": "list",
+    "description": "List of roles that will be applied to per folder owners on their respective folder.",
+    "default": "[\n  \"roles/owner\",\n  \"roles/resourcemanager.folderViewer\",\n  \"roles/resourcemanager.projectCreator\",\n  \"roles/compute.networkAdmin\"\n]",
+    "required": false
+  },
+  {
+    "name": "parent_id",
+    "type": "string",
+    "description": "Id of the resource under which the folder will be placed.",
+    "default": "",
+    "required": true
+  }
+]

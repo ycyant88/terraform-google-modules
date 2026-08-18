@@ -1,0 +1,14 @@
+[
+  {
+    "name": "notification_channel_ids",
+    "description": "The ids of the notification channels"
+  },
+  {
+    "name": "uptime_check_id",
+    "description": "The id of the uptime check."
+  },
+  {
+    "name": "alert_policy_id",
+    "description": "The id of the alert policy."
+  }
+]

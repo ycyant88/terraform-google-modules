@@ -1,0 +1,72 @@
+[
+  {
+    "name": "service_project_number",
+    "type": "string",
+    "description": "Project number of the service project. Will be used if `lookup_service_project_number` is false.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "lookup_project_numbers",
+    "type": "bool",
+    "description": "Whether to look up the project numbers from data sources. If false, `service_project_number` will be used instead.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "active_apis",
+    "type": "list(string)",
+    "description": "The list of active apis on the service project. If api is not active this module will not try to activate it",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "grant_services_network_admin_role",
+    "type": "bool",
+    "description": "Whether or not to grant Datastream Service acount the Network Admin role on the host project so it can manage firewall rules",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "grant_network_role",
+    "type": "bool",
+    "description": "Whether or not to grant service agents the network roles on the host project",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "enable_shared_vpc_service_project",
+    "type": "bool",
+    "description": "Flag set if SVPC enabled",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "service_project_id",
+    "type": "string",
+    "description": "The ID of the service project",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "shared_vpc_subnets",
+    "type": "list(string)",
+    "description": "List of subnets fully qualified subnet IDs (ie. projects/$project_id/regions/$region/subnetworks/$subnet_id)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "grant_services_security_admin_role",
+    "type": "bool",
+    "description": "Whether or not to grant Kubernetes Engine Service Agent the Security Admin role on the host project so it can manage firewall rules",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "host_project_id",
+    "type": "string",
+    "description": "The ID of the host project which hosts the shared VPC",
+    "default": "",
+    "required": true
+  }
+]

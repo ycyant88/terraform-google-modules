@@ -1,0 +1,22 @@
+[
+  {
+    "name": "iam_emails",
+    "description": "IAM-format service account emails."
+  },
+  {
+    "name": "keys",
+    "description": "Map of service account keys."
+  },
+  {
+    "name": "email",
+    "description": "Service account email (single-use case)."
+  },
+  {
+    "name": "iam_email",
+    "description": "IAM-format service account email (single-use case)."
+  },
+  {
+    "name": "emails",
+    "description": "Map of service account emails."
+  }
+]

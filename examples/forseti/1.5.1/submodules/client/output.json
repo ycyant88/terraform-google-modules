@@ -1,0 +1,22 @@
+[
+  {
+    "name": "forseti-client-storage-bucket",
+    "description": "Forseti Client storage bucket"
+  },
+  {
+    "name": "forseti-client-vm-name",
+    "description": "Forseti Client VM name"
+  },
+  {
+    "name": "forseti-client-vm-ip",
+    "description": "Forseti Client VM private IP address"
+  },
+  {
+    "name": "forseti-client-vm-public-ip",
+    "description": "Forseti Client VM public IP address"
+  },
+  {
+    "name": "forseti-client-service-account",
+    "description": "Forseti Client service account"
+  }
+]

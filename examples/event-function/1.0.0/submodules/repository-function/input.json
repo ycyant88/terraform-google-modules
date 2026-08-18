@@ -1,0 +1,86 @@
+[
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "A set of key/value label pairs to assign to any lableable resources.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name to apply to any nameable resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region in which resources will be applied.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "runtime",
+    "type": "string",
+    "description": "The runtime in which the function will be executed.",
+    "default": "\"nodejs6\"",
+    "required": false
+  },
+  {
+    "name": "available_memory_mb",
+    "type": "number",
+    "description": "The amount of memory in megabytes allotted for the function to use.",
+    "default": "256",
+    "required": false
+  },
+  {
+    "name": "entry_point",
+    "type": "string",
+    "description": "The name of a method in the function source which will be invoked when the function is executed.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "event_trigger",
+    "type": "map(string)",
+    "description": "A source that fires events in response to a condition in another service.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "source_repository_url",
+    "type": "string",
+    "description": "The URL of the repository which contains the function source code.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "timeout_s",
+    "type": "number",
+    "description": "The amount of time in seconds allotted for the execution of the function.",
+    "default": "60",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "The description of the function.",
+    "default": "\"Processes events.\"",
+    "required": false
+  },
+  {
+    "name": "environment_variables",
+    "type": "map(string)",
+    "description": "A set of key/value environment variable pairs to assign to the function.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project to which resources will be applied.",
+    "default": "",
+    "required": true
+  }
+]

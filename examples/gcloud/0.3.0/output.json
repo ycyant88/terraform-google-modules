@@ -1,0 +1,14 @@
+[
+  {
+    "name": "bin_dir",
+    "description": "The full bin path of the modules executables"
+  },
+  {
+    "name": "create_cmd_bin",
+    "description": "The full bin path & command used on create"
+  },
+  {
+    "name": "destroy_cmd_bin",
+    "description": "The full bin path & command used on destroy"
+  }
+]

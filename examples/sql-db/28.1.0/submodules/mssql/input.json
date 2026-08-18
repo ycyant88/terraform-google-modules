@@ -1,0 +1,380 @@
+[
+  {
+    "name": "user_password",
+    "type": "string",
+    "description": "The password for the default user. If not set, a random one will be generated and available in the generated_user_password output variable.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "additional_users",
+    "type": "list(object({\n    name            = string\n    password        = string\n    random_password = bool\n  }))",
+    "description": "A list of users to be created in your cluster. A random password would be set for the user if the `random_password` variable is set.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "deletion_protection",
+    "type": "bool",
+    "description": "Used to block Terraform from deleting a SQL Instance.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "availability_type",
+    "type": "string",
+    "description": "The availability type for the Cloud SQL instance.This is only used to set up high availability for the MSSQL instance. Can be either `ZONAL` or `REGIONAL`.",
+    "default": "\"ZONAL\"",
+    "required": false
+  },
+  {
+    "name": "maintenance_window_update_track",
+    "type": "string",
+    "description": "The update track of maintenance window for the Cloud SQL maintenance.Can be either `canary` or `stable`.",
+    "default": "\"canary\"",
+    "required": false
+  },
+  {
+    "name": "db_charset",
+    "type": "string",
+    "description": "The charset for the default database",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "module_depends_on",
+    "type": "list(any)",
+    "description": "List of modules or resources this module depends on.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "insights_config",
+    "type": "object({\n    enhanced_query_insights_enabled = optional(bool, false)\n    query_plans_per_minute          = optional(number, 5)\n    query_string_length             = optional(number, 1024)\n    record_application_tags         = optional(bool, false)\n    record_client_address           = optional(bool, false)\n  })",
+    "description": "The insights_config settings for the database.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "master_instance_name",
+    "type": "string",
+    "description": "Name of the master instance if this is a failover replica. Required for creating failover replica instance. Not needed for master instance. When removed, next terraform apply will promote this failover failover replica instance as master instance",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "sql_server_audit_config",
+    "type": "map(string)",
+    "description": "SQL server audit config settings.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "db_name",
+    "type": "string",
+    "description": "The name of the default database to create",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "delete_timeout",
+    "type": "string",
+    "description": "The optional timeout that is applied to limit long database deletes.",
+    "default": "\"30m\"",
+    "required": false
+  },
+  {
+    "name": "connector_enforcement",
+    "type": "bool",
+    "description": "Enforce that clients use the connector library",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_dataplex_integration",
+    "type": "bool",
+    "description": "Enable database Dataplex integration",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "edition",
+    "type": "string",
+    "description": "The edition of the instance, can be ENTERPRISE or ENTERPRISE_PLUS.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "follow_gae_application",
+    "type": "string",
+    "description": "A Google App Engine application whose zone to remain in. Must be in the same region as this instance.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "pricing_plan",
+    "type": "string",
+    "description": "The pricing plan for the Cloud SQL instance.",
+    "default": "\"PER_USE\"",
+    "required": false
+  },
+  {
+    "name": "data_cache_enabled",
+    "type": "bool",
+    "description": "Whether data cache is enabled for the instance. Defaults to false. Feature is only available for ENTERPRISE_PLUS tier and supported database_versions",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "retain_backups_on_delete",
+    "type": "bool",
+    "description": "When this parameter is set to true, Cloud SQL retains backups of the instance even after the instance is deleted. The ON_DEMAND backup will be retained until customer deletes the backup or the project. The AUTOMATED backup will be retained based on the backups retention setting.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "user_name",
+    "type": "string",
+    "description": "The name of the default user",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "root_password",
+    "type": "string",
+    "description": "MSSERVER password for the root user. If not set, a random one will be generated and available in the root_password output variable.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "update_timeout",
+    "type": "string",
+    "description": "The optional timeout that is applied to limit long database updates.",
+    "default": "\"30m\"",
+    "required": false
+  },
+  {
+    "name": "instance_type",
+    "type": "string",
+    "description": "The type of the instance. The supported values are SQL_INSTANCE_TYPE_UNSPECIFIED, CLOUD_SQL_INSTANCE, ON_PREMISES_INSTANCE and READ_REPLICA_INSTANCE. Set to READ_REPLICA_INSTANCE when primary_instance_name is provided",
+    "default": "\"CLOUD_SQL_INSTANCE\"",
+    "required": false
+  },
+  {
+    "name": "maintenance_version",
+    "type": "string",
+    "description": "The current software version on the instance. This attribute can not be set during creation. Refer to available_maintenance_versions attribute to see what maintenance_version are available for upgrade. When this attribute gets updated, it will cause an instance restart. Setting a maintenance_version value that is older than the current one on the instance will be ignored",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tier",
+    "type": "string",
+    "description": "The tier for the Cloud SQL instance.",
+    "default": "\"db-custom-2-3840\"",
+    "required": false
+  },
+  {
+    "name": "activation_policy",
+    "type": "string",
+    "description": "The activation policy for the Cloud SQL instance. Can be either `ALWAYS`, `NEVER` or `ON_DEMAND`.",
+    "default": "\"ALWAYS\"",
+    "required": false
+  },
+  {
+    "name": "deletion_protection_enabled",
+    "type": "bool",
+    "description": "Enables protection of an instance from accidental deletion protection across all surfaces (API, gcloud, Cloud Console and Terraform).",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "disk_autoresize",
+    "type": "bool",
+    "description": "Configuration to increase storage size.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "active_directory_config",
+    "type": "map(string)",
+    "description": "Active domain that the SQL instance will join.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "user_labels",
+    "type": "map(string)",
+    "description": "The key/value labels for the Cloud SQL instances.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to manage the Cloud SQL resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the Cloud SQL instance",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "The zone for the Cloud SQL instance.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "secondary_zone",
+    "type": "string",
+    "description": "The preferred zone for the read replica instance, it should be something like: `us-central1-a`, `us-east1-c`.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "database_flags",
+    "type": "list(object({\n    name  = string\n    value = string\n  }))",
+    "description": "The database flags for the Cloud SQL. See [more details](https://cloud.google.com/sql/docs/sqlserver/flags)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ip_configuration",
+    "type": "object({\n    authorized_networks = optional(list(map(string)), [])\n    ipv4_enabled        = optional(bool)\n    private_network     = optional(string)\n    allocated_ip_range  = optional(string)\n    ssl_mode            = optional(string)\n  })",
+    "description": "The ip configuration for the Cloud SQL instances.",
+    "default": "{\n  \"allocated_ip_range\": null,\n  \"authorized_networks\": [],\n  \"ipv4_enabled\": true,\n  \"private_network\": null,\n  \"ssl_mode\": null\n}",
+    "required": false
+  },
+  {
+    "name": "additional_databases",
+    "type": "list(object({\n    name      = string\n    charset   = string\n    collation = string\n  }))",
+    "description": "A list of databases to be created in your cluster",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_timeout",
+    "type": "string",
+    "description": "The optional timeout that is applied to limit long database creates.",
+    "default": "\"30m\"",
+    "required": false
+  },
+  {
+    "name": "database_version",
+    "type": "string",
+    "description": "The database version to use: SQLSERVER_2017_STANDARD, SQLSERVER_2017_ENTERPRISE, SQLSERVER_2017_EXPRESS, or SQLSERVER_2017_WEB",
+    "default": "\"SQLSERVER_2017_STANDARD\"",
+    "required": false
+  },
+  {
+    "name": "disk_autoresize_limit",
+    "type": "number",
+    "description": "The maximum size to which storage can be auto increased.",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "maintenance_window_day",
+    "type": "number",
+    "description": "The day of week (1-7) for the Cloud SQL maintenance.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "maintenance_window_hour",
+    "type": "number",
+    "description": "The hour of day (0-23) maintenance window for the Cloud SQL maintenance.",
+    "default": "23",
+    "required": false
+  },
+  {
+    "name": "encryption_key_name",
+    "type": "string",
+    "description": "The full path to the encryption key used for the CMEK disk encryption",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_default_user",
+    "type": "bool",
+    "description": "Enable or disable the creation of the default user",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "random_instance_name",
+    "type": "bool",
+    "description": "Sets random suffix at the end of the Cloud SQL resource name",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "disk_type",
+    "type": "string",
+    "description": "The disk type for the Cloud SQL instance.",
+    "default": "\"PD_SSD\"",
+    "required": false
+  },
+  {
+    "name": "deny_maintenance_period",
+    "type": "list(object({\n    end_date   = string\n    start_date = string\n    time       = string\n  }))",
+    "description": "The Deny Maintenance Period fields to prevent automatic maintenance from occurring during a 90-day time period. List accepts only one value. See [more details](https://cloud.google.com/sql/docs/sqlserver/maintenance)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "db_collation",
+    "type": "string",
+    "description": "The collation for the default database. Example: 'en_US.UTF8'",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "time_zone",
+    "type": "string",
+    "description": "The time zone for Cloud SQL instance.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_default_db",
+    "type": "bool",
+    "description": "Enable or disable the creation of the default database",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "final_backup_config",
+    "type": "object({\n    enabled        = optional(bool, false)\n    retention_days = optional(number, 0)\n  })",
+    "description": "The final_backup_config settings for the database.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region of the Cloud SQL resources",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "disk_size",
+    "type": "number",
+    "description": "The disk size for the Cloud SQL instance.",
+    "default": "10",
+    "required": false
+  },
+  {
+    "name": "backup_configuration",
+    "type": "object({\n    binary_log_enabled             = bool\n    enabled                        = bool\n    point_in_time_recovery_enabled = bool\n    start_time                     = string\n    transaction_log_retention_days = string\n    retained_backups               = number\n    retention_unit                 = string\n    location                       = string\n  })",
+    "description": "The database backup configuration.",
+    "default": "{\n  \"binary_log_enabled\": null,\n  \"enabled\": false,\n  \"location\": null,\n  \"point_in_time_recovery_enabled\": null,\n  \"retained_backups\": null,\n  \"retention_unit\": null,\n  \"start_time\": null,\n  \"transaction_log_retention_days\": null\n}",
+    "required": false
+  }
+]

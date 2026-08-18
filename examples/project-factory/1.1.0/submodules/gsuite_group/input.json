@@ -1,0 +1,30 @@
+[
+  {
+    "name": "domain",
+    "type": "string",
+    "description": "The domain name",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the group.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "The organization ID.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "create_group",
+    "type": "string",
+    "description": "Whether to create the group or not",
+    "default": "\"false\"",
+    "required": false
+  }
+]

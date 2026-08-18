@@ -1,0 +1,58 @@
+[
+  {
+    "name": "data_fusion_service_account",
+    "type": "string",
+    "description": "The Google managed Data Fusion Service account",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "GCP region to create subnetwork for peering with private Data Fusion instance",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "dataproc_subnet",
+    "type": "string",
+    "description": "Name of the subnetwork for Dataproc clusters controlled by private Data Fusion instance",
+    "default": "\"dataproc-subnet\"",
+    "required": false
+  },
+  {
+    "name": "dataproc_cidr",
+    "type": "string",
+    "description": "CIDR range for the subnetwork for Dataproc clusters controlled by private Data Fusion instance",
+    "default": "\"10.2.0.0/16\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "GCP Project ID to house resources for private Data Fusion setup",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_name",
+    "type": "string",
+    "description": "VPC network to be created or configured with firewall rules and peering for private Data Fusion instance",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "instance",
+    "type": "string",
+    "description": "Private Data Fusion instance ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "tenant_project",
+    "type": "string",
+    "description": "Private Data Fusion instance ID",
+    "default": "",
+    "required": true
+  }
+]

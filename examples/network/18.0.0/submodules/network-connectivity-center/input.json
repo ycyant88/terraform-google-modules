@@ -1,0 +1,86 @@
+[
+  {
+    "name": "vpc_spokes",
+    "type": "map(object({\n    uri                   = string\n    exclude_export_ranges = optional(set(string), [])\n    include_export_ranges = optional(set(string), [])\n    description           = optional(string)\n    labels                = optional(map(string))\n    group                 = optional(string)\n\n    link_producer_vpc_network = optional(object({\n      network_name          = string\n      peering               = string\n      include_export_ranges = optional(list(string))\n      exclude_export_ranges = optional(list(string))\n      description           = optional(string)\n      labels                = optional(map(string))\n      group                 = optional(string)\n    }))\n  }))",
+    "description": "VPC network that is associated with the spoke. link_producer_vpc_network: Producer VPC network that is peered with vpc network",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project ID of the project that holds the network.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ncc_hub_name",
+    "type": "string",
+    "description": "The Name of the NCC Hub",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ncc_hub_preset_topology",
+    "type": "string",
+    "description": "The topology implemented in the hub. Type must be one of `STAR`, `MESH` or `HYBRID_INSPECTION`.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "export_psc",
+    "type": "bool",
+    "description": "Whether Private Service Connect transitivity is enabled for the hub",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "hybrid_spokes",
+    "type": "map(object({\n    location                   = string\n    uris                       = set(string)\n    site_to_site_data_transfer = optional(bool, false)\n    type                       = string\n    description                = optional(string)\n    labels                     = optional(map(string))\n    include_import_ranges      = optional(list(string), [])\n    group                      = optional(string)\n  }))",
+    "description": "VLAN attachments and VPN Tunnels that are associated with the spoke. Type must be one of `interconnect` and `vpn`.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "router_appliance_spokes",
+    "type": "map(object({\n    instances = set(object({\n      virtual_machine = string\n      ip_address      = string\n    }))\n    location                   = string\n    site_to_site_data_transfer = optional(bool, false)\n    description                = optional(string)\n    labels                     = optional(map(string))\n    include_import_ranges      = optional(list(string), [])\n    group                      = optional(string)\n  }))",
+    "description": "Router appliance instances that are associated with the spoke.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "spoke_labels",
+    "type": "map(string)",
+    "description": "These labels will be added to all NCC spokes",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "ncc_hub_description",
+    "type": "string",
+    "description": "The description of the NCC Hub",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ncc_hub_labels",
+    "type": "map(string)",
+    "description": "These labels will be added the NCC hub",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "ncc_hub_policy_mode",
+    "type": "string",
+    "description": "The policy mode of the hub. Type must be one of `PRESET` or `CUSTOM`.",
+    "default": "\"PRESET\"",
+    "required": false
+  },
+  {
+    "name": "ncc_groups",
+    "type": "map(object({\n    name                 = string\n    labels               = optional(map(string))\n    description          = optional(string)\n    auto_accept_projects = optional(list(string), [])\n  }))",
+    "description": "Groups for Hubs using the star topolgy",
+    "default": "{}",
+    "required": false
+  }
+]

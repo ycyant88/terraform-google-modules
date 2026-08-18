@@ -1,0 +1,22 @@
+[
+  {
+    "name": "filter",
+    "description": "The filter to be applied when exporting logs."
+  },
+  {
+    "name": "log_sink_resource_id",
+    "description": "The resource ID of the log sink that was created."
+  },
+  {
+    "name": "log_sink_resource_name",
+    "description": "The resource name of the log sink that was created."
+  },
+  {
+    "name": "parent_resource_id",
+    "description": "The ID of the GCP resource in which you create the log sink."
+  },
+  {
+    "name": "writer_identity",
+    "description": "The service account that logging uses to write log entries to the destination."
+  }
+]

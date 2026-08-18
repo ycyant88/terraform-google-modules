@@ -1,0 +1,30 @@
+[
+  {
+    "name": "shared_vpc_subnets",
+    "type": "list(string)",
+    "description": "List of subnets fully qualified subnet IDs (ie. projects/$project_id/regions/$region/subnetworks/$subnet_id)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "active_apis",
+    "type": "list(string)",
+    "description": "The list of active apis on the service project. If api is not active this module will not try to activate it",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "host_project_id",
+    "type": "string",
+    "description": "The ID of the host project which hosts the shared VPC",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "service_project_id",
+    "type": "string",
+    "description": "The ID of the service project",
+    "default": "",
+    "required": true
+  }
+]

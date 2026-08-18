@@ -1,0 +1,48 @@
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 7.0"
+    }
+  }
+}
+
+provider "google" {
+  project = var.project
+  region  = var.region
+}
+
+module "vm_mig_with_percent" {
+  source                            = "terraform-google-modules/vm/google//modules/mig_with_percent"
+  version                           = "1.1.0"
+  autoscaling_cpu                   = var.autoscaling_cpu
+  autoscaling_enabled               = var.autoscaling_enabled
+  autoscaling_lb                    = var.autoscaling_lb
+  autoscaling_metric                = var.autoscaling_metric
+  cooldown_period                   = var.cooldown_period
+  distribution_policy_zones         = var.distribution_policy_zones
+  hc_healthy_threshold              = var.hc_healthy_threshold
+  hc_initial_delay_sec              = var.hc_initial_delay_sec
+  hc_interval_sec                   = var.hc_interval_sec
+  hc_path                           = var.hc_path
+  hc_port                           = var.hc_port
+  hc_timeout_sec                    = var.hc_timeout_sec
+  hc_unhealthy_threshold            = var.hc_unhealthy_threshold
+  hostname                          = var.hostname
+  http_healthcheck_enable           = var.http_healthcheck_enable
+  instance_template_initial_version = var.instance_template_initial_version
+  instance_template_next_version    = var.instance_template_next_version
+  max_replicas                      = var.max_replicas
+  min_replicas                      = var.min_replicas
+  named_ports                       = var.named_ports
+  network                           = var.network
+  next_version_percent              = var.next_version_percent
+  project_id                        = var.project_id
+  region                            = var.region
+  subnetwork                        = var.subnetwork
+  subnetwork_project                = var.subnetwork_project
+  target_pools                      = var.target_pools
+  target_size                       = var.target_size
+  tcp_healthcheck_enable            = var.tcp_healthcheck_enable
+  update_policy                     = var.update_policy
+}

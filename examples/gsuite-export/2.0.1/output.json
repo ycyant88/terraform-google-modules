@@ -1,0 +1,18 @@
+[
+  {
+    "name": "filter",
+    "description": "Log export filter for logs exported by GSuite-exporter"
+  },
+  {
+    "name": "instance_name",
+    "description": "GSuite Exporter instance name"
+  },
+  {
+    "name": "instance_zone",
+    "description": "GSuite Exporter instance zone"
+  },
+  {
+    "name": "instance_project",
+    "description": "GSuite Exporter instance project"
+  }
+]

@@ -1,0 +1,126 @@
+[
+  {
+    "name": "master_version",
+    "description": "Current master kubernetes version"
+  },
+  {
+    "name": "dns_cache_enabled",
+    "description": "Whether DNS Cache enabled"
+  },
+  {
+    "name": "region",
+    "description": "Cluster region"
+  },
+  {
+    "name": "master_ipv4_cidr_block",
+    "description": "The IP range in CIDR notation used for the hosted master network"
+  },
+  {
+    "name": "peering_name",
+    "description": "The name of the peering between this cluster and the Google owned VPC."
+  },
+  {
+    "name": "cloudrun_enabled",
+    "description": "Whether CloudRun enabled"
+  },
+  {
+    "name": "intranode_visibility_enabled",
+    "description": "Whether intra-node visibility is enabled"
+  },
+  {
+    "name": "fleet_membership",
+    "description": "Fleet membership (if registered)"
+  },
+  {
+    "name": "type",
+    "description": "Cluster type (regional / zonal)"
+  },
+  {
+    "name": "endpoint_dns",
+    "description": "Cluster endpoint DNS"
+  },
+  {
+    "name": "logging_service",
+    "description": "Logging service used"
+  },
+  {
+    "name": "tpu_ipv4_cidr_block",
+    "description": "The IP range in CIDR notation used for the TPUs"
+  },
+  {
+    "name": "monitoring_service",
+    "description": "Monitoring service used"
+  },
+  {
+    "name": "ca_certificate",
+    "description": "Cluster ca certificate (base64 encoded)"
+  },
+  {
+    "name": "release_channel",
+    "description": "The release channel of this cluster"
+  },
+  {
+    "name": "master_authorized_networks_config",
+    "description": "Networks from which access to master is permitted"
+  },
+  {
+    "name": "horizontal_pod_autoscaling_enabled",
+    "description": "Whether horizontal pod autoscaling enabled"
+  },
+  {
+    "name": "vertical_pod_autoscaling_enabled",
+    "description": "Whether vertical pod autoscaling enabled"
+  },
+  {
+    "name": "service_account",
+    "description": "The service account to default running nodes as if not overridden in `node_pools`."
+  },
+  {
+    "name": "cluster_id",
+    "description": "Cluster ID"
+  },
+  {
+    "name": "name",
+    "description": "Cluster name"
+  },
+  {
+    "name": "min_master_version",
+    "description": "Minimum master kubernetes version"
+  },
+  {
+    "name": "http_load_balancing_enabled",
+    "description": "Whether http load balancing enabled"
+  },
+  {
+    "name": "zones",
+    "description": "List of zones in which the cluster resides"
+  },
+  {
+    "name": "endpoint",
+    "description": "Cluster endpoint"
+  },
+  {
+    "name": "gateway_api_channel",
+    "description": "The gateway api channel of this cluster."
+  },
+  {
+    "name": "pod_security_policy_enabled",
+    "description": "Whether pod security policy is enabled"
+  },
+  {
+    "name": "secret_manager_addon_enabled",
+    "description": "Whether Secret Manager add-on is enabled"
+  },
+  {
+    "name": "location",
+    "description": "Cluster location (region if regional cluster, zone if zonal cluster)"
+  },
+  {
+    "name": "identity_namespace",
+    "description": "Workload Identity pool"
+  },
+  {
+    "name": "identity_service_enabled",
+    "description": "Whether Identity Service is enabled"
+  }
+]

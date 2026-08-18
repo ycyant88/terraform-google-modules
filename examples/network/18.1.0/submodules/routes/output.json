@@ -1,0 +1,14 @@
+[
+  {
+    "name": "routes",
+    "description": "The created routes resources"
+  },
+  {
+    "name": "route_ids",
+    "description": "The IDs of the created routes."
+  },
+  {
+    "name": "route_names",
+    "description": "The names of the created routes."
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "name": "dns_code",
+    "type": "string",
+    "description": "Code to identify DNS resources in the form of `{dns_code}-{dns_type}`",
+    "default": "\"dz\"",
+    "required": false
+  },
+  {
+    "name": "private_service_connect_name",
+    "type": "string",
+    "description": "Private Service Connect endpoint name. Defaults to `global-psconnect-ip`",
+    "default": "\"global-psconnect-ip\"",
+    "required": false
+  },
+  {
+    "name": "private_service_connect_ip",
+    "type": "string",
+    "description": "The internal IP to be used for the private service connect.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "forwarding_rule_name",
+    "type": "string",
+    "description": "Forwarding rule resource name. The forwarding rule name for PSC Google APIs must be an 1-20 characters string with lowercase letters and numbers and must start with a letter. Defaults to `globalrule`",
+    "default": "\"globalrule\"",
+    "required": false
+  },
+  {
+    "name": "forwarding_rule_target",
+    "type": "string",
+    "description": "Target resource to receive the matched traffic. Only `all-apis` and `vpc-sc` are valid.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project ID for Private Service Connect.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_self_link",
+    "type": "string",
+    "description": "Network self link for Private Service Connect.",
+    "default": "",
+    "required": true
+  }
+]

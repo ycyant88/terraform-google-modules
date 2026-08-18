@@ -1,0 +1,37 @@
+[
+  {
+    "name": "policy",
+    "type": "string",
+    "description": "Name of the parent policy",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Description of the bridge perimeter",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "perimeter_name",
+    "type": "string",
+    "description": "Name of the perimeter. Should be one unified string. Must only be letters, numbers and underscores",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "resources",
+    "type": "list(string)",
+    "description": "A list of GCP resources that are inside of the service perimeter. Currently only projects are allowed.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "resource_keys",
+    "type": "list(string)",
+    "description": "A list of keys to use for the Terraform state. The order should correspond to var.resources and the keys must not be dynamically computed. If `null`, var.resources will be used as keys.",
+    "default": "null",
+    "required": false
+  }
+]

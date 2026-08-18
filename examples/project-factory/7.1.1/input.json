@@ -1,0 +1,233 @@
+[
+  {
+    "name": "domain",
+    "type": "string",
+    "description": "The domain name (optional).",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "group_name",
+    "type": "string",
+    "description": "A group to control the project by being assigned group_role (defaults to project editor)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "sa_role",
+    "type": "string",
+    "description": "A role to give the default Service Account for the project (defaults to none)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "credentials_path",
+    "type": "string",
+    "description": "Path to a service account credentials file with rights to run the Project Factory. If this file is absent Terraform will fall back to Application Default Credentials.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "impersonate_service_account",
+    "type": "string",
+    "description": "An optional service account to impersonate. This cannot be used with credentials_path. If this service account is not specified and credentials_path is absent, the module will use Application Default Credentials.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "budget_alert_pubsub_topic",
+    "type": "string",
+    "description": "The name of the Cloud Pub/Sub topic where budget related messages will be published, in the form of `projects/{project_id}/topics/{topic_id}`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name for the project",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "billing_account",
+    "type": "string",
+    "description": "The ID of the billing account to associate this project with",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "folder_id",
+    "type": "string",
+    "description": "The ID of a folder to host this project",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "group_role",
+    "type": "string",
+    "description": "The role to give the controlling group (group_name) over the project (defaults to project editor)",
+    "default": "\"roles/editor\"",
+    "required": false
+  },
+  {
+    "name": "usage_bucket_name",
+    "type": "string",
+    "description": "Name of a GCS bucket to store GCE usage reports in (optional)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "Map of labels for project",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "pip_executable_path",
+    "type": "string",
+    "description": "Pip executable path for precondition requirements.txt install.",
+    "default": "\"pip3\"",
+    "required": false
+  },
+  {
+    "name": "usage_bucket_prefix",
+    "type": "string",
+    "description": "Prefix in the GCS bucket to store GCE usage reports in (optional)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "bucket_location",
+    "type": "string",
+    "description": "The location for a GCS bucket to create (optional)",
+    "default": "\"US\"",
+    "required": false
+  },
+  {
+    "name": "random_project_id",
+    "type": "bool",
+    "description": "Adds a suffix of 4 random characters to the `project_id`",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "shared_vpc",
+    "type": "string",
+    "description": "The ID of the host project which hosts the shared VPC",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "bucket_name",
+    "type": "string",
+    "description": "A name for a GCS bucket to create (in the bucket_project project), useful for Terraform state (optional)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "python_interpreter_path",
+    "type": "string",
+    "description": "Python interpreter path for precondition check script.",
+    "default": "\"python3\"",
+    "required": false
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "The organization ID.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID to give the project. If not provided, the `name` will be used.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "bucket_project",
+    "type": "string",
+    "description": "A project to create a GCS bucket (bucket_name) in, useful for Terraform state (optional)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "auto_create_network",
+    "type": "bool",
+    "description": "Create the default network",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "lien",
+    "type": "bool",
+    "description": "Add a lien on the project to prevent accidental deletion",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "default_service_account",
+    "type": "string",
+    "description": "Project default service account setting: can be one of `delete`, `deprivilege`, `disable`, or `keep`.",
+    "default": "\"disable\"",
+    "required": false
+  },
+  {
+    "name": "use_tf_google_credentials_env_var",
+    "type": "bool",
+    "description": "Use GOOGLE_CREDENTIALS environment variable to run gcloud auth activate-service-account with.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "skip_gcloud_download",
+    "type": "bool",
+    "description": "Whether to skip downloading gcloud (assumes gcloud is already available outside the module)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "activate_apis",
+    "type": "list(string)",
+    "description": "The list of apis to activate within the project",
+    "default": "[\n  \"compute.googleapis.com\"\n]",
+    "required": false
+  },
+  {
+    "name": "shared_vpc_subnets",
+    "type": "list(string)",
+    "description": "List of subnets fully qualified subnet IDs (ie. projects/$project_id/regions/$region/subnetworks/$subnet_id)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "disable_services_on_destroy",
+    "type": "string",
+    "description": "Whether project services will be disabled when the resources are destroyed",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "disable_dependent_services",
+    "type": "bool",
+    "description": "Whether services that are enabled and which depend on this service should also be disabled when this service is destroyed.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "budget_amount",
+    "type": "number",
+    "description": "The amount to use for a budget alert",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "budget_alert_spent_percents",
+    "type": "list(number)",
+    "description": "A list of percentages of the budget to alert on when threshold is exceeded",
+    "default": "[\n  0.5,\n  0.7,\n  1\n]",
+    "required": false
+  }
+]

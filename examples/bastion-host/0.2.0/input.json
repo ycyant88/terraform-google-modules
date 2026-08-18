@@ -1,0 +1,121 @@
+[
+  {
+    "name": "image_family",
+    "type": "string",
+    "description": "Source image family for the Bastion.",
+    "default": "\"centos-7\"",
+    "required": false
+  },
+  {
+    "name": "host_project",
+    "type": "string",
+    "description": "The network host project ID",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "scopes",
+    "type": "list",
+    "description": "List of scopes to attach to the bastion host",
+    "default": "[\n  \"cloud-platform\"\n]",
+    "required": false
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "The primary zone where the bastion host will live",
+    "default": "\"us-central1-a\"",
+    "required": false
+  },
+  {
+    "name": "machine_type",
+    "type": "string",
+    "description": "Instance type for the Bastion host",
+    "default": "\"n1-standard-1\"",
+    "required": false
+  },
+  {
+    "name": "image_project",
+    "type": "string",
+    "description": "Project where the source image for the Bastion comes from",
+    "default": "\"gce-uefi-images\"",
+    "required": false
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The project ID to deploy to",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The primary region where the bastion host will live",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "startup_script",
+    "type": "string",
+    "description": "Render a startup script with a template.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "service_account_roles",
+    "type": "list",
+    "description": "List of IAM roles to assign to the service account.",
+    "default": "[\n  \"roles/logging.logWriter\",\n  \"roles/monitoring.metricWriter\",\n  \"roles/monitoring.viewer\",\n  \"roles/compute.osLogin\"\n]",
+    "required": false
+  },
+  {
+    "name": "service_account_roles_supplemental",
+    "type": "list",
+    "description": "An additional list of roles to assign to the bastion if desired",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "shielded_vm",
+    "type": "string",
+    "description": "",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "subnet",
+    "type": "string",
+    "description": "Self link for the subnet on which the Bastion should live. Can be private when using IAP",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "labels",
+    "type": "map",
+    "description": "Key-value map of labels to assign to the bastion host",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "members",
+    "type": "list",
+    "description": "List of IAM resources to allow access to the bastion host",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the Bastion instance",
+    "default": "\"bastion-vm\"",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Self link for the network on which the Bastion should live",
+    "default": "",
+    "required": true
+  }
+]

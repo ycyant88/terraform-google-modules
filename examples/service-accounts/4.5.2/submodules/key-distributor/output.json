@@ -1,0 +1,14 @@
+[
+  {
+    "name": "region",
+    "description": "The region for the Cloud Function"
+  },
+  {
+    "name": "project_id",
+    "description": "The project id for the Cloud Function."
+  },
+  {
+    "name": "function_name",
+    "description": "The name for the Cloud Function."
+  }
+]

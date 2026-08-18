@@ -1,0 +1,128 @@
+[
+  {
+    "name": "vm_tags",
+    "type": "list(string)",
+    "description": "Additional network tags for the instances.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "scopes",
+    "type": "list(string)",
+    "description": "Instance scopes.",
+    "default": "[\n  \"https://www.googleapis.com/auth/devstorage.read_only\",\n  \"https://www.googleapis.com/auth/logging.write\",\n  \"https://www.googleapis.com/auth/monitoring.write\",\n  \"https://www.googleapis.com/auth/pubsub\",\n  \"https://www.googleapis.com/auth/service.management.readonly\",\n  \"https://www.googleapis.com/auth/servicecontrol\",\n  \"https://www.googleapis.com/auth/trace.append\"\n]",
+    "required": false
+  },
+  {
+    "name": "stackdriver_logging",
+    "type": "bool",
+    "description": "Enable the Stackdriver logging agent.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "reserve_ip",
+    "type": "bool",
+    "description": "Reserve an IP address for the instance instead of using an ephemeral address.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "allow_stopping_for_update",
+    "type": "bool",
+    "description": "Allow stopping the instance for specific Terraform changes.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "Instance zone.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "boot_disk_size",
+    "type": "number",
+    "description": "Size of the boot disk.",
+    "default": "10",
+    "required": false
+  },
+  {
+    "name": "stackdriver_monitoring",
+    "type": "bool",
+    "description": "Enable the Stackdriver monitoring agent.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloud_init_custom_var",
+    "type": "string",
+    "description": "String passed in to the cloud-config template as custome variable.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "Self link of the VPC subnet to use for the internal interface.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "prefix",
+    "type": "string",
+    "description": "Prefix to prepend to resource names.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloud_init",
+    "type": "string",
+    "description": "Path to a file that will be used for the cloud-config template.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "instance_type",
+    "type": "string",
+    "description": "Instance machine type.",
+    "default": "\"g1-small\"",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region for external addresses.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "instance_count",
+    "type": "number",
+    "description": "Number of instances to create.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "service_account",
+    "type": "string",
+    "description": "Instance service account.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "Labels to be attached to the resources",
+    "default": "{\n  \"service\": \"coredns\"\n}",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project id where the instances will be created.",
+    "default": "",
+    "required": true
+  }
+]

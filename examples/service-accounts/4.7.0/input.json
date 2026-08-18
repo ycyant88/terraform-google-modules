@@ -1,0 +1,93 @@
+[
+  {
+    "name": "grant_billing_role",
+    "type": "bool",
+    "description": "Grant billing user role.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "billing_account_id",
+    "type": "string",
+    "description": "If assigning billing role, specificy a billing account (default is to assign at the organizational level).",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "Id of the organization for org-level roles.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project id where service account will be created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "prefix",
+    "type": "string",
+    "description": "Prefix applied to service account names.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "grant_xpn_roles",
+    "type": "bool",
+    "description": "Grant roles for shared VPC management.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "generate_keys",
+    "type": "bool",
+    "description": "Generate keys for service accounts.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "display_name",
+    "type": "string",
+    "description": "Display names of the created service accounts (defaults to 'Terraform-managed service account')",
+    "default": "\"Terraform-managed service account\"",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Default description of the created service accounts (defaults to no description)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "descriptions",
+    "type": "list(string)",
+    "description": "List of descriptions for the created service accounts (elements default to the value of `description`)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "disabled",
+    "type": "map(bool)",
+    "description": "A map of service account names to a boolean value indicating whether the service account should be disabled. Service accounts not in this map will be enabled by default.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "names",
+    "type": "list(string)",
+    "description": "Names of the service accounts to create.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "project_roles",
+    "type": "list(string)",
+    "description": "Common roles to apply to all service accounts, project=>role as elements.",
+    "default": "[]",
+    "required": false
+  }
+]

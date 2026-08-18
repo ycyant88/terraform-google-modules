@@ -1,0 +1,170 @@
+[
+  {
+    "name": "min_ports_per_vm",
+    "type": "string",
+    "description": "Minimum number of ports allocated to a VM from this NAT config. Defaults to 64 if enable_dynamic_port_allocation is false, 32 if true. Changing this forces a new NAT to be created.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_router",
+    "type": "bool",
+    "description": "Create router instead of using an existing one, uses 'router' variable for new resource name.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "router",
+    "type": "string",
+    "description": "The name of the router in which this NAT will be configured. Changing this forces a new NAT to be created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "tcp_established_idle_timeout_sec",
+    "type": "string",
+    "description": "Timeout (in seconds) for TCP established connections. Defaults to 1200s if not set. Changing this forces a new NAT to be created.",
+    "default": "\"1200\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to deploy to",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region to deploy to",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Defaults to 'cloud-nat-RANDOM_SUFFIX'. Changing this forces a new NAT to be created.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "router_asn",
+    "type": "string",
+    "description": "Router ASN, only if create_router is true.",
+    "default": "\"64514\"",
+    "required": false
+  },
+  {
+    "name": "router_keepalive_interval",
+    "type": "string",
+    "description": "Router keepalive_interval, only if router is not passed in and is created by the module.",
+    "default": "\"20\"",
+    "required": false
+  },
+  {
+    "name": "tcp_transitory_idle_timeout_sec",
+    "type": "string",
+    "description": "Timeout (in seconds) for TCP transitory connections. Defaults to 30s if not set. Changing this forces a new NAT to be created.",
+    "default": "\"30\"",
+    "required": false
+  },
+  {
+    "name": "subnetworks",
+    "type": "list(object({\n    name                     = string,\n    source_ip_ranges_to_nat  = list(string)\n    secondary_ip_range_names = list(string)\n  }))",
+    "description": "Specifies one or more subnetwork NAT configurations",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "log_config_enable",
+    "type": "bool",
+    "description": "Indicates whether or not to export logs",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "max_ports_per_vm",
+    "type": "string",
+    "description": "Maximum number of ports allocated to a VM from this NAT. This field can only be set when enableDynamicPortAllocation is enabled.This will be ignored if enable_dynamic_port_allocation is set to false.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "drain_nat_ips",
+    "type": "list(string)",
+    "description": "A list of URLs of the IP resources to be drained. These IPs must be valid static external IPs that have been assigned to the NAT.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "source_subnetwork_ip_ranges_to_nat",
+    "type": "string",
+    "description": "Defaults to ALL_SUBNETWORKS_ALL_IP_RANGES. How NAT should be configured per Subnetwork. Valid values include: ALL_SUBNETWORKS_ALL_IP_RANGES, ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, LIST_OF_SUBNETWORKS. Changing this forces a new NAT to be created.",
+    "default": "\"ALL_SUBNETWORKS_ALL_IP_RANGES\"",
+    "required": false
+  },
+  {
+    "name": "log_config_filter",
+    "type": "string",
+    "description": "Specifies the desired filtering of logs on this NAT. Valid values are: \"ERRORS_ONLY\", \"TRANSLATIONS_ONLY\", \"ALL\"",
+    "default": "\"ALL\"",
+    "required": false
+  },
+  {
+    "name": "enable_endpoint_independent_mapping",
+    "type": "bool",
+    "description": "Specifies if endpoint independent mapping is enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "icmp_idle_timeout_sec",
+    "type": "string",
+    "description": "Timeout (in seconds) for ICMP connections. Defaults to 30s if not set. Changing this forces a new NAT to be created.",
+    "default": "\"30\"",
+    "required": false
+  },
+  {
+    "name": "nat_ips",
+    "type": "list(string)",
+    "description": "List of self_links of external IPs. Changing this forces a new NAT to be created. Value of `nat_ip_allocate_option` is inferred based on nat_ips. If present set to MANUAL_ONLY, otherwise AUTO_ONLY.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "VPN name, only if router is being created by the module.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "tcp_time_wait_timeout_sec",
+    "type": "string",
+    "description": "Timeout (in seconds) for TCP connections that are in TIME_WAIT state. Defaults to 120s if not set.",
+    "default": "\"120\"",
+    "required": false
+  },
+  {
+    "name": "udp_idle_timeout_sec",
+    "type": "string",
+    "description": "Timeout (in seconds) for UDP connections. Defaults to 30s if not set. Changing this forces a new NAT to be created.",
+    "default": "\"30\"",
+    "required": false
+  },
+  {
+    "name": "enable_dynamic_port_allocation",
+    "type": "bool",
+    "description": "Enable Dynamic Port Allocation. If minPorts is set, minPortsPerVm must be set to a power of two greater than or equal to 32.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "rules",
+    "type": "list(object({\n    description = string\n    match       = string\n    rule_number = number\n    action = object({\n      source_nat_active_ips = list(string)\n      source_nat_drain_ips  = list(string)\n    })\n  }))",
+    "description": "Specifies one or more rules associated with this NAT.",
+    "default": "[]",
+    "required": false
+  }
+]

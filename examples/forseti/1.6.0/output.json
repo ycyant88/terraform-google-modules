@@ -1,0 +1,46 @@
+[
+  {
+    "name": "forseti-client-service-account",
+    "description": "Forseti Client service account"
+  },
+  {
+    "name": "forseti-client-storage-bucket",
+    "description": "Forseti Client storage bucket"
+  },
+  {
+    "name": "forseti-server-storage-bucket",
+    "description": "Forseti Server storage bucket"
+  },
+  {
+    "name": "forseti-server-vm-ip",
+    "description": "Forseti Server VM private IP address"
+  },
+  {
+    "name": "forseti-server-vm-public-ip",
+    "description": "Forseti Server VM public IP address"
+  },
+  {
+    "name": "forseti-client-vm-public-ip",
+    "description": "Forseti Server VM public IP address"
+  },
+  {
+    "name": "suffix",
+    "description": "The random suffix appended to Forseti resources"
+  },
+  {
+    "name": "forseti-server-vm-name",
+    "description": "Forseti Server VM name"
+  },
+  {
+    "name": "forseti-client-vm-ip",
+    "description": "Forseti Client VM private IP address"
+  },
+  {
+    "name": "forseti-client-vm-name",
+    "description": "Forseti Client VM name"
+  },
+  {
+    "name": "forseti-server-service-account",
+    "description": "Forseti Server service account"
+  }
+]

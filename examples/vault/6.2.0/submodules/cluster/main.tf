@@ -1,0 +1,69 @@
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 7.0"
+    }
+  }
+}
+
+provider "google" {
+  project = var.project
+  region  = var.region
+}
+
+module "vault_cluster" {
+  source                                       = "terraform-google-modules/vault/google//modules/cluster"
+  version                                      = "6.2.0"
+  domain                                       = var.domain
+  hc_initial_delay_secs                        = var.hc_initial_delay_secs
+  host_project_id                              = var.host_project_id
+  http_proxy                                   = var.http_proxy
+  ip_address                                   = var.ip_address
+  kms_crypto_key                               = var.kms_crypto_key
+  kms_keyring                                  = var.kms_keyring
+  kms_protection_level                         = var.kms_protection_level
+  load_balancing_scheme                        = var.load_balancing_scheme
+  manage_tls                                   = var.manage_tls
+  min_ready_sec                                = var.min_ready_sec
+  project_id                                   = var.project_id
+  region                                       = var.region
+  service_account_project_additional_iam_roles = var.service_account_project_additional_iam_roles
+  service_account_project_iam_roles            = var.service_account_project_iam_roles
+  service_account_storage_bucket_iam_roles     = var.service_account_storage_bucket_iam_roles
+  service_label                                = var.service_label
+  subnet                                       = var.subnet
+  tls_ca_subject                               = var.tls_ca_subject
+  tls_cn                                       = var.tls_cn
+  tls_dns_names                                = var.tls_dns_names
+  tls_ips                                      = var.tls_ips
+  tls_ou                                       = var.tls_ou
+  tls_save_ca_to_disk                          = var.tls_save_ca_to_disk
+  tls_save_ca_to_disk_filename                 = var.tls_save_ca_to_disk_filename
+  user_startup_script                          = var.user_startup_script
+  vault_args                                   = var.vault_args
+  vault_ca_cert_filename                       = var.vault_ca_cert_filename
+  vault_instance_base_image                    = var.vault_instance_base_image
+  vault_instance_labels                        = var.vault_instance_labels
+  vault_instance_metadata                      = var.vault_instance_metadata
+  vault_instance_tags                          = var.vault_instance_tags
+  vault_log_level                              = var.vault_log_level
+  vault_machine_type                           = var.vault_machine_type
+  vault_max_num_servers                        = var.vault_max_num_servers
+  vault_min_num_servers                        = var.vault_min_num_servers
+  vault_port                                   = var.vault_port
+  vault_proxy_port                             = var.vault_proxy_port
+  vault_service_account_email                  = var.vault_service_account_email
+  vault_storage_bucket                         = var.vault_storage_bucket
+  vault_tls_bucket                             = var.vault_tls_bucket
+  vault_tls_cert_filename                      = var.vault_tls_cert_filename
+  vault_tls_disable_client_certs               = var.vault_tls_disable_client_certs
+  vault_tls_key_filename                       = var.vault_tls_key_filename
+  vault_tls_kms_key                            = var.vault_tls_kms_key
+  vault_tls_kms_key_project                    = var.vault_tls_kms_key_project
+  vault_tls_require_and_verify_client_cert     = var.vault_tls_require_and_verify_client_cert
+  vault_ui_enabled                             = var.vault_ui_enabled
+  vault_update_policy_type                     = var.vault_update_policy_type
+  vault_version                                = var.vault_version
+  zones                                        = var.zones
+}

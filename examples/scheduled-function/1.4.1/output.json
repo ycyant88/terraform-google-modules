@@ -1,0 +1,14 @@
+[
+  {
+    "name": "name",
+    "description": "The name of the job created"
+  },
+  {
+    "name": "scheduler_job",
+    "description": "The Cloud Scheduler job instance"
+  },
+  {
+    "name": "pubsub_topic_name",
+    "description": "PubSub topic name"
+  }
+]

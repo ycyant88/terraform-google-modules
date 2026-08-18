@@ -1,0 +1,10 @@
+[
+  {
+    "name": "external_ip",
+    "description": "The external IP assigned to the global fowarding rule."
+  },
+  {
+    "name": "backend_services",
+    "description": "The backend service resources."
+  }
+]

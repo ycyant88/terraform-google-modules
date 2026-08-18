@@ -1,0 +1,22 @@
+[
+  {
+    "name": "etag",
+    "description": "The etag of the IAM policy"
+  },
+  {
+    "name": "type",
+    "description": "The DNS zone type."
+  },
+  {
+    "name": "name",
+    "description": "The DNS zone name."
+  },
+  {
+    "name": "domain",
+    "description": "The DNS zone domain."
+  },
+  {
+    "name": "name_servers",
+    "description": "The DNS zone name servers."
+  }
+]

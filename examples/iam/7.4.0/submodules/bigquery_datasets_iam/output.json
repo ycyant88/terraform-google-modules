@@ -1,0 +1,14 @@
+[
+  {
+    "name": "members",
+    "description": "Members which were bound to the bigquery datasets."
+  },
+  {
+    "name": "bigquery_datasets",
+    "description": "Bigquery dataset IDs which received for bindings."
+  },
+  {
+    "name": "roles",
+    "description": "Roles which were assigned to members."
+  }
+]

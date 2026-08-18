@@ -1,0 +1,50 @@
+[
+  {
+    "name": "event_notification_topic_id",
+    "description": "The id of the Pub/Sub topic associated with the registry"
+  },
+  {
+    "name": "registry",
+    "description": "The registry being created by this module"
+  },
+  {
+    "name": "region",
+    "description": "The region of the Cloud IoT registry"
+  },
+  {
+    "name": "credentials",
+    "description": "The credentials for Cloud IoT registry"
+  },
+  {
+    "name": "event_notification_subscription_paths",
+    "description": "The path list of Pub/Sub subscriptions associated with the registry"
+  },
+  {
+    "name": "state_notification_topic",
+    "description": "The name of the Pub/Sub topic associated with the registry"
+  },
+  {
+    "name": "state_notification_topic_id",
+    "description": "The id of the Pub/Sub topic associated with the registry"
+  },
+  {
+    "name": "state_notification_subscription_names",
+    "description": "The name list of Pub/Sub subscriptions associated with the registry"
+  },
+  {
+    "name": "state_notification_subscription_paths",
+    "description": "The path list of Pub/Sub subscriptions associated with the registry"
+  },
+  {
+    "name": "name",
+    "description": "The name of the Cloud IoT registry"
+  },
+  {
+    "name": "event_notification_topic",
+    "description": "The name of the Pub/Sub topic associated with the registry"
+  },
+  {
+    "name": "event_notification_subscription_names",
+    "description": "The name list of Pub/Sub subscriptions associated with the registry"
+  }
+]

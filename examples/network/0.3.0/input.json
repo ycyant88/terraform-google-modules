@@ -1,0 +1,37 @@
+[
+  {
+    "name": "shared_vpc_host",
+    "type": "",
+    "description": "Makes this project a Shared VPC host if 'true' (default 'false')",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "",
+    "description": "The ID of the project where this VPC will be created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_name",
+    "type": "",
+    "description": "The name of the network being created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subnets",
+    "type": "",
+    "description": "The list of subnets being created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "secondary_ranges",
+    "type": "",
+    "description": "Secondary ranges that will be used in some of the subnets",
+    "default": "",
+    "required": true
+  }
+]

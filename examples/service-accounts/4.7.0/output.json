@@ -1,0 +1,50 @@
+[
+  {
+    "name": "disabled",
+    "description": "The disabled status of the service accounts."
+  },
+  {
+    "name": "service_account",
+    "description": "Service account resource (for single use)."
+  },
+  {
+    "name": "iam_email",
+    "description": "IAM-format service account email (for single use)."
+  },
+  {
+    "name": "service_accounts",
+    "description": "Service account resources as list."
+  },
+  {
+    "name": "service_accounts_map",
+    "description": "Service account resources by name."
+  },
+  {
+    "name": "keys",
+    "description": "Map of service account keys."
+  },
+  {
+    "name": "email",
+    "description": "Service account email (for single use)."
+  },
+  {
+    "name": "key",
+    "description": "Service account key (for single use)."
+  },
+  {
+    "name": "emails",
+    "description": "Service account emails by name."
+  },
+  {
+    "name": "iam_emails",
+    "description": "IAM-format service account emails by name."
+  },
+  {
+    "name": "emails_list",
+    "description": "Service account emails as list."
+  },
+  {
+    "name": "iam_emails_list",
+    "description": "IAM-format service account emails as list."
+  }
+]

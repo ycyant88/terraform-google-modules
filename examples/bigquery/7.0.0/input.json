@@ -1,0 +1,121 @@
+[
+  {
+    "name": "dataset_id",
+    "type": "string",
+    "description": "Unique ID for the dataset being provisioned.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "max_time_travel_hours",
+    "type": "number",
+    "description": "Defines the time travel window in hours",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "views",
+    "type": "list(object({\n    view_id        = string,\n    description    = optional(string),\n    query          = string,\n    use_legacy_sql = bool,\n    labels         = map(string),\n  }))",
+    "description": "A list of objects which include view_id and view query",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "routines",
+    "type": "list(object({\n    routine_id      = string,\n    routine_type    = string,\n    language        = string,\n    definition_body = string,\n    return_type     = string,\n    description     = string,\n    arguments = list(object({\n      name          = string,\n      data_type     = string,\n      argument_kind = string,\n      mode          = string,\n    })),\n  }))",
+    "description": "A list of objects which include routine_id, routine_type, routine_language, definition_body, return_type, routine_description and arguments.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "dataset_name",
+    "type": "string",
+    "description": "Friendly name for the dataset being provisioned.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The regional location for the dataset only US and EU are allowed in module",
+    "default": "\"US\"",
+    "required": false
+  },
+  {
+    "name": "default_table_expiration_ms",
+    "type": "number",
+    "description": "TTL of tables using the dataset in MS",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dataset_labels",
+    "type": "map(string)",
+    "description": "Key value pairs in a map for dataset labels",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "deletion_protection",
+    "type": "bool",
+    "description": "Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project where the dataset and table are created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "materialized_views",
+    "type": "list(object({\n    view_id             = string,\n    description         = optional(string),\n    query               = string,\n    enable_refresh      = bool,\n    refresh_interval_ms = string,\n    clustering          = list(string),\n    time_partitioning = object({\n      expiration_ms            = string,\n      field                    = string,\n      type                     = string,\n      require_partition_filter = bool,\n    }),\n    range_partitioning = object({\n      field = string,\n      range = object({\n        start    = string,\n        end      = string,\n        interval = string,\n      }),\n    }),\n    expiration_time = string,\n    labels          = map(string),\n  }))",
+    "description": "A list of objects which includes view_id, view_query, clustering, time_partitioning, range_partitioning, expiration_time and labels",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "external_tables",
+    "type": "list(object({\n    table_id              = string,\n    description           = optional(string),\n    autodetect            = bool,\n    compression           = string,\n    ignore_unknown_values = bool,\n    max_bad_records       = number,\n    schema                = string,\n    source_format         = string,\n    source_uris           = list(string),\n    csv_options = object({\n      quote                 = string,\n      allow_jagged_rows     = bool,\n      allow_quoted_newlines = bool,\n      encoding              = string,\n      field_delimiter       = string,\n      skip_leading_rows     = number,\n    }),\n    google_sheets_options = object({\n      range             = string,\n      skip_leading_rows = number,\n    }),\n    hive_partitioning_options = object({\n      mode              = string,\n      source_uri_prefix = string,\n    }),\n    expiration_time = string,\n    labels          = map(string),\n  }))",
+    "description": "A list of objects which include table_id, expiration_time, external_data_configuration, and labels.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Dataset description.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "delete_contents_on_destroy",
+    "type": "bool",
+    "description": "(Optional) If set to true, delete all the tables in the dataset when destroying the resource; otherwise, destroying the resource will fail if tables are present.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "encryption_key",
+    "type": "string",
+    "description": "Default encryption key to apply to the dataset. Defaults to null (Google-managed).",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "access",
+    "type": "any",
+    "description": "An array of objects that define dataset access for one or more entities.",
+    "default": "[\n  {\n    \"role\": \"roles/bigquery.dataOwner\",\n    \"special_group\": \"projectOwners\"\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "tables",
+    "type": "list(object({\n    table_id    = string,\n    description = optional(string),\n    table_name  = optional(string),\n    schema      = string,\n    clustering  = list(string),\n    time_partitioning = object({\n      expiration_ms            = string,\n      field                    = string,\n      type                     = string,\n      require_partition_filter = bool,\n    }),\n    range_partitioning = object({\n      field = string,\n      range = object({\n        start    = string,\n        end      = string,\n        interval = string,\n      }),\n    }),\n    expiration_time = string,\n    labels          = map(string),\n  }))",
+    "description": "A list of objects which include table_id, table_name, schema, clustering, time_partitioning, range_partitioning, expiration_time and labels.",
+    "default": "[]",
+    "required": false
+  }
+]

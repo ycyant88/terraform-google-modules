@@ -1,0 +1,14 @@
+[
+  {
+    "name": "instance_name",
+    "description": "Name of Netweaver instance"
+  },
+  {
+    "name": "zone",
+    "description": "Compute Engine instance deployment zone"
+  },
+  {
+    "name": "instance_machine_type",
+    "description": "Primary GCE instance/machine type."
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "name": "datalab_enable_swap",
+    "type": "bool",
+    "description": "Enable swap on the Datalab instance",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "append_to_startup_script",
+    "type": "string",
+    "description": "Full path to file with content to be added to the startup script.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "datalab_docker_image",
+    "type": "string",
+    "description": "Datalab docker image to use",
+    "default": "\"gcr.io/cloud-datalab/datalab:latest\"",
+    "required": false
+  },
+  {
+    "name": "datalab_enable_backup",
+    "type": "bool",
+    "description": "Automatically backup the disk contents to Cloud Storage",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "datalab_console_log_level",
+    "type": "string",
+    "description": "The log level for which log entries from the Datalab instance will be written to StackDriver logging. Valid choices: (trace,debug,info,warn,error,fatal)",
+    "default": "\"warn\"",
+    "required": false
+  },
+  {
+    "name": "datalab_user_email",
+    "type": "string",
+    "description": "Create the Datalab instance on behalf of the specified user",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "datalab_idle_timeout",
+    "type": "string",
+    "description": "Interval after which an idle Datalab instance will shut down. You can specify a mix of days, hours, minutes and seconds using those names or d, h, m and s, for example 1h 30m. Specify 0s to disable",
+    "default": "\"60m\"",
+    "required": false
+  },
+  {
+    "name": "fluentd_docker_image",
+    "type": "string",
+    "description": "Fluentd docker image to use",
+    "default": "\"gcr.io/google-containers/fluentd-gcp:2.0.17\"",
+    "required": false
+  },
+  {
+    "name": "cloud_config",
+    "type": "string",
+    "description": "Name of the cloud config template to use",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "datalab_disk_name",
+    "type": "string",
+    "description": "Name of the persistent disk to mount to the Datalab instance",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "gpu_count",
+    "type": "number",
+    "description": "Number of GPUs for the Datalab instance. Valid values are: 0, 1, 2, 4, 8",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "gpu_device_map",
+    "type": "map(string)",
+    "description": "Cloud config to map the number of gpu devices",
+    "default": "{\n  \"gpu_device_0\": \"\",\n  \"gpu_device_1\": \"       --device /dev/nvidia0:/dev/nvidia0 \\\\\\n\",\n  \"gpu_device_2\": \"       --device /dev/nvidia0:/dev/nvidia0 \\\\\\n       --device /dev/nvidia1:/dev/nvidia1 \\\\\\n\",\n  \"gpu_device_4\": \"       --device /dev/nvidia0:/dev/nvidia0 \\\\\\n       --device /dev/nvidia1:/dev/nvidia1 \\\\\\n       --device /dev/nvidia2:/dev/nvidia2 \\\\\\n       --device /dev/nvidia3:/dev/nvidia3 \\\\\\n\",\n  \"gpu_device_8\": \"       --device /dev/nvidia0:/dev/nvidia0 \\\\\\n       --device /dev/nvidia1:/dev/nvidia1 \\\\\\n       --device /dev/nvidia2:/dev/nvidia2 \\\\\\n       --device /dev/nvidia3:/dev/nvidia3 \\\\\\n       --device /dev/nvidia4:/dev/nvidia4 \\\\\\n       --device /dev/nvidia5:/dev/nvidia5 \\\\\\n       --device /dev/nvidia6:/dev/nvidia6 \\\\\\n       --device /dev/nvidia7:/dev/nvidia7 \\\\\\n\"\n}",
+    "required": false
+  }
+]

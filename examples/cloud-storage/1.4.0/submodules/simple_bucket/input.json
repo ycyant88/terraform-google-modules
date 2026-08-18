@@ -1,0 +1,79 @@
+[
+  {
+    "name": "bucket_policy_only",
+    "type": "bool",
+    "description": "Enables Bucket Policy Only access to a bucket.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "force_destroy",
+    "type": "bool",
+    "description": "When deleting a bucket, this boolean option will delete all contained objects. If false, Terraform will fail to delete buckets which contain objects.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "A set of key/value label pairs to assign to the bucket.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "versioning",
+    "type": "bool",
+    "description": "While set to true, versioning is fully enabled for this bucket.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_members",
+    "type": "list(object({\n    role   = string\n    member = string\n  }))",
+    "description": "The list of IAM members to grant permissions on the bucket.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "retention_policy",
+    "type": "object({\n    is_locked        = bool\n    retention_period = number\n  })",
+    "description": "Configuration of the bucket's data retention policy for how long objects in the bucket should be retained.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the bucket.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project to create the bucket in.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The location of the bucket.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "storage_class",
+    "type": "string",
+    "description": "The Storage Class of the new bucket.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "encryption",
+    "type": "object({\n    default_kms_key_name = string\n  })",
+    "description": "A Cloud KMS key that will be used to encrypt objects inserted into this bucket",
+    "default": "",
+    "required": true
+  }
+]

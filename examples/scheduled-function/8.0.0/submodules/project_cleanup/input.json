@@ -1,0 +1,170 @@
+[
+  {
+    "name": "function_timeout_s",
+    "type": "number",
+    "description": "The amount of time in seconds allotted for the execution of the function.",
+    "default": "500",
+    "required": false
+  },
+  {
+    "name": "target_included_labels",
+    "type": "map(string)",
+    "description": "Map of project lablels that will be deleted.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "clean_up_billing_sinks",
+    "type": "bool",
+    "description": "Clean up Billing Account Sinks.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "list_billing_sinks_page_size",
+    "type": "number",
+    "description": "The maximum number of Billing Account Log Sinks to return in the call to `BillingAccountsSinksService.List` service.",
+    "default": "200",
+    "required": false
+  },
+  {
+    "name": "target_folder_id",
+    "type": "string",
+    "description": "Folder ID to delete all projects under.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "target_included_feeds",
+    "type": "list(string)",
+    "description": "List of organization level Cloud Asset Inventory feeds that should be deleted. Regex example: `.*/feeds/fd-cai-monitoring-.*` ",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region the project is in (App Engine specific)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "target_tag_value",
+    "type": "string",
+    "description": "The value of a tag to filter GCP projects on for consideration by the cleanup utility (legacy, use `target_included_labels` map instead).",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "list_scc_notifications_page_size",
+    "type": "number",
+    "description": "The maximum number of notification configs to return in the call to `ListNotificationConfigs` service. The minimun value is 1 and the maximum value is 1000.",
+    "default": "500",
+    "required": false
+  },
+  {
+    "name": "clean_up_org_level_tag_keys",
+    "type": "bool",
+    "description": "Clean up organization level Tag Keys.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "function_docker_registry",
+    "type": "string",
+    "description": "Docker Registry to use for storing the function's Docker images. Allowed values are CONTAINER_REGISTRY (default) and ARTIFACT_REGISTRY.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "organization_id",
+    "type": "string",
+    "description": "The organization ID whose projects to clean up",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "clean_up_org_level_cai_feeds",
+    "type": "bool",
+    "description": "Clean up organization level Cloud Asset Inventory Feeds.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "job_schedule",
+    "type": "string",
+    "description": "Cleaner function run frequency, in cron syntax",
+    "default": "\"*/5 * * * *\"",
+    "required": false
+  },
+  {
+    "name": "target_tag_name",
+    "type": "string",
+    "description": "The name of a tag to filter GCP projects on for consideration by the cleanup utility (legacy, use `target_included_labels` map instead).",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "max_project_age_in_hours",
+    "type": "number",
+    "description": "The maximum number of hours that a GCP project, selected by `target_tag_name` and `target_tag_value`, can exist",
+    "default": "6",
+    "required": false
+  },
+  {
+    "name": "target_included_scc_notifications",
+    "type": "list(string)",
+    "description": "List of organization Security Command Center notifications names regex that will be deleted. Regex example: `.*/notificationConfigs/scc-notify-.*` ",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "billing_account",
+    "type": "string",
+    "description": "Billing Account used to provision resources.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "target_billing_sinks",
+    "type": "list(string)",
+    "description": "List of Billing Account Log Sinks names regex that will be deleted. Regex example: `.*/sinks/sk-c-logging-.*-billing-.*` ",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to host the scheduled function in",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "topic_name",
+    "type": "string",
+    "description": "Name of pubsub topic connecting the scheduled projects cleanup function",
+    "default": "\"pubsub_scheduled_project_cleaner\"",
+    "required": false
+  },
+  {
+    "name": "target_excluded_labels",
+    "type": "map(string)",
+    "description": "Map of project lablels that won't be deleted.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "clean_up_org_level_scc_notifications",
+    "type": "bool",
+    "description": "Clean up organization level Security Command Center notifications.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "target_excluded_tagkeys",
+    "type": "list(string)",
+    "description": "List of organization Tag Key short names that won't be deleted.",
+    "default": "[]",
+    "required": false
+  }
+]

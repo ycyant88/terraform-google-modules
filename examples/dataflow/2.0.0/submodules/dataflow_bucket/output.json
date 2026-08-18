@@ -1,0 +1,10 @@
+[
+  {
+    "name": "region",
+    "description": "The bucket's region location"
+  },
+  {
+    "name": "name",
+    "description": "The name of the bucket"
+  }
+]

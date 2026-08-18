@@ -1,0 +1,44 @@
+[
+  {
+    "name": "include_children",
+    "type": "bool",
+    "description": "Determines whether or not to include folder's children in the sink export. If true, logs associated with child projects are also exported; otherwise only logs relating to the provided folder are included.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "filter",
+    "type": "string",
+    "description": "The filter to apply when exporting logs.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "A set of key/value label pairs to assign to any labelable resources.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name to apply to any nameable resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project to which resources will be applied.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "folder_id",
+    "type": "string",
+    "description": "The ID of the folder to look for changes.",
+    "default": "",
+    "required": true
+  }
+]

@@ -1,0 +1,93 @@
+[
+  {
+    "name": "forseti_repo_url",
+    "type": "",
+    "description": "Git repo for the Forseti installation",
+    "default": "\"https://github.com/GoogleCloudPlatform/forseti-security\"",
+    "required": false
+  },
+  {
+    "name": "client_type",
+    "type": "",
+    "description": "GCE Forseti Client role instance size",
+    "default": "\"n1-standard-2\"",
+    "required": false
+  },
+  {
+    "name": "client_region",
+    "type": "",
+    "description": "GCE Forseti Client role region size",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "storage_bucket_location",
+    "type": "",
+    "description": "GCS storage bucket location",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "",
+    "description": "The VPC subnetwork where the Forseti client and server will be created",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "server_address",
+    "type": "",
+    "description": "The Forseti server address",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "",
+    "description": "Google Project ID that you want Forseti deployed into",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "forseti_version",
+    "type": "",
+    "description": "The version of Forseti to install",
+    "default": "\"v2.10.0\"",
+    "required": false
+  },
+  {
+    "name": "network_project",
+    "type": "",
+    "description": "The project containing the VPC and subnetwork where the Forseti client and server will be created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "suffix",
+    "type": "",
+    "description": "The random suffix to append to all Forseti resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "services",
+    "type": "",
+    "description": "An artificial dependency to bypass #10462",
+    "default": "[\n  \"\"\n]",
+    "required": false
+  },
+  {
+    "name": "forseti_home",
+    "type": "",
+    "description": "Forseti installation directory",
+    "default": "\"$USER_HOME/forseti-security\"",
+    "required": false
+  },
+  {
+    "name": "client_boot_image",
+    "type": "",
+    "description": "GCE Forseti Client role instance size",
+    "default": "\"ubuntu-os-cloud/ubuntu-1804-lts\"",
+    "required": false
+  }
+]

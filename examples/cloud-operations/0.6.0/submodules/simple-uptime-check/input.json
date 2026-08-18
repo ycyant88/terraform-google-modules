@@ -1,0 +1,275 @@
+[
+  {
+    "name": "validate_ssl",
+    "type": "string",
+    "description": "If https, whether to validate SSL certificates.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "enabled",
+    "type": "bool",
+    "description": "Whether or not the policy is enabled (defaults to true)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "condition_display_name",
+    "type": "string",
+    "description": "A unique name to identify condition in dashboards, notifications, and incidents. If left empty, defaults to Failure of uptime check_id",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "condition_threshold_filter",
+    "type": "string",
+    "description": "A filter that identifies which time series should be compared with the threshold. Defaults to uptime check failure filter if left as empty string.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "alert_policy_user_labels",
+    "type": "map(string)",
+    "description": "This field is intended to be used for organizing and identifying the AlertPolicy objects.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "protocol",
+    "type": "string",
+    "description": "Protocol for uptime check. One of: HTTPS, HTTP, or TCP (required).",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "timeout",
+    "type": "string",
+    "description": "The maximum amount of time to wait for the request to complete.",
+    "default": "\"10s\"",
+    "required": false
+  },
+  {
+    "name": "headers",
+    "type": "map(string)",
+    "description": "The list of headers to send as part of the uptime check request.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "aggregations",
+    "type": "object({\n    alignment_period     = string\n    per_series_aligner   = string\n    group_by_fields      = list(string)\n    cross_series_reducer = string\n  })",
+    "description": "Specifies the alignment of data points in individual time series as well as how to combine the retrieved time series together.",
+    "default": "{\n  \"alignment_period\": \"1200s\",\n  \"cross_series_reducer\": \"REDUCE_COUNT_FALSE\",\n  \"group_by_fields\": [\n    \"resource.label.*\"\n  ],\n  \"per_series_aligner\": \"ALIGN_NEXT_OLDER\"\n}",
+    "required": false
+  },
+  {
+    "name": "notification_channels",
+    "type": "list(object({\n    display_name = string\n    type         = string\n    labels       = map(string)\n  }))",
+    "description": "List of all the notification channels to create for alerting if the uptime check fails. See https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.notificationChannelDescriptors/list for a list of types and labels.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "period",
+    "type": "string",
+    "description": "How frequently uptime check is run. Must be one of the following: 60s, 300s, 600s, 900s",
+    "default": "\"60s\"",
+    "required": false
+  },
+  {
+    "name": "accepted_response_status_values",
+    "type": "set(number)",
+    "description": "Check will only pass if the HTTP response status code is in this set of status values (combined with the set of status classes).",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "request_method",
+    "type": "string",
+    "description": "HTTP request method to use for the check. One of: METHOD_UNSPECIFIED, GET, POST",
+    "default": "\"GET\"",
+    "required": false
+  },
+  {
+    "name": "selected_regions",
+    "type": "list(string)",
+    "description": "Regions from which to run the uptime check from. Defaults to all regions.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "resource_group",
+    "type": "object({\n    resource_type = string\n    group_id      = string\n  })",
+    "description": "Group resource associated with configuration. Resource types must be one of: RESOURCE_TYPE_UNSPECIFIED, INSTANCE, AWS_ELB_LOAD_BALANCER",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "condition_threshold_duration",
+    "type": "string",
+    "description": "The amount of time that a time series must violate the threshold to be considered failing, in seconds. Must be a multiple of 60 seconds.",
+    "default": "\"60s\"",
+    "required": false
+  },
+  {
+    "name": "condition_threshold_comparison",
+    "type": "string",
+    "description": "The comparison to apply between the time series (indicated by filter and aggregation) and the threshold (indicated by threshold_value).",
+    "default": "\"COMPARISON_GT\"",
+    "required": false
+  },
+  {
+    "name": "condition_threshold_trigger",
+    "type": "object({\n    percent = number\n    count   = number\n  })",
+    "description": "Defines the percent and number of time series that must fail the predicate for the condition to be triggered",
+    "default": "{\n  \"count\": 1,\n  \"percent\": null\n}",
+    "required": false
+  },
+  {
+    "name": "matcher",
+    "type": "string",
+    "description": "Type of content matcher. One of: CONTAINS_STRING, NOT_CONTAINS_STRING, MATCHES_REGEX, NOT_MATCHES_REGEX, MATCHES_JSON_PATH, NOT_MATCHES_JSON_PATH",
+    "default": "\"CONTAINS_STRING\"",
+    "required": false
+  },
+  {
+    "name": "json_path_matcher",
+    "type": "object({\n    json_path    = string\n    json_matcher = string\n  })",
+    "description": "If matcher is MATCHES_JSON_PATH or NOT_MATCHES_JSON_PATH, the json matcher and path to use. The json matcher must be either EXACT_MATCH or REGEX_MATCH.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "port",
+    "type": "number",
+    "description": "The port to the page to run the check against. If left null, defaults to 443 for HTTPS and 80 for HTTP.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "accepted_response_status_classes",
+    "type": "set(string)",
+    "description": "Check will only pass if the HTTP response status code is in this set of status classes (combined with the set of status values). Possible values: STATUS_CLASS_1XX, STATUS_CLASS_2XX, STATUS_CLASS_3XX, STATUS_CLASS_4XX, STATUS_CLASS_5XX, STATUS_CLASS_ANY",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "alert_policy_display_name",
+    "type": "string",
+    "description": "Display name for the alert policy. Defaults to \"var.uptime_check_display_name Uptime Failure Alert Policy\" if left empty.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "notification_rate_limit_period",
+    "type": "string",
+    "description": "Not more than one notification per specified period (in seconds), for example \"30s\".",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "auto_close",
+    "type": "string",
+    "description": "Open incidents will close if an alert policy that was active has no data for this long (in seconds, must be at least 30 minutes). For example \"18000s\".",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to host the uptime check in (required).",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "uptime_check_display_name",
+    "type": "string",
+    "description": "The display name for the uptime check (required).",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "auth_info",
+    "type": "object({\n    username = string\n    password = string\n  })",
+    "description": "Optional username and password to authenticate.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "checker_type",
+    "type": "string",
+    "description": "One of: STATIC_IP_CHECKERS, VPC_CHECKERS",
+    "default": "\"STATIC_IP_CHECKERS\"",
+    "required": false
+  },
+  {
+    "name": "monitored_resource",
+    "type": "object({\n    monitored_resource_type = string\n    labels                  = map(string)\n  })",
+    "description": "Monitored resource type and labels. One of: uptime_url, gce_instance, gae_app, aws_ec2_instance, aws_elb_load_balancer, k8s_service, servicedirectory_service. See https://cloud.google.com/monitoring/api/resources for a list of labels.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "alert_policy_combiner",
+    "type": "string",
+    "description": "Determines how to combine multiple conditions. One of: AND, OR, or AND_WITH_MATCHING_RESOURCE.",
+    "default": "\"OR\"",
+    "required": false
+  },
+  {
+    "name": "path",
+    "type": "string",
+    "description": "Path to the page to run the check against. The path to the page to run the check against. Will be combined with the host in monitored_resource block to construct the entire URL.",
+    "default": "\"/\"",
+    "required": false
+  },
+  {
+    "name": "body",
+    "type": "string",
+    "description": "The request body associated with the HTTP POST request.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "content_type",
+    "type": "string",
+    "description": "Content type to use for the http(s) check. Can be one of: TYPE_UNSPECIFIED, URL_ENCODED",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "condition_threshold_value",
+    "type": "number",
+    "description": "A value against which to compare the time series.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "content",
+    "type": "string",
+    "description": "String or regex content to match.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "mask_headers",
+    "type": "bool",
+    "description": "Whether to encrypt the header information.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "notification_channel_strategy",
+    "type": "object({\n    notification_channel_names = list(string)\n    renotify_interval          = number\n  })",
+    "description": "Control over how the notification channels in notification_channels are notified when this alert fires, on a per-channel basis.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "existing_notification_channels",
+    "type": "list(string)",
+    "description": "List of existing notification channel IDs to use for alerting if the uptime check fails.",
+    "default": "[]",
+    "required": false
+  }
+]

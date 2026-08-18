@@ -1,0 +1,506 @@
+[
+  {
+    "name": "maintenance_policy",
+    "type": "object({\n    daily_maintenance_window = optional(object({\n      start_time = optional(string)\n    }))\n    recurring_window = optional(object({\n      start_time = optional(string)\n      end_time   = optional(string)\n      recurrence = optional(string)\n    }))\n    maintenance_exclusion = optional(list(object({\n      exclusion_name = optional(string)\n      start_time     = optional(string)\n      end_time       = optional(string)\n      exclusion_options = optional(object({\n        scope = optional(string)\n      }))\n    })))\n  })",
+    "description": "The maintenance policy to use for the cluster.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cost_management_config",
+    "type": "object({\n    enabled = optional(bool)\n  })",
+    "description": "The Cost Management configuration for the cluster.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "resource_usage_export_config",
+    "type": "object({\n    enable_network_egress_metering       = optional(bool)\n    enable_resource_consumption_metering = optional(bool)\n    bigquery_destination = object({\n      dataset_id = string\n    })\n  })",
+    "description": "Configuration for the [ResourceUsageExportConfig](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-usage-metering) feature.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_fqdn_network_policy",
+    "type": "bool",
+    "description": "Whether FQDN Network Policy is enabled on this cluster.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "protect_config",
+    "type": "object({\n    workload_config = object({\n      audit_mode = string\n    })\n    workload_vulnerability_mode = optional(string)\n  })",
+    "description": "Enable GKE Protect workloads for this cluster.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the cluster (required)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "binary_authorization",
+    "type": "object({\n    evaluation_mode = optional(string)\n  })",
+    "description": "Configuration options for the Binary Authorization feature.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_shielded_nodes",
+    "type": "bool",
+    "description": "Enable Shielded Nodes features on all nodes in this cluster. Defaults to true.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "notification_config",
+    "type": "object({\n    pubsub = object({\n      enabled = bool\n      topic   = optional(string)\n      filter = optional(object({\n        event_type = optional(string)\n      }))\n    })\n  })",
+    "description": "Configuration for the [cluster upgrade notifications](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-upgrade-notifications) feature.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "fleet",
+    "type": "object({\n    project = optional(string)\n  })",
+    "description": "Fleet configuration for the cluster. The name of the Fleet host project where this cluster will be registered.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "addons_config",
+    "type": "object({\n    http_load_balancing = optional(object({\n      disabled = optional(bool)\n    }))\n    horizontal_pod_autoscaling = optional(object({\n      disabled = optional(bool)\n    }))\n    network_policy_config = optional(object({\n      disabled = optional(bool)\n    }))\n    istio_config = optional(object({\n      disabled = optional(bool)\n      auth     = optional(string)\n    }))\n    dns_cache_config = optional(object({\n      enabled = optional(bool)\n    }))\n    config_connector_config = optional(object({\n      enabled = optional(bool)\n    }))\n    gce_persistent_disk_csi_driver_config = optional(object({\n      enabled = optional(bool)\n    }))\n    kalm_config = optional(object({\n      enabled = optional(bool)\n    }))\n    gcp_filestore_csi_driver_config = optional(object({\n      enabled = optional(bool)\n    }))\n    gke_backup_agent_config = optional(object({\n      enabled = optional(bool)\n    }))\n    gcs_fuse_csi_driver_config = optional(object({\n      enabled = optional(bool)\n    }))\n    stateful_ha_config = optional(object({\n      enabled = optional(bool)\n    }))\n    parallelstore_csi_driver_config = optional(object({\n      enabled = optional(bool)\n    }))\n    ray_operator_config = optional(object({\n      enabled = optional(bool)\n      ray_cluster_logging_config = optional(object({\n        enabled = optional(bool)\n      }))\n      ray_cluster_monitoring_config = optional(object({\n        enabled = optional(bool)\n      }))\n    }))\n  })",
+    "description": "The configuration for addons supported by GKE.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "secret_manager_config",
+    "type": "object({\n    enabled = bool\n  })",
+    "description": "Configuration for the SecretManagerConfig feature",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "authenticator_groups_config",
+    "type": "object({\n    security_group = string\n  })",
+    "description": "Configuration for the Google Groups for GKE feature. The name of the RBAC security group for use with Google security groups in Kubernetes RBAC. Group name must be in format gke-security-groups@yourdomain.com.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "release_channel",
+    "type": "object({\n    channel = optional(string)\n  })",
+    "description": "Configuration for the release channel feature, which provides more control over automatic upgrades of your GKE clusters.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "resource_labels",
+    "type": "map(string)",
+    "description": "The GCE resource labels (a map of key/value pairs) to be applied to the cluster. Note: This field is non-authoritative, and will only manage the labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_cilium_clusterwide_network_policy",
+    "type": "bool",
+    "description": "Enables Cilium-based GKE Dataplane V2 wide network policy. This feature is in public beta.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "workload_alts_config",
+    "type": "object({\n    enable_alts = bool\n  })",
+    "description": "Workload ALTS configuration for the cluster. Whether the alts handshaker should be enabled or not for direct-path. Requires Workload Identity (workloadPool) must be non-empty",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_kubernetes_alpha",
+    "type": "bool",
+    "description": "Whether to enable Kubernetes Alpha features for this cluster. Note that when this is true, the beta version of the GKE API will be used internally.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "network_policy",
+    "type": "object({\n    enabled  = optional(bool)\n    provider = optional(string)\n  })",
+    "description": "Configuration options for the NetworkPolicy feature.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "pod_security_policy_config",
+    "type": "object({\n    enabled = bool\n  })",
+    "description": "Configuration for the [PodSecurityPolicy](https://cloud.google.com/kubernetes-engine/docs/how-to/pod-security-policies) feature.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "remove_default_node_pool",
+    "type": "bool",
+    "description": "If true, deletes the default node pool upon cluster creation. If you're using google_container_node_pool resources with no default node pool, this should be set to true.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "datapath_provider",
+    "type": "string",
+    "description": "The desired datapath provider for this cluster. This is set to LEGACY_DATAPATH by default, which uses the IPTables-based kube-proxy implementation. Set to ADVANCED_DATAPATH to enable Dataplane v2.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project in which the resource belongs.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "mesh_certificates",
+    "type": "object({\n    enable_certificates = optional(bool)\n  })",
+    "description": "Configuration for the provisioning of managed mesh certificates.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "default_max_pods_per_node",
+    "type": "number",
+    "description": "The default maximum number of pods per node in this cluster. This doesn't work on route-based clusters, clusters that don't have IP Aliasing enabled.",
+    "default": "110",
+    "required": false
+  },
+  {
+    "name": "node_pool_defaults",
+    "type": "object({\n    node_config_defaults = optional(object({\n      insecure_kubelet_readonly_port_enabled = optional(bool)\n      logging_variant                        = optional(string)\n      gcfs_config = optional(object({\n        enabled = bool\n      }))\n    }))\n  })",
+    "description": "Default NodePool settings for the entire cluster. These settings are overridden if specified on the specific NodePool object.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "node_version",
+    "type": "string",
+    "description": "The Kubernetes version on the nodes. Must either be unset or set to the same value as min_master_version on create. Defaults to the default version set by GKE which is not necessarily the latest version. This only affects nodes in the default node pool. While a fuzzy version can be specified, it's recommended that you specify explicit versions as Terraform will see spurious diffs when fuzzy versions are used. See the google_container_engine_versions data source's version_prefix field to approximate fuzzy versions in a Terraform-compatible way. To update nodes in other node pools, use the version attribute on the node pool.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "confidential_nodes",
+    "type": "object({\n    enabled = bool\n  })",
+    "description": "Configuration for [Confidential Nodes](https://cloud.google.com/kubernetes-engine/docs/how-to/confidential-gke-nodes) feature. ",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "node_locations",
+    "type": "list(string)",
+    "description": "The list of zones in which the cluster's nodes are located. Nodes are created in the region's zones by default. This list must be a subset of the compute/zones in the region to which the cluster belongs. This field is optional for Zonal clusters and required for Regional clusters.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dns_config",
+    "type": "object({\n    additive_vpc_scope_dns_domain = optional(string)\n    cluster_dns                   = optional(string)\n    cluster_dns_scope             = optional(string)\n    cluster_dns_domain            = optional(string)\n  })",
+    "description": "Configuration for Cloud DNS for GKE.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "database_encryption",
+    "type": "object({\n    state    = optional(string)\n    key_name = optional(string)\n  })",
+    "description": "Application-layer Secrets Encryption settings.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "min_master_version",
+    "type": "string",
+    "description": "The minimum version of the master. GKE will auto-update the master to new versions, so this does not guarantee the master version--use the read-only master_version field to obtain a current version. If unset, the server's default version will be used.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "vertical_pod_autoscaling",
+    "type": "object({\n    enabled = optional(bool)\n  })",
+    "description": "Vertical Pod Autoscaling automatically adjusts the resources of pods controlled by it.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "private_cluster_config",
+    "type": "object({\n    enable_private_nodes        = optional(bool)\n    enable_private_endpoint     = optional(bool)\n    master_ipv4_cidr_block      = optional(string)\n    private_endpoint_subnetwork = optional(string)\n    master_global_access_config = optional(object({\n      enabled = optional(bool)\n    }))\n  })",
+    "description": "Configuration for private clusters, clusters with private nodes.",
+    "default": "{\n  \"enable_private_endpoint\": true,\n  \"enable_private_nodes\": true,\n  \"master_global_access_config\": {\n    \"enabled\": true\n  }\n}",
+    "required": false
+  },
+  {
+    "name": "cluster_autoscaling",
+    "type": "object({\n    enabled = bool\n    resource_limits = list(object({\n      resource_type = string\n      minimum       = optional(number)\n      maximum       = number\n    }))\n    auto_provisioning_defaults = optional(object({\n      min_cpu_platform  = optional(string)\n      oauth_scopes      = optional(list(string))\n      service_account   = optional(string)\n      boot_disk_kms_key = optional(string)\n      disk_size         = optional(number)\n      disk_type         = optional(string)\n      image_type        = optional(string)\n      shielded_instance_config = optional(object({\n        enable_secure_boot          = optional(bool)\n        enable_integrity_monitoring = optional(bool)\n      }))\n      management = optional(object({\n        auto_upgrade = optional(bool)\n        auto_repair  = optional(bool)\n      }))\n      upgrade_settings = optional(object({\n        strategy        = optional(string)\n        max_surge       = optional(number)\n        max_unavailable = optional(number)\n        blue_green_settings = optional(object({\n          node_pool_soak_duration = optional(string)\n          standard_rollout_policy = optional(object({\n            batch_percentage    = optional(number)\n            batch_node_count    = optional(number)\n            batch_soak_duration = optional(string)\n          }))\n        }))\n      }))\n    }))\n    auto_provisioning_locations = list(string)\n    autoscaling_profile         = string\n  })",
+    "description": "Per-cluster configuration of Node Auto-Provisioning with Cluster Autoscaler to automatically adjust the size of the cluster and create/delete node pools based on the current needs of the cluster's workload. See the [guide to using Node Auto-Provisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning) for more details.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ip_allocation_policy",
+    "type": "object({\n    cluster_secondary_range_name  = optional(string)\n    services_secondary_range_name = optional(string)\n    cluster_ipv4_cidr_block       = optional(string)\n    services_ipv4_cidr_block      = optional(string)\n    stack_type                    = optional(string)\n    additional_pod_ranges_config = optional(object({\n      pod_range_names = list(string)\n    }))\n  })",
+    "description": "Configuration of cluster IP allocation for VPC-native clusters. If this block is unset during creation, it will be set by the GKE backend. ",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "service_external_ips_config",
+    "type": "object({\n    enabled = optional(bool)\n  })",
+    "description": "Configuration for controlling how IPs are allocated to Service objects.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "initial_node_count",
+    "type": "number",
+    "description": "The number of nodes to create in this cluster's default node pool. In regional or multi-zonal clusters, this is the number of nodes per zone. Must be set if node_pool is not specified.",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "node_pool",
+    "type": "list(object({\n    cluster            = optional(string)\n    project            = optional(string)\n    location           = optional(string, null)\n    name               = optional(string, null)\n    name_prefix        = optional(string, null)\n    node_count         = optional(number, 1)\n    kubernetes_version = optional(string, null)\n    node_locations     = optional(list(string), [])\n    initial_node_count = optional(number, null)\n    max_pods_per_node  = optional(number, null)\n\n    autoscaling = optional(object({\n      min_node_count       = optional(number)\n      max_node_count       = optional(number)\n      total_min_node_count = optional(number)\n      total_max_node_count = optional(number)\n      location_policy      = optional(string)\n    }))\n\n    management = optional(object({\n      auto_repair  = optional(bool)\n      auto_upgrade = optional(bool)\n    }))\n\n    node_config = optional(object({\n      disk_size_gb                = optional(number)\n      disk_type                   = optional(string)\n      enable_confidential_storage = optional(bool)\n      local_ssd_encryption_mode   = optional(string)\n      image_type                  = optional(string)\n      labels                      = optional(map(string))\n      resource_labels             = optional(map(string))\n      max_run_duration            = optional(string)\n      flex_start                  = optional(bool)\n      local_ssd_count             = optional(number)\n      machine_type                = optional(string)\n      metadata                    = optional(map(string))\n      min_cpu_platform            = optional(string)\n      oauth_scopes                = optional(list(string))\n      preemptible                 = optional(bool)\n      spot                        = optional(bool)\n      boot_disk_kms_key           = optional(string)\n      service_account             = optional(string)\n      storage_pools               = optional(list(string))\n      tags                        = optional(list(string))\n      resource_manager_tags       = optional(map(string))\n      node_group                  = optional(string)\n      confidential_nodes = optional(object({\n        enabled = bool\n      }))\n      ephemeral_storage_config = optional(object({\n        local_ssd_count = number\n      }))\n      ephemeral_storage_local_ssd_config = optional(object({\n        local_ssd_count  = number\n        data_cache_count = optional(number)\n      }))\n      fast_socket = optional(object({\n        enabled = bool\n      }))\n      local_nvme_ssd_block_config = optional(object({\n        local_ssd_count = number\n      }))\n      logging_variant = optional(string)\n      secondary_boot_disks = optional(object({\n        disk_image = string\n        mode       = optional(string)\n      }))\n      gcfs_config = optional(object({\n        enabled = bool\n      }))\n      gvnic = optional(object({\n        enabled = bool\n      }))\n      guest_accelerator = optional(object({\n        type  = string\n        count = number\n        gpu_driver_installation_config = optional(object({\n          gpu_driver_version = string\n        }))\n        gpu_partition_size = optional(string)\n        gpu_sharing_config = optional(object({\n          gpu_sharing_strategy       = string\n          max_shared_clients_per_gpu = number\n        }))\n      }))\n      reservation_affinity = optional(object({\n        consume_reservation_type = string\n        key                      = optional(string)\n        values                   = optional(list(string))\n      }))\n      sandbox_config = optional(object({\n        sandbox_type = string\n      }))\n      shielded_instance_config = optional(object({\n        enable_secure_boot          = optional(bool)\n        enable_integrity_monitoring = optional(bool)\n      }))\n      taint = optional(list(object({\n        key    = string\n        value  = string\n        effect = string\n      })))\n      workload_metadata_config = optional(object({\n        mode = optional(string)\n      }))\n      kubelet_config = optional(object({\n        cpu_manager_policy                     = optional(string)\n        cpu_cfs_quota                          = optional(bool)\n        cpu_cfs_quota_period                   = optional(string)\n        insecure_kubelet_readonly_port_enabled = optional(bool)\n        pod_pids_limit                         = optional(number)\n        container_log_max_size                 = optional(string)\n        container_log_max_files                = optional(number)\n        image_gc_low_threshold_percent         = optional(number)\n        image_gc_high_threshold_percent        = optional(number)\n        image_minimum_gc_age                   = optional(string)\n        allowed_unsafe_sysctls                 = optional(list(string))\n      }))\n      linux_node_config = optional(object({\n        sysctls     = optional(map(string))\n        cgroup_mode = optional(string)\n        hugepages_config = optional(object({\n          hugepage_size_2m = optional(number)\n          hugepage_size_1g = optional(number)\n        }))\n      }))\n      windows_node_config = optional(object({\n        osversion = string\n      }))\n      containerd_config = optional(object({\n        private_registry_access_config = optional(object({\n          enabled = bool\n          certificate_authority_domain_config = optional(object({\n            fqdns = list(string)\n            gcp_secret_manager_certificate_config = object({\n              secret_uri = string\n            })\n          }))\n        }))\n      }))\n      sole_tenant_config = optional(object({\n        node_affinity = optional(object({\n          key      = string\n          operator = string\n          values   = list(string)\n        }))\n      }))\n    }))\n\n    network_config = optional(object({\n      create_pod_range     = optional(bool)\n      enable_private_nodes = optional(bool)\n      pod_ipv4_cidr_block  = optional(string)\n      pod_range            = optional(string)\n      additional_node_network_configs = optional(object({\n        network    = string\n        subnetwork = string\n      }))\n      additional_pod_network_configs = optional(object({\n        subnetwork          = string\n        secondary_pod_range = string\n        max_pods_per_node   = number\n      }))\n      pod_cidr_overprovision_config = optional(object({\n        disabled = bool\n      }))\n      network_performance_config = optional(object({\n        total_egress_bandwidth_tier = string\n      }))\n    }))\n\n    upgrade_settings = optional(object({\n      max_surge       = optional(number)\n      max_unavailable = optional(number)\n      strategy        = optional(string)\n      blue_green_settings = optional(object({\n        standard_rollout_policy = object({\n          batch_percentage    = optional(number)\n          batch_node_count    = optional(number)\n          batch_soak_duration = optional(string)\n        })\n        node_pool_soak_duration = optional(string)\n      }))\n    }))\n\n    placement_policy = optional(object({\n      type         = string\n      policy_name  = optional(string)\n      tpu_topology = optional(string)\n    }))\n\n    queued_provisioning = optional(object({\n      enabled = bool\n    }))\n  }))",
+    "description": "List of node pools associated with this cluster. See google_container_node_pool for schema. Warning: node pools defined inside a cluster can't be changed after creation without destroying and recreating the cluster. You should use google_container_node_pool instead of this property.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "identity_service_config",
+    "type": "object({\n    enabled = optional(bool)\n  })",
+    "description": "Whether to enable the Identity Service component. It is disabled by default. Set enabled=true to enable.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The location (region or zone) in which the cluster master will be created, as well as the default node location. If you specify a zone (such as us-central1-a), the cluster will be a zonal cluster with a single cluster master. If you specify a region (such as us-west1), the cluster will be a regional cluster with multiple masters spread across zones in the region, and with default node locations in those zones as well.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "workload_identity_config",
+    "type": "object({\n    workload_pool = string\n  })",
+    "description": "Configuration for the use of Kubernetes Service Accounts in GCP IAM policies.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enable_tpu",
+    "type": "bool",
+    "description": "Whether to enable Cloud TPU resources in this cluster.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "monitoring_config",
+    "type": "object({\n    enable_components = optional(list(string))\n  })",
+    "description": "Monitoring configuration for the cluster.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_l4_ilb_subsetting",
+    "type": "bool",
+    "description": "Enables L4 ILB subsetting. L4 ILB subsetting can be used with clusters of all sizes. This feature is in public beta.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "in_transit_encryption_config",
+    "type": "string",
+    "description": "Defines the config of in-transit encryption. Valid values are `IN_TRANSIT_ENCRYPTION_DISABLED` and `IN_TRANSIT_ENCRYPTION_INTER_NODE_TRANSPARENT`.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "default_snat_status",
+    "type": "object({\n    disabled = bool\n  })",
+    "description": "[GKE SNAT](https://cloud.google.com/kubernetes-engine/docs/how-to/ip-masquerade-agent#how_ipmasq_works) DefaultSnatStatus contains the desired state of whether default sNAT should be disabled on the cluster, [API doc](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#networkconfig). In-node sNAT rules will be disabled when defaultSnatStatus is disabled.When disabled is set to false, default IP masquerade rules will be applied to the nodes to prevent sNAT on cluster internal traffic",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "logging_service",
+    "type": "string",
+    "description": "The logging service that the cluster should write logs to. Available options include `logging.googleapis.com`, `logging.googleapis.com/kubernetes`, and `none`.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "master_auth",
+    "type": "object({\n    client_certificate_config = optional(object({\n      issue_client_certificate = optional(bool)\n    }))\n  })",
+    "description": "The authentication information for accessing the Kubernetes master.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "node_pool_auto_config",
+    "type": "object({\n    node_kubelet_config = optional(object({\n      insecure_kubelet_readonly_port_enabled = optional(bool)\n    }))\n    resource_manager_tags = optional(map(string))\n    network_tags = optional(object({\n      tags = optional(list(string))\n    }))\n    linux_node_config = optional(object({\n      cgroup_mode = optional(string)\n    }))\n  })",
+    "description": "Node pool auto-configuration for the cluster. This block contains settings for managing Kubelet, resource manager tags, network tags, and Linux node configurations for automatically provisioned node pools.",
+    "default": "{\n  \"node_kubelet_config\": {\n    \"insecure_kubelet_readonly_port_enabled\": false\n  }\n}",
+    "required": false
+  },
+  {
+    "name": "control_plane_endpoints_config",
+    "type": "object({\n    dns_endpoint_config = optional(object({\n      allow_external_traffic = optional(bool)\n    }))\n    ip_endpoints_config = optional(object({\n      enabled = optional(bool)\n    }))\n  })",
+    "description": "Configuration for all of the cluster's control plane endpoints.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_telemetry",
+    "type": "object({\n    type = string\n  })",
+    "description": "Configuration for ClusterTelemetry feature. Telemetry integration for the cluster. Supported values (ENABLED, DISABLED, SYSTEM_ONLY); SYSTEM_ONLY (Only system components are monitored and logged) is only available in GKE versions 1.15 and later.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_intranode_visibility",
+    "type": "bool",
+    "description": "Whether Intra-node visibility is enabled for this cluster. This makes same node pod to pod traffic visible for VPC flow logs.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The name or self_link of the Google Compute Engine subnetwork in which the cluster's instances are launched.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "deletion_protection",
+    "type": "bool",
+    "description": "Whether Terraform will be prevented from destroying the cluster. Deleting this cluster via terraform destroy or terraform apply will only succeed if this field is false in the Terraform state.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_k8s_beta_apis",
+    "type": "object({\n    enabled_apis = list(string)\n  })",
+    "description": "Configuration for Kubernetes Beta APIs.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "disable_l4_lb_firewall_reconciliation",
+    "type": "bool",
+    "description": "If true, stops GKE from reconciling firewall rules for L4 ILB Services.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "private_ipv6_google_access",
+    "type": "string",
+    "description": "The desired state of IPv6 access to Google Services. By default, no private IPv6 access to or from Google Services (all access will be via IPv4).",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "pod_autoscaling",
+    "type": "object({\n    hpa_profile = string\n  })",
+    "description": "Enable the Horizontal Pod Autoscaling profile for this cluster.Acceptable values are:'NONE' - Customers explicitly opt-out of HPA profiles, 'PERFORMANCE' - PERFORMANCE is used when customers opt-in to the performance HPA profile. In this profile we support a higher number of HPAs per cluster and faster metrics collection for workload autoscaling. See HPAProfile for more details.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "logging_config",
+    "type": "object({\n    enable_components = optional(list(string))\n  })",
+    "description": "Logging configuration for the cluster.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "master_authorized_networks_config",
+    "type": "object({\n    cidr_blocks = list(object({\n      display_name = string\n      cidr_block   = string\n    }))\n    gcp_public_cidrs_access_enabled      = optional(bool)\n    private_endpoint_enforcement_enabled = optional(bool)\n  })",
+    "description": "The desired configuration options for master authorized networks. Cidr Block must follow [Cidr notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "The name or self_link of the Google Compute Engine network to which the cluster is connected. For Shared VPC, this network must be in the host project.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enable_legacy_abac",
+    "type": "bool",
+    "description": "Whether the ABAC authorizer is enabled for this cluster. When enabled, identities with the Kubernetes version of 'cluster-admin' role will have permissions to perform any action on any resource within the cluster.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "monitoring_service",
+    "type": "string",
+    "description": "The monitoring service that the cluster should write metrics to. Available options include `monitoring.googleapis.com`, `monitoring.googleapis.com/kubernetes`, and `none`.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "node_config",
+    "type": "object({\n    confidential_nodes = optional(object({\n      enabled = bool\n    }))\n    disk_size_gb                = optional(number)\n    disk_type                   = optional(string)\n    enable_confidential_storage = optional(bool)\n    local_ssd_encryption_mode   = optional(string)\n    ephemeral_storage_config = optional(object({\n      local_ssd_count = number\n    }))\n    ephemeral_storage_local_ssd_config = optional(object({\n      local_ssd_count  = number\n      data_cache_count = optional(number)\n    }))\n    fast_socket = optional(object({\n      enabled = bool\n    }))\n    local_nvme_ssd_block_config = optional(object({\n      local_ssd_count = number\n    }))\n    logging_variant = optional(string)\n    secondary_boot_disks = optional(object({\n      disk_image = string\n      mode       = optional(string)\n    }))\n    gcfs_config = optional(object({\n      enabled = bool\n    }))\n    gvnic = optional(object({\n      enabled = bool\n    }))\n    guest_accelerator = optional(object({\n      type  = string\n      count = number\n      gpu_driver_installation_config = optional(object({\n        gpu_driver_version = string\n      }))\n      gpu_partition_size = optional(string)\n      gpu_sharing_config = optional(object({\n        gpu_sharing_strategy       = string\n        max_shared_clients_per_gpu = number\n      }))\n    }))\n    image_type       = optional(string)\n    labels           = optional(map(string))\n    resource_labels  = optional(map(string))\n    max_run_duration = optional(string)\n    flex_start       = optional(bool)\n    local_ssd_count  = optional(number)\n    machine_type     = optional(string)\n    metadata         = optional(map(string))\n    min_cpu_platform = optional(string)\n    oauth_scopes     = optional(list(string))\n    preemptible      = optional(bool)\n    reservation_affinity = optional(object({\n      consume_reservation_type = string\n      key                      = optional(string)\n      values                   = optional(list(string))\n    }))\n    spot = optional(bool)\n    sandbox_config = optional(object({\n      sandbox_type = string\n    }))\n    boot_disk_kms_key = optional(string)\n    service_account   = optional(string)\n    shielded_instance_config = optional(object({\n      enable_secure_boot          = optional(bool)\n      enable_integrity_monitoring = optional(bool)\n    }))\n    storage_pools         = optional(list(string))\n    tags                  = optional(list(string))\n    resource_manager_tags = optional(map(string))\n    taint = optional(list(object({\n      key    = string\n      value  = string\n      effect = string\n    })))\n    workload_metadata_config = optional(object({\n      mode = optional(string)\n    }))\n    kubelet_config = optional(object({\n      cpu_manager_policy                     = optional(string)\n      cpu_cfs_quota                          = optional(bool)\n      cpu_cfs_quota_period                   = optional(string)\n      insecure_kubelet_readonly_port_enabled = optional(bool)\n      pod_pids_limit                         = optional(number)\n      container_log_max_size                 = optional(string)\n      container_log_max_files                = optional(number)\n      image_gc_low_threshold_percent         = optional(number)\n      image_gc_high_threshold_percent        = optional(number)\n      image_minimum_gc_age                   = optional(string)\n      allowed_unsafe_sysctls                 = optional(list(string))\n    }))\n    linux_node_config = optional(object({\n      sysctls     = optional(map(string))\n      cgroup_mode = optional(string)\n      hugepages_config = optional(object({\n        hugepage_size_2m = optional(number)\n        hugepage_size_1g = optional(number)\n      }))\n    }))\n    windows_node_config = optional(object({\n      osversion = string\n    }))\n    containerd_config = optional(object({\n      private_registry_access_config = optional(object({\n        enabled = bool\n        certificate_authority_domain_config = optional(object({\n          fqdns = list(string)\n          gcp_secret_manager_certificate_config = object({\n            secret_uri = string\n          })\n        }))\n      }))\n    }))\n    node_group = optional(string)\n    sole_tenant_config = optional(object({\n      node_affinity = optional(object({\n        key      = string\n        operator = string\n        values   = list(string)\n      }))\n    }))\n  })",
+    "description": "Parameters used in creating the default node pool. Generally, this field should not be used at the same time as a `google_container_node_pool` or a `node_pool` block; this configuration is inherited by the default node pool, and can conflict with configuration in the separate resource or block.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "object({\n    create = optional(string)\n    update = optional(string)\n    delete = optional(string)\n  })",
+    "description": "Timeout for cluster operations.",
+    "default": "{\n  \"create\": \"45m\",\n  \"delete\": \"45m\",\n  \"update\": \"45m\"\n}",
+    "required": false
+  },
+  {
+    "name": "cluster_ipv4_cidr",
+    "type": "string",
+    "description": "The IP address range of the Kubernetes pods in this cluster in CIDR notation (e.g. 10.96.0.0/14). Leave blank to have one automatically chosen or specify a /14 block in 10.0.0.0/8. This field will only work for routes-based clusters, where ip_allocation_policy is not defined.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_multi_networking",
+    "type": "bool",
+    "description": "Enable multi-networking for this cluster. This feature requires projects to have enabled GKE multi-networking series APIs. This feature is in public beta.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "gateway_api_config",
+    "type": "object({\n    channel = string\n  })",
+    "description": "Configuration for the Gateway API, which manages access to Kubernetes services.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_posture_config",
+    "type": "object({\n    mode               = optional(string)\n    vulnerability_mode = optional(string)\n  })",
+    "description": "Security posture configuration for the cluster. mode - Sets the mode of the Kubernetes security posture API's off-cluster features. Available options include DISABLED, BASIC, and ENTERPRISE. vulnerability_mode - Sets the mode of the Kubernetes security posture API's workload vulnerability scanning. Available options include VULNERABILITY_DISABLED, VULNERABILITY_BASIC and VULNERABILITY_ENTERPRISE.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enterprise_config",
+    "type": "object({\n    desired_tier = string\n  })",
+    "description": "Enterprise configuration for the cluster. Sets the tier of the cluster. Available options include STANDARD and ENTERPRISE.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Description of the cluster.",
+    "default": "null",
+    "required": false
+  }
+]

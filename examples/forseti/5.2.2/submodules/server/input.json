@@ -1,0 +1,275 @@
+[
+  {
+    "name": "client_iam_module",
+    "type": "string",
+    "description": "The Forseti Client IAM module",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "server_ssh_allow_ranges",
+    "type": "list(string)",
+    "description": "List of CIDRs that will be allowed ssh access to forseti server",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "server_region",
+    "type": "string",
+    "description": "GCE Forseti Server region",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "server_boot_disk_size",
+    "type": "string",
+    "description": "Size of the GCE instance boot disk in GBs.",
+    "default": "\"100\"",
+    "required": false
+  },
+  {
+    "name": "server_instance_metadata",
+    "type": "map(string)",
+    "description": "Metadata key/value pairs to make available from within the server instance.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "policy_library_home",
+    "type": "string",
+    "description": "The local policy library directory.",
+    "default": "\"$USER_HOME/policy-library\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_module",
+    "type": "string",
+    "description": "The CloudSQL module",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "forseti_version",
+    "type": "string",
+    "description": "The version of Forseti to install",
+    "default": "\"v2.25.2\"",
+    "required": false
+  },
+  {
+    "name": "server_shielded_instance_config",
+    "type": "map(string)",
+    "description": "Server instance 'shielded_instance_config' block if using shielded VM image",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "manage_firewall_rules",
+    "type": "bool",
+    "description": "Create server firewall rules",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "server_type",
+    "type": "string",
+    "description": "GCE Forseti Server machine type",
+    "default": "\"n1-standard-8\"",
+    "required": false
+  },
+  {
+    "name": "policy_library_repository_branch",
+    "type": "string",
+    "description": "The specific git branch containing the policies.",
+    "default": "\"master\"",
+    "required": false
+  },
+  {
+    "name": "policy_library_repository_url",
+    "type": "string",
+    "description": "The git repository containing the policy-library.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "policy_library_sync_git_sync_tag",
+    "type": "string",
+    "description": "Tag for the git-sync image.",
+    "default": "\"v3.1.2\"",
+    "required": false
+  },
+  {
+    "name": "server_gcs_module",
+    "type": "string",
+    "description": "The Forseti Server GCS module",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Google Project ID that you want Forseti deployed into",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "forseti_home",
+    "type": "string",
+    "description": "Forseti installation directory",
+    "default": "\"$USER_HOME/forseti-security\"",
+    "required": false
+  },
+  {
+    "name": "forseti_run_frequency",
+    "type": "string",
+    "description": "Schedule of running the Forseti scans",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "server_iam_module",
+    "type": "string",
+    "description": "The Forseti Server IAM module",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "server_rules_module",
+    "type": "string",
+    "description": "The Forseti Server rules module",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The VPC subnetwork where the Forseti client and server will be created",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "network_project",
+    "type": "string",
+    "description": "The project containing the VPC and subnetwork where the Forseti client and server will be created",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "policy_library_sync_ssh_known_hosts",
+    "type": "string",
+    "description": "List of authorized public keys for SSH host of the policy library repository.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "mailjet_enabled",
+    "type": "bool",
+    "description": "Enable mailjet_rest library",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "The VPC where the Forseti client and server will be created",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "server_grpc_allow_ranges",
+    "type": "list(string)",
+    "description": "List of CIDRs that will be allowed gRPC access to forseti server",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "policy_library_sync_gcs_directory_name",
+    "type": "string",
+    "description": "The directory name of the GCS folder used for the policy library sync config.",
+    "default": "\"policy_library_sync\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_proxy_arch",
+    "type": "string",
+    "description": "CloudSQL Proxy architecture",
+    "default": "\"linux.amd64\"",
+    "required": false
+  },
+  {
+    "name": "forseti_repo_url",
+    "type": "string",
+    "description": "Git repo for the Forseti installation",
+    "default": "\"https://github.com/forseti-security/forseti-security\"",
+    "required": false
+  },
+  {
+    "name": "server_boot_disk_type",
+    "type": "string",
+    "description": "GCE instance boot disk type, can be pd-standard or pd-ssd.",
+    "default": "\"pd-ssd\"",
+    "required": false
+  },
+  {
+    "name": "server_tags",
+    "type": "list(string)",
+    "description": "VM instance tags",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "services",
+    "type": "list(string)",
+    "description": "An artificial dependency to bypass #10462",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "policy_library_sync_enabled",
+    "type": "string",
+    "description": "Sync config validator policy library from private repository.",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "server_boot_image",
+    "type": "string",
+    "description": "GCE Forseti Server boot image - Currently only Ubuntu is supported",
+    "default": "\"ubuntu-os-cloud/ubuntu-1804-lts\"",
+    "required": false
+  },
+  {
+    "name": "server_private",
+    "type": "string",
+    "description": "Enable private Forseti server VM (no public IP)",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "cloud_profiler_enabled",
+    "type": "bool",
+    "description": "Enable the Cloud Profiler",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "server_access_config",
+    "type": "map(any)",
+    "description": "Server instance 'access_config' block",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "suffix",
+    "type": "string",
+    "description": "The random suffix to append to all Forseti resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "server_config_module",
+    "type": "string",
+    "description": "The Forseti Server config module",
+    "default": "",
+    "required": true
+  }
+]

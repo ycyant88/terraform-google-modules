@@ -1,0 +1,205 @@
+[
+  {
+    "name": "sa_org_iam_permissions",
+    "type": "list(string)",
+    "description": "List of permissions granted to Terraform service account across the GCP organization.",
+    "default": "[\n  \"roles/billing.user\",\n  \"roles/compute.networkAdmin\",\n  \"roles/compute.xpnAdmin\",\n  \"roles/iam.securityAdmin\",\n  \"roles/iam.serviceAccountAdmin\",\n  \"roles/logging.configWriter\",\n  \"roles/orgpolicy.policyAdmin\",\n  \"roles/resourcemanager.folderAdmin\",\n  \"roles/resourcemanager.organizationViewer\"\n]",
+    "required": false
+  },
+  {
+    "name": "state_bucket_name",
+    "type": "string",
+    "description": "Custom state bucket name. If not supplied, the default name is {project_prefix}-tfstate-{random suffix}.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "storage_bucket_labels",
+    "type": "map(string)",
+    "description": "Labels to apply to the storage bucket.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "GCP Organization ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "group_billing_admins",
+    "type": "string",
+    "description": "Google Group for GCP Billing Administrators",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_labels",
+    "type": "map(string)",
+    "description": "Labels to apply to the project.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "tf_service_account_id",
+    "type": "string",
+    "description": "ID of service account for terraform in seed project",
+    "default": "\"org-terraform\"",
+    "required": false
+  },
+  {
+    "name": "tf_service_account_name",
+    "type": "string",
+    "description": "Display name of service account for terraform in seed project",
+    "default": "\"CFT Organization Terraform Account\"",
+    "required": false
+  },
+  {
+    "name": "billing_account",
+    "type": "string",
+    "description": "The ID of the billing account to associate projects with.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "force_destroy",
+    "type": "bool",
+    "description": "If supplied, the state bucket will be deleted even while containing objects.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "grant_billing_user",
+    "type": "bool",
+    "description": "Grant roles/billing.user role to CFT service account",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "org_project_creators",
+    "type": "list(string)",
+    "description": "Additional list of members to have project creator role accross the organization. Prefix of group: user: or serviceAccount: is required.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "key_protection_level",
+    "type": "string",
+    "description": "The protection level to use when creating a version based on this template. Default value: \"SOFTWARE\" Possible values: [\"SOFTWARE\", \"HSM\"]",
+    "default": "\"SOFTWARE\"",
+    "required": false
+  },
+  {
+    "name": "default_region",
+    "type": "string",
+    "description": "Default region to create resources where applicable.",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Custom project ID to use for project created. If not supplied, the default id is {project_prefix}-seed-{random suffix}.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "activate_apis",
+    "type": "list(string)",
+    "description": "List of APIs to enable in the seed project.",
+    "default": "[\n  \"serviceusage.googleapis.com\",\n  \"servicenetworking.googleapis.com\",\n  \"compute.googleapis.com\",\n  \"logging.googleapis.com\",\n  \"bigquery.googleapis.com\",\n  \"cloudresourcemanager.googleapis.com\",\n  \"cloudbilling.googleapis.com\",\n  \"iam.googleapis.com\",\n  \"admin.googleapis.com\",\n  \"appengine.googleapis.com\",\n  \"storage-api.googleapis.com\",\n  \"monitoring.googleapis.com\"\n]",
+    "required": false
+  },
+  {
+    "name": "sa_enable_impersonation",
+    "type": "bool",
+    "description": "Allow org_admins group to impersonate service account & enable APIs required.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_terraform_sa",
+    "type": "bool",
+    "description": "If the Terraform service account should be created.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "encrypt_gcs_bucket_tfstate",
+    "type": "bool",
+    "description": "Encrypt bucket used for storing terraform state files in seed project.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "group_org_admins",
+    "type": "string",
+    "description": "Google Group for GCP Organization Administrators",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_prefix",
+    "type": "string",
+    "description": "Name prefix to use for projects created.",
+    "default": "\"cft\"",
+    "required": false
+  },
+  {
+    "name": "key_rotation_period",
+    "type": "string",
+    "description": "The rotation period of the key.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "parent_folder",
+    "type": "string",
+    "description": "GCP parent folder ID in the form folders/{id}",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "project_deletion_policy",
+    "type": "string",
+    "description": "The deletion policy for the project created.",
+    "default": "\"PREVENT\"",
+    "required": false
+  },
+  {
+    "name": "kms_prevent_destroy",
+    "type": "bool",
+    "description": "Set the prevent_destroy lifecycle attribute on keys.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "project_auto_create_network",
+    "type": "bool",
+    "description": "Create the default network for the project created.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "org_admins_org_iam_permissions",
+    "type": "list(string)",
+    "description": "List of permissions granted to the group supplied in group_org_admins variable across the GCP organization.",
+    "default": "[\n  \"roles/billing.user\",\n  \"roles/resourcemanager.organizationAdmin\"\n]",
+    "required": false
+  },
+  {
+    "name": "folder_id",
+    "type": "string",
+    "description": "The ID of a folder to host this project",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "random_suffix",
+    "type": "bool",
+    "description": "Appends a 4 character random suffix to project ID and GCS bucket name.",
+    "default": "true",
+    "required": false
+  }
+]

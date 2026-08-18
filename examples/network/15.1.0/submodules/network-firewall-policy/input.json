@@ -1,0 +1,51 @@
+[
+  {
+    "name": "policy_type",
+    "type": "string",
+    "description": "Policy type is used to determine which resources (networks) the policy can be associated with. A policy can be associated with a network only if the network has the matching policyType in its network profile. Different policy types may support some of the Firewall Rules features. Possible values are: VPC_POLICY, RDMA_ROCE_POLICY.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "rules",
+    "type": "list(object({\n    priority                = number\n    direction               = string\n    action                  = string\n    rule_name               = optional(string)\n    disabled                = optional(bool)\n    description             = optional(string)\n    enable_logging          = optional(bool)\n    target_secure_tags      = optional(list(string))\n    target_service_accounts = optional(list(string))\n    match = object({\n      src_ip_ranges             = optional(list(string), [])\n      src_fqdns                 = optional(list(string), [])\n      src_region_codes          = optional(list(string), [])\n      src_secure_tags           = optional(list(string), [])\n      src_threat_intelligences  = optional(list(string), [])\n      src_address_groups        = optional(list(string), [])\n      dest_ip_ranges            = optional(list(string), [])\n      dest_fqdns                = optional(list(string), [])\n      dest_region_codes         = optional(list(string), [])\n      dest_threat_intelligences = optional(list(string), [])\n      dest_address_groups       = optional(list(string), [])\n      layer4_configs = optional(list(object({\n        ip_protocol = optional(string, \"all\")\n        ports       = optional(list(string), [])\n      })), [{}])\n    })\n    is_mirroring              = optional(bool, false)\n    tls_inspect               = optional(bool, false)\n    security_profile_group_id = optional(string)\n    src_networks              = optional(list(string), [])\n    src_network_scope         = optional(string)\n    dest_network_scope        = optional(string)\n  }))",
+    "description": "List of Ingress/Egress rules",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project ID of the Network firewall policy",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "policy_name",
+    "type": "string",
+    "description": "User-provided name of the Network firewall policy",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "An optional description of this resource. Provide this property when you create the resource",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "target_vpcs",
+    "type": "list(string)",
+    "description": "List of target VPC IDs that the firewall policy will be attached to",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "policy_region",
+    "type": "string",
+    "description": "Location of the firewall policy. Needed for regional firewall policies. Default is null (Global firewall policy)",
+    "default": "null",
+    "required": false
+  }
+]

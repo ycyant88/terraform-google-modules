@@ -1,0 +1,44 @@
+[
+  {
+    "name": "restart_policy",
+    "type": "string",
+    "description": "The restart policy for a Docker container. Defaults to `OnFailure`",
+    "default": "\"OnFailure\"",
+    "required": false
+  },
+  {
+    "name": "cos_image_family",
+    "type": "string",
+    "description": "The COS image family to use (eg: stable, beta, or dev)",
+    "default": "\"stable\"",
+    "required": false
+  },
+  {
+    "name": "cos_image_name",
+    "type": "string",
+    "description": "Name of a specific COS image to use instead of the latest cos family image",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cos_project",
+    "type": "string",
+    "description": "COS project where the image is located",
+    "default": "\"cos-cloud\"",
+    "required": false
+  },
+  {
+    "name": "container",
+    "type": "any",
+    "description": "A description of the container to deploy",
+    "default": "{\n  \"command\": \"ls\",\n  \"image\": \"gcr.io/google-containers/busybox\"\n}",
+    "required": false
+  },
+  {
+    "name": "volumes",
+    "type": "any",
+    "description": "A set of Docker Volumes to configure",
+    "default": "[]",
+    "required": false
+  }
+]

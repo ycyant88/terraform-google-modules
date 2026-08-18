@@ -1,0 +1,58 @@
+[
+  {
+    "name": "fhir_stores",
+    "type": "any",
+    "description": "Datastore that conforms to the FHIR standard for Healthcare information exchange.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "hl7_v2_stores",
+    "type": "any",
+    "description": "Datastore that conforms to the HL7 V2 (https://www.hl7.org/hl7V2/STU3/) standard for Healthcare information exchange.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The resource name for the Dataset.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The ID of the project in which the resource belongs.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The location for the Dataset.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "time_zone",
+    "type": "string",
+    "description": "The default timezone used by this dataset.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "iam_members",
+    "type": "list(object({\n    role   = string\n    member = string\n  }))",
+    "description": "Updates the IAM policy to grant a role to a new member. Other members for the role for the dataset are preserved.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "dicom_stores",
+    "type": "any",
+    "description": "Datastore that conforms to the DICOM (https://www.dicomstandard.org/about/) standard for Healthcare information exchange.",
+    "default": "[]",
+    "required": false
+  }
+]

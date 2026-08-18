@@ -1,0 +1,107 @@
+[
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region used for GCP resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Name of the network to create resources in.",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "health_check",
+    "type": "object({\n    check_interval_sec  = number\n    healthy_threshold   = number\n    timeout_sec         = number\n    unhealthy_threshold = number\n    port                = number\n    request_path        = string\n    host                = string\n  })",
+    "description": "Health check to determine whether instances are responsive and able to do work",
+    "default": "{\n  \"check_interval_sec\": null,\n  \"healthy_threshold\": null,\n  \"host\": null,\n  \"port\": null,\n  \"request_path\": null,\n  \"timeout_sec\": null,\n  \"unhealthy_threshold\": null\n}",
+    "required": false
+  },
+  {
+    "name": "target_tags",
+    "type": "list(string)",
+    "description": "List of target tags to allow traffic using firewall rule.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "session_affinity",
+    "type": "string",
+    "description": "How to distribute load. Options are `NONE`, `CLIENT_IP` and `CLIENT_IP_PROTO`",
+    "default": "\"NONE\"",
+    "required": false
+  },
+  {
+    "name": "disable_health_check",
+    "type": "bool",
+    "description": "Disables the health check on the target pool.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "allowed_ips",
+    "type": "list(string)",
+    "description": "The IP address ranges which can access the load balancer.",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name for the forwarding rule and prefix for supporting resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ip_address",
+    "type": "string",
+    "description": "IP address of the external load balancer, if empty one will be assigned.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The project to deploy to, if not set the default provider project is used.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "firewall_project",
+    "type": "string",
+    "description": "Name of the project to create the firewall rule in. Useful for shared VPC. Default is var.project.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "service_port",
+    "type": "number",
+    "description": "TCP port your service is listening on.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "target_service_accounts",
+    "type": "list(string)",
+    "description": "List of target service accounts to allow traffic using firewall rule.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ip_protocol",
+    "type": "string",
+    "description": "The IP protocol for the frontend forwarding rule and firewall rule. TCP, UDP, ESP, AH, SCTP or ICMP.",
+    "default": "\"TCP\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "The labels to attach to resources created by this module.",
+    "default": "{}",
+    "required": false
+  }
+]

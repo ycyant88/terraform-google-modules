@@ -1,0 +1,177 @@
+[
+  {
+    "name": "credentials_path",
+    "type": "",
+    "description": "Path to a Service Account credentials file with permissions documented in the readme",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "labels",
+    "type": "",
+    "description": "Map of labels for project",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "random_project_id",
+    "type": "",
+    "description": "Enables project random id generation",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "domain",
+    "type": "",
+    "description": "The domain name (optional).",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "usage_bucket_name",
+    "type": "",
+    "description": "Name of a GCS bucket to store GCE usage reports in (optional)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "group_role",
+    "type": "",
+    "description": "The role to give the controlling group (group_name) over the project (defaults to project editor)",
+    "default": "\"roles/editor\"",
+    "required": false
+  },
+  {
+    "name": "disable_services_on_destroy",
+    "type": "",
+    "description": "Whether project services will be disabled when the resources are destroyed",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "lien",
+    "type": "",
+    "description": "Add a lien on the project to prevent accidental deletion",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "folder_id",
+    "type": "",
+    "description": "The ID of a folder to host this project",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_group",
+    "type": "",
+    "description": "Whether to create the group or not",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "sa_group",
+    "type": "",
+    "description": "A GSuite group to place the default Service Account for the project in",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "sa_role",
+    "type": "",
+    "description": "A role to give the default Service Account for the project (defaults to none)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "usage_bucket_prefix",
+    "type": "",
+    "description": "Prefix in the GCS bucket to store GCE usage reports in (optional)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "shared_vpc_subnets",
+    "type": "",
+    "description": "List of subnets fully qualified subnet IDs (ie. projects/$project_id/regions/$region/subnetworks/$subnet_id)",
+    "default": "[\n  \"\"\n]",
+    "required": false
+  },
+  {
+    "name": "api_sa_group",
+    "type": "",
+    "description": "A GSuite group to place the Google APIs Service Account for the project in",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "org_id",
+    "type": "",
+    "description": "The organization ID.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "name",
+    "type": "",
+    "description": "The name for the project",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "billing_account",
+    "type": "",
+    "description": "The ID of the billing account to associate this project with",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "auto_create_network",
+    "type": "",
+    "description": "Create the default network",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "app_engine",
+    "type": "",
+    "description": "A map for app engine configuration",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "bucket_project",
+    "type": "",
+    "description": "A project to create a GCS bucket (bucket_name) in, useful for Terraform state (optional)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "bucket_name",
+    "type": "",
+    "description": "A name for a GCS bucket to create (in the bucket_project project), useful for Terraform state (optional)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "shared_vpc",
+    "type": "",
+    "description": "The ID of the host project which hosts the shared VPC",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "group_name",
+    "type": "",
+    "description": "A group to control the project by being assigned group_role - defaults to ${project_name}-editors",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "activate_apis",
+    "type": "",
+    "description": "The list of apis to activate within the project",
+    "default": "[\n  \"compute.googleapis.com\"\n]",
+    "required": false
+  }
+]

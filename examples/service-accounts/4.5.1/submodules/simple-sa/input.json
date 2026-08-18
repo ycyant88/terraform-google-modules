@@ -1,0 +1,37 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project id where service account will be created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of service account",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "display_name",
+    "type": "string",
+    "description": "Display name of the created service accounts (defaults to 'Terraform-managed service account')",
+    "default": "\"Terraform-managed service account\"",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Default description of the created service accounts (defaults to no description)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "project_roles",
+    "type": "list(string)",
+    "description": "Roles to grant the SA in specified project",
+    "default": "[]",
+    "required": false
+  }
+]

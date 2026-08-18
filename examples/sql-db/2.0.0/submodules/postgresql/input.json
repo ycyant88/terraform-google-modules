@@ -1,0 +1,352 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to manage the Cloud SQL resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region of the Cloud SQL resources",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "availability_type",
+    "type": "string",
+    "description": "The availability type for the master instance.This is only used to set up high availability for the PostgreSQL instance. Can be either `ZONAL` or `REGIONAL`.",
+    "default": "\"ZONAL\"",
+    "required": false
+  },
+  {
+    "name": "disk_size",
+    "type": "number",
+    "description": "The disk size for the master instance.",
+    "default": "10",
+    "required": false
+  },
+  {
+    "name": "read_replica_zones",
+    "type": "string",
+    "description": "The zones for the read replica instancess, it should be something like: `a,b,c`. Given zones are used rotationally for creating read replicas.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "read_replica_availability_type",
+    "type": "string",
+    "description": "The availability type for the read replica instances.This is only used to set up high availability for the PostgreSQL instances. Can be either `ZONAL` or `REGIONAL`.",
+    "default": "\"ZONAL\"",
+    "required": false
+  },
+  {
+    "name": "read_replica_disk_autoresize",
+    "type": "bool",
+    "description": "Configuration to increase storage size.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "read_replica_disk_size",
+    "type": "number",
+    "description": "The disk size for the read replica instances.",
+    "default": "10",
+    "required": false
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "The zone for the master instance, it should be something like: `a`, `c`.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ip_configuration",
+    "type": "object({\n    authorized_networks = list(map(string))\n    ipv4_enabled        = bool\n    private_network     = string\n    require_ssl         = bool\n  })",
+    "description": "The ip configuration for the master instances.",
+    "default": "{\n  \"authorized_networks\": [],\n  \"ipv4_enabled\": true,\n  \"private_network\": null,\n  \"require_ssl\": null\n}",
+    "required": false
+  },
+  {
+    "name": "read_replica_pricing_plan",
+    "type": "string",
+    "description": "The pricing plan for the read replica instances.",
+    "default": "\"PER_USE\"",
+    "required": false
+  },
+  {
+    "name": "read_replica_maintenance_window_day",
+    "type": "number",
+    "description": "The day of week (1-7) for the read replica instances maintenance.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "read_replica_maintenance_window_hour",
+    "type": "number",
+    "description": "The hour of day (0-23) maintenance window for the read replica instances maintenance.",
+    "default": "23",
+    "required": false
+  },
+  {
+    "name": "read_replica_database_flags",
+    "type": "list(object({\n    name  = string\n    value = string\n  }))",
+    "description": "The database flags for the read replica instances. See [more details](https://cloud.google.com/sql/docs/mysql/flags)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "db_name",
+    "type": "string",
+    "description": "The name of the default database to create",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "db_collation",
+    "type": "string",
+    "description": "The collation for the default database. Example: 'en_US.UTF8'",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the Cloud SQL resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "read_replica_configuration",
+    "type": "object({\n    connect_retry_interval = number\n    dump_file_path         = string\n  })",
+    "description": "The replica configuration for use in all read replica instances.",
+    "default": "{\n  \"connect_retry_interval\": null,\n  \"dump_file_path\": null\n}",
+    "required": false
+  },
+  {
+    "name": "read_replica_replication_type",
+    "type": "string",
+    "description": "The replication type for read replica instances. Can be one of ASYNCHRONOUS or SYNCHRONOUS.",
+    "default": "\"SYNCHRONOUS\"",
+    "required": false
+  },
+  {
+    "name": "user_name",
+    "type": "string",
+    "description": "The name of the default user",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "user_password",
+    "type": "string",
+    "description": "The password for the default user. If not set, a random one will be generated and available in the generated_user_password output variable.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "database_version",
+    "type": "string",
+    "description": "The database version to use",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "pricing_plan",
+    "type": "string",
+    "description": "The pricing plan for the master instance.",
+    "default": "\"PER_USE\"",
+    "required": false
+  },
+  {
+    "name": "maintenance_window_day",
+    "type": "number",
+    "description": "The day of week (1-7) for the master instance maintenance.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "maintenance_window_update_track",
+    "type": "string",
+    "description": "The update track of maintenance window for the master instance maintenance.Can be either `canary` or `stable`.",
+    "default": "\"canary\"",
+    "required": false
+  },
+  {
+    "name": "user_labels",
+    "type": "map(string)",
+    "description": "The key/value labels for the master instances.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "activation_policy",
+    "type": "string",
+    "description": "The activation policy for the master instance.Can be either `ALWAYS`, `NEVER` or `ON_DEMAND`.",
+    "default": "\"ALWAYS\"",
+    "required": false
+  },
+  {
+    "name": "read_replica_user_labels",
+    "type": "map(string)",
+    "description": "The key/value labels for the read replica instances.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "read_replica_ip_configuration",
+    "type": "object({\n    authorized_networks = list(map(string))\n    ipv4_enabled        = bool\n    private_network     = string\n    require_ssl         = bool\n  })",
+    "description": "The ip configuration for the read instances.",
+    "default": "{\n  \"authorized_networks\": [],\n  \"ipv4_enabled\": true,\n  \"private_network\": null,\n  \"require_ssl\": null\n}",
+    "required": false
+  },
+  {
+    "name": "db_charset",
+    "type": "string",
+    "description": "The charset for the default database",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "additional_users",
+    "type": "list(object({\n    project  = string\n    name     = string\n    password = string\n    host     = string\n    instance = string\n  }))",
+    "description": "A list of users to be created in your cluster",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_timeout",
+    "type": "string",
+    "description": "The optional timout that is applied to limit long database creates.",
+    "default": "\"10m\"",
+    "required": false
+  },
+  {
+    "name": "disk_autoresize",
+    "type": "bool",
+    "description": "Configuration to increase storage size.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "maintenance_window_hour",
+    "type": "number",
+    "description": "The hour of day (0-23) maintenance window for the master instance maintenance.",
+    "default": "23",
+    "required": false
+  },
+  {
+    "name": "backup_configuration",
+    "type": "object({\n    binary_log_enabled = bool\n    enabled            = bool\n    start_time         = string\n  })",
+    "description": "The backup_configuration settings subblock for the database setings",
+    "default": "{\n  \"binary_log_enabled\": null,\n  \"enabled\": null,\n  \"start_time\": null\n}",
+    "required": false
+  },
+  {
+    "name": "authorized_gae_applications",
+    "type": "list(string)",
+    "description": "The authorized gae applications for the Cloud SQL instances",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "read_replica_size",
+    "type": "number",
+    "description": "The size of read replicas",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "read_replica_name_suffix",
+    "type": "string",
+    "description": "The optional suffix to add to the read instance name",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "read_replica_tier",
+    "type": "string",
+    "description": "The tier for the read replica instances.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "read_replica_maintenance_window_update_track",
+    "type": "string",
+    "description": "The update track of maintenance window for the read replica instances maintenance.Can be either `canary` or `stable`.",
+    "default": "\"canary\"",
+    "required": false
+  },
+  {
+    "name": "disk_type",
+    "type": "string",
+    "description": "The disk type for the master instance.",
+    "default": "\"PD_SSD\"",
+    "required": false
+  },
+  {
+    "name": "tier",
+    "type": "string",
+    "description": "The tier for the master instance.",
+    "default": "\"db-f1-micro\"",
+    "required": false
+  },
+  {
+    "name": "peering_completed",
+    "type": "string",
+    "description": "Optional. This is used to ensure that resources are created in the proper order when using private IPs and service network peering.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "read_replica_crash_safe_replication",
+    "type": "bool",
+    "description": "The crash safe replication is to indicates when crash-safe replication flags are enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "read_replica_disk_type",
+    "type": "string",
+    "description": "The disk type for the read replica instances.",
+    "default": "\"PD_SSD\"",
+    "required": false
+  },
+  {
+    "name": "additional_databases",
+    "type": "list(object({\n    project   = string\n    name      = string\n    charset   = string\n    collation = string\n    instance  = string\n  }))",
+    "description": "A list of databases to be created in your cluster",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "update_timeout",
+    "type": "string",
+    "description": "The optional timout that is applied to limit long database updates.",
+    "default": "\"10m\"",
+    "required": false
+  },
+  {
+    "name": "database_flags",
+    "type": "list(object({\n    name  = string\n    value = string\n  }))",
+    "description": "The database flags for the master instance. See [more details](https://cloud.google.com/sql/docs/mysql/flags)",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "read_replica_activation_policy",
+    "type": "string",
+    "description": "The activation policy for the read replica instances.Can be either `ALWAYS`, `NEVER` or `ON_DEMAND`.",
+    "default": "\"ALWAYS\"",
+    "required": false
+  },
+  {
+    "name": "delete_timeout",
+    "type": "string",
+    "description": "The optional timout that is applied to limit long database deletes.",
+    "default": "\"10m\"",
+    "required": false
+  }
+]

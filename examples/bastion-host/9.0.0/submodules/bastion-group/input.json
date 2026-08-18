@@ -1,0 +1,198 @@
+[
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name prefix of bastion instances",
+    "default": "\"bastion\"",
+    "required": false
+  },
+  {
+    "name": "service_account_roles",
+    "type": "list(string)",
+    "description": "List of IAM roles to assign to the service account.",
+    "default": "[\n  \"roles/logging.logWriter\",\n  \"roles/monitoring.metricWriter\",\n  \"roles/monitoring.viewer\",\n  \"roles/compute.osLogin\"\n]",
+    "required": false
+  },
+  {
+    "name": "subnet",
+    "type": "string",
+    "description": "Self link for the subnet on which the Bastion should live. Can be private when using IAP",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "random_role_id",
+    "type": "bool",
+    "description": "Enables role random id generation.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "fw_name_allow_ssh_from_health_check_cidrs",
+    "type": "string",
+    "description": "Firewall rule name for allowing Health Checks",
+    "default": "\"allow-ssh-from-health-check-cidrs\"",
+    "required": false
+  },
+  {
+    "name": "image_family",
+    "type": "string",
+    "description": "Source image family for the Bastion.",
+    "default": "\"debian-12\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(any)",
+    "description": "Key-value map of labels to assign to the bastion host",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Self link for the network on which the Bastion should live",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The project ID to deploy to",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "service_account_roles_supplemental",
+    "type": "list(string)",
+    "description": "An additional list of roles to assign to the bastion if desired",
+    "default": "[\n  \"\"\n]",
+    "required": false
+  },
+  {
+    "name": "startup_script",
+    "type": "string",
+    "description": "Render a startup script with a template.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "additional_ports",
+    "type": "list(string)",
+    "description": "A list of additional ports/ranges to open access to on the instances from IAP.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "image_project",
+    "type": "string",
+    "description": "Project where the source image for the Bastion comes from",
+    "default": "\"debian-cloud\"",
+    "required": false
+  },
+  {
+    "name": "scopes",
+    "type": "list(string)",
+    "description": "List of scopes to attach to the bastion host",
+    "default": "[\n  \"cloud-platform\"\n]",
+    "required": false
+  },
+  {
+    "name": "fw_name_allow_ssh_from_iap",
+    "type": "string",
+    "description": "Firewall rule name for allowing SSH from IAP",
+    "default": "\"allow-ssh-from-iap-to-bastion-group\"",
+    "required": false
+  },
+  {
+    "name": "additional_networks",
+    "type": "list(object({\n    network            = string\n    subnetwork         = string\n    subnetwork_project = string\n    network_ip         = string\n    nic_type           = string\n    stack_type         = string\n    queue_count        = number\n    access_config = list(object({\n      nat_ip       = string\n      network_tier = string\n    }))\n    ipv6_access_config = list(object({\n      network_tier = string\n    }))\n    alias_ip_range = list(object({\n      ip_cidr_range         = string\n      subnetwork_range_name = string\n    }))\n  }))",
+    "description": "Additional network interface details for the instance template, if any.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "metadata",
+    "type": "map(string)",
+    "description": "Key-value map of additional metadata to assign to the instances",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "target_size",
+    "type": "number",
+    "description": "Number of instances to create",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "health_check",
+    "type": "object({\n    type                = string\n    initial_delay_sec   = number\n    check_interval_sec  = number\n    healthy_threshold   = number\n    timeout_sec         = number\n    unhealthy_threshold = number\n    response            = string\n    proxy_header        = string\n    port                = number\n    request             = string\n    enable_logging      = bool\n\n    # Unused fields.\n    request_path = string\n    host         = string\n  })",
+    "description": "Health check config for the mig.",
+    "default": "{\n  \"check_interval_sec\": 30,\n  \"enable_logging\": false,\n  \"healthy_threshold\": 1,\n  \"host\": \"\",\n  \"initial_delay_sec\": 30,\n  \"port\": 22,\n  \"proxy_header\": \"NONE\",\n  \"request\": \"\",\n  \"request_path\": \"\",\n  \"response\": \"\",\n  \"timeout_sec\": 10,\n  \"type\": \"tcp\",\n  \"unhealthy_threshold\": 5\n}",
+    "required": false
+  },
+  {
+    "name": "host_project",
+    "type": "string",
+    "description": "The network host project ID",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The primary region where the bastion host will live",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "service_account_name",
+    "type": "string",
+    "description": "Account ID for the service account",
+    "default": "\"bastion-group\"",
+    "required": false
+  },
+  {
+    "name": "service_account_email",
+    "type": "string",
+    "description": "If set, the service account and its permissions will not be created. The service account being passed in should have at least the roles listed in the parent module `service_account_roles` variable so that logging and OS Login work as expected.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "shielded_vm",
+    "type": "bool",
+    "description": "Enable shielded VM on the bastion host (recommended)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "The primary zone where the bastion host will live",
+    "default": "\"us-central1-a\"",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "list(string)",
+    "description": "Network tags, provided as a list",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "machine_type",
+    "type": "string",
+    "description": "Instance type for the Bastion host",
+    "default": "\"n1-standard-1\"",
+    "required": false
+  },
+  {
+    "name": "members",
+    "type": "list(string)",
+    "description": "List of IAM resources to allow access to the bastion host",
+    "default": "[]",
+    "required": false
+  }
+]

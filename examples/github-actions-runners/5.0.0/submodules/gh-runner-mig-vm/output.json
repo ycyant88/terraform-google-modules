@@ -1,0 +1,26 @@
+[
+  {
+    "name": "network_name",
+    "description": "Name of VPC"
+  },
+  {
+    "name": "subnet_name",
+    "description": "Name of VPC"
+  },
+  {
+    "name": "service_account",
+    "description": "Service account email for GCE"
+  },
+  {
+    "name": "mig_instance_group",
+    "description": "The instance group url of the created MIG"
+  },
+  {
+    "name": "mig_name",
+    "description": "The name of the MIG"
+  },
+  {
+    "name": "mig_instance_template",
+    "description": "The name of the MIG Instance Template"
+  }
+]

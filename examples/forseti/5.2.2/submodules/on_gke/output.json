@@ -1,0 +1,46 @@
+[
+  {
+    "name": "forseti-client-service-account",
+    "description": "Forseti Client service account"
+  },
+  {
+    "name": "forseti-cloudsql-connection-name",
+    "description": "Forseti CloudSQL Connection String"
+  },
+  {
+    "name": "forseti-client-vm-ip",
+    "description": "Forseti Client VM private IP address"
+  },
+  {
+    "name": "kubernetes-forseti-tiller-sa-name",
+    "description": "The name of the service account deploying Forseti"
+  },
+  {
+    "name": "suffix",
+    "description": "The random suffix appended to Forseti resources"
+  },
+  {
+    "name": "config-validator-git-public-key-openssh",
+    "description": "The public OpenSSH key generated to allow the Forseti Server to clone the policy library repository."
+  },
+  {
+    "name": "forseti-client-storage-bucket",
+    "description": "Forseti Client storage bucket"
+  },
+  {
+    "name": "forseti-server-storage-bucket",
+    "description": "Forseti Server storage bucket"
+  },
+  {
+    "name": "forseti-server-service-account",
+    "description": "Forseti Server service account"
+  },
+  {
+    "name": "kubernetes-forseti-namespace",
+    "description": "The Kubernetes namespace in which Forseti is deployed"
+  },
+  {
+    "name": "kubernetes-forseti-server-ingress",
+    "description": "The loadbalancer ingress address of the forseti-server service in GKE"
+  }
+]

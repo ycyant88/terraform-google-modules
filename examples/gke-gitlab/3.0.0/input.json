@@ -1,0 +1,121 @@
+[
+  {
+    "name": "domain",
+    "type": "string",
+    "description": "Domain for hosting gitlab functionality (ie mydomain.com would access gitlab at gitlab.mydomain.com)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "certmanager_email",
+    "type": "string",
+    "description": "Email used to retrieve SSL certificates from Let's Encrypt",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "gke_version",
+    "type": "string",
+    "description": "Version of GKE to use for the GitLab cluster",
+    "default": "\"1.21\"",
+    "required": false
+  },
+  {
+    "name": "gitlab_address_name",
+    "type": "string",
+    "description": "Name of the address to use for GitLab ingress",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "GCP Project to deploy resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "gitlab_pods_subnet_cidr",
+    "type": "string",
+    "description": "Cidr range to use for gitlab GKE pods subnet",
+    "default": "\"10.3.0.0/16\"",
+    "required": false
+  },
+  {
+    "name": "gitlab_services_subnet_cidr",
+    "type": "string",
+    "description": "Cidr range to use for gitlab GKE services subnet",
+    "default": "\"10.2.0.0/16\"",
+    "required": false
+  },
+  {
+    "name": "gitlab_db_password",
+    "type": "string",
+    "description": "Password for the GitLab Postgres user",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "gitlab_deletion_protection",
+    "type": "bool",
+    "description": "Must be false to allow Terraform to destroy the Cloud SQL instance.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "gitlab_runner_install",
+    "type": "bool",
+    "description": "Choose whether to install the gitlab runner in the cluster",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "gitlab_nodes_subnet_cidr",
+    "type": "string",
+    "description": "Cidr range to use for gitlab GKE nodes subnet",
+    "default": "\"10.0.0.0/16\"",
+    "required": false
+  },
+  {
+    "name": "helm_chart_version",
+    "type": "string",
+    "description": "Helm chart version to install during deployment",
+    "default": "\"4.2.4\"",
+    "required": false
+  },
+  {
+    "name": "gitlab_db_name",
+    "type": "string",
+    "description": "Instance name for the GitLab Postgres database.",
+    "default": "\"gitlab-db\"",
+    "required": false
+  },
+  {
+    "name": "gitlab_db_random_prefix",
+    "type": "bool",
+    "description": "Sets random suffix at the end of the Cloud SQL instance name.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "GCP region to deploy resources to",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "allow_force_destroy",
+    "type": "bool",
+    "description": "Allows full cleanup of resources by disabling any deletion safe guards",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "gke_machine_type",
+    "type": "string",
+    "description": "Machine type used for the node-pool",
+    "default": "\"n1-standard-4\"",
+    "required": false
+  }
+]

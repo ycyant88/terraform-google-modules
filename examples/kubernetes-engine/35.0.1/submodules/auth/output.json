@@ -1,0 +1,18 @@
+[
+  {
+    "name": "token",
+    "description": "The token value for use with the kubernetes provider."
+  },
+  {
+    "name": "kubeconfig_raw",
+    "description": "A kubeconfig file configured to access the GKE cluster."
+  },
+  {
+    "name": "cluster_ca_certificate",
+    "description": "The cluster_ca_certificate value for use with the kubernetes provider."
+  },
+  {
+    "name": "host",
+    "description": "The host value for use with the kubernetes provider."
+  }
+]

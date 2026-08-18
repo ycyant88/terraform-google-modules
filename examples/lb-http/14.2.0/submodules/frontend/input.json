@@ -1,0 +1,212 @@
+[
+  {
+    "name": "certificate",
+    "type": "string",
+    "description": "Content of the SSL certificate. Requires `ssl` to be set to `true` and `create_ssl_certificate` set to `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ssl_policy",
+    "type": "string",
+    "description": "Selfink to SSL Policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "https_redirect",
+    "type": "bool",
+    "description": "Set to `true` to enable https redirect on the lb.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "The labels to attach to resources created by this module",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "internal_forwarding_rules_config",
+    "type": "list(object({\n    region     = string\n    address    = optional(string)\n    subnetwork = optional(string)\n  }))",
+    "description": "List of internal managed forwarding rules config. One of 'address' or 'subnetwork' is required for each. It is only applicable for internal load balancer",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ipv6_address",
+    "type": "string",
+    "description": "An existing IPv6 address to use (the actual IP address value)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_url_map",
+    "type": "bool",
+    "description": "Set to `false` if url_map variable is provided.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "url_map_resource_uri",
+    "type": "string",
+    "description": "The url_map resource to use. Default is to send all traffic to first backend.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ssl_certificates",
+    "type": "list(string)",
+    "description": "SSL cert self_link list. Requires `ssl` to be set to `true`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "private_key",
+    "type": "string",
+    "description": "Content of the private SSL key. Requires `ssl` to be set to `true` and `create_ssl_certificate` set to `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "random_certificate_suffix",
+    "type": "bool",
+    "description": "Bool to enable/disable random certificate name generation. Set and keep this to true if you need to change the SSL cert.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "http_port",
+    "type": "number",
+    "description": "The port for the HTTP load balancer",
+    "default": "80",
+    "required": false
+  },
+  {
+    "name": "certificate_map",
+    "type": "string",
+    "description": "Certificate Map ID in format projects/{project}/locations/global/certificateMaps/{name}. Identifies a certificate map associated with the given target proxy.  Requires `ssl` to be set to `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "VPC network for the forwarding rule. The VPC network should have exactly one GLOBAL_MANAGED_PROXY subnetwork for every region where the forwarding rule is to be configured. Please go to the subnets tab of your VPC network and check if a GLOBAL_MANAGED_PROXY subnet exists under the `Reserved proxy-only subnets for load balancing` section. If a GLOBAL_MANAGED_PROXY subnet doesn't exist, create one for each required region.",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "https_port",
+    "type": "number",
+    "description": "The port for the HTTPS load balancer",
+    "default": "443",
+    "required": false
+  },
+  {
+    "name": "create_address",
+    "type": "bool",
+    "description": "Create a new global IPv4 address",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "load_balancing_scheme",
+    "type": "string",
+    "description": "Load balancing scheme type (EXTERNAL for classic external load balancer, EXTERNAL_MANAGED for Envoy-based load balancer, INTERNAL_MANAGED for internal load balancer and INTERNAL_SELF_MANAGED for traffic director)",
+    "default": "\"EXTERNAL_MANAGED\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name for the forwarding rule and prefix for supporting resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "create_ipv6_address",
+    "type": "bool",
+    "description": "Allocate a new IPv6 address. Conflicts with \"ipv6_address\" - if both specified, \"create_ipv6_address\" takes precedence.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "url_map_input",
+    "type": "list(object({\n    host            = string\n    path            = string\n    backend_service = string\n  }))",
+    "description": "List of host, path and backend service for creating url_map",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "address",
+    "type": "string",
+    "description": "Existing IPv4 address to use (the actual IP address value)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_ipv6",
+    "type": "bool",
+    "description": "Enable IPv6 address on the CDN load-balancer",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "http_forward",
+    "type": "bool",
+    "description": "Set to `false` to disable HTTP port 80 forward",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "http_keep_alive_timeout_sec",
+    "type": "number",
+    "description": "Specifies how long to keep a connection open, after completing a response, while there is no matching traffic (in seconds).",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ssl",
+    "type": "bool",
+    "description": "Set to `true` to enable SSL support. If `true` then at least one of these are required: 1) `ssl_certificates` OR 2) `create_ssl_certificate` set to `true` and `private_key/certificate` OR  3) `managed_ssl_certificate_domains`, OR 4) `certificate_map`",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_ssl_certificate",
+    "type": "bool",
+    "description": "If `true`, Create certificate using `private_key/certificate`",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "quic",
+    "type": "bool",
+    "description": "Specifies the QUIC override policy for this resource. Set true to enable HTTP/3 and Google QUIC support, false to disable both. Defaults to null which enables support for HTTP/3 only.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "managed_ssl_certificate_domains",
+    "type": "list(string)",
+    "description": "Create Google-managed SSL certificates for specified domains. Requires `ssl` to be set to `true`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "server_tls_policy",
+    "type": "string",
+    "description": "The resource URL for the server TLS policy to associate with the https proxy service",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project to deploy to, if not set the default provider project is used.",
+    "default": "",
+    "required": true
+  }
+]

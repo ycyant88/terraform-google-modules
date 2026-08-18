@@ -1,0 +1,86 @@
+[
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the Cloud Composer Environment is created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "host",
+    "type": "string",
+    "description": "The optional host field of the connection",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "login",
+    "type": "string",
+    "description": "The optional login field of the connection",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "port",
+    "type": "string",
+    "description": "The optional port field of the connection",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "schema",
+    "type": "string",
+    "description": "The optional schema field of the connection",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "type",
+    "type": "string",
+    "description": "The optional type field of the connection",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "extra",
+    "type": "any",
+    "description": "The optional exta field of the connection. If this is not a string it will be encoded as json which is useful for things like oauth tokens and gcpcloudsql",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project ID where Cloud Composer Environment is created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "composer_env_name",
+    "type": "string",
+    "description": "Name of the Cloud Composer Environment.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "id",
+    "type": "string",
+    "description": "The ID of the connection within Airflow",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "uri",
+    "type": "string",
+    "description": "The optional uri field of the connection",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "password",
+    "type": "string",
+    "description": "The optional password field of the connection",
+    "default": "null",
+    "required": false
+  }
+]

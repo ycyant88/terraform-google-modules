@@ -1,0 +1,46 @@
+[
+  {
+    "name": "bucket",
+    "description": "Bucket resource (for single use)."
+  },
+  {
+    "name": "name",
+    "description": "Bucket name (for single use)."
+  },
+  {
+    "name": "buckets_map",
+    "description": "Bucket resources by name."
+  },
+  {
+    "name": "names",
+    "description": "Bucket names."
+  },
+  {
+    "name": "urls_list",
+    "description": "List of bucket URLs."
+  },
+  {
+    "name": "hmac_keys",
+    "description": "List of HMAC keys."
+  },
+  {
+    "name": "apphub_service_uri",
+    "description": "URI in CAIS style to be used by Apphub."
+  },
+  {
+    "name": "url",
+    "description": "Bucket URL (for single use)."
+  },
+  {
+    "name": "buckets",
+    "description": "Bucket resources as list."
+  },
+  {
+    "name": "urls",
+    "description": "Bucket URLs."
+  },
+  {
+    "name": "names_list",
+    "description": "List of bucket names."
+  }
+]

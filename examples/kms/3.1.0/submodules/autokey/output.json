@@ -1,0 +1,10 @@
+[
+  {
+    "name": "autokey_keyhandles",
+    "description": "A map of KeyHandles created."
+  },
+  {
+    "name": "autokey_config_id",
+    "description": "An Autokey configuration identifier."
+  }
+]

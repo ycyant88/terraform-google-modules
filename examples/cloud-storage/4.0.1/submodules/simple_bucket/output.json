@@ -1,0 +1,14 @@
+[
+  {
+    "name": "bucket",
+    "description": "The created storage bucket"
+  },
+  {
+    "name": "name",
+    "description": "Bucket name."
+  },
+  {
+    "name": "url",
+    "description": "Bucket URL."
+  }
+]

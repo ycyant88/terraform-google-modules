@@ -1,0 +1,107 @@
+[
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Network to deploy to. Only one of network or subnetwork should be specified.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "static_ips",
+    "type": "list(string)",
+    "description": "List of static IPs for VM instances",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "instance_template",
+    "type": "string",
+    "description": "Instance template self_link used to create compute instances",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ipv6_access_config",
+    "type": "list(list(object({\n    network_tier = string\n  })))",
+    "description": "IPv6 access configurations. Currently a max of 1 IPv6 access configuration is supported. If not specified, the instance will have no external IPv6 Internet access.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "hostname_suffix_separator",
+    "type": "string",
+    "description": "Separator character to compose hostname when add_hostname_suffix is set to true.",
+    "default": "\"-\"",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The GCP region where the unmanaged instance group resides.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "Subnet to deploy to. Only one of network or subnetwork should be specified.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnetwork_project",
+    "type": "string",
+    "description": "The project that subnetwork belongs to",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "additional_networks",
+    "type": "list(object({\n    network            = string\n    subnetwork         = string\n    subnetwork_project = string\n    network_ip         = string\n    access_config = list(object({\n      nat_ip       = string\n      network_tier = string\n    }))\n    ipv6_access_config = list(object({\n      network_tier = string\n    }))\n  }))",
+    "description": "Additional network interface details for GCE, if any.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "num_instances",
+    "type": "string",
+    "description": "Number of instances to create. This value is ignored if static_ips is provided.",
+    "default": "\"1\"",
+    "required": false
+  },
+  {
+    "name": "named_ports",
+    "type": "list(object({\n    name = string\n    port = number\n  }))",
+    "description": "Named name and named port",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "access_config",
+    "type": "list(list(object({\n    nat_ip       = string\n    network_tier = string\n  })))",
+    "description": "Access configurations, i.e. IPs via which the VM instance can be accessed via the Internet.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The GCP project ID",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "hostname",
+    "type": "string",
+    "description": "Hostname of instances",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "zones",
+    "type": "list(string)",
+    "description": "(Optional) List of availability zones to create VM instances in",
+    "default": "[]",
+    "required": false
+  }
+]

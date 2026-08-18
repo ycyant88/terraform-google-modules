@@ -1,0 +1,14 @@
+[
+  {
+    "name": "forwarding_rule",
+    "description": "The forwarding rule of the load balancer."
+  },
+  {
+    "name": "tcp_proxy",
+    "description": "The TCP proxy used by this module."
+  },
+  {
+    "name": "backend_services",
+    "description": "The backend service resources."
+  }
+]

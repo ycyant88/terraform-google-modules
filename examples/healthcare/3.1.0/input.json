@@ -1,0 +1,79 @@
+[
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The location for the Dataset.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "iam_members",
+    "type": "list(object({\n    role   = string\n    member = string\n  }))",
+    "description": "Updates the IAM policy to grant a role to a new member. Other members for the role for the dataset are preserved.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "fhir_stores",
+    "type": "any",
+    "description": "Datastore that conforms to the FHIR standard for Healthcare information exchange.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "workspaces",
+    "type": "any",
+    "description": "Workspace that holds all mappings and the Data Mapper IDE for organizing and controlling access (https://cloud.google.com/healthcare-api/healthcare-data-engine/docs/manage-workspaces).",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "pipeline_jobs",
+    "type": "any",
+    "description": "Mapping and reconciliation pipelines to create a longitudinal patient record within a harmonized FHIR store. (https://cloud.google.com/healthcare-api/healthcare-data-engine/docs/pipelines).",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The resource name for the Dataset.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The ID of the project in which the resource belongs.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "time_zone",
+    "type": "string",
+    "description": "The default timezone used by this dataset.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dicom_stores",
+    "type": "any",
+    "description": "Datastore that conforms to the DICOM (https://www.dicomstandard.org/about/) standard for Healthcare information exchange.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "hl7_v2_stores",
+    "type": "any",
+    "description": "Datastore that conforms to the HL7 V2 (https://www.hl7.org/hl7V2/STU3/) standard for Healthcare information exchange.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "consent_stores",
+    "type": "any",
+    "description": "Datastore that contain all information related to the configuration and operation of the Consent Management API (https://cloud.google.com/healthcare/docs/how-tos/consent-managing).",
+    "default": "[]",
+    "required": false
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "suffix",
+    "type": "string",
+    "description": "A suffix to append to the role IDs.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "The organization ID where the custom Forseti roles will be created.",
+    "default": "",
+    "required": true
+  }
+]

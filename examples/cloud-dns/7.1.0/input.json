@@ -1,0 +1,149 @@
+[
+  {
+    "name": "description",
+    "type": "string",
+    "description": "zone description (shown in console)",
+    "default": "\"Managed by Terraform\"",
+    "required": false
+  },
+  {
+    "name": "type",
+    "type": "string",
+    "description": "Type of zone to create, valid values are 'public', 'private', 'forwarding', 'peering', 'reverse_lookup' and 'service_directory'.",
+    "default": "\"private\"",
+    "required": false
+  },
+  {
+    "name": "force_destroy",
+    "type": "bool",
+    "description": "Set this true to delete all records in the zone.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "recordsets",
+    "type": "list(object({\n    name    = string\n    type    = string\n    ttl     = number\n    records = optional(list(string), null)\n\n    routing_policy = optional(object({\n      wrr = optional(list(object({\n        weight  = number\n        records = list(string)\n      })), [])\n      geo = optional(list(object({\n        location = string\n        records  = list(string)\n      })), [])\n    }))\n  }))",
+    "description": "List of DNS record objects to manage, in the standard terraform dns structure.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "iam_choice",
+    "type": "string",
+    "description": "Choose one of the following 'iam_binding', 'iam_member' or 'iam_policy' for managed zone iam",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project id for the zone.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "target_network",
+    "type": "string",
+    "description": "Peering network.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "member",
+    "type": "string",
+    "description": "Identities the user/service account that will be granted the privilege in role (for case: managed_zone_iam_member)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "role",
+    "type": "string",
+    "description": "The role that should be applied",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "domain",
+    "type": "string",
+    "description": "Zone domain, must end with a period.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "private_visibility_config_networks",
+    "type": "list(string)",
+    "description": "List of VPC self links that can see this zone.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "default_key_specs_zone",
+    "type": "any",
+    "description": "Object containing default zone signing specifications : algorithm, key_length, key_type, kind. Please see https://www.terraform.io/docs/providers/google/r/dns_managed_zone#dnssec_config for futhers details",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "service_namespace_url",
+    "type": "string",
+    "description": "The fully qualified or partial URL of the service directory namespace that should be associated with the zone. This should be formatted like https://servicedirectory.googleapis.com/v1/projects/{project}/locations/{location}/namespaces/{namespace_id} or simply projects/{project}/locations/{location}/namespaces/{namespace_id}.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "enable_logging",
+    "type": "bool",
+    "description": "Enable query logging for this ManagedZone",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Zone name, must be unique within the project.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "dnssec_config",
+    "type": "any",
+    "description": "Object containing : kind, non_existence, state. Please see https://www.terraform.io/docs/providers/google/r/dns_managed_zone#dnssec_config for futhers details",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(any)",
+    "description": "A set of key/value label pairs to assign to this ManagedZone",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "default_key_specs_key",
+    "type": "any",
+    "description": "Object containing default key signing specifications : algorithm, key_length, key_type, kind. Please see https://www.terraform.io/docs/providers/google/r/dns_managed_zone#dnssec_config for futhers details",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "members",
+    "type": "list(string)",
+    "description": "Identities the users/service accounts that will be granted the privilege in role (for case: managed_zone_iam_policy, managed_zone_iam_binding)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "gke_clusters_list",
+    "type": "list(string)",
+    "description": "The list of Google Kubernetes Engine clusters that can see this zone.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "target_name_server_addresses",
+    "type": "list(map(any))",
+    "description": "List of target name servers for forwarding zone.",
+    "default": "[]",
+    "required": false
+  }
+]

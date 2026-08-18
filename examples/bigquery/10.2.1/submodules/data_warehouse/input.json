@@ -1,0 +1,65 @@
+[
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Google Cloud Region",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "dataform_region",
+    "type": "string",
+    "description": "Region that is used to deploy Dataform resources. This does not limit where resources can be run or what region data must be located in.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "text_generation_model_name",
+    "type": "string",
+    "description": "Name of the BigQuery ML GenAI remote model that connects to the LLM used for text generation",
+    "default": "\"text_generate_model\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "A map of labels to apply to contained resources.",
+    "default": "{\n  \"data-warehouse\": true\n}",
+    "required": false
+  },
+  {
+    "name": "enable_apis",
+    "type": "string",
+    "description": "Whether or not to enable underlying apis in this solution.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Google Cloud Project ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "force_destroy",
+    "type": "string",
+    "description": "Whether or not to protect BigQuery resources from deletion when solution is modified or changed.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "deletion_protection",
+    "type": "string",
+    "description": "Whether or not to protect GCS resources from deletion when solution is modified or changed.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_ignore_service_accounts",
+    "type": "string",
+    "description": "Whether or not to ignore creation of a service account if an account of the same name already exists",
+    "default": "true",
+    "required": false
+  }
+]

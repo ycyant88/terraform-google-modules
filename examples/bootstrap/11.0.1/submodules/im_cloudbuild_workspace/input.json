@@ -1,0 +1,247 @@
+[
+  {
+    "name": "pull_request_comment_control",
+    "type": "string",
+    "description": "Configure builds to run whether a repository owner or collaborator needs to comment /gcbrun.",
+    "default": "\"COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY\"",
+    "required": false
+  },
+  {
+    "name": "github_pat_secret_version",
+    "type": "string",
+    "description": "The secret version ID or alias for the GitHub PAT secret. Uses the latest if not provided.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "gitlab_api_access_token_secret_version",
+    "type": "string",
+    "description": "The secret version ID or alias for the GitLab api token secret. Uses the latest if not provided.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloudbuild_sa",
+    "type": "string",
+    "description": "Custom SA ID of form projects/{{project}}/serviceAccounts/{{email}} to be used for creating Cloud Build triggers. Creates one if not given.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "infra_manager_sa_roles",
+    "type": "list(string)",
+    "description": "List of roles to grant to Infrastructure Manager SA for actuating resources defined in the Terraform configuration.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "im_tf_variables",
+    "type": "string",
+    "description": "Optional list of Terraform variables to pass to Infrastructure Manager, if the configuration exists in a different repo. List of strings of form KEY=VALUE expected.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloudbuild_apply_filename",
+    "type": "string",
+    "description": "Optional Cloud Build YAML definition used for Cloud Build triggers of Infra Manager apply. Defaults to using inline definition.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "tf_cloudbuilder",
+    "type": "string",
+    "description": "Name of the Cloud Builder image used for running build steps.",
+    "default": "\"hashicorp/terraform\"",
+    "required": false
+  },
+  {
+    "name": "github_pat_secret",
+    "type": "string",
+    "description": "The secret ID within Secret Manager for an existing personal access token for GitHub.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "gitlab_read_api_access_token_secret",
+    "type": "string",
+    "description": "The secret ID within Secret Manager for an existing read_api access token for GitLab.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "trigger_location",
+    "type": "string",
+    "description": "Location of for Cloud Build triggers created in the workspace. Matches `location` if not given.",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "custom_cloudbuild_sa_name",
+    "type": "string",
+    "description": "Custom name to be used if creating a Cloud Build service account. Defaults to generated name if empty.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "im_deployment_ref",
+    "type": "string",
+    "description": "Git branch or ref configured to run infra-manager apply. All other refs will run plan by default.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cloudbuild_preview_filename",
+    "type": "string",
+    "description": "Optional Cloud Build YAML definition used for Cloud Build triggers of Infra Manager preview. Defaults to using inline definition.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "tf_version",
+    "type": "string",
+    "description": "Terraform version to use for Infrastructure Manager and the Cloud Builder image.",
+    "default": "\"1.2.3\"",
+    "required": false
+  },
+  {
+    "name": "github_personal_access_token",
+    "type": "string",
+    "description": "Personal access token for a GitHub repository. If provided, creates a secret within Secret Manager.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "GCP project for Infrastructure Manager deployments and Cloud Build triggers.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "Location for Infrastructure Manager deployment.",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "repo_connection_name",
+    "type": "string",
+    "description": "Connection name for linked repository. Generated if not given.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "im_deployment_repo_dir",
+    "type": "string",
+    "description": "The directory inside the repo where the Terraform root config is located. If empty defaults to repo root.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "gitlab_read_api_access_token_secret_version",
+    "type": "string",
+    "description": "The secret version ID or alias for the GitLab read_api token secret. Uses the latest if not provided.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "im_deployment_repo_uri",
+    "type": "string",
+    "description": "The URI of the repo where the Terraform configs are stored.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "substitutions",
+    "type": "map(string)",
+    "description": "Optional map of substitutions to use in builds if using a custom Cloud Build YAML definition.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cloudbuild_ignored_files",
+    "type": "list(string)",
+    "description": "Optional list. Changes only affecting ignored files will not invoke a build.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "github_app_installation_id",
+    "type": "string",
+    "description": "Installation ID of the Cloud Build GitHub app used for pull and push request triggers.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "gitlab_host_uri",
+    "type": "string",
+    "description": "The URI of the GitLab Enterprise host this connection is for. Defaults to non-enterprise.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "custom_infra_manager_sa_name",
+    "type": "string",
+    "description": "Custom name to be used if creating an Infrastructure Manager service account. Defaults to generated name if empty.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloudbuild_included_files",
+    "type": "list(string)",
+    "description": "Optional list. Changes affecting at least one of these files will invoke a build.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "gitlab_api_access_token_secret",
+    "type": "string",
+    "description": "The secret ID within Secret Manager for an existing api access token for GitLab.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "infra_manager_sa",
+    "type": "string",
+    "description": "Custom SA id of form projects/{{project}}/serviceAccounts/{{email}} to be used by Infra Manager. Defaults to generated name if empty.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "gitlab_api_access_token",
+    "type": "string",
+    "description": "GitLab personal access token with api scope. If provided, creates a secret within Secret Manager.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "gitlab_read_api_access_token",
+    "type": "string",
+    "description": "GitLab personal access token with read_api scope. If provided, creates a secret within Secret Manager.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "deployment_id",
+    "type": "string",
+    "description": "Custom ID to be used for the Infrastructure Manager deployment.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "host_connection_name",
+    "type": "string",
+    "description": "Name for the VCS connection. Generated if not given.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "tf_repo_type",
+    "type": "string",
+    "description": "Type of repo",
+    "default": "\"GITHUB\"",
+    "required": false
+  }
+]

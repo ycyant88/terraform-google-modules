@@ -1,0 +1,54 @@
+[
+  {
+    "name": "instance_service_account_email_address",
+    "description": "The service account email address assigned to the master instance"
+  },
+  {
+    "name": "generated_user_password",
+    "description": "The auto generated default user password if not input password was provided"
+  },
+  {
+    "name": "additional_users",
+    "description": "List of maps of additional users and passwords"
+  },
+  {
+    "name": "apphub_service_uri",
+    "description": "Service URI in CAIS style to be used by Apphub."
+  },
+  {
+    "name": "instance_name",
+    "description": "The instance name for the master instance"
+  },
+  {
+    "name": "instance_address",
+    "description": "The IPv4 addesses assigned for the master instance"
+  },
+  {
+    "name": "instance_first_ip_address",
+    "description": "The first IPv4 address of the addresses assigned."
+  },
+  {
+    "name": "instance_connection_name",
+    "description": "The connection name of the master instance to be used in connection strings"
+  },
+  {
+    "name": "instance_self_link",
+    "description": "The URI of the master instance"
+  },
+  {
+    "name": "instance_server_ca_cert",
+    "description": "The CA certificate information used to connect to the SQL instance via SSL"
+  },
+  {
+    "name": "root_password",
+    "description": "MSSERVER password for the root user. If not set, a random one will be generated and available in the root_password output variable."
+  },
+  {
+    "name": "primary",
+    "description": "The `google_sql_database_instance` resource representing the primary instance"
+  },
+  {
+    "name": "private_address",
+    "description": "The private IP address assigned for the master instance"
+  }
+]

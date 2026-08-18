@@ -1,0 +1,10 @@
+[
+  {
+    "name": "domain",
+    "description": "The domain of the group's organization."
+  },
+  {
+    "name": "email",
+    "description": "The email address of the group."
+  }
+]

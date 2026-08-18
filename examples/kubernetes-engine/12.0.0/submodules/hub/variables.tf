@@ -1,0 +1,71 @@
+variable "cluster_endpoint" {
+  description = "The GKE cluster endpoint."
+  type        = string
+  default     = ""
+}
+
+variable "cluster_name" {
+  description = "The unique name to identify the cluster in ASM."
+  type        = string
+  default     = ""
+}
+
+variable "enable_gke_hub_registration" {
+  description = "Enables GKE Hub Registration when set to true"
+  type        = bool
+  default     = true
+}
+
+variable "gcloud_sdk_version" {
+  description = "The gcloud sdk version to use. Minimum required version is 293.0.0"
+  type        = string
+  default     = "296.0.1"
+}
+
+variable "gke_hub_membership_name" {
+  description = "Memebership name that uniquely represents the cluster being registered on the Hub"
+  type        = string
+  default     = "gke-hub-membership"
+}
+
+variable "gke_hub_sa_name" {
+  description = "Name for the GKE Hub SA stored as a secret creds-gcp in the gke-connect namespace."
+  type        = string
+  default     = "gke-hub-sa"
+}
+
+variable "location" {
+  description = "The location (zone or region) this cluster has been created in."
+  type        = string
+  default     = ""
+}
+
+variable "module_depends_on" {
+  description = "List of modules or resources this module depends on."
+  type        = list(any)
+  default     = []
+}
+
+variable "project_id" {
+  description = "The project in which the resource belongs."
+  type        = string
+  default     = ""
+}
+
+variable "sa_private_key" {
+  description = "Private key for service account base64 encoded. Required only if use_existing_sa is set to true."
+  type        = string
+  default     = ""
+}
+
+variable "use_existing_sa" {
+  description = "Uses an existing service account to register membership. Requires sa_private_key"
+  type        = bool
+  default     = false
+}
+
+variable "use_tf_google_credentials_env_var" {
+  description = "Optional GOOGLE_CREDENTIALS environment variable to be activated."
+  type        = bool
+  default     = false
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "internal_ranges",
+    "description": "Internal ranges."
+  },
+  {
+    "name": "admin_ranges",
+    "description": "Admin ranges data."
+  },
+  {
+    "name": "custom_ingress_allow_rules",
+    "description": "Custom ingress rules with allow blocks."
+  },
+  {
+    "name": "custom_ingress_deny_rules",
+    "description": "Custom ingress rules with deny blocks."
+  },
+  {
+    "name": "custom_egress_allow_rules",
+    "description": "Custom egress rules with allow blocks."
+  },
+  {
+    "name": "custom_egress_deny_rules",
+    "description": "Custom egress rules with allow blocks."
+  }
+]

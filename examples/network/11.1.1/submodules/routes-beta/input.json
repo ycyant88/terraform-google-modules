@@ -1,0 +1,37 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project where the routes will be created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_name",
+    "type": "string",
+    "description": "The name of the network where routes will be created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "routes",
+    "type": "list(map(string))",
+    "description": "List of routes being created in this VPC",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "routes_count",
+    "type": "number",
+    "description": "Amount of routes being created in this VPC",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "module_depends_on",
+    "type": "list(any)",
+    "description": "List of modules or resources this module depends on.",
+    "default": "[]",
+    "required": false
+  }
+]

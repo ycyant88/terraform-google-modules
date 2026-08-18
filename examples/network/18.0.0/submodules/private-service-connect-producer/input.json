@@ -1,0 +1,100 @@
+[
+  {
+    "name": "nat_subnets",
+    "type": "list(object({\n    subnet_name = optional(string)\n    ipv4_range  = optional(string)\n    stack_type  = optional(string)\n  }))",
+    "description": "  NAT Subnets.\n  - subnet_name: (Optional) Name of the subnet. Defaults to `$var.name-nat-subnet-$index` if unset.\n  - ipv4_range: (Optional) IPv4 range is required for IPV4_ONLY and IPV4_IPV6 stack type. Leave ipv4_range unset for IPV6_ONLY subnet.\n  - stack_type: (Optional) IPV4_ONLY, IPV4_IPV6 or IPV6_ONLY. IPv6 range is assigned by GCP.\n",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "domain_names",
+    "type": "list(string)",
+    "description": "(Optional) The domain names to be used during the integration between the PSC connected endpoints and the Cloud DNS.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "target_service",
+    "type": "string",
+    "description": "Target service URL ex. ILB, SWP. Supported types: https://cloud.google.com/vpc/docs/configure-private-service-connect-producer#lb-types ",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "consumer_reject_lists",
+    "type": "list(string)",
+    "description": "(Optional) An array of projects/networks that are not allowed to connect to this service attachment.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_proxy_protocol",
+    "type": "bool",
+    "description": "(Optional) Enables the proxy protocol which is for supplying client TCP/IP address data in TCP connections that traverse proxies on their way to destination servers.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "reconcile_connections",
+    "type": "bool",
+    "description": "(Optional) Determines whether a consumer accept/reject list change can reconcile the statuses of existing ACCEPTED or REJECTED PSC endpoints.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "propagated_connection_limit",
+    "type": "number",
+    "description": "(Optional) The number of consumer spokes that connected Private Service Connect endpoints can be propagated to through Network Connectivity Center.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name for the service attachment.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region for cloud resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Name, id or self link of the network to create resources in.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_project_id",
+    "type": "string",
+    "description": "(Optional) Name of the project for the Shared VPC host network, in which the NAT subnets will be created. Required for Shared VPC case.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "connection_preference",
+    "type": "string",
+    "description": "ACCEPT_AUTOMATIC or ACCEPT_MANUAL",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "consumer_accept_lists",
+    "type": "list(object({\n    project_id_or_num = optional(string)\n    network_url       = optional(string)\n    connection_limit  = number\n  }))",
+    "description": "(Optional) An array of projects/networks that are allowed to connect to this service attachment: The list needs to be either project-based or network-based.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project to deploy to, if not set the default provider project is used.",
+    "default": "",
+    "required": true
+  }
+]

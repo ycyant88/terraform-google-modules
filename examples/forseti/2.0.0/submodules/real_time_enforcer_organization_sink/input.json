@@ -1,0 +1,16 @@
+[
+  {
+    "name": "pubsub_project_id",
+    "type": "string",
+    "description": "The project ID containing the Enforcer pubsub topic.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "The organization ID where logs will be exported from.",
+    "default": "",
+    "required": true
+  }
+]

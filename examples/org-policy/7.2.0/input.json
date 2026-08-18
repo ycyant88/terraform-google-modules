@@ -1,0 +1,93 @@
+[
+  {
+    "name": "constraint",
+    "type": "string",
+    "description": "The constraint to be applied",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "policy_type",
+    "type": "string",
+    "description": "The constraint type to work with (either 'boolean' or 'list')",
+    "default": "\"list\"",
+    "required": false
+  },
+  {
+    "name": "deny_list_length",
+    "type": "number",
+    "description": "The number of elements in the deny list",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "folder_id",
+    "type": "string",
+    "description": "The folder id for putting the policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project id for putting the policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "exclude_folders",
+    "type": "set(string)",
+    "description": "Set of folders to exclude from the policy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "exclude_projects",
+    "type": "set(string)",
+    "description": "Set of projects to exclude from the policy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "allow_list_length",
+    "type": "number",
+    "description": "The number of elements in the allow list",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "policy_for",
+    "type": "string",
+    "description": "Resource hierarchy node to apply the policy to: can be one of `organization`, `folder`, or `project`.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "organization_id",
+    "type": "string",
+    "description": "The organization id for putting the policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enforce",
+    "type": "bool",
+    "description": "If boolean constraint, whether the policy is enforced at the root; if list constraint, whether to deny all (true) or allow all",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "allow",
+    "type": "list(string)",
+    "description": "(Only for list constraints) List of values which should be allowed",
+    "default": "[\n  \"\"\n]",
+    "required": false
+  },
+  {
+    "name": "deny",
+    "type": "list(string)",
+    "description": "(Only for list constraints) List of values which should be denied",
+    "default": "[\n  \"\"\n]",
+    "required": false
+  }
+]

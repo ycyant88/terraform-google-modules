@@ -1,0 +1,191 @@
+[
+  {
+    "name": "create_address",
+    "type": "bool",
+    "description": "Create a new global IPv4 address",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "target_service_accounts",
+    "type": "list(string)",
+    "description": "List of target service accounts for health check firewall rule. Exactly one of target_tags or target_service_accounts should be specified.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "url_map",
+    "type": "string",
+    "description": "The url_map resource to use. Default is to send all traffic to first backend.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "http_forward",
+    "type": "bool",
+    "description": "Set to `false` to disable HTTP port 80 forward",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "ssl",
+    "type": "bool",
+    "description": "Set to `true` to enable SSL support, requires variable `ssl_certificates` - a list of self_link certs",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "quic",
+    "type": "bool",
+    "description": "Set to `true` to enable QUIC support",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "certificate",
+    "type": "string",
+    "description": "Content of the SSL certificate. Required if `ssl` is `true` and `ssl_certificates` is empty.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "managed_ssl_certificate_domains",
+    "type": "list(string)",
+    "description": "Create Google-managed SSL certificates for specified domains. Requires `ssl` to be set to `true` and `use_ssl_certificates` set to `false`.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The project to deploy to, if not set the default provider project is used.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "address",
+    "type": "string",
+    "description": "Existing IPv4 address to use (the actual IP address value)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_ipv6",
+    "type": "bool",
+    "description": "Enable IPv6 address on the CDN load-balancer",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "create_ipv6_address",
+    "type": "bool",
+    "description": "Allocate a new IPv6 address. Conflicts with \"ipv6_address\" - if both specified, \"create_ipv6_address\" takes precedence.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "private_key",
+    "type": "string",
+    "description": "Content of the private SSL key. Required if `ssl` is `true` and `ssl_certificates` is empty.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "security_policy",
+    "type": "string",
+    "description": "The resource URL for the security policy to associate with the backend service",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cdn",
+    "type": "bool",
+    "description": "Set to `true` to enable cdn on backend.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "https_redirect",
+    "type": "bool",
+    "description": "Set to `true` to enable https redirect on the lb.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ipv6_address",
+    "type": "string",
+    "description": "An existing IPv6 address to use (the actual IP address value)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "firewall_networks",
+    "type": "list(string)",
+    "description": "Names of the networks to create firewall rules in",
+    "default": "[\n  \"default\"\n]",
+    "required": false
+  },
+  {
+    "name": "firewall_projects",
+    "type": "list(string)",
+    "description": "Names of the projects to create firewall rules in",
+    "default": "[\n  \"default\"\n]",
+    "required": false
+  },
+  {
+    "name": "create_url_map",
+    "type": "bool",
+    "description": "Set to `false` if url_map variable is provided.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "ssl_certificates",
+    "type": "list(string)",
+    "description": "SSL cert self_link list. Required if `ssl` is `true` and no `private_key` and `certificate` is provided.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "random_certificate_suffix",
+    "type": "bool",
+    "description": "Bool to enable/disable random certificate name generation. Set and keep this to true if you need to change the SSL cert.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name for the forwarding rule and prefix for supporting resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "target_tags",
+    "type": "list(string)",
+    "description": "List of target tags for health check firewall rule. Exactly one of target_tags or target_service_accounts should be specified.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "backends",
+    "type": "map(object({\n    protocol  = string\n    port      = number\n    port_name = string\n\n    description             = string\n    enable_cdn              = bool\n    security_policy         = string\n    custom_request_headers  = list(string)\n    custom_response_headers = list(string)\n\n    timeout_sec                     = number\n    connection_draining_timeout_sec = number\n    session_affinity                = string\n    affinity_cookie_ttl_sec         = number\n\n    health_check = object({\n      check_interval_sec  = number\n      timeout_sec         = number\n      healthy_threshold   = number\n      unhealthy_threshold = number\n      request_path        = string\n      port                = number\n      host                = string\n      logging             = bool\n    })\n\n    log_config = object({\n      enable      = bool\n      sample_rate = number\n    })\n\n    groups = list(object({\n      group = string\n\n      balancing_mode               = string\n      capacity_scaler              = number\n      description                  = string\n      max_connections              = number\n      max_connections_per_instance = number\n      max_connections_per_endpoint = number\n      max_rate                     = number\n      max_rate_per_instance        = number\n      max_rate_per_endpoint        = number\n      max_utilization              = number\n    }))\n    iap_config = object({\n      enable               = bool\n      oauth2_client_id     = string\n      oauth2_client_secret = string\n    })\n  }))",
+    "description": "Map backend indices to list of backend maps.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ssl_policy",
+    "type": "string",
+    "description": "Selfink to SSL Policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "use_ssl_certificates",
+    "type": "bool",
+    "description": "If true, use the certificates provided by `ssl_certificates`, otherwise, create cert from `private_key` and `certificate`",
+    "default": "false",
+    "required": false
+  }
+]

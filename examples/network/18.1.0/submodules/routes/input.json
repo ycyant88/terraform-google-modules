@@ -1,0 +1,30 @@
+[
+  {
+    "name": "routes",
+    "type": "list(object({\n    name                   = string\n    description            = optional(string)\n    tags                   = optional(list(string), [])\n    destination_range      = string\n    next_hop_gateway       = optional(string)\n    next_hop_internet      = optional(bool, false)\n    next_hop_ip            = optional(string)\n    next_hop_instance      = optional(string)\n    next_hop_instance_zone = optional(string)\n    next_hop_vpn_tunnel    = optional(string)\n    next_hop_ilb           = optional(string)\n    priority               = optional(number, 1000)\n  }))",
+    "description": "List of routes being created in this VPC.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "module_depends_on",
+    "type": "list(any)",
+    "description": "List of modules or resources this module depends on.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project where the routes will be created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_name",
+    "type": "string",
+    "description": "The name of the network where routes will be created",
+    "default": "",
+    "required": true
+  }
+]

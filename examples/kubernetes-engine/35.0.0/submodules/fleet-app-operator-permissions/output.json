@@ -1,0 +1,10 @@
+[
+  {
+    "name": "fleet_project_id",
+    "description": "The project to which the Fleet belongs."
+  },
+  {
+    "name": "wait",
+    "description": "An output to use when you want to depend on Scope RBAC Role Binding creation finishing."
+  }
+]

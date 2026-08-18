@@ -1,0 +1,34 @@
+[
+  {
+    "name": "subnet_name",
+    "description": "Name of VPC"
+  },
+  {
+    "name": "location",
+    "description": "Cluster location"
+  },
+  {
+    "name": "kubernetes_endpoint",
+    "description": "The cluster endpoint"
+  },
+  {
+    "name": "client_token",
+    "description": "The bearer token for auth"
+  },
+  {
+    "name": "ca_certificate",
+    "description": "The cluster ca certificate (base64 encoded)"
+  },
+  {
+    "name": "service_account",
+    "description": "The default service account used for running nodes."
+  },
+  {
+    "name": "cluster_name",
+    "description": "Cluster name"
+  },
+  {
+    "name": "network_name",
+    "description": "Name of VPC"
+  }
+]

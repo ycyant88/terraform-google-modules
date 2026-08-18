@@ -1,0 +1,58 @@
+[
+  {
+    "name": "ip_range",
+    "type": "string",
+    "description": "IP address and range of the interface",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "vpn_tunnel",
+    "type": "string",
+    "description": "The name or resource link to the VPN tunnel this interface will be linked to",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "interconnect_attachment",
+    "type": "string",
+    "description": "The name or resource link to the VLAN interconnect for this interface",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "peers",
+    "type": "list(object({\n    name                           = string\n    peer_ip_address                = string\n    peer_asn                       = string\n    advertised_route_priority      = optional(number)\n    zero_advertised_route_priority = optional(bool)\n    bfd = object({\n      session_initialization_mode = string\n      min_transmit_interval       = optional(number)\n      min_receive_interval        = optional(number)\n      multiplier                  = optional(number)\n    })\n    md5_authentication_key = optional(object({\n      name = string\n      key  = string\n    }))\n    export_policies = optional(list(string))\n    import_policies = optional(list(string))\n  }))",
+    "description": "BGP peers for this interface.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the interface",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to deploy to",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "router",
+    "type": "string",
+    "description": "Name of the router the interface resides",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the interface resides",
+    "default": "",
+    "required": true
+  }
+]

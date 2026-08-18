@@ -1,0 +1,38 @@
+[
+  {
+    "name": "vcs_connection_id",
+    "description": "The Cloud Build VCS host connection ID"
+  },
+  {
+    "name": "repo_connection_id",
+    "description": "The Cloud Build repository connection ID"
+  },
+  {
+    "name": "github_secret_id",
+    "description": "The secret ID for the GitHub secret containing the personal access token."
+  },
+  {
+    "name": "cloudbuild_apply_trigger_id",
+    "description": "Trigger used for running infra-manager apply"
+  },
+  {
+    "name": "cloudbuild_sa",
+    "description": "Service account used by the Cloud Build triggers"
+  },
+  {
+    "name": "infra_manager_sa",
+    "description": "Service account used by Infrastructure Manager"
+  },
+  {
+    "name": "gitlab_api_secret_id",
+    "description": "The secret ID for the GitLab secret containing the token with api access."
+  },
+  {
+    "name": "gitlab_read_api_secret_id",
+    "description": "The secret ID for the GitLab secret containing the token with read_api access."
+  },
+  {
+    "name": "cloudbuild_preview_trigger_id",
+    "description": "Trigger used for running infra-manager preview"
+  }
+]

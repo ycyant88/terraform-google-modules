@@ -1,0 +1,14 @@
+[
+  {
+    "name": "service_account",
+    "description": "The email for the service account created for the bastion host"
+  },
+  {
+    "name": "self_link",
+    "description": "Name of the bastion MIG"
+  },
+  {
+    "name": "instance_group",
+    "description": "Instance-group url of managed instance group"
+  }
+]

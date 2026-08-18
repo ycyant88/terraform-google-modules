@@ -1,0 +1,191 @@
+[
+  {
+    "name": "limits",
+    "type": "map",
+    "description": "Cloud Run service resources.limits configuration",
+    "default": "{\n  \"cpu\": \"1000m\",\n  \"memory\": \"512Mi\"\n}",
+    "required": false
+  },
+  {
+    "name": "bucket_name",
+    "type": "string",
+    "description": "slo-generator GCS bucket name",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "additional_project_roles",
+    "type": "list",
+    "description": "Additional roles to grant to service account in project",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "slo_configs",
+    "type": "list",
+    "description": "slo-generator SLO configs",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "GCP region",
+    "default": "\"europe-west1\"",
+    "required": false
+  },
+  {
+    "name": "concurrency",
+    "type": "number",
+    "description": "Cloud Run service concurrency (number of threads per container instance)",
+    "default": "80",
+    "required": false
+  },
+  {
+    "name": "secrets",
+    "type": "map",
+    "description": "Cloud Run service secrets",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "pubsub_topic_name",
+    "type": "string",
+    "description": "Input PubSub topic",
+    "default": "\"export\"",
+    "required": false
+  },
+  {
+    "name": "config",
+    "type": "map",
+    "description": "slo-generator shared config",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "service_account_email",
+    "type": "string",
+    "description": "Cloud Run service account. Defaults to compute service account.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "schedule",
+    "type": "string",
+    "description": "Cloud Scheduler schedule",
+    "default": "\"* * * * *\"",
+    "required": false
+  },
+  {
+    "name": "service_name",
+    "type": "string",
+    "description": "Cloud Run service name",
+    "default": "\"slo-generator\"",
+    "required": false
+  },
+  {
+    "name": "gcr_project_id",
+    "type": "string",
+    "description": "slo-generator image project id",
+    "default": "\"slo-generator-ci-a2b4\"",
+    "required": false
+  },
+  {
+    "name": "service_url",
+    "type": "string",
+    "description": "Cloud Run service URL. Will be created if empty.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "annotations",
+    "type": "map",
+    "description": "Cloud Run service annotations (see https://cloud.google.com/run/docs/reference/rest/v1/RevisionTemplate)",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "signature_type",
+    "type": "string",
+    "description": "Functions Framework signature type, between 'http' and 'cloudevent'. In 'cloudevent' mode the POST request data needs to be warpped in a Cloud Event.",
+    "default": "\"http\"",
+    "required": false
+  },
+  {
+    "name": "slo_generator_version",
+    "type": "string",
+    "description": "slo-generator container image version",
+    "default": "\"latest\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(any)",
+    "description": "Resource labels",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project id",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "env",
+    "type": "map",
+    "description": "Cloud Run service env variables",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_cloud_schedulers",
+    "type": "bool",
+    "description": "Whether to create Cloud Schedulers for each SLO or not",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_service",
+    "type": "bool",
+    "description": "Create service",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "ingress",
+    "type": "string",
+    "description": "Cloud Run service ingress settings, between 'all', 'internal', 'internal-and-cloud-load-balancing', see https://cloud.google.com/sdk/gcloud/reference/run/deploy#--ingress",
+    "default": "\"all\"",
+    "required": false
+  },
+  {
+    "name": "target",
+    "type": "string",
+    "description": "Functions Framework target, between 'run_compute' and 'run_export'. If `run_compute`, the API accepts SLO configs as input, if 'run_export' the API accepts SLO reports as input.",
+    "default": "\"run_compute\"",
+    "required": false
+  },
+  {
+    "name": "authorized_members",
+    "type": "list(string)",
+    "description": "List of emails that are allowed to call the service",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_iam_roles",
+    "type": "bool",
+    "description": "Whether to create IAM roles",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "requests",
+    "type": "map",
+    "description": "Cloud Run service resources.requests configuration",
+    "default": "{}",
+    "required": false
+  }
+]

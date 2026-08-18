@@ -1,0 +1,58 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to deploy to",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the router resides",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "An optional description of this resource",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "encrypted_interconnect_router",
+    "type": "bool",
+    "description": "An optional field to indicate if a router is dedicated to use with encrypted Interconnect Attachment",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "bgp",
+    "type": "object({\n    asn               = string\n    advertise_mode    = optional(string, \"CUSTOM\")\n    advertised_groups = optional(list(string))\n    advertised_ip_ranges = optional(list(object({\n      range       = string\n      description = optional(string)\n    })), [])\n    keepalive_interval = optional(number)\n  })",
+    "description": "BGP information specific to this router.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "nats",
+    "type": "list(object({\n    name                                = string\n    nat_ip_allocate_option              = optional(string)\n    source_subnetwork_ip_ranges_to_nat  = optional(string)\n    nat_ips                             = optional(list(string), [])\n    drain_nat_ips                       = optional(list(string), [])\n    min_ports_per_vm                    = optional(number)\n    max_ports_per_vm                    = optional(number)\n    udp_idle_timeout_sec                = optional(number)\n    icmp_idle_timeout_sec               = optional(number)\n    tcp_established_idle_timeout_sec    = optional(number)\n    tcp_transitory_idle_timeout_sec     = optional(number)\n    tcp_time_wait_timeout_sec           = optional(number)\n    enable_endpoint_independent_mapping = optional(bool)\n    enable_dynamic_port_allocation      = optional(bool)\n\n    log_config = optional(object({\n      enable = optional(bool, true)\n      filter = optional(string, \"ALL\")\n    }), {})\n\n    subnetworks = optional(list(object({\n      name                     = string\n      source_ip_ranges_to_nat  = list(string)\n      secondary_ip_range_names = optional(list(string))\n    })), [])\n\n  }))",
+    "description": "NATs to deploy on this router.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the router",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "A reference to the network to which this router belongs",
+    "default": "",
+    "required": true
+  }
+]

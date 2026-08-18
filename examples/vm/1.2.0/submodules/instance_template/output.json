@@ -1,0 +1,10 @@
+[
+  {
+    "name": "self_link",
+    "description": "Self-link of instance template"
+  },
+  {
+    "name": "name",
+    "description": "Name of instance template"
+  }
+]

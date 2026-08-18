@@ -1,0 +1,30 @@
+[
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name for both service accounts",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "namespace",
+    "type": "string",
+    "description": "Namespace for k8s service account",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "GCP project ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "use_existing_k8s_sa",
+    "type": "bool",
+    "description": "Use an existing kubernetes service account instead of creating one",
+    "default": "false",
+    "required": false
+  }
+]

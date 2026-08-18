@@ -1,0 +1,14 @@
+[
+  {
+    "name": "instances",
+    "description": "Secure source manager instance names which received for bindings."
+  },
+  {
+    "name": "roles",
+    "description": "Roles which were assigned to members."
+  },
+  {
+    "name": "members",
+    "description": "Members which were bound to the SSM instances."
+  }
+]

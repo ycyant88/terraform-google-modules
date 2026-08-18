@@ -1,0 +1,191 @@
+[
+  {
+    "name": "asm_git_tag",
+    "type": "string",
+    "description": "ASM git tag to deploy. This module supports versions `1.8` and `1.9`. You can get the exact `asm_git_tag` by running the command `install_asm --version`. The ASM git tab should be of the form `1.9.3-asm.2+config5`. You can also see all ASM git tags by running `curl https://storage.googleapis.com/csm-artifacts/asm/STABLE_VERSIONS`. You must provide the full and exact git tag. This variable is optional. Leaving it empty (default) will download the latest `install_asm` script for the version provided by the `asm_version` variable.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "options",
+    "type": "list",
+    "description": "Comma separated list of options. Works with in-cluster control plane only. Supported options are documented in https://cloud.google.com/service-mesh/docs/enable-optional-features.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_all",
+    "type": "bool",
+    "description": "Sets `--enable_all` option if true.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "iam_member",
+    "type": "string",
+    "description": "The GCP member email address to grant IAM roles to. If impersonate_service_account or service_account is set, roles are granted to that SA.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "skip_validation",
+    "type": "bool",
+    "description": "Sets `_CI_NO_VALIDATE` variable. Determines whether the script should perform validation checks for prerequisites such as IAM roles, Google APIs etc.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_cluster_labels",
+    "type": "bool",
+    "description": "Sets `--enable_cluster_labels` option if true.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_registration",
+    "type": "bool",
+    "description": "Sets `--enable_registration` option if true.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ca",
+    "type": "string",
+    "description": "Sets CA option. Possible values are `meshca` or `citadel`. Additional documentation on Citadel is available at https://cloud.google.com/service-mesh/docs/scripted-install/gke-install#installation_with_citadel_as_the_ca.",
+    "default": "\"meshca\"",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint",
+    "type": "string",
+    "description": "The GKE cluster endpoint.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "service_account_key_file",
+    "type": "string",
+    "description": "Path to service account key file to auth as for running `gcloud container clusters get-credentials`.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "asm_version",
+    "type": "string",
+    "description": "ASM version to deploy. This module supports versions `1.8` and `1.9`. Available versions are documented in https://github.com/GoogleCloudPlatform/anthos-service-mesh-packages",
+    "default": "\"1.9\"",
+    "required": false
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The location (zone or region) this cluster has been created in.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "service_account",
+    "type": "string",
+    "description": "The GCP Service Account email address used to deploy ASM.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "key_file",
+    "type": "string",
+    "description": "The GCP Service Account credentials file path used to deploy ASM.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "enable_cluster_roles",
+    "type": "bool",
+    "description": "Sets `--enable_cluster_roles` option if true.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "The unique name to identify the cluster in ASM.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "gcloud_sdk_version",
+    "type": "string",
+    "description": "The gcloud sdk version to use. Minimum required version is 293.0.0",
+    "default": "\"296.0.1\"",
+    "required": false
+  },
+  {
+    "name": "managed_control_plane",
+    "type": "bool",
+    "description": "ASM managed control plane boolean. Determines whether to install ASM managed control plane. Installing ASM managed control plane does not install gateways. Documentation on how to install gateways with ASM MCP can be found at https://cloud.google.com/service-mesh/docs/managed-control-plane#install_istio_gateways_optional.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_gcp_iam_roles",
+    "type": "bool",
+    "description": "Grants IAM roles required for ASM if true. If enable_gcp_iam_roles, one of impersonate_service_account, service_account, or iam_member must be set.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ca_certs",
+    "type": "map",
+    "description": "Sets CA certificate file paths when `ca` is set to `citadel`. These values must be provided when using Citadel as CA. Additional documentation on Citadel is available at https://cloud.google.com/service-mesh/docs/scripted-install/gke-install#installation_with_citadel_as_the_ca.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "mode",
+    "type": "string",
+    "description": "ASM mode for deployment. Supported mode is `install` only.",
+    "default": "\"install\"",
+    "required": false
+  },
+  {
+    "name": "custom_overlays",
+    "type": "list",
+    "description": "Comma separated list of custom_overlay file paths. Works with in-cluster control plane only. Additional documentation available at https://cloud.google.com/service-mesh/docs/scripted-install/gke-install#installation_with_an_overlay_file",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_gcp_apis",
+    "type": "bool",
+    "description": "Sets `--enable_gcp_apis` option if true.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project in which the resource belongs.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "outdir",
+    "type": "string",
+    "description": "Sets `--outdir` option.",
+    "default": "\"none\"",
+    "required": false
+  },
+  {
+    "name": "impersonate_service_account",
+    "type": "string",
+    "description": "An optional service account to impersonate for gcloud commands. If this service account is not specified, the module will use Application Default Credentials.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "enable_gcp_components",
+    "type": "bool",
+    "description": "Sets --enable_gcp_components option if true. Can be true or false. Available versions are documented in https://github.com/GoogleCloudPlatform/anthos-service-mesh-packages",
+    "default": "false",
+    "required": false
+  }
+]

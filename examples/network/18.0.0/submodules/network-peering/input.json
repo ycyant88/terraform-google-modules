@@ -1,0 +1,65 @@
+[
+  {
+    "name": "export_local_custom_routes",
+    "type": "bool",
+    "description": "Export custom routes to peer network from local network.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "export_peer_subnet_routes_with_public_ip",
+    "type": "bool",
+    "description": "Export custom routes to local network from peer network (defaults to false; causes the Local Peering Connection to align with the [provider default](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network_peering#import_subnet_routes_with_public_ip), and the Remote Peering Connection to be opposite the provider default).",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "export_local_subnet_routes_with_public_ip",
+    "type": "bool",
+    "description": "Export custom routes to peer network from local network (defaults to true; causes the Local Peering Connection to align with the [provider default](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network_peering#export_subnet_routes_with_public_ip), and the Remote Peering Connection to be opposite the provider default).",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "module_depends_on",
+    "type": "list(any)",
+    "description": "List of modules or resources this module depends on.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "prefix",
+    "type": "string",
+    "description": "Name prefix for the network peerings",
+    "default": "\"network-peering\"",
+    "required": false
+  },
+  {
+    "name": "local_network",
+    "type": "string",
+    "description": "Resource link of the network to add a peering to.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "peer_network",
+    "type": "string",
+    "description": "Resource link of the peer network.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "export_peer_custom_routes",
+    "type": "bool",
+    "description": "Export custom routes to local network from peer network.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "stack_type",
+    "type": "string",
+    "description": "Which IP version(s) of traffic and routes are allowed to be imported or exported between peer networks. Possible values: [\"IPV4_ONLY\", \"IPV4_IPV6\"].",
+    "default": "\"IPV4_ONLY\"",
+    "required": false
+  }
+]

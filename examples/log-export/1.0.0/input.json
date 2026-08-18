@@ -1,0 +1,79 @@
+[
+  {
+    "name": "org_id",
+    "type": "",
+    "description": "The organization id (required if org-level sink)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "billing_id",
+    "type": "",
+    "description": "The billing id (required if billing-level sink)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "folder",
+    "type": "",
+    "description": "The folder name (required if folder-level sink)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "filter",
+    "type": "",
+    "description": "The log filter",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "bigquery",
+    "type": "",
+    "description": "",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "pubsub",
+    "type": "",
+    "description": "",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "project",
+    "type": "",
+    "description": "The project name (required if project-level sink)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "",
+    "description": "The logsink name",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "include_children",
+    "type": "",
+    "description": "Include children folder or projects in the sink",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "unique_writer_identity",
+    "type": "",
+    "description": "Whether or not to create a unique identity associated with this sink. If false (default), then the writer_identity used is serviceAccount:cloud-logs@system.gserviceaccount.com.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "storage",
+    "type": "",
+    "description": "",
+    "default": "{}",
+    "required": false
+  }
+]

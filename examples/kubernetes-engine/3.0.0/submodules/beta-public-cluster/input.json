@@ -1,0 +1,338 @@
+[
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region to host the cluster in (required)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "node_pools_taints",
+    "type": "map",
+    "description": "Map of lists containing node taints by node-pool name",
+    "default": "{\n  \"all\": [],\n  \"default-node-pool\": []\n}",
+    "required": false
+  },
+  {
+    "name": "service_account",
+    "type": "string",
+    "description": "The service account to run nodes as if not overridden in `node_pools`. The default value will cause a cluster-specific service account to be created.",
+    "default": "\"create\"",
+    "required": false
+  },
+  {
+    "name": "cloudrun",
+    "type": "string",
+    "description": "(Beta) Enable CloudRun addon",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_binary_authorization",
+    "type": "string",
+    "description": "Enable BinAuthZ Admission controller",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "basic_auth_password",
+    "type": "string",
+    "description": "The password to be used with Basic Authentication.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the cluster (required)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_project_id",
+    "type": "string",
+    "description": "The project ID of the shared VPC's host (for shared vpc support)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "remove_default_node_pool",
+    "type": "string",
+    "description": "Remove default node pool while setting up the cluster",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "pod_security_policy_config",
+    "type": "list",
+    "description": "enabled - Enable the PodSecurityPolicy controller for this cluster. If enabled, pods must be valid under a PodSecurityPolicy to be created.",
+    "default": "[\n  {\n    \"enabled\": false\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "The VPC network to host the cluster in (required)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "node_version",
+    "type": "string",
+    "description": "The Kubernetes version of the node pools. Defaults kubernetes_version (master) variable and can be overridden for individual node pools by setting the `version` key on them. Must be empyty or set the same as master at cluster creation.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "kubernetes_dashboard",
+    "type": "string",
+    "description": "Enable kubernetes dashboard addon",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "node_pools_labels",
+    "type": "map",
+    "description": "Map of maps containing node labels by node-pool name",
+    "default": "{\n  \"all\": {},\n  \"default-node-pool\": {}\n}",
+    "required": false
+  },
+  {
+    "name": "node_pools_tags",
+    "type": "map",
+    "description": "Map of lists containing node network tags by node-pool name",
+    "default": "{\n  \"all\": [],\n  \"default-node-pool\": []\n}",
+    "required": false
+  },
+  {
+    "name": "upstream_nameservers",
+    "type": "list",
+    "description": "If specified, the values replace the nameservers taken by default from the node’s /etc/resolv.conf",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "non_masquerade_cidrs",
+    "type": "list",
+    "description": "List of strings in CIDR notation that specify the IP address ranges that do not use IP masquerading.",
+    "default": "[\n  \"10.0.0.0/8\",\n  \"172.16.0.0/12\",\n  \"192.168.0.0/16\"\n]",
+    "required": false
+  },
+  {
+    "name": "ip_masq_resync_interval",
+    "type": "string",
+    "description": "The interval at which the agent attempts to sync its ConfigMap file from the disk.",
+    "default": "\"60s\"",
+    "required": false
+  },
+  {
+    "name": "regional",
+    "type": "string",
+    "description": "Whether is a regional cluster (zonal cluster if set false. WARNING: changing this after cluster creation is destructive!)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "node_metadata",
+    "type": "string",
+    "description": "Specifies how node metadata is exposed to the workload running on the node",
+    "default": "\"UNSPECIFIED\"",
+    "required": false
+  },
+  {
+    "name": "network_policy",
+    "type": "string",
+    "description": "Enable network policy addon",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "stub_domains",
+    "type": "map",
+    "description": "Map of stub domains and their resolvers to forward DNS queries for a certain domain to an external DNS server",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "configure_ip_masq",
+    "type": "string",
+    "description": "Enables the installation of ip masquerading, which is usually no longer required when using aliasied IP addresses. IP masquerading uses a kubectl call, so when you have a private cluster, you will need access to the API server.",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "basic_auth_username",
+    "type": "string",
+    "description": "The username to be used with Basic Authentication. An empty value will disable Basic Authentication, which is the recommended configuration.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "issue_client_certificate",
+    "type": "string",
+    "description": "Issues a client certificate to authenticate to the cluster endpoint. To maximize the security of your cluster, leave this option disabled. Client certificates don't automatically rotate and aren't easily revocable. WARNING: changing this after cluster creation is destructive!",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to host the cluster in (required)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ip_range_pods",
+    "type": "string",
+    "description": "The _name_ of the secondary subnet ip range to use for pods",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ip_range_services",
+    "type": "string",
+    "description": "The _name_ of the secondary subnet range to use for services",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "initial_node_count",
+    "type": "string",
+    "description": "The number of nodes to create in this cluster's default node pool.",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The subnetwork to host the cluster in (required)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "node_pools",
+    "type": "list",
+    "description": "List of maps containing node pools",
+    "default": "[\n  {\n    \"name\": \"default-node-pool\"\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "node_pools_oauth_scopes",
+    "type": "map",
+    "description": "Map of lists containing node oauth scopes by node-pool name",
+    "default": "{\n  \"all\": [\n    \"https://www.googleapis.com/auth/cloud-platform\"\n  ],\n  \"default-node-pool\": []\n}",
+    "required": false
+  },
+  {
+    "name": "ip_masq_link_local",
+    "type": "string",
+    "description": "Whether to masquerade traffic to the link-local prefix (169.254.0.0/16).",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "logging_service",
+    "type": "string",
+    "description": "The logging service that the cluster should write logs to. Available options include logging.googleapis.com, logging.googleapis.com/kubernetes (beta), and none",
+    "default": "\"logging.googleapis.com\"",
+    "required": false
+  },
+  {
+    "name": "cluster_ipv4_cidr",
+    "type": "string",
+    "description": "The IP address range of the kubernetes pods in this cluster. Default is an automatically assigned CIDR.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "horizontal_pod_autoscaling",
+    "type": "string",
+    "description": "Enable horizontal pod autoscaling addon",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "kubernetes_version",
+    "type": "string",
+    "description": "The Kubernetes version of the masters. If set to 'latest' it will pull latest available version in the selected region.",
+    "default": "\"latest\"",
+    "required": false
+  },
+  {
+    "name": "http_load_balancing",
+    "type": "string",
+    "description": "Enable httpload balancer addon",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "network_policy_provider",
+    "type": "string",
+    "description": "The network policy provider.",
+    "default": "\"CALICO\"",
+    "required": false
+  },
+  {
+    "name": "maintenance_start_time",
+    "type": "string",
+    "description": "Time window specified for daily maintenance operations in RFC3339 format",
+    "default": "\"05:00\"",
+    "required": false
+  },
+  {
+    "name": "node_pools_metadata",
+    "type": "map",
+    "description": "Map of maps containing node metadata by node-pool name",
+    "default": "{\n  \"all\": {},\n  \"default-node-pool\": {}\n}",
+    "required": false
+  },
+  {
+    "name": "monitoring_service",
+    "type": "string",
+    "description": "The monitoring service that the cluster should write metrics to. Automatically send metrics from pods in the cluster to the Google Cloud Monitoring API. VM metrics will be collected by Google Compute Engine regardless of this setting Available options include monitoring.googleapis.com, monitoring.googleapis.com/kubernetes (beta) and none",
+    "default": "\"monitoring.googleapis.com\"",
+    "required": false
+  },
+  {
+    "name": "istio",
+    "type": "string",
+    "description": "(Beta) Enable Istio addon",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "zones",
+    "type": "list",
+    "description": "The zones to host the cluster in (optional if regional cluster / required if zonal)",
+    "default": "[\n  \"\"\n]",
+    "required": false
+  },
+  {
+    "name": "master_authorized_networks_config",
+    "type": "list",
+    "description": "  The desired configuration options for master authorized networks. Omit the nested cidr_blocks attribute to disallow external access (except the cluster node IPs, which GKE automatically whitelists)\n\n  ### example format ###\n  master_authorized_networks_config = [{\n    cidr_blocks = [{\n      cidr_block   = \"10.0.0.0/8\"\n      display_name = \"example_network\"\n    }],\n  }]\n\n",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "disable_legacy_metadata_endpoints",
+    "type": "string",
+    "description": "Disable the /0.1/ and /v1beta1/ metadata server endpoints on the node. Changing this value will cause all node pools to be recreated.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "database_encryption",
+    "type": "list",
+    "description": "  Application-layer Secrets Encryption settings. Example:\n  database_encryption = [{\n    state = \"ENCRYPTED\",\n    key_name = \"projects/my-project/locations/global/keyRings/my-ring/cryptoKeys/my-key\"\n  }]\n",
+    "default": "[\n  {\n    \"key_name\": \"\",\n    \"state\": \"DECRYPTED\"\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "The description of the cluster",
+    "default": "\"\"",
+    "required": false
+  }
+]

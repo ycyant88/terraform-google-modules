@@ -1,0 +1,38 @@
+[
+  {
+    "name": "folders_map",
+    "description": "Folder resources by name."
+  },
+  {
+    "name": "ids",
+    "description": "Folder ids."
+  },
+  {
+    "name": "ids_list",
+    "description": "List of folder ids."
+  },
+  {
+    "name": "folder",
+    "description": "Folder resource (for single use)."
+  },
+  {
+    "name": "folders",
+    "description": "Folder resources as list."
+  },
+  {
+    "name": "names",
+    "description": "Folder names."
+  },
+  {
+    "name": "names_list",
+    "description": "List of folder names."
+  },
+  {
+    "name": "id",
+    "description": "Folder id (for single use)."
+  },
+  {
+    "name": "name",
+    "description": "Folder name (for single use)."
+  }
+]

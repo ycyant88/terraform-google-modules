@@ -1,0 +1,212 @@
+[
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The subnetwork to host the composer cluster.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "web_server_ipv4_cidr",
+    "type": "string",
+    "description": "The CIDR block from which IP range in tenant project will be reserved for the web server.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "machine_type",
+    "type": "string",
+    "description": "Machine type of Cloud Composer nodes.",
+    "default": "\"n1-standard-8\"",
+    "required": false
+  },
+  {
+    "name": "composer_service_account",
+    "type": "string",
+    "description": "Service Account for running Cloud Composer.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "service_ip_allocation_range_name",
+    "type": "string",
+    "description": "The name of the services' secondary range used to allocate IP addresses to the cluster.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cloud_sql_ipv4_cidr",
+    "type": "string",
+    "description": "The CIDR block from which IP range in tenant project will be reserved for Cloud SQL.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project ID where Cloud Composer Environment is created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "composer_env_name",
+    "type": "string",
+    "description": "Name of Cloud Composer Environment",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the Cloud Composer Environment is created.",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "tags",
+    "type": "set(string)",
+    "description": "Tags applied to all nodes. Tags are used to identify valid sources or targets for network firewalls.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_ip_masq_agent",
+    "type": "bool",
+    "description": "Deploys 'ip-masq-agent' daemon set in the GKE cluster and defines nonMasqueradeCIDRs equals to pod IP range so IP masquerading is used for all destination addresses, except between pods traffic.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_private_endpoint",
+    "type": "bool",
+    "description": "Configure public access to the cluster endpoint.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "disk_size",
+    "type": "string",
+    "description": "The disk size for nodes.",
+    "default": "\"100\"",
+    "required": false
+  },
+  {
+    "name": "oauth_scopes",
+    "type": "set(string)",
+    "description": "Google API scopes to be made available on all node.",
+    "default": "[\n  \"https://www.googleapis.com/auth/cloud-platform\"\n]",
+    "required": false
+  },
+  {
+    "name": "pod_ip_allocation_range_name",
+    "type": "string",
+    "description": "The name of the cluster's secondary range used to allocate IP addresses to pods.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "env_variables",
+    "type": "map(string)",
+    "description": "Variables of the airflow environment.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "image_version",
+    "type": "string",
+    "description": "The version of the aiflow running in the cloud composer environment.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "master_ipv4_cidr",
+    "type": "string",
+    "description": "The CIDR block from which IP range in tenant project will be reserved for the master.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "The resource labels (a map of key/value pairs) to be applied to the Cloud Composer.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "Zone where the Cloud Composer nodes are created.",
+    "default": "\"us-central1-f\"",
+    "required": false
+  },
+  {
+    "name": "node_count",
+    "type": "number",
+    "description": "Number of worker nodes in Cloud Composer Environment.",
+    "default": "3",
+    "required": false
+  },
+  {
+    "name": "airflow_config_overrides",
+    "type": "map(string)",
+    "description": "Airflow configuration properties to override. Property keys contain the section and property names, separated by a hyphen, for example \"core-dags_are_paused_at_creation\".",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "The VPC network to host the composer cluster.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_project_id",
+    "type": "string",
+    "description": "The project ID of the shared VPC's host (for shared vpc support)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnetwork_region",
+    "type": "string",
+    "description": "The subnetwork region of the shared VPC's host (for shared vpc support)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "kms_key_name",
+    "type": "string",
+    "description": "Customer-managed Encryption Key fully qualified resource name, i.e. projects/project-id/locations/location/keyRings/keyring/cryptoKeys/key.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "web_server_allowed_ip_ranges",
+    "type": "list(object({\n    value       = string,\n    description = string\n  }))",
+    "description": "The network-level access control policy for the Airflow web server. If unspecified, no network-level access restrictions will be applied.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "use_ip_aliases",
+    "type": "bool",
+    "description": "Enable Alias IPs in the GKE cluster. If true, a VPC-native cluster is created.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "pypi_packages",
+    "type": "map(string)",
+    "description": " Custom Python Package Index (PyPI) packages to be installed in the environment. Keys refer to the lowercase package name (e.g. \"numpy\").",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "python_version",
+    "type": "string",
+    "description": "The default version of Python used to run the Airflow scheduler, worker, and webserver processes.",
+    "default": "\"3\"",
+    "required": false
+  }
+]

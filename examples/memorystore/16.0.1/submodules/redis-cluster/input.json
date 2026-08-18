@@ -1,0 +1,156 @@
+[
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The ID of the instance or a fully qualified identifier for the instance. must be 1 to 63 characters and use only lowercase letters, numbers, or hyphens. It must start with a lowercase letter and end with a lowercase letter or number",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The name of the region of the Redis cluster",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "replica_count",
+    "type": "number",
+    "description": "The number of replica nodes per shard. Each shard can have 0, 1, or 2 replica nodes. Replicas provide high availability and additional read throughput, and are evenly distributed across zones",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "kms_key",
+    "type": "string",
+    "description": "The KMS key used to encrypt the at-rest data of the cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_role",
+    "type": "string",
+    "description": "The role of the cluster in cross cluster replication. Possible values are: CLUSTER_ROLE_UNSPECIFIED, NONE, PRIMARY, SECONDARY",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "primary_cluster",
+    "type": "string",
+    "description": "primary cluster that is used as the replication source for this secondary cluster. This is allowed to be set only for clusters whose cluster role is of type SECONDARY. Format: projects/{project}/locations/{region}/clusters/{cluster-id}",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project in which the resource belongs to.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enable_apis",
+    "type": "bool",
+    "description": "Flag for enabling redis.googleapis.com in your project",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "shard_count",
+    "type": "number",
+    "description": "Required. Number of shards for the Redis cluster",
+    "default": "3",
+    "required": false
+  },
+  {
+    "name": "zone_distribution_config_mode",
+    "type": "string",
+    "description": "The mode for zone distribution for Memorystore Redis cluster (Immutable). If not provided, MULTI_ZONE will be used as default value. Possible values are: MULTI_ZONE, SINGLE_ZONE",
+    "default": "\"MULTI_ZONE\"",
+    "required": false
+  },
+  {
+    "name": "zone_distribution_config_zone",
+    "type": "string",
+    "description": "The zone for single zone Memorystore Redis cluster (Immutable)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "transit_encryption_mode",
+    "type": "string",
+    "description": "The in-transit encryption for the Redis cluster. If not provided, encryption is disabled for the cluster. Default value is TRANSIT_ENCRYPTION_MODE_DISABLED. Possible values are: TRANSIT_ENCRYPTION_MODE_UNSPECIFIED, TRANSIT_ENCRYPTION_MODE_DISABLED, TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION",
+    "default": "\"TRANSIT_ENCRYPTION_MODE_DISABLED\"",
+    "required": false
+  },
+  {
+    "name": "authorization_mode",
+    "type": "string",
+    "description": "The authorization mode of the Redis cluster. If not provided, auth feature is disabled for the cluster. Default value is AUTH_MODE_DISABLED. Possible values are: AUTH_MODE_UNSPECIFIED, AUTH_MODE_IAM_AUTH, AUTH_MODE_DISABLED",
+    "default": "\"AUTH_MODE_DISABLED\"",
+    "required": false
+  },
+  {
+    "name": "service_connection_policies",
+    "type": "map(object({\n    description     = optional(string)\n    network_name    = string\n    network_project = string\n    subnet_names    = list(string)\n    limit           = optional(number)\n    labels          = optional(map(string), {})\n  }))",
+    "description": "The Service Connection Policies to create",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "node_type",
+    "type": "string",
+    "description": "The nodeType for the Redis cluster. If not provided, REDIS_HIGHMEM_MEDIUM will be used as default Possible values are: REDIS_SHARED_CORE_NANO, REDIS_HIGHMEM_MEDIUM, REDIS_HIGHMEM_XLARGE, REDIS_STANDARD_SMALL.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "redis_configs",
+    "type": "object({\n    maxmemory-clients       = optional(string)\n    maxmemory               = optional(string)\n    maxmemory-policy        = optional(string)\n    notify-keyspace-events  = optional(string)\n    slowlog-log-slower-than = optional(number)\n    maxclients              = optional(number)\n  })",
+    "description": "Configure Redis Cluster behavior using a subset of native Redis configuration parameters",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "weekly_maintenance_window",
+    "type": "object({\n    day_of_the_week = optional(string, \"DAY_OF_WEEK_UNSPECIFIED\")\n    hours           = optional(string)\n    minutes         = optional(string)\n    seconds         = optional(string)\n    nanos           = optional(number)\n  })",
+    "description": "Configure Redis Cluster behavior using a subset of native Redis configuration parameters",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "list(string)",
+    "description": "List of consumer network where the network address of the discovery endpoint will be reserved, in the form of projects/{network_project_id_or_number}/global/networks/{network_id}. Currently, only one item is supported",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "deletion_protection_enabled",
+    "type": "bool",
+    "description": " Indicates if the cluster is deletion protected or not. If the value if set to true, any delete cluster operation will fail. Default value is true",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "persistence_config",
+    "type": "object({\n    mode = optional(string, \"PERSISTENCE_MODE_UNSPECIFIED\")\n    rdb_config = optional(object({\n      rdb_snapshot_period     = optional(string)\n      rdb_snapshot_start_time = optional(string)\n    }), null)\n    aof_config = optional(object({\n      append_fsync = optional(string)\n    }))\n  })",
+    "description": "Persistence config (RDB, AOF) for the cluster",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "secondary_clusters",
+    "type": "list(string)",
+    "description": "List of secondary clusters that are replicating from this primary cluster. This is allowed to be set only for clusters whose cluster role is of type PRIMARY. Format: projects/{project}/locations/{region}/clusters/{cluster-id}",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "The resource labels to represent user provided metadata.",
+    "default": "{}",
+    "required": false
+  }
+]

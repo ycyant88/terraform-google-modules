@@ -1,0 +1,46 @@
+[
+  {
+    "name": "vpn_tunnels_names-static",
+    "description": "The VPN tunnel name is"
+  },
+  {
+    "name": "vpn_tunnels_self_link-static",
+    "description": "The VPN tunnel self-link is"
+  },
+  {
+    "name": "vpn_tunnels_names-dynamic",
+    "description": "The VPN tunnel name is"
+  },
+  {
+    "name": "ipsec_secret-static",
+    "description": "The secret"
+  },
+  {
+    "name": "vpn_tunnels_self_link-dynamic",
+    "description": "The VPN tunnel self-link is"
+  },
+  {
+    "name": "ipsec_secret-dynamic",
+    "description": "The secret"
+  },
+  {
+    "name": "project_id",
+    "description": "The Project-ID"
+  },
+  {
+    "name": "name",
+    "description": "The name of the Gateway"
+  },
+  {
+    "name": "gateway_self_link",
+    "description": "The self-link of the Gateway"
+  },
+  {
+    "name": "network",
+    "description": "The name of the VPC"
+  },
+  {
+    "name": "gateway_ip",
+    "description": "The VPN Gateway Public IP"
+  }
+]

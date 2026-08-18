@@ -1,0 +1,16 @@
+[
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the namespace",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "preferences",
+    "type": "map(string)",
+    "description": "Name of the preferences to set in this namespace",
+    "default": "",
+    "required": true
+  }
+]

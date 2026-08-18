@@ -1,0 +1,135 @@
+[
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "Labels for vpn components",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "ipsec_secret_length",
+    "type": "number",
+    "description": "The lnegth the of shared secret for VPN tunnels",
+    "default": "8",
+    "required": false
+  },
+  {
+    "name": "peer_external_gateway",
+    "type": "object({\n    name            = optional(string)\n    redundancy_type = optional(string)\n    interfaces = list(object({\n      id         = number\n      ip_address = string\n    }))\n  })",
+    "description": "Configuration of an external VPN gateway to which this VPN is connected.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "peer_gcp_gateway",
+    "type": "string",
+    "description": "Self Link URL of the peer side HA GCP VPN gateway to which this VPN tunnel is connected.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "VPN gateway name, and prefix used for dependent resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "route_priority",
+    "type": "number",
+    "description": "Route priority, defaults to 1000.",
+    "default": "1000",
+    "required": false
+  },
+  {
+    "name": "stack_type",
+    "type": "string",
+    "description": "The IP stack type will apply to all the tunnels associated with this VPN gateway.",
+    "default": "\"IPV4_ONLY\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project where resources will be created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "vpn_gateway_self_link",
+    "type": "string",
+    "description": "self_link of existing VPN gateway to be used for the vpn tunnel. create_vpn_gateway should be set to false",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "router_name",
+    "type": "string",
+    "description": "Name of router, leave blank to create one.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "tunnels",
+    "type": "map(object({\n    bgp_peer = object({\n      address = string\n      asn     = number\n    })\n    bgp_session_name = optional(string)\n    bgp_peer_options = optional(object({\n      ip_address          = optional(string)\n      advertise_groups    = optional(list(string))\n      advertise_ip_ranges = optional(map(string))\n      advertise_mode      = optional(string)\n      route_priority      = optional(number)\n      import_policies     = optional(list(string))\n      export_policies     = optional(list(string))\n    }))\n    bgp_session_range               = optional(string)\n    ike_version                     = optional(number)\n    vpn_gateway_interface           = optional(number)\n    peer_external_gateway_self_link = optional(string, null)\n    peer_external_gateway_interface = optional(number)\n    shared_secret                   = optional(string, \"\")\n  }))",
+    "description": "VPN tunnel configurations, bgp_peer_options is usually null.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "interconnect_attachment",
+    "type": "list(string)",
+    "description": "URL of the interconnect attachment resource. When the value of this field is present, the VPN Gateway will be used for IPsec-encrypted Cloud Interconnect.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "VPC used for the gateway and routes.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "router_asn",
+    "type": "number",
+    "description": "Router ASN used for auto-created router.",
+    "default": "64514",
+    "required": false
+  },
+  {
+    "name": "keepalive_interval",
+    "type": "number",
+    "description": "The interval in seconds between BGP keepalive messages that are sent to the peer.",
+    "default": "20",
+    "required": false
+  },
+  {
+    "name": "create_vpn_gateway",
+    "type": "bool",
+    "description": "create a VPN gateway",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "external_vpn_gateway_description",
+    "type": "string",
+    "description": "An optional description of external VPN Gateway",
+    "default": "\"Terraform managed external VPN gateway\"",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region used for resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "router_advertise_config",
+    "type": "object({\n    groups    = list(string)\n    ip_ranges = map(string)\n    mode      = optional(string)\n  })",
+    "description": "Router custom advertisement configuration, ip_ranges is a map of address ranges and descriptions.",
+    "default": "null",
+    "required": false
+  }
+]

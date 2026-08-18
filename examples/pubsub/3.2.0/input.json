@@ -1,0 +1,86 @@
+[
+  {
+    "name": "create_subscriptions",
+    "type": "bool",
+    "description": "Specify true if you want to create subscriptions",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "topic_labels",
+    "type": "map(string)",
+    "description": "A map of labels to assign to the Pub/Sub topic",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "push_subscriptions",
+    "type": "list(map(string))",
+    "description": "The list of the push subscriptions",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "pull_subscriptions",
+    "type": "list(map(string))",
+    "description": "The list of the pull subscriptions",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "subscription_labels",
+    "type": "map(string)",
+    "description": "A map of labels to assign to every Pub/Sub subscription",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "topic_kms_key_name",
+    "type": "string",
+    "description": "The resource name of the Cloud KMS CryptoKey to be used to protect access to messages published on this topic.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to manage the Pub/Sub resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "create_topic",
+    "type": "bool",
+    "description": "Specify true if you want to create a topic",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "grant_token_creator",
+    "type": "bool",
+    "description": "Specify true if you want to add token creator role to the default Pub/Sub SA",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "schema",
+    "type": "object({\n    name       = string\n    type       = string\n    definition = string\n    encoding   = string\n  })",
+    "description": "Schema for the topic",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "topic",
+    "type": "string",
+    "description": "The Pub/Sub topic name",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "message_storage_policy",
+    "type": "map(any)",
+    "description": "A map of storage policies. Default - inherit from organization's Resource Location Restriction policy.",
+    "default": "{}",
+    "required": false
+  }
+]

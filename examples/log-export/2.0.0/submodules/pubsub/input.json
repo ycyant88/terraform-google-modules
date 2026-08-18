@@ -1,0 +1,30 @@
+[
+  {
+    "name": "create_subscriber",
+    "type": "string",
+    "description": "Whether to create a subscription to the topic that was created and used for log entries matching the filter. If 'true', a subscription is created along with a service account that is granted roles/pubsub.subscriber and roles/pubsub.viewer to the topic.",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "log_sink_writer_identity",
+    "type": "string",
+    "description": "The service account that logging uses to write log entries to the destination. (This is available as an output coming from the root module).",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project in which the pubsub topic will be created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "topic_name",
+    "type": "string",
+    "description": "The name of the pubsub topic to be created and used for log entries matching the filter.",
+    "default": "",
+    "required": true
+  }
+]

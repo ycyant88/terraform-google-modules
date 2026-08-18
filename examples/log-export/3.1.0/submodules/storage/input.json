@@ -1,0 +1,37 @@
+[
+  {
+    "name": "log_sink_writer_identity",
+    "type": "string",
+    "description": "The service account that logging uses to write log entries to the destination. (This is available as an output coming from the root module).",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project in which the storage bucket will be created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "storage_bucket_name",
+    "type": "string",
+    "description": "The name of the storage bucket to be created and used for log entries matching the filter.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The location of the storage bucket.",
+    "default": "\"US\"",
+    "required": false
+  },
+  {
+    "name": "storage_class",
+    "type": "string",
+    "description": "The storage class of the storage bucket.",
+    "default": "\"MULTI_REGIONAL\"",
+    "required": false
+  }
+]

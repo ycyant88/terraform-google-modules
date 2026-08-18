@@ -1,0 +1,121 @@
+[
+  {
+    "name": "vault_args",
+    "type": "string",
+    "description": "Additional command line arguments passed to vault server",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "kms_key_name",
+    "type": "string",
+    "description": "The name of the Cloud KMS Key used for asset encryption/decryption",
+    "default": "\"vault-init\"",
+    "required": false
+  },
+  {
+    "name": "tls_ou",
+    "type": "string",
+    "description": "The TLS Organizational Unit for the TLS certificate",
+    "default": "\"IT Security Operations\"",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The subnetwork to deploy to",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "vault_version",
+    "type": "string",
+    "description": "The version of vault to install.",
+    "default": "\"0.8.1\"",
+    "required": false
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "The zone to create the instance in.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "machine_type",
+    "type": "string",
+    "description": "The machine type for the instance",
+    "default": "\"n1-standard-1\"",
+    "required": false
+  },
+  {
+    "name": "force_destroy_bucket",
+    "type": "string",
+    "description": "Set to true to force deletion of backend bucket on terraform destroy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "kms_keyring_name",
+    "type": "string",
+    "description": "The name of the Cloud KMS KeyRing for asset encryption",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "tls_ips",
+    "type": "list",
+    "description": "List of IP addresses added to the Vault server self-signed certificate",
+    "default": "[\n  \"127.0.0.1\"\n]",
+    "required": false
+  },
+  {
+    "name": "tls_cn",
+    "type": "string",
+    "description": "The TLS Common Name for the TLS certificates",
+    "default": "\"vault.example.net\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to add the IAM bindings for the service account to",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "The network to deploy to",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region to create the instance in.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "tls_ca_subject",
+    "type": "map",
+    "description": "The `subject` block for the root CA certificate.",
+    "default": "{\n  \"common_name\": \"Example Inc. Root\",\n  \"country\": \"US\",\n  \"locality\": \"The Intranet\",\n  \"organization\": \"Example, Inc\",\n  \"organizational_unit\": \"Department of Certificate Authority\",\n  \"postal_code\": \"95559-1227\",\n  \"province\": \"CA\",\n  \"street_address\": [\n    \"123 Example Street\"\n  ]\n}",
+    "required": false
+  },
+  {
+    "name": "tls_dns_names",
+    "type": "list",
+    "description": "List of DNS names added to the Vault server self-signed certificate",
+    "default": "[\n  \"vault.example.net\"\n]",
+    "required": false
+  },
+  {
+    "name": "storage_bucket",
+    "type": "string",
+    "description": "Name of the GCS bucket for the Vault backend storage",
+    "default": "",
+    "required": true
+  }
+]

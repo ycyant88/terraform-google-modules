@@ -1,0 +1,125 @@
+variable "boot_disk_size" {
+  description = "Size of the boot disk."
+  type        = number
+  default     = 10
+}
+
+variable "client_cidrs" {
+  description = "Client IP CIDR ranges to set in the firewall rule."
+  type        = list(string)
+  default     = []
+}
+
+variable "container_image" {
+  description = "CoreDNS container version."
+  type        = string
+  default     = "coredns/coredns"
+}
+
+variable "corefile" {
+  description = "Path to the CoreDNS configuration file to use."
+  type        = string
+  default     = ""
+}
+
+variable "create_firewall_rule" {
+  description = "Create tag-based firewall rule."
+  type        = bool
+  default     = false
+}
+
+variable "instance_count" {
+  description = "Number of instances to create."
+  type        = number
+  default     = 1
+}
+
+variable "instance_type" {
+  description = "Instance machine type."
+  type        = string
+  default     = "g1-small"
+}
+
+variable "labels" {
+  description = "Labels to be attached to the resources"
+  type        = map(string)
+  default     = { "service" : "coredns" }
+}
+
+variable "log_driver" {
+  description = "Docker log driver to use for CoreDNS."
+  type        = string
+  default     = "gcplogs"
+}
+
+variable "network" {
+  description = "Self link of the VPC subnet to use for firewall rules."
+  type        = string
+  default     = ""
+}
+
+variable "network_tag" {
+  description = "Network tag that identifies the instances."
+  type        = string
+  default     = "coredns"
+}
+
+variable "prefix" {
+  description = "Prefix to prepend to resource names."
+  type        = string
+  default     = ""
+}
+
+variable "project_id" {
+  description = "Project id where the instances will be created."
+  type        = string
+  default     = ""
+}
+
+variable "region" {
+  description = "Region for external addresses."
+  type        = string
+  default     = ""
+}
+
+variable "scopes" {
+  description = "Instance scopes."
+  type        = list(string)
+  default     = ["https://www.googleapis.com/auth/devstorage.read_only", "https://www.googleapis.com/auth/logging.write", "https://www.googleapis.com/auth/monitoring.write", "https://www.googleapis.com/auth/pubsub", "https://www.googleapis.com/auth/service.management.readonly", "https://www.googleapis.com/auth/servicecontrol", "https://www.googleapis.com/auth/trace.append"]
+}
+
+variable "service_account" {
+  description = "Instance service account."
+  type        = string
+  default     = ""
+}
+
+variable "stackdriver_logging" {
+  description = "Enable the Stackdriver logging agent."
+  type        = bool
+  default     = true
+}
+
+variable "stackdriver_monitoring" {
+  description = "Enable the Stackdriver monitoring agent."
+  type        = bool
+  default     = true
+}
+
+variable "subnetwork" {
+  description = "Self link of the VPC subnet to use for the internal interface."
+  type        = string
+  default     = ""
+}
+
+variable "vm_tags" {
+  description = "Additional network tags for the instances."
+  type        = list(string)
+  default     = []
+}
+
+variable "zone" {
+  description = "Instance zone."
+  type        = string
+  default     = ""
+}

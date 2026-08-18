@@ -1,0 +1,163 @@
+[
+  {
+    "name": "grant_iam_roles",
+    "type": "string",
+    "description": "Grant IAM roles to created service accounts",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "slo_generator_version",
+    "type": "string",
+    "description": "SLO generator library version",
+    "default": "\"1.4.0\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project id to create SLO infrastructure",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "extra_files",
+    "type": "list(object({\n    content  = string,\n    filename = string\n  }))",
+    "description": "Extra files to add to the Google Cloud Function code",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "function_memory",
+    "type": "string",
+    "description": "Memory in MB for the Cloud Function (increases with no. of SLOs)",
+    "default": "128",
+    "required": false
+  },
+  {
+    "name": "storage_bucket_class",
+    "type": "string",
+    "description": "The Storage Class of the new bucket. Supported values include: STANDARD, MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE",
+    "default": "\"STANDARD\"",
+    "required": false
+  },
+  {
+    "name": "use_custom_service_account",
+    "type": "bool",
+    "description": "Use a custom service account (pass service_account_email if true)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "vpc_connector_egress_settings",
+    "type": "string",
+    "description": "VPC Connector Egress Settings. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region for the App Engine app",
+    "default": "\"us-east1\"",
+    "required": false
+  },
+  {
+    "name": "service_account_name",
+    "type": "string",
+    "description": "Name of the service account to create",
+    "default": "\"slo-pipeline\"",
+    "required": false
+  },
+  {
+    "name": "function_source_directory",
+    "type": "string",
+    "description": "The contents of this directory will be archived and used as the function source. (defaults to standard SLO generator code)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "function_bucket_name",
+    "type": "string",
+    "description": "Name of the bucket to create to store the Cloud Function code",
+    "default": "\"slo-pipeline\"",
+    "required": false
+  },
+  {
+    "name": "function_name",
+    "type": "string",
+    "description": "Cloud Function name",
+    "default": "\"slo-pipeline\"",
+    "required": false
+  },
+  {
+    "name": "function_environment_variables",
+    "type": "map",
+    "description": "Cloud Function environment variables",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "vpc_connector",
+    "type": "string",
+    "description": "VPC Connector. The format of this field is projects/*/locations/*/connectors/*.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "storage_bucket_location",
+    "type": "string",
+    "description": "The GCS location",
+    "default": "\"US\"",
+    "required": false
+  },
+  {
+    "name": "dataset_create",
+    "type": "bool",
+    "description": "Whether to create the BigQuery dataset",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map",
+    "description": "Labels to apply to all resources created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "exporters",
+    "type": "any",
+    "description": "SLO export destinations config",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "pubsub_topic_name",
+    "type": "string",
+    "description": "Pub/Sub topic name",
+    "default": "\"slo-export-topic\"",
+    "required": false
+  },
+  {
+    "name": "function_timeout",
+    "type": "string",
+    "description": "Timeout (in seconds)",
+    "default": "\"90\"",
+    "required": false
+  },
+  {
+    "name": "service_account_email",
+    "type": "string",
+    "description": "Service account email (optional)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "dataset_default_table_expiration_ms",
+    "type": "number",
+    "description": "The default lifetime of the slo table in the dataset, in milliseconds. Default is never (Recommended)",
+    "default": "-1",
+    "required": false
+  }
+]

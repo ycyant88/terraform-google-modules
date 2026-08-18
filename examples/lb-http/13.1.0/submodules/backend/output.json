@@ -1,0 +1,10 @@
+[
+  {
+    "name": "backend_service_info",
+    "description": "Host, path and backend service mapping"
+  },
+  {
+    "name": "apphub_service_uri",
+    "description": "Service URI in CAIS style to be used by Apphub."
+  }
+]

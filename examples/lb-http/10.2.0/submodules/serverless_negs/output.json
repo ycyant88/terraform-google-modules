@@ -1,0 +1,34 @@
+[
+  {
+    "name": "external_ipv6_address",
+    "description": "The external IPv6 assigned to the global fowarding rule."
+  },
+  {
+    "name": "ipv6_enabled",
+    "description": "Whether IPv6 configuration is enabled on this load-balancer"
+  },
+  {
+    "name": "http_proxy",
+    "description": "The HTTP proxy used by this module."
+  },
+  {
+    "name": "https_proxy",
+    "description": "The HTTPS proxy used by this module."
+  },
+  {
+    "name": "url_map",
+    "description": "The default URL map used by this module."
+  },
+  {
+    "name": "ssl_certificate_created",
+    "description": "The SSL certificate create from key/pem"
+  },
+  {
+    "name": "backend_services",
+    "description": "The backend service resources."
+  },
+  {
+    "name": "external_ip",
+    "description": "The external IPv4 assigned to the global fowarding rule."
+  }
+]

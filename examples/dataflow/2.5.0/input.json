@@ -1,0 +1,121 @@
+[
+  {
+    "name": "additional_experiments",
+    "type": "list(string)",
+    "description": "List of experiments that should be used by the job. An example value is `['enable_stackdriver_agent_metrics']`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project in which the resource belongs. If it is not provided, the provider project is used.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_self_link",
+    "type": "string",
+    "description": "The network self link to which VMs will be assigned.",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "machine_type",
+    "type": "string",
+    "description": "The machine type to use for the job.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "User labels to be specified for the job.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "The zone in which the created job should run.",
+    "default": "\"us-central1-a\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the dataflow job",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "template_gcs_path",
+    "type": "string",
+    "description": "The GCS path to the Dataflow job template.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "max_workers",
+    "type": "number",
+    "description": " The number of workers permitted to work on the job. More workers may improve processing speed at additional cost.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region in which the created job should run. Also determines the location of the staging bucket if created.",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "on_delete",
+    "type": "string",
+    "description": "One of drain or cancel. Specifies behavior of deletion during terraform destroy. The default is cancel.",
+    "default": "\"cancel\"",
+    "required": false
+  },
+  {
+    "name": "service_account_email",
+    "type": "string",
+    "description": "The Service Account email that will be used to identify the VMs in which the jobs are running",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ip_configuration",
+    "type": "string",
+    "description": "The configuration for VM IPs. Options are 'WORKER_IP_PUBLIC' or 'WORKER_IP_PRIVATE'.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "temp_gcs_location",
+    "type": "string",
+    "description": "A writeable location on GCS for the Dataflow job to dump its temporary data.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "parameters",
+    "type": "map(string)",
+    "description": "Key/Value pairs to be passed to the Dataflow job (as used in the template).",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "subnetwork_self_link",
+    "type": "string",
+    "description": "The subnetwork self link to which VMs will be assigned.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "kms_key_name",
+    "type": "string",
+    "description": "The name for the Cloud KMS key for the job. Key format is: projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY",
+    "default": "null",
+    "required": false
+  }
+]

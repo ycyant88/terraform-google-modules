@@ -1,0 +1,30 @@
+[
+  {
+    "name": "address_name",
+    "type": "string",
+    "description": "The name of the reserved IP range.",
+    "default": "\"private-ip-address\"",
+    "required": false
+  },
+  {
+    "name": "prefix_length",
+    "type": "number",
+    "description": "The prefix length of the reserved IP range.",
+    "default": "16",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID of the VPC network.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_id",
+    "type": "string",
+    "description": "The ID of the VPC network (e.g., google_compute_network.vpc.id).",
+    "default": "",
+    "required": true
+  }
+]

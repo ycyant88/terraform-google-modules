@@ -1,0 +1,14 @@
+[
+  {
+    "name": "sap_hana_primary_self_link",
+    "description": "Self-link for the primary SAP HANA Scalout instance created."
+  },
+  {
+    "name": "hana_scaleout_worker_self_links",
+    "description": "List of self-links for the hana scaleout workers created"
+  },
+  {
+    "name": "hana_scaleout_standby_self_links",
+    "description": "List of self-links for the hana scaleout standbys created"
+  }
+]

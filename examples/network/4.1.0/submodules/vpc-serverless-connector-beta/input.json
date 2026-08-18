@@ -1,0 +1,16 @@
+[
+  {
+    "name": "vpc_connectors",
+    "type": "list(map(string))",
+    "description": "List of VPC serverless connectors.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project in which the vpc connector will be deployed.",
+    "default": "",
+    "required": true
+  }
+]

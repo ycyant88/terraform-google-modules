@@ -1,0 +1,191 @@
+[
+  {
+    "name": "install_template_library",
+    "type": "bool",
+    "description": "Whether to install the default Policy Controller template library",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "GCP cluster name used to reach cluster and which becomes the cluster name in the Config Sync kubernetes custom resource.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "operator_credential_name",
+    "type": "string",
+    "description": "Allows calling modules to specify the name of operator credentials to match what is expected.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "GCP location used to reach cluster.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "impersonate_service_account",
+    "type": "string",
+    "description": "An optional service account to impersonate for gcloud commands. If this service account is not specified, the module will use Application Default Credentials.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "operator_cr_template_path",
+    "type": "string",
+    "description": "path to template file to use for the operator",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "service_account_key_file",
+    "type": "string",
+    "description": "Path to service account key file to auth as for running `gcloud container clusters get-credentials`.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "enable_multi_repo",
+    "type": "bool",
+    "description": "Whether to use Config Sync [multi-repo mode](https://cloud.google.com/kubernetes-engine/docs/add-on/config-sync/how-to/multi-repo).",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "operator_credential_namespace",
+    "type": "string",
+    "description": "Allows calling modules to specify the namespace for the operator credential to match what is expected.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enable_policy_controller",
+    "type": "bool",
+    "description": "Whether to enable the ACM Policy Controller on the cluster",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "hierarchy_controller",
+    "type": "map(any)",
+    "description": "    Configurations for Hierarchy Controller. See [Hierarchy Controller docs](https://cloud.google.com/kubernetes-engine/docs/add-on/config-sync/how-to/installing-hierarchy-controller)\n    for more details\n",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "secret_type",
+    "type": "string",
+    "description": "git authentication secret type, is passed through to ConfigManagement spec.git.secretType. Overriden to value 'ssh' if `create_ssh_key` is true",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "use_existing_context",
+    "type": "bool",
+    "description": "Use existing kubecontext to auth kube-api. Useful when working with to non GKE clusters",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sync_branch",
+    "type": "string",
+    "description": "ACM repo Git branch. If un-set, uses Config Management default.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "sync_revision",
+    "type": "string",
+    "description": "ACM repo Git revision. If un-set, uses Config Management default.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_ssh_key",
+    "type": "bool",
+    "description": "Controls whether a key will be generated for Git authentication",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "secret_ref_name",
+    "type": "string",
+    "description": "Name of Secret to use for authentication (Config Sync multi-repo setup only). If un-set, uses Config Management default.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint",
+    "type": "string",
+    "description": "Kubernetes cluster endpoint.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ssh_auth_key",
+    "type": "string",
+    "description": "Key for Git authentication. Overrides 'create_ssh_key' variable. Can be set using 'file(path/to/file)'-function.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "rootsync_cr_template_path",
+    "type": "string",
+    "description": "path to template file to use for the root sync definition (Config Sync multi-repo setup only)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "GCP project_id used to reach cluster.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "operator_latest_manifest_url",
+    "type": "string",
+    "description": "Url to the latest downloadable manifest for the operator. To be supplied by operator module providers, not end users.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sync_repo",
+    "type": "string",
+    "description": "ACM Git repo address",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enable_log_denies",
+    "type": "bool",
+    "description": "Whether to enable logging of all denies and dryrun failures for ACM Policy Controller.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "operator_path",
+    "type": "string",
+    "description": "Path to the operator yaml config. If unset, will download from `var.operator_latest_manifest_url`.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "policy_dir",
+    "type": "string",
+    "description": "Subfolder containing configs in ACM Git repo. If un-set, uses Config Management default.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "source_format",
+    "type": "string",
+    "description": "    Configures a non-hierarchical repo if set to 'unstructured'. Uses [Config Sync defaults](https://cloud.google.com/kubernetes-engine/docs/add-on/config-sync/how-to/installing#configuring-config-management-operator)\n    when unset.\n",
+    "default": "\"\"",
+    "required": false
+  }
+]

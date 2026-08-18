@@ -1,0 +1,34 @@
+[
+  {
+    "name": "vm_container_label_key",
+    "description": "The label key for the COS version deployed to the instance"
+  },
+  {
+    "name": "vm_container_label",
+    "description": "The COS version to deploy to the instance. To be used as the value for the `vm_container_label_key` label key"
+  },
+  {
+    "name": "container",
+    "description": "The container definition provided"
+  },
+  {
+    "name": "volumes",
+    "description": "The volume definition provided"
+  },
+  {
+    "name": "restart_policy",
+    "description": "The restart policy provided"
+  },
+  {
+    "name": "metadata_key",
+    "description": "The key to assign `metadata_value` to, so container information is attached to the instance"
+  },
+  {
+    "name": "metadata_value",
+    "description": "The generated container configuration"
+  },
+  {
+    "name": "source_image",
+    "description": "The COS image to use for the GCE instance"
+  }
+]

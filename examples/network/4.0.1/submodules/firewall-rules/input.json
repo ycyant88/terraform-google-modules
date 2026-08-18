@@ -1,0 +1,23 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project id of the project that holds the network.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_name",
+    "type": "string",
+    "description": "Name of the network this set of firewall rules applies to.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "rules",
+    "type": "list(object({\n    name                    = string\n    description             = string\n    direction               = string\n    priority                = number\n    ranges                  = list(string)\n    source_tags             = list(string)\n    source_service_accounts = list(string)\n    target_tags             = list(string)\n    target_service_accounts = list(string)\n    allow = list(object({\n      protocol = string\n      ports    = list(string)\n    }))\n    deny = list(object({\n      protocol = string\n      ports    = list(string)\n    }))\n    log_config = object({\n      metadata = string\n    })\n  }))",
+    "description": "List of custom rule definitions (refer to variables file for syntax).",
+    "default": "[]",
+    "required": false
+  }
+]

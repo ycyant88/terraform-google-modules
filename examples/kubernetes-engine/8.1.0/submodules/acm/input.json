@@ -1,0 +1,86 @@
+[
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The location (zone or region) this cluster has been created in.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project in which the resource belongs.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sync_repo",
+    "type": "string",
+    "description": "ACM Git repo address",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sync_branch",
+    "type": "string",
+    "description": "ACM repo Git branch",
+    "default": "\"master\"",
+    "required": false
+  },
+  {
+    "name": "create_ssh_key",
+    "type": "bool",
+    "description": "Controls whether a key will be generated for Git authentication",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "The unique name to identify the cluster in ACM.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "policy_dir",
+    "type": "string",
+    "description": "Subfolder containing configs in ACM Git repo",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cluster_endpoint",
+    "type": "string",
+    "description": "Kubernetes cluster endpoint.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ssh_auth_key",
+    "type": "string",
+    "description": "Key for Git authentication. Overrides 'create_ssh_key' variable. Can be set using 'file(path/to/file)'-function.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enable_policy_controller",
+    "type": "bool",
+    "description": "Whether to enable the ACM Policy Controller on the cluster",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "install_template_library",
+    "type": "bool",
+    "description": "Whether to install the default Policy Controller template library",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "operator_path",
+    "type": "string",
+    "description": "Path to the operator yaml config. If unset, will download from GCS releases.",
+    "default": "",
+    "required": true
+  }
+]

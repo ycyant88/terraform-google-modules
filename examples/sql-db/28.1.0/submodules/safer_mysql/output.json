@@ -1,0 +1,62 @@
+[
+  {
+    "name": "instance_name",
+    "description": "The instance name for the master instance"
+  },
+  {
+    "name": "replicas_instance_service_account_email_addresses",
+    "description": "The service account email addresses assigned to the replica instances"
+  },
+  {
+    "name": "replicas",
+    "description": "A list of `google_sql_database_instance` resources representing the replicas"
+  },
+  {
+    "name": "replicas_instance_self_links",
+    "description": "The URIs of the replica instances"
+  },
+  {
+    "name": "read_replica_instance_names",
+    "description": "The instance names for the read replica instances"
+  },
+  {
+    "name": "private_ip_address",
+    "description": "The first private (PRIVATE) IPv4 address assigned for the master instance"
+  },
+  {
+    "name": "primary",
+    "description": "The `google_sql_database_instance` resource representing the primary instance"
+  },
+  {
+    "name": "instance_self_link",
+    "description": "The URI of the master instance"
+  },
+  {
+    "name": "instance_service_account_email_address",
+    "description": "The service account email address assigned to the master instance"
+  },
+  {
+    "name": "generated_user_password",
+    "description": "The auto generated default user password if not input password was provided"
+  },
+  {
+    "name": "public_ip_address",
+    "description": "The first public (PRIMARY) IPv4 address assigned for the master instance"
+  },
+  {
+    "name": "instance_ip_address",
+    "description": "The IPv4 address assigned for the master instance"
+  },
+  {
+    "name": "instances",
+    "description": "A list of all `google_sql_database_instance` resources we've created"
+  },
+  {
+    "name": "instance_connection_name",
+    "description": "The connection name of the master instance to be used in connection strings"
+  },
+  {
+    "name": "replicas_instance_connection_names",
+    "description": "The connection names of the replica instances to be used in connection strings"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "kms_key_rings",
+    "description": "KMS key rings which received bindings."
+  },
+  {
+    "name": "roles",
+    "description": "Roles which were assigned to members."
+  },
+  {
+    "name": "members",
+    "description": "Members which were bound to the KMS key rings."
+  }
+]

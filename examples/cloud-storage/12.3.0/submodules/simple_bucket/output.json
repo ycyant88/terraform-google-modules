@@ -1,0 +1,22 @@
+[
+  {
+    "name": "bucket",
+    "description": "The created storage bucket"
+  },
+  {
+    "name": "name",
+    "description": "Bucket name."
+  },
+  {
+    "name": "url",
+    "description": "Bucket URL."
+  },
+  {
+    "name": "internal_kms_configuration",
+    "description": "The intenal KMS Resource."
+  },
+  {
+    "name": "apphub_service_uri",
+    "description": "URI in CAIS style to be used by Apphub."
+  }
+]

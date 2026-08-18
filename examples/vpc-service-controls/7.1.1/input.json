@@ -1,0 +1,23 @@
+[
+  {
+    "name": "parent_id",
+    "type": "string",
+    "description": "The parent of this AccessPolicy in the Cloud Resource Hierarchy. As of now, only organization are accepted as parent.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "policy_name",
+    "type": "string",
+    "description": "The policy's name.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "scopes",
+    "type": "list(string)",
+    "description": "Folder or project on which this policy is applicable. Format: 'folders/FOLDER_ID' or 'projects/PROJECT_NUMBER'",
+    "default": "[]",
+    "required": false
+  }
+]

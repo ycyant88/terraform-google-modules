@@ -1,0 +1,184 @@
+[
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name for the database instance. Must be unique and cannot be reused for up to one week.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "db_collation",
+    "type": "string",
+    "description": "The collation for the default database. Example for MySQL databases: 'utf8_general_ci', and Postgres: 'en_US.UTF8'",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "authorized_gae_applications",
+    "type": "list",
+    "description": "A list of Google App Engine (GAE) project names that are allowed to access this instance.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "disk_type",
+    "type": "string",
+    "description": "Second generation only. The type of data disk: `PD_SSD` or `PD_HDD`.",
+    "default": "\"PD_SSD\"",
+    "required": false
+  },
+  {
+    "name": "pricing_plan",
+    "type": "string",
+    "description": "First generation only. Pricing plan for this instance, can be one of `PER_USE` or `PACKAGE`.",
+    "default": "\"PER_USE\"",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region for cloud resources",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "user_name",
+    "type": "string",
+    "description": "The name of the default user",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "user_host",
+    "type": "string",
+    "description": "The host for the default user",
+    "default": "\"%\"",
+    "required": false
+  },
+  {
+    "name": "activation_policy",
+    "type": "string",
+    "description": "This specifies when the instance should be active. Can be either `ALWAYS`, `NEVER` or `ON_DEMAND`.",
+    "default": "\"ALWAYS\"",
+    "required": false
+  },
+  {
+    "name": "disk_autoresize",
+    "type": "bool",
+    "description": "Second Generation only. Configuration to increase storage size automatically.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "disk_size",
+    "type": "number",
+    "description": "Second generation only. The size of data disk, in GB. Size of a running instance cannot be reduced but can be increased.",
+    "default": "10",
+    "required": false
+  },
+  {
+    "name": "availability_type",
+    "type": "string",
+    "description": "This specifies whether a PostgreSQL instance should be set up for high availability (REGIONAL) or single zone (ZONAL).",
+    "default": "\"ZONAL\"",
+    "required": false
+  },
+  {
+    "name": "master_instance_name",
+    "type": "string",
+    "description": "The name of the master instance to replicate",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "tier",
+    "type": "string",
+    "description": "The machine tier (First Generation) or type (Second Generation). See this page for supported tiers and pricing: https://cloud.google.com/sql/pricing",
+    "default": "\"db-f1-micro\"",
+    "required": false
+  },
+  {
+    "name": "db_name",
+    "type": "string",
+    "description": "Name of the default database to create",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "replication_type",
+    "type": "string",
+    "description": "Replication type for this instance, can be one of `ASYNCHRONOUS` or `SYNCHRONOUS`.",
+    "default": "\"SYNCHRONOUS\"",
+    "required": false
+  },
+  {
+    "name": "backup_configuration",
+    "type": "map",
+    "description": "The backup_configuration settings subblock for the database setings",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "ip_configuration",
+    "type": "list",
+    "description": "The ip_configuration settings subblock",
+    "default": "[\n  {}\n]",
+    "required": false
+  },
+  {
+    "name": "location_preference",
+    "type": "list",
+    "description": "The location_preference settings subblock",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "maintenance_window",
+    "type": "list",
+    "description": "The maintenance_window settings subblock",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The project ID to deploy to, if not set the default provider project is used.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "database_version",
+    "type": "string",
+    "description": "The version of of the database. For example, `MYSQL_5_6` or `POSTGRES_9_6`.",
+    "default": "\"MYSQL_5_6\"",
+    "required": false
+  },
+  {
+    "name": "db_charset",
+    "type": "string",
+    "description": "The charset for the default database",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "user_password",
+    "type": "string",
+    "description": "The password for the default user. If not set, a random one will be generated and available in the generated_user_password output variable.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "database_flags",
+    "type": "list",
+    "description": "List of Cloud SQL flags that are applied to the database server",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "replica_configuration",
+    "type": "list",
+    "description": "The optional replica_configuration block for the database instance",
+    "default": "[]",
+    "required": false
+  }
+]

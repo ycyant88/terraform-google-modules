@@ -1,0 +1,807 @@
+[
+  {
+    "name": "compute_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Compute API",
+    "default": "\"18\"",
+    "required": false
+  },
+  {
+    "name": "log_sink_violations_should_notify",
+    "type": "string",
+    "description": "Notify for log sink violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "groups_settings_enabled",
+    "type": "string",
+    "description": "Groups settings scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "bigquery_period",
+    "type": "string",
+    "description": "The period of max calls for the Big Query API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "kms_violations_slack_webhook",
+    "type": "string",
+    "description": "Slack webhook for KMS violations",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "crm_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for CRM API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "serviceusage_period",
+    "type": "string",
+    "description": "The period of max calls for the Service Usage API (in seconds)",
+    "default": "\"1.1\"",
+    "required": false
+  },
+  {
+    "name": "cai_api_timeout",
+    "type": "string",
+    "description": "Timeout in seconds to wait for the exportAssets API to return success.",
+    "default": "\"3600\"",
+    "required": false
+  },
+  {
+    "name": "iam_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to IAM API",
+    "default": "\"90\"",
+    "required": false
+  },
+  {
+    "name": "ke_violations_should_notify",
+    "type": "string",
+    "description": "Notify for KE violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "servicemanagement_period",
+    "type": "string",
+    "description": "The period of max calls for the Service Management API (in seconds)",
+    "default": "\"1.1\"",
+    "required": false
+  },
+  {
+    "name": "firewall_rule_enabled",
+    "type": "string",
+    "description": "Firewall rule scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "cloudasset_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Cloud Asset API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sqladmin_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for SQL Admin API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "GCP Organization ID that Forseti will have purview over",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ke_scanner_enabled",
+    "type": "string",
+    "description": "KE scanner enabled.",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "blacklist_violations_should_notify",
+    "type": "string",
+    "description": "Notify for Blacklist violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "firewall_rule_violations_should_notify",
+    "type": "string",
+    "description": "Notify for Firewall rule violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "composite_root_resources",
+    "type": "list(string)",
+    "description": "A list of root resources that Forseti will monitor. This supersedes the root_resource_id when set.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "forseti_email_sender",
+    "type": "string",
+    "description": "Email address that sends the Forseti notifications",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "bigquery_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Big Query API",
+    "default": "\"160\"",
+    "required": false
+  },
+  {
+    "name": "crm_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to CRN API",
+    "default": "\"4\"",
+    "required": false
+  },
+  {
+    "name": "servicemanagement_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Service Management API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "compute_period",
+    "type": "string",
+    "description": "The period of max calls for the Compute API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "iam_period",
+    "type": "string",
+    "description": "The period of max calls for the IAM API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "role_enabled",
+    "type": "string",
+    "description": "Role scanner enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "inventory_email_summary_enabled",
+    "type": "string",
+    "description": "Email summary for inventory enabled",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "blacklist_enabled",
+    "type": "string",
+    "description": "Blacklist scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "bucket_acl_enabled",
+    "type": "string",
+    "description": "Bucket ACL scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "cloudbilling_period",
+    "type": "string",
+    "description": "The period of max calls for the Cloud Billing API (in seconds)",
+    "default": "\"1.2\"",
+    "required": false
+  },
+  {
+    "name": "bigquery_enabled",
+    "type": "string",
+    "description": "Big Query scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "service_account_key_enabled",
+    "type": "string",
+    "description": "Service account key scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "resource_violations_should_notify",
+    "type": "string",
+    "description": "Notify for resource violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "folder_id",
+    "type": "string",
+    "description": "GCP Folder that the Forseti project will be deployed into",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "bigquery_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Big Query API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "storage_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Storage API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "group_enabled",
+    "type": "string",
+    "description": "Group scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "crm_period",
+    "type": "string",
+    "description": "The period of max calls for the CRM  API (in seconds)",
+    "default": "\"1.2\"",
+    "required": false
+  },
+  {
+    "name": "securitycenter_period",
+    "type": "string",
+    "description": "The period of max calls for the Security Center API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "inventory_gcs_summary_enabled",
+    "type": "string",
+    "description": "GCS summary for inventory enabled",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "securitycenter_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Security Center API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "serviceusage_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Service Usage API",
+    "default": "\"4\"",
+    "required": false
+  },
+  {
+    "name": "groups_settings_violations_should_notify",
+    "type": "string",
+    "description": "Notify for groups settings violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "forseti_email_recipient",
+    "type": "string",
+    "description": "Email address that receives Forseti notifications",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "appengine_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to App Engine API",
+    "default": "\"18\"",
+    "required": false
+  },
+  {
+    "name": "excluded_resources",
+    "type": "list(string)",
+    "description": "A list of resources to exclude during the inventory phase.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "iam_policy_enabled",
+    "type": "string",
+    "description": "IAM Policy scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "verify_policy_library",
+    "type": "bool",
+    "description": "Verify the Policy Library is setup correctly for the Config Validator scanner",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iap_violations_should_notify",
+    "type": "string",
+    "description": "Notify for IAP violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "admin_period",
+    "type": "string",
+    "description": "The period of max calls for the Admin API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "appengine_period",
+    "type": "string",
+    "description": "The period of max calls for the App Engine API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "container_period",
+    "type": "string",
+    "description": "The period of max calls for the Container API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "servicemanagement_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Service Management API",
+    "default": "\"2\"",
+    "required": false
+  },
+  {
+    "name": "container_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Container API",
+    "default": "\"9\"",
+    "required": false
+  },
+  {
+    "name": "sqladmin_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to SQL Admin API",
+    "default": "\"1\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_acl_enabled",
+    "type": "string",
+    "description": "Cloud SQL scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_acl_violations_should_notify",
+    "type": "string",
+    "description": "Notify for CloudSQL ACL violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "logging_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Logging API",
+    "default": "\"9\"",
+    "required": false
+  },
+  {
+    "name": "lien_enabled",
+    "type": "string",
+    "description": "Lien scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "iam_policy_violations_slack_webhook",
+    "type": "string",
+    "description": "Slack webhook for IAM Policy violations",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "groups_violations_should_notify",
+    "type": "string",
+    "description": "Notify for Groups violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "groups_settings_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for the G Suite Groups API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "groups_settings_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to the G Suite Groups API",
+    "default": "\"5\"",
+    "required": false
+  },
+  {
+    "name": "sendgrid_api_key",
+    "type": "string",
+    "description": "Sendgrid.com API key to enable email notifications",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloudbilling_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Cloud Billing API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "compute_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Compute API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "logging_period",
+    "type": "string",
+    "description": "The period of max calls for the Logging API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "rules_path",
+    "type": "string",
+    "description": "Rules path (do not include filename). If GCS location, the format of the path should be: gs://bucket-name/path/for/rules_path. If no rules_path is specified, rules are searched in /path/to/forseti_security/rules/",
+    "default": "\"/home/ubuntu/forseti-security/rules\"",
+    "required": false
+  },
+  {
+    "name": "config_validator_violations_should_notify",
+    "type": "string",
+    "description": "Notify for Config Validator violations.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "admin_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Admin API",
+    "default": "\"14\"",
+    "required": false
+  },
+  {
+    "name": "iam_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for IAM API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "securitycenter_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Security Center API",
+    "default": "\"14\"",
+    "required": false
+  },
+  {
+    "name": "role_violations_slack_webhook",
+    "type": "string",
+    "description": "Slack webhook for role violations",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloudasset_period",
+    "type": "string",
+    "description": "The period of max calls for the Cloud Asset API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "enabled_apis_enabled",
+    "type": "string",
+    "description": "Enabled APIs scanner enabled.",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "instance_network_interface_enabled",
+    "type": "string",
+    "description": "Instance network interface scanner enabled.",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "external_project_access_violations_should_notify",
+    "type": "string",
+    "description": "Notify for External Project Access violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "config_validator_enabled",
+    "type": "string",
+    "description": "Config Validator scanner enabled.",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "location_enabled",
+    "type": "string",
+    "description": "Location scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "location_violations_should_notify",
+    "type": "string",
+    "description": "Notify for location violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "audit_logging_enabled",
+    "type": "string",
+    "description": "Audit Logging scanner enabled.",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "forwarding_rule_enabled",
+    "type": "string",
+    "description": "Forwarding rule scanner enabled.",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "sqladmin_period",
+    "type": "string",
+    "description": "The period of max calls for the SQL Admin API (in seconds)",
+    "default": "\"1.1\"",
+    "required": false
+  },
+  {
+    "name": "kms_scanner_enabled",
+    "type": "string",
+    "description": "KMS scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "log_sink_enabled",
+    "type": "string",
+    "description": "Log sink scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "buckets_acl_violations_should_notify",
+    "type": "string",
+    "description": "Notify for Buckets ACL violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "domain",
+    "type": "string",
+    "description": "The domain associated with the GCP Organization ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "admin_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Admin API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "appengine_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for App Engine API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "groups_settings_period",
+    "type": "string",
+    "description": "the period of max calls to the G Suite Groups API",
+    "default": "\"1.1\"",
+    "required": false
+  },
+  {
+    "name": "server_gcs_module",
+    "type": "string",
+    "description": "The Forseti Server GCS module",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "iap_enabled",
+    "type": "string",
+    "description": "IAP scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "violations_slack_webhook",
+    "type": "string",
+    "description": "Slack webhook for any violation. Will apply to all scanner violation notifiers.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "audit_logging_violations_should_notify",
+    "type": "string",
+    "description": "Notify for Audit logging violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "service_account_key_violations_should_notify",
+    "type": "string",
+    "description": "Notify for service account key violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "cloudbilling_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Cloud Billing API",
+    "default": "\"5\"",
+    "required": false
+  },
+  {
+    "name": "logging_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Logging API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ke_version_scanner_enabled",
+    "type": "string",
+    "description": "KE version scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "resource_enabled",
+    "type": "string",
+    "description": "Resource scanner enabled.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "forwarding_rule_violations_should_notify",
+    "type": "string",
+    "description": "Notify for forwarding rule violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "kms_violations_should_notify",
+    "type": "string",
+    "description": "Notify for KMS violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "lien_violations_should_notify",
+    "type": "string",
+    "description": "Notify for lien violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "role_violations_should_notify",
+    "type": "string",
+    "description": "Notify for role violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "gsuite_admin_email",
+    "type": "string",
+    "description": "G-Suite administrator email address to manage your Forseti installation",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "container_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Container API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "serviceusage_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Service Usage API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "inventory_retention_days",
+    "type": "string",
+    "description": "Number of days to retain inventory data.",
+    "default": "\"-1\"",
+    "required": false
+  },
+  {
+    "name": "iam_policy_violations_should_notify",
+    "type": "string",
+    "description": "Notify for IAM Policy violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "enabled_apis_violations_should_notify",
+    "type": "string",
+    "description": "Notify for enabled APIs violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "cloudasset_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Cloud Asset API",
+    "default": "\"1\"",
+    "required": false
+  },
+  {
+    "name": "bigquery_acl_violations_should_notify",
+    "type": "string",
+    "description": "Notify for BigQuery ACL violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "ke_version_violations_should_notify",
+    "type": "string",
+    "description": "Notify for KE version violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "instance_network_interface_violations_should_notify",
+    "type": "string",
+    "description": "Notify for instance network interface violations",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "cscc_violations_enabled",
+    "type": "string",
+    "description": "Notify for CSCC violations",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "cscc_source_id",
+    "type": "string",
+    "description": "Source ID for CSCC Beta API",
+    "default": "\"\"",
+    "required": false
+  }
+]

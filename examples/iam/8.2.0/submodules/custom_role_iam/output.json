@@ -1,0 +1,10 @@
+[
+  {
+    "name": "custom_role_id",
+    "description": "ID of the custom role created."
+  },
+  {
+    "name": "custom_role_name",
+    "description": "Name of the custom role created in the format {{target_level}}/{{target_id}}/roles/{{role_id}}, for use as a reference in other resources such as IAM role bindings."
+  }
+]

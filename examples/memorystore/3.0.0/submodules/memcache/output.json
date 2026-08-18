@@ -1,0 +1,10 @@
+[
+  {
+    "name": "id",
+    "description": "The memorystore instance ID."
+  },
+  {
+    "name": "region",
+    "description": "The region the instance lives in."
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "add_udfs",
+    "type": "string",
+    "description": "Whether or not this module should be enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "dataset_id",
+    "type": "string",
+    "description": "Dataset id",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project ID that contains the dataset",
+    "default": "",
+    "required": true
+  }
+]

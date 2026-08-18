@@ -1,0 +1,30 @@
+[
+  {
+    "name": "bindings",
+    "type": "map(any)",
+    "description": "Map of role (key) and list of members (value) to add the IAM policies/bindings",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "Project to add the IAM policies/bindings",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "managed_zones",
+    "type": "list(string)",
+    "description": "List of managed zone to add the IAM policies/bindings",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "mode",
+    "type": "string",
+    "description": "Mode for adding the IAM policies/bindings, additive and authoritative",
+    "default": "\"additive\"",
+    "required": false
+  }
+]

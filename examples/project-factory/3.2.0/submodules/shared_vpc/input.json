@@ -1,0 +1,191 @@
+[
+  {
+    "name": "sa_role",
+    "type": "string",
+    "description": "A role to give the default Service Account for the project (defaults to none)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "activate_apis",
+    "type": "list(string)",
+    "description": "The list of apis to activate within the project",
+    "default": "[\n  \"compute.googleapis.com\"\n]",
+    "required": false
+  },
+  {
+    "name": "shared_vpc_subnets",
+    "type": "list(string)",
+    "description": "List of subnets fully qualified subnet IDs (ie. projects/$project_id/regions/$region/subnetworks/$subnet_id)",
+    "default": "[\n  \"\"\n]",
+    "required": false
+  },
+  {
+    "name": "bucket_location",
+    "type": "string",
+    "description": "The location for a GCS bucket to create (optional)",
+    "default": "\"US\"",
+    "required": false
+  },
+  {
+    "name": "auto_create_network",
+    "type": "bool",
+    "description": "Create the default network",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "shared_vpc_enabled",
+    "type": "bool",
+    "description": "If shared VPC should be used",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "apis_authority",
+    "type": "bool",
+    "description": "Toggles authoritative management of project services.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "bucket_name",
+    "type": "string",
+    "description": "A name for a GCS bucket to create (in the bucket_project project), useful for Terraform state (optional)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "disable_services_on_destroy",
+    "type": "bool",
+    "description": "Whether project services will be disabled when the resources are destroyed",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "default_service_account",
+    "type": "string",
+    "description": "Project default service account setting: can be one of `delete`, `depriviledge`, or `keep`.",
+    "default": "\"delete\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name for the project",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "group_name",
+    "type": "string",
+    "description": "A group to control the project by being assigned group_role (defaults to project editor)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "usage_bucket_name",
+    "type": "string",
+    "description": "Name of a GCS bucket to store GCE usage reports in (optional)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "usage_bucket_prefix",
+    "type": "string",
+    "description": "Prefix in the GCS bucket to store GCE usage reports in (optional)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "The organization ID.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "folder_id",
+    "type": "string",
+    "description": "The ID of a folder to host this project",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "group_role",
+    "type": "string",
+    "description": "The role to give the controlling group (group_name) over the project (defaults to project editor)",
+    "default": "\"roles/editor\"",
+    "required": false
+  },
+  {
+    "name": "lien",
+    "type": "bool",
+    "description": "Add a lien on the project to prevent accidental deletion",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "random_project_id",
+    "type": "bool",
+    "description": "Enables project random id generation. Mutually exclusive with project_id being non-empty.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "shared_vpc",
+    "type": "string",
+    "description": "The ID of the host project which hosts the shared VPC",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "credentials_path",
+    "type": "string",
+    "description": "Path to a service account credentials file with rights to run the Project Factory. If this file is absent Terraform will fall back to Application Default Credentials.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "domain",
+    "type": "string",
+    "description": "The domain name (optional).",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "Map of labels for project",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "disable_dependent_services",
+    "type": "bool",
+    "description": "Whether services that are enabled and which depend on this service should also be disabled when this service is destroyed.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "If provided, the project uses the given project ID. Mutually exclusive with random_project_id being true.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "billing_account",
+    "type": "string",
+    "description": "The ID of the billing account to associate this project with",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "bucket_project",
+    "type": "string",
+    "description": "A project to create a GCS bucket (bucket_name) in, useful for Terraform state (optional)",
+    "default": "\"\"",
+    "required": false
+  }
+]

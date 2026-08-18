@@ -1,0 +1,10 @@
+[
+  {
+    "name": "authorized_views",
+    "description": "Authorized views for the dataset"
+  },
+  {
+    "name": "authorized_roles",
+    "description": "Authorized roles for the dataset"
+  }
+]

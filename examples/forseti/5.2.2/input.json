@@ -1,0 +1,1220 @@
+[
+  {
+    "name": "ke_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for KE violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "bigquery_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Big Query API",
+    "default": "\"160\"",
+    "required": false
+  },
+  {
+    "name": "inventory_email_summary_enabled",
+    "type": "bool",
+    "description": "Email summary for inventory enabled",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "compute_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Compute API",
+    "default": "\"18\"",
+    "required": false
+  },
+  {
+    "name": "serviceusage_period",
+    "type": "string",
+    "description": "The period of max calls for the Service Usage API (in seconds)",
+    "default": "\"1.1\"",
+    "required": false
+  },
+  {
+    "name": "forwarding_rule_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for forwarding rule violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "client_type",
+    "type": "string",
+    "description": "GCE Forseti Client machine type",
+    "default": "\"n1-standard-2\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_disk_size",
+    "type": "string",
+    "description": "The size of data disk, in GB. Size of a running instance cannot be reduced but can be increased.",
+    "default": "\"25\"",
+    "required": false
+  },
+  {
+    "name": "server_private",
+    "type": "bool",
+    "description": "Private GCE Forseti Server VM (no public IP)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "resource_name_suffix",
+    "type": "string",
+    "description": "A suffix which will be appended to resource names.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "server_boot_disk_type",
+    "type": "string",
+    "description": "GCE instance boot disk type, can be pd-standard or pd-ssd.",
+    "default": "\"pd-ssd\"",
+    "required": false
+  },
+  {
+    "name": "server_tags",
+    "type": "list(string)",
+    "description": "GCE Forseti Server VM Tags",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "violations_slack_webhook",
+    "type": "string",
+    "description": "Slack webhook for any violation. Will apply to all scanner violation notifiers.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_acl_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for CloudSQL ACL violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "groups_settings_enabled",
+    "type": "bool",
+    "description": "Groups settings scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "composite_root_resources",
+    "type": "list(string)",
+    "description": "A list of root resources that Forseti will monitor. This supersedes the root_resource_id when set.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "forseti_home",
+    "type": "string",
+    "description": "Forseti installation directory",
+    "default": "\"$USER_HOME/forseti-security\"",
+    "required": false
+  },
+  {
+    "name": "admin_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Admin API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "bigquery_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Big Query API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "logging_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Logging API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "client_service_account",
+    "type": "string",
+    "description": "Service account email to assign to the Client VM. If empty, a new Service Account will be created",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "server_boot_image",
+    "type": "string",
+    "description": "GCE Forseti Server boot image - Currently only Ubuntu is supported",
+    "default": "\"ubuntu-os-cloud/ubuntu-1804-lts\"",
+    "required": false
+  },
+  {
+    "name": "logging_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Logging API",
+    "default": "\"9\"",
+    "required": false
+  },
+  {
+    "name": "enabled_apis_enabled",
+    "type": "bool",
+    "description": "Enabled APIs scanner enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "iam_policy_enabled",
+    "type": "bool",
+    "description": "IAM Policy scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iap_enabled",
+    "type": "bool",
+    "description": "IAP scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "lien_enabled",
+    "type": "bool",
+    "description": "Lien scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "service_account_key_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for service account key violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "groups_settings_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to the G Suite Groups API",
+    "default": "\"5\"",
+    "required": false
+  },
+  {
+    "name": "server_ssh_allow_ranges",
+    "type": "list(string)",
+    "description": "List of CIDRs that will be allowed ssh access to forseti server",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "client_access_config",
+    "type": "map(any)",
+    "description": "Client instance 'access_config' block",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "enable_write",
+    "type": "bool",
+    "description": "Enabling/Disabling write actions",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "client_instance_metadata",
+    "type": "map(string)",
+    "description": "Metadata key/value pairs to make available from within the client instance.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "resource_enabled",
+    "type": "bool",
+    "description": "Resource scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "sqladmin_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to SQL Admin API",
+    "default": "\"1\"",
+    "required": false
+  },
+  {
+    "name": "service_account_key_enabled",
+    "type": "bool",
+    "description": "Service account key scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "role_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for role violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudbilling_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Cloud Billing API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "client_shielded_instance_config",
+    "type": "map(string)",
+    "description": "Client instance 'shielded_instance_config' block if using shielded VM image",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sendgrid_api_key",
+    "type": "string",
+    "description": "Sendgrid.com API key to enable email notifications",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "forseti_version",
+    "type": "string",
+    "description": "The version of Forseti to install",
+    "default": "\"v2.25.2\"",
+    "required": false
+  },
+  {
+    "name": "container_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Container API",
+    "default": "\"9\"",
+    "required": false
+  },
+  {
+    "name": "policy_library_sync_gcs_directory_name",
+    "type": "string",
+    "description": "The directory name of the GCS folder used for the policy library sync config.",
+    "default": "\"policy_library_sync\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_db_name",
+    "type": "string",
+    "description": "CloudSQL database name",
+    "default": "\"forseti_security\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_proxy_arch",
+    "type": "string",
+    "description": "CloudSQL Proxy architecture",
+    "default": "\"linux.amd64\"",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "The VPC where the Forseti client and server will be created",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "network_project",
+    "type": "string",
+    "description": "The project containing the VPC and subnetwork where the Forseti client and server will be created",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloudbilling_period",
+    "type": "string",
+    "description": "The period of max calls for the Cloud Billing API (in seconds)",
+    "default": "\"1.2\"",
+    "required": false
+  },
+  {
+    "name": "policy_library_repository_branch",
+    "type": "string",
+    "description": "The specific git branch containing the policies.",
+    "default": "\"master\"",
+    "required": false
+  },
+  {
+    "name": "config_validator_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for Config Validator violations.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "groups_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for Groups violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "enable_cai_bucket",
+    "type": "bool",
+    "description": "Create a GCS bucket for CAI exports",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "bigquery_enabled",
+    "type": "bool",
+    "description": "Big Query scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "container_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Container API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "iam_period",
+    "type": "string",
+    "description": "The period of max calls for the IAM API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "servicemanagement_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Service Management API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sqladmin_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for SQL Admin API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cloudsql_acl_enabled",
+    "type": "bool",
+    "description": "Cloud SQL scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "role_enabled",
+    "type": "bool",
+    "description": "Role scanner enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "lien_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for lien violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudasset_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Cloud Asset API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "bucket_cai_lifecycle_age",
+    "type": "string",
+    "description": "GCS CAI lifecycle age value",
+    "default": "\"14\"",
+    "required": false
+  },
+  {
+    "name": "domain",
+    "type": "string",
+    "description": "The domain associated with the GCP Organization ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "external_project_access_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for External Project Access violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "server_access_config",
+    "type": "map(any)",
+    "description": "Server instance 'access_config' block",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "crm_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for CRM API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ke_version_scanner_enabled",
+    "type": "bool",
+    "description": "KE version scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "location_enabled",
+    "type": "bool",
+    "description": "Location scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "firewall_rule_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for Firewall rule violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Google Project ID that you want Forseti deployed into",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "server_shielded_instance_config",
+    "type": "map(string)",
+    "description": "Server instance 'shielded_instance_config' block if using shielded VM image",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "iap_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for IAP violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "role_violations_slack_webhook",
+    "type": "string",
+    "description": "Slack webhook for role violations",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "server_region",
+    "type": "string",
+    "description": "GCE Forseti Server region",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "compute_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Compute API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "iam_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to IAM API",
+    "default": "\"90\"",
+    "required": false
+  },
+  {
+    "name": "logging_period",
+    "type": "string",
+    "description": "The period of max calls for the Logging API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "policy_library_sync_git_sync_tag",
+    "type": "string",
+    "description": "Tag for the git-sync image.",
+    "default": "\"v3.1.2\"",
+    "required": false
+  },
+  {
+    "name": "log_sink_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for log sink violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "folder_id",
+    "type": "string",
+    "description": "GCP Folder that the Forseti project will be deployed into",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "forseti_email_sender",
+    "type": "string",
+    "description": "Email address that sends the Forseti notifications",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloudasset_period",
+    "type": "string",
+    "description": "The period of max calls for the Cloud Asset API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "compute_period",
+    "type": "string",
+    "description": "The period of max calls for the Compute API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "sqladmin_period",
+    "type": "string",
+    "description": "The period of max calls for the SQL Admin API (in seconds)",
+    "default": "\"1.1\"",
+    "required": false
+  },
+  {
+    "name": "kms_scanner_enabled",
+    "type": "bool",
+    "description": "KMS scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_policy_violations_slack_webhook",
+    "type": "string",
+    "description": "Slack webhook for IAM Policy violations",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "groups_settings_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for groups settings violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudsql_region",
+    "type": "string",
+    "description": "CloudSQL region",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "admin_period",
+    "type": "string",
+    "description": "The period of max calls for the Admin API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "blacklist_enabled",
+    "type": "bool",
+    "description": "Blacklist scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "rules_path",
+    "type": "string",
+    "description": "Path for Scanner Rules config files; if GCS, should be gs://bucket-name/path",
+    "default": "\"/home/ubuntu/forseti-security/rules\"",
+    "required": false
+  },
+  {
+    "name": "blacklist_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for Blacklist violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cscc_violations_enabled",
+    "type": "bool",
+    "description": "Notify for CSCC violations",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "client_boot_image",
+    "type": "string",
+    "description": "GCE Forseti Client boot image",
+    "default": "\"ubuntu-os-cloud/ubuntu-1804-lts\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_db_password",
+    "type": "string",
+    "description": "CloudSQL database password",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloud_profiler_enabled",
+    "type": "bool",
+    "description": "Enable the Cloud Profiler",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "serviceusage_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Service Usage API",
+    "default": "\"4\"",
+    "required": false
+  },
+  {
+    "name": "verify_policy_library",
+    "type": "bool",
+    "description": "Verify the Policy Library is setup correctly for the Config Validator scanner",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "kms_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for KMS violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "location_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for location violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "forseti_repo_url",
+    "type": "string",
+    "description": "Git repo for the Forseti installation",
+    "default": "\"https://github.com/forseti-security/forseti-security\"",
+    "required": false
+  },
+  {
+    "name": "crm_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to CRN API",
+    "default": "\"4\"",
+    "required": false
+  },
+  {
+    "name": "crm_period",
+    "type": "string",
+    "description": "The period of max calls for the CRM  API (in seconds)",
+    "default": "\"1.2\"",
+    "required": false
+  },
+  {
+    "name": "enabled_apis_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for enabled APIs violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudsql_db_user",
+    "type": "string",
+    "description": "CloudSQL database user",
+    "default": "\"forseti_security_user\"",
+    "required": false
+  },
+  {
+    "name": "appengine_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to App Engine API",
+    "default": "\"18\"",
+    "required": false
+  },
+  {
+    "name": "storage_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Storage API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ke_scanner_enabled",
+    "type": "bool",
+    "description": "KE scanner enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "bucket_cai_location",
+    "type": "string",
+    "description": "GCS CAI storage bucket location",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "securitycenter_period",
+    "type": "string",
+    "description": "The period of max calls for the Security Center API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "ke_version_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for KE version violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "instance_network_interface_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for instance network interface violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cscc_source_id",
+    "type": "string",
+    "description": "Source ID for CSCC Beta API",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "client_region",
+    "type": "string",
+    "description": "GCE Forseti Client region",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "gsuite_admin_email",
+    "type": "string",
+    "description": "G-Suite administrator email address to manage your Forseti installation",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "audit_logging_enabled",
+    "type": "bool",
+    "description": "Audit Logging scanner enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "log_sink_enabled",
+    "type": "bool",
+    "description": "Log sink scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "policy_library_repository_url",
+    "type": "string",
+    "description": "The git repository containing the policy-library.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "audit_logging_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for Audit logging violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudsql_type",
+    "type": "string",
+    "description": "CloudSQL Instance size",
+    "default": "\"db-n1-standard-4\"",
+    "required": false
+  },
+  {
+    "name": "mailjet_enabled",
+    "type": "bool",
+    "description": "Enable mailjet_rest library",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "server_boot_disk_size",
+    "type": "string",
+    "description": "Size of the GCE instance boot disk in GBs.",
+    "default": "\"100\"",
+    "required": false
+  },
+  {
+    "name": "excluded_resources",
+    "type": "list(string)",
+    "description": "A list of resources to exclude during the inventory phase.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "inventory_retention_days",
+    "type": "string",
+    "description": "Number of days to retain inventory data.",
+    "default": "\"-1\"",
+    "required": false
+  },
+  {
+    "name": "instance_network_interface_enabled",
+    "type": "bool",
+    "description": "Instance network interface scanner enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "manage_rules_enabled",
+    "type": "bool",
+    "description": "A toggle to enable or disable the management of rules",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "forseti_run_frequency",
+    "type": "string",
+    "description": "Schedule of running the Forseti scans",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "kms_violations_slack_webhook",
+    "type": "string",
+    "description": "Slack webhook for KMS violations",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "resource_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for resource violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "iam_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for IAM API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "iam_policy_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for IAM Policy violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "groups_settings_period",
+    "type": "string",
+    "description": "the period of max calls to the G Suite Groups API",
+    "default": "\"1.1\"",
+    "required": false
+  },
+  {
+    "name": "enable_service_networking",
+    "type": "bool",
+    "description": "Create a global service networking peering connection at the VPC level",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "forseti_email_recipient",
+    "type": "string",
+    "description": "Email address that receives Forseti notifications",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "serviceusage_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for Service Usage API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "firewall_rule_enabled",
+    "type": "bool",
+    "description": "Firewall rule scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "forwarding_rule_enabled",
+    "type": "bool",
+    "description": "Forwarding rule scanner enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "groups_settings_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for the G Suite Groups API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "servicemanagement_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Service Management API",
+    "default": "\"2\"",
+    "required": false
+  },
+  {
+    "name": "policy_library_sync_enabled",
+    "type": "bool",
+    "description": "Sync config validator policy library from private repository.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "buckets_acl_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for Buckets ACL violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudsql_private",
+    "type": "bool",
+    "description": "Whether to enable private network and not to create public IP for CloudSQL Instance",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "appengine_disable_polling",
+    "type": "bool",
+    "description": "Whether to disable polling for App Engine API",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "bucket_acl_enabled",
+    "type": "bool",
+    "description": "Bucket ACL scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "bigquery_acl_violations_should_notify",
+    "type": "bool",
+    "description": "Notify for BigQuery ACL violations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudsql_user_host",
+    "type": "string",
+    "description": "The host the user can connect from.  Can be an IP address or IP address range. Changing this forces a new resource to be created.",
+    "default": "\"%\"",
+    "required": false
+  },
+  {
+    "name": "server_type",
+    "type": "string",
+    "description": "GCE Forseti Server machine type",
+    "default": "\"n1-standard-8\"",
+    "required": false
+  },
+  {
+    "name": "server_service_account",
+    "type": "string",
+    "description": "Service account email to assign to the Server VM. If empty, a new Service Account will be created",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "appengine_period",
+    "type": "string",
+    "description": "The period of max calls for the App Engine API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "server_grpc_allow_ranges",
+    "type": "list(string)",
+    "description": "List of CIDRs that will be allowed gRPC access to forseti server",
+    "default": "[\n  \"10.128.0.0/9\"\n]",
+    "required": false
+  },
+  {
+    "name": "securitycenter_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Security Center API",
+    "default": "\"14\"",
+    "required": false
+  },
+  {
+    "name": "config_validator_enabled",
+    "type": "bool",
+    "description": "Config Validator scanner enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "group_enabled",
+    "type": "bool",
+    "description": "Group scanner enabled.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "policy_library_sync_ssh_known_hosts",
+    "type": "string",
+    "description": "List of authorized public keys for SSH host of the policy library repository.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "client_enabled",
+    "type": "bool",
+    "description": "Enable Client VM",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "bigquery_period",
+    "type": "string",
+    "description": "The period of max calls for the Big Query API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "cloudbilling_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Cloud Billing API",
+    "default": "\"5\"",
+    "required": false
+  },
+  {
+    "name": "inventory_gcs_summary_enabled",
+    "type": "bool",
+    "description": "GCS summary for inventory enabled",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "client_tags",
+    "type": "list(string)",
+    "description": "GCE Forseti Client VM Tags",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The VPC subnetwork where the Forseti client and server will be created",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "manage_firewall_rules",
+    "type": "string",
+    "description": "Create client firewall rules",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "server_instance_metadata",
+    "type": "map(string)",
+    "description": "Metadata key/value pairs to make available from within the server instance.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "servicemanagement_period",
+    "type": "string",
+    "description": "The period of max calls for the Service Management API (in seconds)",
+    "default": "\"1.1\"",
+    "required": false
+  },
+  {
+    "name": "client_private",
+    "type": "bool",
+    "description": "Private GCE Forseti Client VM (no public IP)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "cloudsql_db_port",
+    "type": "string",
+    "description": "CloudSQL database port",
+    "default": "\"3306\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_net_write_timeout",
+    "type": "string",
+    "description": "See MySQL documentation: https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_write_timeout",
+    "default": "\"240\"",
+    "required": false
+  },
+  {
+    "name": "storage_bucket_location",
+    "type": "string",
+    "description": "GCS storage bucket location",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "GCP Organization ID that Forseti will have purview over",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "container_period",
+    "type": "string",
+    "description": "The period of max calls for the Container API (in seconds)",
+    "default": "\"1.0\"",
+    "required": false
+  },
+  {
+    "name": "cloudasset_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Cloud Asset API",
+    "default": "\"1\"",
+    "required": false
+  },
+  {
+    "name": "cai_api_timeout",
+    "type": "string",
+    "description": "Timeout in seconds to wait for the exportAssets API to return success.",
+    "default": "\"3600\"",
+    "required": false
+  },
+  {
+    "name": "policy_library_home",
+    "type": "string",
+    "description": "The local policy library directory.",
+    "default": "\"$USER_HOME/policy-library\"",
+    "required": false
+  },
+  {
+    "name": "client_ssh_allow_ranges",
+    "type": "list(string)",
+    "description": "List of CIDRs that will be allowed ssh access to forseti client",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "admin_max_calls",
+    "type": "string",
+    "description": "Maximum calls that can be made to Admin API",
+    "default": "\"14\"",
+    "required": false
+  }
+]
