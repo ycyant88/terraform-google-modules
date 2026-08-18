@@ -1,0 +1,21 @@
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 7.0"
+    }
+  }
+}
+
+provider "google" {
+  project = var.project
+  region  = var.region
+}
+
+module "{{ module_name }}_{{ submodule_name }}" {
+  source  = "{{ namespace }}/{{ module_name }}/{{ provider }}//modules/{{ submodule_name }}"
+  version = "{{ version_name }}"
+  {%- for var in inputs %}
+  {{ var.name }} = var.{{ var.name }}
+  {%- endfor %}
+}

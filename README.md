@@ -1,2 +1,3 @@
 # terraform-google-modules
-A collection of Terraform Google modules
+
+Collection of Terraform google modules

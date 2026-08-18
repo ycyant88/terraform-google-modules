@@ -1,0 +1,33 @@
+---
+name: Schedule Update
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch: 
+
+jobs:
+  update-and-push:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run install and update script
+        run: |
+          chmod +x ./src/install.sh
+          chmod +x ./src/update.sh
+          ./src/install.sh
+          ./src/update.sh
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: schedule update via update.sh" || echo "Nothing to commit"
+          git push

@@ -1,0 +1,25 @@
+{
+	"name": "Dev Containers terraform-google-modules",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"VARIANT": "ubuntu24.04"
+		}
+	},
+	"mounts": [
+		"source=dev-containers-terraform-google-modules-bashhistory,target=/home/vscode/commandhistory"
+	],
+	"remoteUser": "vscode",
+	"features": {
+		"ghcr.io/devcontainers/features/copilot-cli:1": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:4.0.0": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"github.copilot-chat",
+				"hashicorp.hcl"
+			]
+		}
+	}
+}
