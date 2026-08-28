@@ -1,0 +1,191 @@
+[
+  {
+    "name": "enable_all_vpc_internal_traffic",
+    "type": "bool",
+    "description": "Enable firewall policy rule to allow internal traffic (ingress and egress).",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project ID for VPC.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "resource_code",
+    "type": "string",
+    "description": "Standardized grouping code used to categorize resources by their environment (e.g., 'p' for production) or their architectural/topology role (e.g., 'h' for hub, 's' for spoke). Used as an infix in resource names (e.g., dp-p-svpc-default-policy)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "shared_vpc_host",
+    "type": "bool",
+    "description": "Makes this project a Shared VPC host if 'true' (default 'false')",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "nat_config",
+    "type": "object({\n    enabled     = optional(bool, false)\n    egress_tags = optional(list(string), [\"egress-internet\"])\n    bgp_asn     = optional(number, 64512)\n    regions = optional(list(object({\n      name          = string\n      num_addresses = optional(number, 2)\n    })))\n  })",
+    "description": "Configuration for Cloud NAT and underlying Cloud Routers.\nAttributes:\n- enabled: Set to true to create NAT resources. If false, no routers or NAT IPs are provisioned (default: false).\n- egress_tags: Network tags used for routing internet egress traffic (default: [\"egress-internet\"]).\n- bgp_asn: The BGP Autonomous System Number assigned to the Cloud Router (default: 64512).\n- regions: Defines which regions get a NAT router.\n  - name: The GCP region name (e.g., \"us-central1\") where the router and NAT will be deployed.\n  - num_addresses: The number of static external IP addresses to manually allocate and assign to the NAT gateway in this region (default: 2).\n",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "windows_activation_enabled",
+    "type": "bool",
+    "description": "Enable Windows license activation for Windows workloads. See https://docs.cloud.google.com/compute/docs/instances/windows/creating-managing-windows-instances .",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_ipv6_ula",
+    "type": "bool",
+    "description": "Enabled IPv6 ULA, this is a permanent change and cannot be undone! (default 'false')",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "network_firewall_policy_enforcement_order",
+    "type": "string",
+    "description": "Set the order that Firewall Rules and Firewall Policies are evaluated. Valid values are `BEFORE_CLASSIC_FIREWALL` and `AFTER_CLASSIC_FIREWALL`. (default null or equivalent to `AFTER_CLASSIC_FIREWALL`)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "vpc_name",
+    "type": "string",
+    "description": "The name of the network being created. Complete name will be `vpc-{vpc_name}`",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subnets",
+    "type": "list(object({\n    subnet_name                      = string\n    subnet_ip                        = string\n    subnet_region                    = string\n    subnet_private_access            = optional(string, \"true\")\n    subnet_private_ipv6_access       = optional(string)\n    subnet_flow_logs                 = optional(string, \"true\")\n    subnet_flow_logs_interval        = optional(string, \"INTERVAL_5_SEC\")\n    subnet_flow_logs_sampling        = optional(string, \"0.5\")\n    subnet_flow_logs_metadata        = optional(string, \"INCLUDE_ALL_METADATA\")\n    subnet_flow_logs_metadata_fields = optional(list(string), [])\n    subnet_flow_logs_filter          = optional(string, \"true\")\n    description                      = optional(string)\n    purpose                          = optional(string)\n    role                             = optional(string)\n    stack_type                       = optional(string)\n    ipv6_access_type                 = optional(string)\n  }))",
+    "description": "The list of subnets being created. See https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "internal_ipv6_range",
+    "type": "string",
+    "description": "When enabling IPv6 ULA, optionally, specify a /48 from fd20::/20 (default null)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "network_profile",
+    "type": "string",
+    "description": "\"A full or partial URL of the network profile to apply to this network.\nThis field can be set only at resource creation time. For example, the\nfollowing are valid URLs:\n  * https://www.googleapis.com/compute/beta/projects/{projectId}/global/networkProfiles/{network_profile_name}\n  * projects/{projectId}/global/networkProfiles/{network_profile_name}\n",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "bgp_best_path_selection_mode",
+    "type": "string",
+    "description": "Specifies the BGP best path selection mode. Valid values are `STANDARD` or `LEGACY`. Default is `LEGACY`.",
+    "default": "\"LEGACY\"",
+    "required": false
+  },
+  {
+    "name": "universe_domain",
+    "type": "string",
+    "description": "The universe domain to use for Google Cloud APIs. This defines the API endpoint boundary for your deployment. The default is 'googleapis.com' for the standard public Google Cloud. Modify this value if you are deploying to isolated environments like Google Distributed Cloud (GDC), Trusted Partner Cloud (TPC), or other sovereign cloud environments.",
+    "default": "\"googleapis.com\"",
+    "required": false
+  },
+  {
+    "name": "enable_gcr_dns",
+    "type": "bool",
+    "description": "Enable DNS zone creation for legacy gcr.io. Set to false for GDC/TPC environments where Container Registry is not available.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "secondary_ranges",
+    "type": "map(list(object({ range_name = string, ip_cidr_range = string })))",
+    "description": "Secondary ranges that will be used in some of the subnets",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "private_service_cidr",
+    "type": "string",
+    "description": "CIDR range for private service networking. Used for Cloud SQL and other managed services.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "private_service_connect_ip",
+    "type": "string",
+    "description": "The subnet internal IP to be used as the private service connect endpoint in the Shared VPC",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "dns_config",
+    "type": "object({\n    enable_logging               = optional(bool, true)\n    type                         = optional(string, \"\")\n    onprem_forwarding            = optional(bool, false)\n    enable_inbound_forwarding    = optional(bool, true)\n    dns_hub_project_id           = optional(string, \"\")\n    dns_hub_network_name         = optional(string, \"\")\n    domain                       = optional(string, \"\")\n    target_name_server_addresses = optional(list(map(any)), [])\n  })",
+    "description": "Configuration block for Cloud DNS policies, peering, and forwarding rules.\nGeneral Attributes:\n- enable_logging: (bool) Toggles DNS query logging on the default DNS policy (default: true).\n- onprem_forwarding: (bool) Master toggle to enable resolving on-premise DNS. If true, it provisions either a Peering Zone or Forwarding Zone based on the 'type' attribute.\n- enable_inbound_forwarding: (bool) Enables inbound DNS queries from on-prem to this VPC. Only active if 'onprem_forwarding' is true (default: true).\n- type: (string) Defines the architectural role. If set to \"spoke\", the module creates a DNS Peering Zone. If not \"spoke\", it creates a DNS Forwarding Zone.\n- domain: (string) The DNS suffix/domain for the peering or forwarding zone. Required if 'onprem_forwarding' is true.\nSpoke Attributes (Required if onprem_forwarding = true AND type = \"spoke\"):\n- dns_hub_project_id: (string) The project ID hosting the Hub VPC to peer DNS queries to.\n- dns_hub_network_name: (string) The Hub VPC network name to target for DNS peering.\nHub/Forwarder Attributes (Required if onprem_forwarding = true AND type != \"spoke\"):\n- target_name_server_addresses: (list of maps) The on-premises or remote name servers to forward DNS queries to.\n",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "ncc_hub_config",
+    "type": "object({\n    create_hub                     = optional(bool, true)\n    uri                            = optional(string)\n    name                           = optional(string)\n    description                    = optional(string)\n    hub_labels                     = optional(map(string))\n    policy_mode                    = optional(string, \"PRESET\")\n    preset_topology                = optional(string, \"MESH\")\n    export_psc                     = optional(bool, false)\n    spoke_labels                   = optional(map(string))\n    spoke_exclude_export_ranges    = optional(set(string), [])\n    spoke_include_export_ranges    = optional(set(string), [])\n    spoke_name                     = optional(string, \"vpc-spoke\")\n    spoke_description              = optional(string)\n    spoke_group                    = optional(string, \"default\")\n    producer_labels                = optional(map(string))\n    producer_exclude_export_ranges = optional(set(string), [])\n    producer_include_export_ranges = optional(set(string), [])\n    producer_description           = optional(string)\n    auto_accept_projects_center    = optional(list(string), [])\n    auto_accept_projects_edge      = optional(list(string), [])\n    auto_accept_projects_default   = optional(list(string), [])\n  })",
+    "description": "Configuration block for Google Cloud Network Connectivity Center (NCC) Hub and Spokes.\nHub Creation & Identity:\n- create_hub: (bool) Toggles whether to create a new NCC Hub (true) or use an existing one (false).\n- uri: (string) The URI of an existing Hub. [Required if create_hub is FALSE]\n- name: (string) Name of the new NCC Hub. [Required if create_hub is TRUE]\n- description: (string) Description for the new NCC Hub. [Required if create_hub is TRUE]\n- hub_labels: (map) Labels to apply to the new Hub. [Required if create_hub is TRUE]\nTopology & Routing:\n- preset_topology: (string) Network topology for the hub, either \"MESH\" or \"STAR\". [Required if create_hub is TRUE]\n- policy_mode: (string) Route policy mode (default: \"PRESET\").\n- export_psc: (bool) Allows exporting Private Service Connect routes across the hub (default: false).\nVPC Spoke Configuration (Attaches the module's main network):\n- spoke_group: (string) The NCC group the spoke belongs to (default: \"default\").\n- spoke_name: (string) Name for the main VPC spoke.\n- spoke_description: (string) Description for the main VPC spoke.\n- spoke_labels: (map) Labels for the main VPC spoke.\n- spoke_exclude_export_ranges: (set of strings) IP ranges to exclude from route export.\n- spoke_include_export_ranges: (set of strings) IP ranges to explicitly include in route export.\nProducer Network Configuration (Active only if 'var.private_service_cidr' is defined):\n- producer_description: (string) Description for the linked Private Service Connect (producer) spoke.\n- producer_labels: (map) Labels for the producer spoke.\n- producer_exclude_export_ranges: (set of strings) IP ranges to exclude for the producer network.\n- producer_include_export_ranges: (set of strings) IP ranges to include for the producer network.\nAuto-Accept Policies (Configures project auto-acceptance based on topology):\n- auto_accept_projects_default: (list of strings) Projects allowed in the \"default\" group (Used when topology is MESH).\n- auto_accept_projects_center: (list of strings) Projects allowed in the \"center\" group (Used when topology is STAR).\n- auto_accept_projects_edge: (list of strings) Projects allowed in the \"edge\" group (Used when topology is STAR).\n",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "mtu",
+    "type": "number",
+    "description": "The network MTU (If set to 0, meaning MTU is unset - defaults to '1460'). Recommended values: 1460 (default for historic reasons), 1500 (Internet default), or 8896 (for Jumbo packets). Allowed are all values in the range 1300 to 8896, inclusively.",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "bgp_always_compare_med",
+    "type": "bool",
+    "description": "If set to true, the Cloud Router will use MED values from the peer even if the AS paths differ. Default is false.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "bgp_inter_region_cost",
+    "type": "string",
+    "description": "Specifies the BGP inter-region cost mode. Valid values are `DEFAULT` or `ADD_COST_TO_MED`.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "An optional description of this network. The resource must be recreated to modify this field.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "routing_mode",
+    "type": "string",
+    "description": "The network routing mode (default 'GLOBAL')",
+    "default": "\"GLOBAL\"",
+    "required": false
+  },
+  {
+    "name": "firewall_enable_logging",
+    "type": "bool",
+    "description": "Toggle firewall logging for VPC Firewalls.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "pkg_dev_domain",
+    "type": "string",
+    "description": "Domain for Artifact Registry. Change if using a custom universe_domain.",
+    "default": "\"pkg.dev\"",
+    "required": false
+  }
+]
