@@ -2,9 +2,6 @@
 	"name": "Dev Containers terraform-google-modules",
 	"build": {
 		"dockerfile": "Dockerfile",
-		"args": {
-			"VARIANT": "ubuntu24.04"
-		}
 	},
 	"mounts": [
 		"source=dev-containers-terraform-google-modules-bashhistory,target=/home/vscode/commandhistory"
