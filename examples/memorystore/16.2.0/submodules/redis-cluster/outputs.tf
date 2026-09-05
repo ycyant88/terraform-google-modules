@@ -1,0 +1,34 @@
+output "apphub_service_uri" {
+  value       = module.memorystore_redis-cluster.apphub_service_uri
+  description = "Service URI in CAIS style to be used by Apphub."
+}
+
+output "discovery_endpoints" {
+  value       = module.memorystore_redis-cluster.discovery_endpoints
+  description = "Endpoints created on each given network, for Redis clients to connect to the cluster. Currently only one endpoint is supported"
+}
+
+output "env_vars" {
+  value       = module.memorystore_redis-cluster.env_vars
+  description = "Environment variables for Redis cluster connection, including address and port."
+}
+
+output "id" {
+  value       = module.memorystore_redis-cluster.id
+  description = "The redis cluster instance ID"
+}
+
+output "psc_connections" {
+  value       = module.memorystore_redis-cluster.psc_connections
+  description = "PSC connections for discovery of the cluster topology and accessing the cluster"
+}
+
+output "psc_service_attachments" {
+  value       = module.memorystore_redis-cluster.psc_service_attachments
+  description = "The PSC service attachments of the cluster"
+}
+
+output "redis_cluster" {
+  value       = module.memorystore_redis-cluster.redis_cluster
+  description = "The redis cluster created"
+}
