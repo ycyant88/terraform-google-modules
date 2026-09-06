@@ -1,5 +1,0 @@
-bindings = ""
-
-entities = ""
-
-mode = "additive"

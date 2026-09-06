@@ -1,9 +1,0 @@
-[
-  {
-    "name": "config",
-    "type": "map",
-    "description": "SLO configuration",
-    "default": "",
-    "required": true
-  }
-]

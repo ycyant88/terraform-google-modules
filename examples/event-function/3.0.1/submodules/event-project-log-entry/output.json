@@ -1,6 +1,0 @@
-[
-  {
-    "name": "function_event_trigger",
-    "description": "The information used to trigger the function when a log entry is exported to the topic."
-  }
-]
