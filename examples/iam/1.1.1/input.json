@@ -1,0 +1,93 @@
+[
+  {
+    "name": "service_accounts",
+    "type": "list",
+    "description": "Service Accounts list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "storage_buckets",
+    "type": "list",
+    "description": "Buckets list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "subnets",
+    "type": "list",
+    "description": "Subnets list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "kms_key_rings",
+    "type": "list",
+    "description": "Kms Key Rings list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "kms_crypto_keys",
+    "type": "list",
+    "description": "Kms Crypto Key list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "mode",
+    "type": "string",
+    "description": "Mode for adding the IAM policies/bindings, additive and authoritative",
+    "default": "\"additive\"",
+    "required": false
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "Project to add the IAM policies/bindings",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "projects",
+    "type": "list",
+    "description": "Projects list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "folders",
+    "type": "list",
+    "description": "Folders list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "organizations",
+    "type": "list",
+    "description": "Organizations list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "pubsub_topics",
+    "type": "list",
+    "description": "Pubsub topics list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "pubsub_subscriptions",
+    "type": "list",
+    "description": "Pubsub subscriptions list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "bindings",
+    "type": "map",
+    "description": "Map of role (key) and list of members (value) to add the IAM policies/bindings",
+    "default": "",
+    "required": true
+  }
+]

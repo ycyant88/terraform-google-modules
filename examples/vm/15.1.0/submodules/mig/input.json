@@ -1,0 +1,205 @@
+[
+  {
+    "name": "mig_name",
+    "type": "string",
+    "description": "Managed instance group name. When variable is empty, name will be derived from var.hostname.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "target_pools",
+    "type": "list(string)",
+    "description": "The target load balancing pools to assign this group to.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "stateful_disks",
+    "type": "list(object({\n    device_name = string\n    delete_rule = string\n  }))",
+    "description": "Disks created on the instances that will be preserved on instance delete. https://cloud.google.com/compute/docs/instance-groups/configuring-stateful-disks-in-migs",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "max_replicas",
+    "type": "number",
+    "description": "The maximum number of instances that the autoscaler can scale up to. This is required when creating or updating an autoscaler. The maximum number of replicas should not be lower than minimal number of replicas.",
+    "default": "10",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "Labels, provided as a map",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "named_ports",
+    "type": "list(object({\n    name = string\n    port = number\n  }))",
+    "description": "Named name and named port. https://cloud.google.com/load-balancing/docs/backend-service#named_ports",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "mig_timeouts",
+    "type": "object({\n    create = string\n    update = string\n    delete = string\n  })",
+    "description": "Times for creation, deleting and updating the MIG resources. Can be helpful when using wait_for_instances to allow a longer VM startup time. ",
+    "default": "{\n  \"create\": \"5m\",\n  \"delete\": \"15m\",\n  \"update\": \"5m\"\n}",
+    "required": false
+  },
+  {
+    "name": "target_size",
+    "type": "number",
+    "description": "The target number of running instances for this managed instance group. This value should always be explicitly set unless this resource is attached to an autoscaler, in which case it should never be set.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "health_check",
+    "type": "object({\n    type                = string\n    initial_delay_sec   = number\n    check_interval_sec  = number\n    healthy_threshold   = number\n    timeout_sec         = number\n    unhealthy_threshold = number\n    response            = string\n    proxy_header        = string\n    port                = number\n    request             = string\n    request_path        = string\n    host                = string\n    enable_logging      = bool\n  })",
+    "description": "Health check to determine whether instances are responsive and able to do work",
+    "default": "{\n  \"check_interval_sec\": 30,\n  \"enable_logging\": false,\n  \"healthy_threshold\": 1,\n  \"host\": \"\",\n  \"initial_delay_sec\": 30,\n  \"port\": 80,\n  \"proxy_header\": \"NONE\",\n  \"request\": \"\",\n  \"request_path\": \"/\",\n  \"response\": \"\",\n  \"timeout_sec\": 10,\n  \"type\": \"\",\n  \"unhealthy_threshold\": 5\n}",
+    "required": false
+  },
+  {
+    "name": "autoscaling_mode",
+    "type": "string",
+    "description": "Operating mode of the autoscaling policy. If omitted, the default value is ON. https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_autoscaler#mode",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "autoscaling_lb",
+    "type": "list(map(number))",
+    "description": "Autoscaling, load balancing utilization policy block as single element array. https://www.terraform.io/docs/providers/google/r/compute_autoscaler#load_balancing_utilization",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "instance_template",
+    "type": "string",
+    "description": "Instance template self_link used to create compute instances",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "autoscaling_enabled",
+    "type": "string",
+    "description": "Creates an autoscaler for the managed instance group",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "hostname",
+    "type": "string",
+    "description": "Hostname prefix for instances",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "distribution_policy_target_shape",
+    "type": "string",
+    "description": "MIG target distribution shape (EVEN, BALANCED, ANY, ANY_SINGLE_ZONE)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cooldown_period",
+    "type": "number",
+    "description": "The number of seconds that the autoscaler should wait before it starts collecting information from a new instance.",
+    "default": "60",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The Google Cloud project ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "stateful_ips",
+    "type": "list(object({\n    interface_name = string\n    delete_rule    = string\n    is_external    = bool\n  }))",
+    "description": "Statful IPs created on the instances that will be preserved on instance delete. https://cloud.google.com/compute/docs/instance-groups/configuring-stateful-ip-addresses-in-migs",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "health_check_name",
+    "type": "string",
+    "description": "Health check name. When variable is empty, name will be derived from var.hostname.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "autoscaling_scale_in_control",
+    "type": "object({\n    fixed_replicas   = number\n    percent_replicas = number\n    time_window_sec  = number\n  })",
+    "description": "Autoscaling, scale-in control block. https://www.terraform.io/docs/providers/google/r/compute_autoscaler#scale_in_control",
+    "default": "{\n  \"fixed_replicas\": null,\n  \"percent_replicas\": null,\n  \"time_window_sec\": null\n}",
+    "required": false
+  },
+  {
+    "name": "wait_for_instances",
+    "type": "string",
+    "description": "Whether to wait for all instances to be created/updated before returning. Note that if this is set to true and the operation does not succeed, Terraform will continue trying until it times out.",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "distribution_policy_zones",
+    "type": "list(string)",
+    "description": "The distribution policy, i.e. which zone(s) should instances be create in. Default is all zones in given region.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "update_policy",
+    "type": "list(object({\n    max_surge_fixed                = optional(number)\n    instance_redistribution_type   = optional(string)\n    max_surge_percent              = optional(number)\n    max_unavailable_fixed          = optional(number)\n    max_unavailable_percent        = optional(number)\n    min_ready_sec                  = optional(number)\n    replacement_method             = optional(string)\n    minimal_action                 = string\n    type                           = string\n    most_disruptive_allowed_action = optional(string)\n  }))",
+    "description": "The rolling update policy. https://www.terraform.io/docs/providers/google/r/compute_region_instance_group_manager#rolling_update_policy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "autoscaler_name",
+    "type": "string",
+    "description": "Autoscaler name. When variable is empty, name will be derived from var.hostname.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "min_replicas",
+    "type": "number",
+    "description": "The minimum number of replicas that the autoscaler can scale down to. This cannot be less than 0.",
+    "default": "2",
+    "required": false
+  },
+  {
+    "name": "autoscaling_metric",
+    "type": "list(object({\n    name   = string\n    target = number\n    type   = string\n  }))",
+    "description": "Autoscaling, metric policy block as single element array. https://www.terraform.io/docs/providers/google/r/compute_autoscaler#metric",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "scaling_schedules",
+    "type": "list(object({\n    disabled              = bool\n    duration_sec          = number\n    min_required_replicas = number\n    name                  = string\n    schedule              = string\n    time_zone             = string\n  }))",
+    "description": "Autoscaling, scaling schedule block. https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_autoscaler#scaling_schedules",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The Google Cloud region where the managed instance group resides.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "autoscaling_cpu",
+    "type": "list(object({\n    target            = number\n    predictive_method = string\n  }))",
+    "description": "Autoscaling, cpu utilization policy block as single element array. https://www.terraform.io/docs/providers/google/r/compute_autoscaler#cpu_utilization",
+    "default": "[]",
+    "required": false
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "instances",
+    "description": "Instance name => address map."
+  },
+  {
+    "name": "names",
+    "description": "List of instance names."
+  },
+  {
+    "name": "internal_addresses",
+    "description": "List of instance internal addresses."
+  }
+]

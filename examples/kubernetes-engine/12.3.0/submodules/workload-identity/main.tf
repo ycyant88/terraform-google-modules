@@ -1,0 +1,13 @@
+module "kubernetes-engine" {
+  source                          = "terraform-google-modules/kubernetes-engine/google"
+  version                         = "12.3.0"
+  automount_service_account_token = var.automount_service_account_token
+  cluster_name                    = var.cluster_name
+  k8s_sa_name                     = var.k8s_sa_name
+  location                        = var.location
+  name                            = var.name
+  namespace                       = var.namespace
+  project_id                      = var.project_id
+  roles                           = var.roles
+  use_existing_k8s_sa             = var.use_existing_k8s_sa
+}

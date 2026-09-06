@@ -1,0 +1,30 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Google Project ID that you want Forseti deployed into",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "suffix",
+    "type": "string",
+    "description": "The random suffix to append to all Forseti resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "client_enabled",
+    "type": "bool",
+    "description": "Enable Client VM",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "client_service_account",
+    "type": "string",
+    "description": "Service account email to assign to the Client VM. If empty, a new Service Account will be created",
+    "default": "\"\"",
+    "required": false
+  }
+]

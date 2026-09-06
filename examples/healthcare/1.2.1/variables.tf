@@ -1,0 +1,50 @@
+variable "dicom_stores" {
+  description = "Datastore that conforms to the DICOM (https://www.dicomstandard.org/about/) standard for Healthcare information exchange."
+  type        = any
+  default     = []
+}
+
+variable "fhir_stores" {
+  description = "Datastore that conforms to the FHIR standard for Healthcare information exchange."
+  type        = any
+  default     = []
+}
+
+variable "hl7_v2_stores" {
+  description = "Datastore that conforms to the HL7 V2 (https://www.hl7.org/hl7V2/STU3/) standard for Healthcare information exchange."
+  type        = any
+  default     = []
+}
+
+variable "iam_members" {
+  description = "Updates the IAM policy to grant a role to a new member. Other members for the role for the dataset are preserved."
+  type = list(object({
+    role   = string
+    member = string
+  }))
+  default = []
+}
+
+variable "location" {
+  description = "The location for the Dataset."
+  type        = string
+  default     = ""
+}
+
+variable "name" {
+  description = "The resource name for the Dataset."
+  type        = string
+  default     = ""
+}
+
+variable "project" {
+  description = "The ID of the project in which the resource belongs."
+  type        = string
+  default     = ""
+}
+
+variable "time_zone" {
+  description = "The default timezone used by this dataset."
+  type        = string
+  default     = ""
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "name": "access_config",
+    "type": "list(object({\n    nat_ip       = string\n    network_tier = string\n  }))",
+    "description": "Access configurations, i.e. IPs via which the VM instance can be accessed via the Internet.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "num_instances",
+    "type": "string",
+    "description": "Number of instances to create. This value is ignored if static_ips is provided.",
+    "default": "\"1\"",
+    "required": false
+  },
+  {
+    "name": "instance_template",
+    "type": "string",
+    "description": "Instance template self_link used to create compute instances",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "Zone where the instances should be created. If not specified, instances will be spread across available zones in the region.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "add_hostname_suffix",
+    "type": "string",
+    "description": "Adds a suffix to the hostname",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "static_ips",
+    "type": "list(string)",
+    "description": "List of static IPs for VM instances",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "subnetwork_project",
+    "type": "string",
+    "description": "The project that subnetwork belongs to",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "hostname",
+    "type": "string",
+    "description": "Hostname of instances",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the instances should be created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Network to deploy to. Only one of network or subnetwork should be specified.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "Subnet to deploy to. Only one of network or subnetwork should be specified.",
+    "default": "\"\"",
+    "required": false
+  }
+]

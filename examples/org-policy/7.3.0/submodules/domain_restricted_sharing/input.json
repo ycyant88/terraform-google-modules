@@ -1,0 +1,58 @@
+[
+  {
+    "name": "exclude_projects",
+    "type": "set(string)",
+    "description": "Set of projects to exclude from the policy",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "policy_for",
+    "type": "string",
+    "description": "Resource hierarchy node to apply the policy to: can be one of `organization`, `folder`, or `project`.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "organization_id",
+    "type": "string",
+    "description": "The organization id for putting the policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "folder_id",
+    "type": "string",
+    "description": "The folder id for putting the policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project id for putting the policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "domains_to_allow",
+    "type": "list(string)",
+    "description": "The list of domains to allow users from. At least one valid value for 'domains_to_allow' or 'principal_set_org_ids' must be provided",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "principal_set_org_ids",
+    "type": "list(string)",
+    "description": "The list of GCP Organization IDs to allow via Organization Principal Sets (e.g., ['123456789012']). At least one valid value for 'principal_set_org_ids' or 'domains_to_allow' must be provided. See https://docs.cloud.google.com/organization-policy/restrict-domains#retrieving_organization_id",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "exclude_folders",
+    "type": "set(string)",
+    "description": "Set of folders to exclude from the policy",
+    "default": "[]",
+    "required": false
+  }
+]

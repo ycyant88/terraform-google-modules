@@ -1,0 +1,18 @@
+[
+  {
+    "name": "configmanagement_version",
+    "description": "Version of ACM installed."
+  },
+  {
+    "name": "wait",
+    "description": "An output to use when you want to depend on cmd finishing"
+  },
+  {
+    "name": "acm_metrics_writer_sa",
+    "description": "The ACM metrics writer Service Account"
+  },
+  {
+    "name": "git_creds_public",
+    "description": "Public key of SSH keypair to allow the Anthos Config Management Operator to authenticate to your Git repository."
+  }
+]

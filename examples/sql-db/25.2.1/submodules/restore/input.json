@@ -1,0 +1,44 @@
+[
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region to run the workflow",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "service_account",
+    "type": "string",
+    "description": "The service account to use for running the workflow and triggering the workflow by Cloud Scheduler - If empty or null a service account will be created. If you have provided a service account you need to grant the Cloud SQL Admin and the Workflows Invoker role to that",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sql_instance",
+    "type": "string",
+    "description": "The name of the SQL instance to backup",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "import_databases",
+    "type": "set(string)",
+    "description": "The list of databases that should be imported - if is an empty set all databases will be imported",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "import_uri",
+    "type": "string",
+    "description": "The bucket and path uri of GCS backup file for importing",
+    "default": "",
+    "required": true
+  }
+]

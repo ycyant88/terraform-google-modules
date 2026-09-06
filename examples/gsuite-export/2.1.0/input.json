@@ -1,0 +1,100 @@
+[
+  {
+    "name": "applications",
+    "type": "list(string)",
+    "description": "The Admin SDK applications to sync data from",
+    "default": "[\n  \"admin\",\n  \"login\",\n  \"drive\",\n  \"mobile\",\n  \"token\"\n]",
+    "required": false
+  },
+  {
+    "name": "frequency",
+    "type": "string",
+    "description": "The crontab entry that controls the sync frequency",
+    "default": "\"*/10 * * * *\"",
+    "required": false
+  },
+  {
+    "name": "export_filter",
+    "type": "string",
+    "description": "The export filter to use in a log export (if any)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "admin_user",
+    "type": "string",
+    "description": "The GSuite Admin user to impersonate",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "machine_project",
+    "type": "string",
+    "description": "The instance project id. Defaults to `project_id`",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "machine_name",
+    "type": "string",
+    "description": "The instance name",
+    "default": "\"gsuite-exporter\"",
+    "required": false
+  },
+  {
+    "name": "machine_network",
+    "type": "string",
+    "description": "The instance network",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project to export GSuite data to.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "service_account",
+    "type": "string",
+    "description": "The service account for exporting GSuite data. Needs domain-wide delegation and correct access scopes.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "gsuite_exporter_version",
+    "type": "string",
+    "description": "Version of the gsuite-exporter PyPi package",
+    "default": "\"0.0.4\"",
+    "required": false
+  },
+  {
+    "name": "machine_zone",
+    "type": "string",
+    "description": "The instance zone",
+    "default": "\"us-central1-a\"",
+    "required": false
+  },
+  {
+    "name": "machine_type",
+    "type": "string",
+    "description": "The instance type",
+    "default": "\"f1-micro\"",
+    "required": false
+  },
+  {
+    "name": "machine_image",
+    "type": "string",
+    "description": "The instance image",
+    "default": "\"debian-cloud/debian-11\"",
+    "required": false
+  },
+  {
+    "name": "api",
+    "type": "string",
+    "description": "The Admin SDK API to sync data from",
+    "default": "\"reports_v1\"",
+    "required": false
+  }
+]

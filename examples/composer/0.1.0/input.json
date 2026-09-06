@@ -1,0 +1,30 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project ID where Cloud Composer Environment is created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "composer_env_name",
+    "type": "string",
+    "description": "Name of Cloud Composer Environment",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the Cloud Composer Environment is created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "composer_sa",
+    "type": "string",
+    "description": "Service Account to be used for running Cloud Composer Environment.",
+    "default": "",
+    "required": true
+  }
+]

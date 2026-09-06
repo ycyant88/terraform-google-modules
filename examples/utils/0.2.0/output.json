@@ -1,0 +1,10 @@
+[
+  {
+    "name": "region_short_name_map",
+    "description": "The 4 or 5 character shortname of any given region."
+  },
+  {
+    "name": "region_short_name",
+    "description": "The 4 or 5 character shortname of the region specified in var.region."
+  }
+]

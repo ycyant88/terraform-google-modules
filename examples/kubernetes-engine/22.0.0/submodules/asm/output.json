@@ -1,0 +1,10 @@
+[
+  {
+    "name": "revision_name",
+    "description": "The name of the installed managed ASM revision."
+  },
+  {
+    "name": "wait",
+    "description": "An output to use when depending on the ASM installation finishing."
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "cloud_run_services",
+    "description": "Cloud Run services which received for bindings."
+  },
+  {
+    "name": "roles",
+    "description": "Roles which were assigned to members."
+  },
+  {
+    "name": "members",
+    "description": "Members which were bound to the Cloud Run services."
+  }
+]

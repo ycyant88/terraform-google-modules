@@ -1,0 +1,19 @@
+module "log-export" {
+  source                            = "terraform-google-modules/log-export/google"
+  version                           = "11.0.0"
+  data_locations                    = var.data_locations
+  force_destroy                     = var.force_destroy
+  kms_key_name                      = var.kms_key_name
+  lifecycle_rules                   = var.lifecycle_rules
+  location                          = var.location
+  log_sink_writer_identity          = var.log_sink_writer_identity
+  project_id                        = var.project_id
+  public_access_prevention          = var.public_access_prevention
+  retention_policy                  = var.retention_policy
+  soft_delete_policy_retention_days = var.soft_delete_policy_retention_days
+  storage_bucket_labels             = var.storage_bucket_labels
+  storage_bucket_name               = var.storage_bucket_name
+  storage_class                     = var.storage_class
+  uniform_bucket_level_access       = var.uniform_bucket_level_access
+  versioning                        = var.versioning
+}

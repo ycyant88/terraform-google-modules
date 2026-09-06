@@ -1,0 +1,58 @@
+[
+  {
+    "name": "description",
+    "type": "string",
+    "description": "The description of the policy.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "agent_rules",
+    "type": "list(any)",
+    "description": "A list of agent rules to be enforced by the policy.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "group_labels",
+    "type": "list(map(string))",
+    "description": "A list of label maps to filter instances to apply policies on.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "os_types",
+    "type": "list(any)",
+    "description": "A list of OS types to filter instances to apply the policy.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "zones",
+    "type": "list(string)",
+    "description": "A list of zones to filter instances to apply the policy.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "instances",
+    "type": "list(string)",
+    "description": "A list of instances to filter instances to apply the policy.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project in which to provision resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "policy_id",
+    "type": "string",
+    "description": "The ID of the policy.",
+    "default": "",
+    "required": true
+  }
+]

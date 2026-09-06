@@ -1,0 +1,37 @@
+[
+  {
+    "name": "location",
+    "type": "string",
+    "description": "Location of the provided artifact registry repositories",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "Project where the artifact registry repositories are placed",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "mode",
+    "type": "string",
+    "description": "Mode for adding the IAM policies/bindings, additive and authoritative",
+    "default": "\"additive\"",
+    "required": false
+  },
+  {
+    "name": "bindings",
+    "type": "map(list(string))",
+    "description": "Map of role (key) and list of members (value) to add the IAM policies/bindings",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "repositories",
+    "type": "list(string)",
+    "description": "Artifact registry repositories list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  }
+]

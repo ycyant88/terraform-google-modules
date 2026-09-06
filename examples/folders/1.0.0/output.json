@@ -1,0 +1,10 @@
+[
+  {
+    "name": "names_and_ids",
+    "description": "Map of name => folder resource id."
+  },
+  {
+    "name": "names_and_display_names",
+    "description": "Map of name => folder resource name."
+  }
+]

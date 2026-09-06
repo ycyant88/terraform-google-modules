@@ -1,0 +1,10 @@
+[
+  {
+    "name": "firewall_rules",
+    "description": "The created firewall rule resources"
+  },
+  {
+    "name": "firewall_rules_ingress_egress",
+    "description": "The created firewall ingress/egress rule resources"
+  }
+]

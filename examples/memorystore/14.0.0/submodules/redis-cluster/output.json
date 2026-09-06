@@ -1,0 +1,22 @@
+[
+  {
+    "name": "psc_service_attachments",
+    "description": "The PSC service attachments of the cluster"
+  },
+  {
+    "name": "redis_cluster",
+    "description": "The redis cluster created"
+  },
+  {
+    "name": "id",
+    "description": "The redis cluster instance ID"
+  },
+  {
+    "name": "discovery_endpoints",
+    "description": "Endpoints created on each given network, for Redis clients to connect to the cluster. Currently only one endpoint is supported"
+  },
+  {
+    "name": "psc_connections",
+    "description": "PSC connections for discovery of the cluster topology and accessing the cluster"
+  }
+]

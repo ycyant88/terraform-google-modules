@@ -1,0 +1,194 @@
+variable "autoscaling_cpu" {
+  description = "Autoscaling, cpu utilization policy block as single element array. https://www.terraform.io/docs/providers/google/r/compute_autoscaler.html#cpu_utilization"
+  type        = list(map(number))
+  default     = []
+}
+
+variable "autoscaling_enabled" {
+  description = "Creates an autoscaler for the managed instance group"
+  type        = string
+  default     = "false"
+}
+
+variable "autoscaling_lb" {
+  description = "Autoscaling, load balancing utilization policy block as single element array. https://www.terraform.io/docs/providers/google/r/compute_autoscaler.html#load_balancing_utilization"
+  type        = list(map(number))
+  default     = []
+}
+
+variable "autoscaling_metric" {
+  description = "Autoscaling, metric policy block as single element array. https://www.terraform.io/docs/providers/google/r/compute_autoscaler.html#metric"
+  type = list(object({
+    name   = string
+    target = number
+    type   = string
+  }))
+  default = []
+}
+
+variable "cooldown_period" {
+  description = "The number of seconds that the autoscaler should wait before it starts collecting information from a new instance."
+  type        = string
+  default     = 60
+}
+
+variable "distribution_policy_zones" {
+  description = "The distribution policy, i.e. which zone(s) should instances be create in. Default is all zones in given region."
+  type        = list(string)
+  default     = []
+}
+
+variable "hc_healthy_threshold" {
+  description = "Health check healthy threshold."
+  type        = string
+  default     = 1
+}
+
+variable "hc_initial_delay_sec" {
+  description = "Health check, intial delay in seconds."
+  type        = string
+  default     = 30
+}
+
+variable "hc_interval_sec" {
+  description = "Health check interval in seconds."
+  type        = string
+  default     = 30
+}
+
+variable "hc_path" {
+  description = "Health check http path to check."
+  type        = string
+  default     = "/"
+}
+
+variable "hc_port" {
+  description = "Health check port."
+  type        = string
+  default     = ""
+}
+
+variable "hc_timeout_sec" {
+  description = "Health check timeout in seconds."
+  type        = string
+  default     = 10
+}
+
+variable "hc_unhealthy_threshold" {
+  description = "Health check unhealthy threshold."
+  type        = string
+  default     = 5
+}
+
+variable "hostname" {
+  description = "Hostname prefix for instances"
+  type        = string
+  default     = "default"
+}
+
+variable "http_healthcheck_enable" {
+  description = "Enable HTTP healthcheck"
+  type        = string
+  default     = "false"
+}
+
+variable "instance_template_initial_version" {
+  description = "Instance template self_link used to create compute instances for the initial version"
+  type        = string
+  default     = ""
+}
+
+variable "instance_template_next_version" {
+  description = "Instance template self_link used to create compute instances for the second version"
+  type        = string
+  default     = ""
+}
+
+variable "max_replicas" {
+  description = "The maximum number of instances that the autoscaler can scale up to. This is required when creating or updating an autoscaler. The maximum number of replicas should not be lower than minimal number of replicas."
+  type        = string
+  default     = 10
+}
+
+variable "min_replicas" {
+  description = "The minimum number of replicas that the autoscaler can scale down to. This cannot be less than 0."
+  type        = string
+  default     = 2
+}
+
+variable "named_ports" {
+  description = "Named name and named port. https://cloud.google.com/load-balancing/docs/backend-service#named_ports"
+  type = list(object({
+    name = string
+    port = number
+  }))
+  default = []
+}
+
+variable "network" {
+  description = "Network to deploy to. Only one of network or subnetwork should be specified."
+  type        = string
+  default     = ""
+}
+
+variable "next_version_percent" {
+  description = "Percentage of instances defined in the second version"
+  type        = string
+  default     = ""
+}
+
+variable "project_id" {
+  description = "The GCP project ID"
+  type        = string
+  default     = ""
+}
+
+variable "region" {
+  description = "The GCP region where the managed instance group resides."
+  type        = string
+  default     = ""
+}
+
+variable "subnetwork" {
+  description = "Subnet to deploy to. Only one of network or subnetwork should be specified."
+  type        = string
+  default     = ""
+}
+
+variable "subnetwork_project" {
+  description = "The project that subnetwork belongs to"
+  type        = string
+  default     = ""
+}
+
+variable "target_pools" {
+  description = "The target load balancing pools to assign this group to."
+  type        = list(string)
+  default     = []
+}
+
+variable "target_size" {
+  description = "The target number of running instances for this managed instance group. This value should always be explicitly set unless this resource is attached to an autoscaler, in which case it should never be set."
+  type        = string
+  default     = 1
+}
+
+variable "tcp_healthcheck_enable" {
+  description = "Enable TCP healthcheck"
+  type        = string
+  default     = "false"
+}
+
+variable "update_policy" {
+  description = "The rolling update policy. https://www.terraform.io/docs/providers/google/r/compute_region_instance_group_manager.html#rolling_update_policy"
+  type = list(object({
+    max_surge_fixed         = number
+    max_surge_percent       = number
+    max_unavailable_fixed   = number
+    max_unavailable_percent = number
+    min_ready_sec           = number
+    minimal_action          = string
+    type                    = string
+  }))
+  default = []
+}

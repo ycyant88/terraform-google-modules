@@ -1,0 +1,17 @@
+module "vpn" {
+  source                  = "terraform-google-modules/vpn/google"
+  version                 = "2.1.0"
+  create_vpn_gateway      = var.create_vpn_gateway
+  name                    = var.name
+  network                 = var.network
+  peer_external_gateway   = var.peer_external_gateway
+  peer_gcp_gateway        = var.peer_gcp_gateway
+  project_id              = var.project_id
+  region                  = var.region
+  route_priority          = var.route_priority
+  router_advertise_config = var.router_advertise_config
+  router_asn              = var.router_asn
+  router_name             = var.router_name
+  tunnels                 = var.tunnels
+  vpn_gateway_self_link   = var.vpn_gateway_self_link
+}

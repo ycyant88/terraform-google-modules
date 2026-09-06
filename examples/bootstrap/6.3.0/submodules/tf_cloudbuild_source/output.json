@@ -1,0 +1,14 @@
+[
+  {
+    "name": "cloudbuild_project_id",
+    "description": "Project for CloudBuild and Cloud Source Repositories."
+  },
+  {
+    "name": "csr_repos",
+    "description": "List of Cloud Source Repos created by the module."
+  },
+  {
+    "name": "gcs_cloudbuild_default_bucket",
+    "description": "Bucket used to store temporary files in CloudBuild project."
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "essential_contacts",
+    "description": "Essential Contact resources created"
+  },
+  {
+    "name": "project_id",
+    "description": "The GCP project you want to enable APIs on"
+  }
+]

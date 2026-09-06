@@ -1,0 +1,107 @@
+[
+  {
+    "name": "membership_project_id",
+    "type": "string",
+    "description": "Membership project ID.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "kubectl_create_command",
+    "type": "string",
+    "description": "The kubectl command to create resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "additional_components",
+    "type": "list(string)",
+    "description": "Additional gcloud CLI components to install. Valid value are components listed in `gcloud components list`",
+    "default": "[\n  \"kubectl\"\n]",
+    "required": false
+  },
+  {
+    "name": "service_account_key_file",
+    "type": "string",
+    "description": "Path to service account key file to auth as for running `gcloud container clusters get-credentials`.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "use_tf_google_credentials_env_var",
+    "type": "bool",
+    "description": "Use `GOOGLE_CREDENTIALS` environment variable to run `gcloud auth activate-service-account` with. Optional.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "impersonate_service_account",
+    "type": "string",
+    "description": "An optional service account to impersonate for gcloud commands. If this service account is not specified, the module will use Application Default Credentials.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "upgrade",
+    "type": "bool",
+    "description": "Whether to upgrade gcloud at runtime.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "membership_name",
+    "type": "string",
+    "description": "Membership name.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "membership_location",
+    "type": "string",
+    "description": "Membership location (Global/Region).",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enabled",
+    "type": "bool",
+    "description": "Flag to optionally disable usage of this module.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "skip_download",
+    "type": "bool",
+    "description": "Whether to skip downloading gcloud (assumes `gcloud` and `kubectl` are already available outside the module).",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "kubectl_destroy_command",
+    "type": "string",
+    "description": "The kubectl command to destroy resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "module_depends_on",
+    "type": "list(any)",
+    "description": "List of modules or resources this module depends on.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "create_cmd_triggers",
+    "type": "map(any)",
+    "description": "List of any additional triggers for the create command execution.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "gcloud_sdk_version",
+    "type": "string",
+    "description": "The gcloud sdk version to download.",
+    "default": "\"481.0.0\"",
+    "required": false
+  }
+]

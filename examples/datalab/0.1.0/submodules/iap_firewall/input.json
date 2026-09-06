@@ -1,0 +1,37 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID used for the Datalab instance",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "target_tags",
+    "type": "list",
+    "description": "A list of instance tags indicating sets of instances located in the network that may make network connections as specified",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ports",
+    "type": "list",
+    "description": "A list of ports to which this rule applies",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_name",
+    "type": "string",
+    "description": "The network the Datalab instance will be in",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "firewall_description",
+    "type": "string",
+    "description": "Description for firewall rule",
+    "default": "\"Allow IAP access\"",
+    "required": false
+  }
+]

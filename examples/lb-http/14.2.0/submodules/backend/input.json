@@ -1,0 +1,226 @@
+[
+  {
+    "name": "port_name",
+    "type": "string",
+    "description": "Name of backend port. The same name should appear in the instance groups referenced by this service. Required when the load balancing scheme is EXTERNAL.",
+    "default": "\"http\"",
+    "required": false
+  },
+  {
+    "name": "backend_bucket_name",
+    "type": "string",
+    "description": "The name of GCS bucket which serves the traffic.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cdn_policy",
+    "type": "object({\n    cache_mode                      = optional(string)\n    signed_url_cache_max_age_sec    = optional(string)\n    default_ttl                     = optional(number)\n    max_ttl                         = optional(number)\n    client_ttl                      = optional(number)\n    negative_caching                = optional(bool)\n    serve_while_stale               = optional(number)\n    bypass_cache_on_request_headers = optional(list(string))\n    negative_caching_policy = optional(object({\n      code = optional(number)\n      ttl  = optional(number)\n    }))\n    cache_key_policy = optional(object({\n      include_host           = optional(bool)\n      include_protocol       = optional(bool)\n      include_query_string   = optional(bool)\n      query_string_blacklist = optional(list(string))\n      query_string_whitelist = optional(list(string))\n      include_http_headers   = optional(list(string))\n      include_named_cookies  = optional(list(string))\n    }))\n  })",
+    "description": "Cloud CDN configuration for this BackendService.",
+    "default": "{\n  \"cache_mode\": \"CACHE_ALL_STATIC\",\n  \"client_ttl\": 3600,\n  \"default_ttl\": 3600,\n  \"max_ttl\": 86400,\n  \"signed_url_cache_max_age_sec\": \"0\"\n}",
+    "required": false
+  },
+  {
+    "name": "target_tags",
+    "type": "list(string)",
+    "description": "List of target tags for health check firewall rule. Exactly one of target_tags or target_service_accounts should be specified.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "firewall_networks",
+    "type": "list(string)",
+    "description": "Names of the networks to create firewall rules in",
+    "default": "[\n  \"default\"\n]",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project to deploy to, if not set the default provider project is used.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "connection_draining_timeout_sec",
+    "type": "number",
+    "description": "Time for which instance will be drained (not accept new connections, but still work to finish started).",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "serverless_neg_backends",
+    "type": "list(object({\n    region          = string\n    type            = string // cloud-run, cloud-function, and app-engine\n    service_name    = string\n    service_version = optional(string)\n  }))",
+    "description": "The list of serverless backend which serves the traffic.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "health_check",
+    "type": "object({\n    host                = optional(string, null)\n    request_path        = optional(string, null)\n    request             = optional(string, null)\n    response            = optional(string, null)\n    port                = optional(number, null)\n    port_name           = optional(string, null)\n    proxy_header        = optional(string, null)\n    port_specification  = optional(string, null)\n    protocol            = optional(string, null)\n    check_interval_sec  = optional(number, 5)\n    timeout_sec         = optional(number, 5)\n    healthy_threshold   = optional(number, 2)\n    unhealthy_threshold = optional(number, 2)\n    logging             = optional(bool, false)\n  })",
+    "description": "Input for creating HttpHealthCheck or HttpsHealthCheck resource for health checking this BackendService. A health check must be specified unless the backend service uses an internet or serverless NEG as a backend.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "firewall_projects",
+    "type": "list(string)",
+    "description": "Names of the projects to create firewall rules in",
+    "default": "[\n  \"default\"\n]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name for the backend service.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "Description of the backend service.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "outlier_detection",
+    "type": "object({\n    base_ejection_time = optional(object({\n      seconds = number\n      nanos   = optional(number)\n    }))\n    consecutive_errors                    = optional(number)\n    consecutive_gateway_failure           = optional(number)\n    enforcing_consecutive_errors          = optional(number)\n    enforcing_consecutive_gateway_failure = optional(number)\n    enforcing_success_rate                = optional(number)\n    interval = optional(object({\n      seconds = number\n      nanos   = optional(number)\n    }))\n    max_ejection_percent        = optional(number)\n    success_rate_minimum_hosts  = optional(number)\n    success_rate_request_volume = optional(number)\n    success_rate_stdev_factor   = optional(number)\n  })",
+    "description": "Settings controlling eviction of unhealthy hosts from the load balancing pool.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "edge_security_policy",
+    "type": "string",
+    "description": "The resource URL for the edge security policy to associate with the backend service",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "target_service_accounts",
+    "type": "list(string)",
+    "description": "List of target service accounts for health check firewall rule. Exactly one of target_tags or target_service_accounts should be specified.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "firewall_source_ranges",
+    "type": "list(string)",
+    "description": "Source ranges for the global Application Load Balancer's proxies. This list should contain the `ip_cidr_range` of each GLOBAL_MANAGED_PROXY subnet.",
+    "default": "[\n  \"10.127.0.0/23\"\n]",
+    "required": false
+  },
+  {
+    "name": "load_balancing_scheme",
+    "type": "string",
+    "description": "Load balancing scheme type (EXTERNAL for classic external load balancer, EXTERNAL_MANAGED for Envoy-based load balancer, INTERNAL_MANAGED for internal load balancer and INTERNAL_SELF_MANAGED for traffic director)",
+    "default": "\"EXTERNAL_MANAGED\"",
+    "required": false
+  },
+  {
+    "name": "custom_response_headers",
+    "type": "list(string)",
+    "description": "Headers that the HTTP/S load balancer should add to proxied responses.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "affinity_cookie_ttl_sec",
+    "type": "number",
+    "description": "Lifetime of cookies in seconds if session_affinity is GENERATED_COOKIE.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "log_config",
+    "type": "object({\n    enable      = bool\n    sample_rate = number\n  })",
+    "description": "This field denotes the logging options for the load balancer traffic served by this backend service. If logging is enabled, logs will be exported to Stackdriver.",
+    "default": "{\n  \"enable\": true,\n  \"sample_rate\": 1\n}",
+    "required": false
+  },
+  {
+    "name": "groups",
+    "type": "list(object({\n    group       = string\n    description = optional(string)\n\n    balancing_mode               = optional(string)\n    capacity_scaler              = optional(number)\n    max_connections              = optional(number)\n    max_connections_per_instance = optional(number)\n    max_connections_per_endpoint = optional(number)\n    max_rate                     = optional(number)\n    max_rate_per_instance        = optional(number)\n    max_rate_per_endpoint        = optional(number)\n    max_utilization              = optional(number)\n  }))",
+    "description": "The list of backend instance group which serves the traffic.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "iap_config",
+    "type": "object({\n    enable               = bool\n    oauth2_client_id     = optional(string)\n    oauth2_client_secret = optional(string)\n    iap_members          = optional(list(string))\n  })",
+    "description": "Settings for enabling Cloud Identity Aware Proxy and Users/SAs to be given IAP HttpResourceAccessor access to the service.",
+    "default": "{\n  \"enable\": false\n}",
+    "required": false
+  },
+  {
+    "name": "security_policy",
+    "type": "string",
+    "description": "The resource URL for the security policy to associate with the backend service",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "host_path_mappings",
+    "type": "list(object({\n    host = string\n    path = string\n  }))",
+    "description": "The list of host/path for which traffic could be sent to the backend service",
+    "default": "[\n  {\n    \"host\": \"*\",\n    \"path\": \"/*\"\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "protocol",
+    "type": "string",
+    "description": "The protocol this BackendService uses to communicate with backends.",
+    "default": "\"HTTP\"",
+    "required": false
+  },
+  {
+    "name": "timeout_sec",
+    "type": "number",
+    "description": "This has different meaning for different type of load balancing. Please refer https://cloud.google.com/load-balancing/docs/backend-service#timeout-setting",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "psc_neg_backends",
+    "type": "list(object({\n    name               = string\n    region             = string\n    psc_target_service = string\n    network            = string\n    subnetwork         = string\n    producer_port      = optional(string)\n  }))",
+    "description": "The list of Private Service Connect backends which serve the traffic.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "compression_mode",
+    "type": "string",
+    "description": "Compress text responses using Brotli or gzip compression.",
+    "default": "\"DISABLED\"",
+    "required": false
+  },
+  {
+    "name": "session_affinity",
+    "type": "string",
+    "description": "Type of session affinity to use. Possible values are: NONE, CLIENT_IP, CLIENT_IP_PORT_PROTO, CLIENT_IP_PROTO, GENERATED_COOKIE, HEADER_FIELD, HTTP_COOKIE, STRONG_COOKIE_AFFINITY.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_cdn",
+    "type": "bool",
+    "description": "Enable Cloud CDN for this BackendService.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "custom_request_headers",
+    "type": "list(string)",
+    "description": "Headers that the HTTP/S load balancer should add to proxied requests.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "locality_lb_policy",
+    "type": "string",
+    "description": "The load balancing algorithm used within the scope of the locality.",
+    "default": "null",
+    "required": false
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "name": "cpu_count",
+    "type": "number",
+    "description": "Number of CPUs per node",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "zones",
+    "type": "list(string)",
+    "description": "Zones where memcache nodes should be provisioned. If not provided, all zones will be used.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "maintenance_policy",
+    "type": "object({\n    day      = string\n    duration = string\n    start_time = object({\n      hours   = number\n      minutes = number\n      seconds = number\n      nanos   = number\n    })\n  })",
+    "description": "The maintenance policy for an instance.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The ID of the instance or a fully qualified identifier for the instance.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "memcache_version",
+    "type": "string",
+    "description": "The major version of Memcached software.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "node_count",
+    "type": "number",
+    "description": "Number of nodes in the memcache instance.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "memory_size_mb",
+    "type": "number",
+    "description": "Memcache memory size in MiB. Defaulted to 1024",
+    "default": "1024",
+    "required": false
+  },
+  {
+    "name": "display_name",
+    "type": "string",
+    "description": "An arbitrary and optional user-provided name for the instance.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "The resource labels to represent user provided metadata.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "params",
+    "type": "map(string)",
+    "description": "Parameters for the memcache process",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The GCP region to use.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project in which the resource belongs to.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enable_apis",
+    "type": "bool",
+    "description": "Flag for enabling memcache.googleapis.com in your project",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "authorized_network",
+    "type": "string",
+    "description": "The full name of the Google Compute Engine network to which the instance is connected. If left unspecified, the default network will be used.",
+    "default": "null",
+    "required": false
+  }
+]

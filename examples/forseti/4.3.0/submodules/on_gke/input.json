@@ -1,0 +1,205 @@
+[
+  {
+    "name": "git_sync_ssh",
+    "type": "bool",
+    "description": "Use SSH for git-sync operations",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "forseti_client_service_account",
+    "type": "string",
+    "description": "Forseti Client service account",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "helm_repository_url",
+    "type": "string",
+    "description": "The Helm repository containing the 'forseti-security' Helm charts",
+    "default": "\"https://forseti-security-charts.storage.googleapis.com/release/\"",
+    "required": false
+  },
+  {
+    "name": "k8s_config_validator_image",
+    "type": "string",
+    "description": "The container image used by the config-validator",
+    "default": "\"gcr.io/forseti-containers/config-validator\"",
+    "required": false
+  },
+  {
+    "name": "k8s_forseti_orchestrator_image_tag",
+    "type": "string",
+    "description": "The tag for the container image for the Forseti orchestrator",
+    "default": "\"v2.22.0\"",
+    "required": false
+  },
+  {
+    "name": "k8s_forseti_server_image_tag",
+    "type": "string",
+    "description": "The tag for the container image for the Forseti server",
+    "default": "\"v2.22.0\"",
+    "required": false
+  },
+  {
+    "name": "git_sync_image_tag",
+    "type": "string",
+    "description": "The container image tag used by the config-validator git-sync side-car",
+    "default": "\"v3.1.2\"",
+    "required": false
+  },
+  {
+    "name": "gke_service_account",
+    "type": "string",
+    "description": "The name of the IAM service account attached to the GKE cluster node-pool",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "forseti_cloudsql_connection_name",
+    "type": "string",
+    "description": "Forseti CloudSQL Connection String",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "forseti_server_bucket",
+    "type": "string",
+    "description": "Forseti Server storage bucket",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "k8s_tiller_sa_name",
+    "type": "string",
+    "description": "The Kubernetes Service Account used by Tiller",
+    "default": "\"tiller\"",
+    "required": false
+  },
+  {
+    "name": "forseti_server_service_account",
+    "type": "string",
+    "description": "Forseti Server service account",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "git_sync_image",
+    "type": "string",
+    "description": "The container image used by the config-validator git-sync side-car",
+    "default": "\"gcr.io/google-containers/git-sync\"",
+    "required": false
+  },
+  {
+    "name": "k8s_forseti_server_image",
+    "type": "string",
+    "description": "The container image for the Forseti server",
+    "default": "\"gcr.io/forseti-containers/forseti\"",
+    "required": false
+  },
+  {
+    "name": "policy_library_repository_branch",
+    "type": "string",
+    "description": "The specific git branch containing the policies.",
+    "default": "\"master\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the GCP project where Forseti is currently deployed.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "config_validator_enabled",
+    "type": "bool",
+    "description": "Config Validator scanner enabled.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "policy_library_repository_url",
+    "type": "string",
+    "description": "The git repository containing the policy-library.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "server_log_level",
+    "type": "string",
+    "description": "The log level of the Forseti server container.",
+    "default": "\"info\"",
+    "required": false
+  },
+  {
+    "name": "git_sync_private_ssh_key_file",
+    "type": "string",
+    "description": "The file containing the private SSH key allowing the git-sync to clone the policy library repository.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "load_balancer",
+    "type": "string",
+    "description": "The type of load balancer to deploy for the forseti-server if desired: none, external, internal",
+    "default": "\"none\"",
+    "required": false
+  },
+  {
+    "name": "k8s_config_validator_image_tag",
+    "type": "string",
+    "description": "The tag for the config-validator image.",
+    "default": "\"latest\"",
+    "required": false
+  },
+  {
+    "name": "recreate_pods",
+    "type": "bool",
+    "description": "Instructs the helm_release resource to, on update, perform pod restarts for the resources if applicable.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "network_policy",
+    "type": "bool",
+    "description": "Apply pod network policies",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "production",
+    "type": "bool",
+    "description": "Whether or not to deploy Forseti on GKE in a production configuration",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "forseti_client_vm_ip",
+    "type": "string",
+    "description": "Forseti Client VM private IP address",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "git_sync_wait",
+    "type": "string",
+    "description": "The time number of seconds between git-syncs",
+    "default": "30",
+    "required": false
+  },
+  {
+    "name": "k8s_forseti_namespace",
+    "type": "string",
+    "description": "The Kubernetes namespace in which to deploy Forseti.",
+    "default": "\"forseti\"",
+    "required": false
+  },
+  {
+    "name": "k8s_forseti_orchestrator_image",
+    "type": "string",
+    "description": "The container image for the Forseti orchestrator",
+    "default": "\"gcr.io/forseti-containers/forseti\"",
+    "required": false
+  }
+]

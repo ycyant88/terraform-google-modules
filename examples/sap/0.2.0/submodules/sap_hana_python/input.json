@@ -1,0 +1,9 @@
+[
+  {
+    "name": "instance-type",
+    "type": "string",
+    "description": "The GCE instance/machine type.",
+    "default": "",
+    "required": true
+  }
+]

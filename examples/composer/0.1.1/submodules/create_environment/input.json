@@ -1,0 +1,72 @@
+[
+  {
+    "name": "ip_cidr_range",
+    "type": "string",
+    "description": "CIDR range for the Cloud Composer Subnet.",
+    "default": "\"10.0.0.0/14\"",
+    "required": false
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "Zone where the Cloud Composer nodes are created.",
+    "default": "\"us-central1-f\"",
+    "required": false
+  },
+  {
+    "name": "machine_type",
+    "type": "string",
+    "description": "Machine type of Cloud Composer nodes.",
+    "default": "\"n1-standard-8\"",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the Cloud Composer Environment is created.",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "node_count",
+    "type": "number",
+    "description": "Number of worker nodes in Cloud Composer Environment.",
+    "default": "3",
+    "required": false
+  },
+  {
+    "name": "network_name",
+    "type": "string",
+    "description": "Name of network created for Cloud Composer Environment.",
+    "default": "\"composer-network-01\"",
+    "required": false
+  },
+  {
+    "name": "subnet_name",
+    "type": "string",
+    "description": "Name of subnetwork created for Cloud Composer Environment.",
+    "default": "\"composer-subnet-01\"",
+    "required": false
+  },
+  {
+    "name": "composer_service_account",
+    "type": "string",
+    "description": "Service Account for running Cloud Composer.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project ID where Cloud Composer Environment is created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "composer_env_name",
+    "type": "string",
+    "description": "Name of Cloud Composer Environment",
+    "default": "",
+    "required": true
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "project_id",
+    "description": "Service project ID."
+  },
+  {
+    "name": "active_api_service_accounts",
+    "description": "List of active API service accounts in the service project."
+  }
+]

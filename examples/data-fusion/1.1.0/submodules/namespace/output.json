@@ -1,0 +1,10 @@
+[
+  {
+    "name": "name",
+    "description": "The created CDAP namespace"
+  },
+  {
+    "name": "preferences",
+    "description": "The preferences set in the CDAP namespace"
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "name": "name",
+    "description": "Cluster name"
+  },
+  {
+    "name": "horizontal_pod_autoscaling_enabled",
+    "description": "Whether horizontal pod autoscaling enabled"
+  },
+  {
+    "name": "kubernetes_dashboard_enabled",
+    "description": "Whether kubernetes dashboard enabled"
+  },
+  {
+    "name": "intranode_visibility_enabled",
+    "description": "Whether intra-node visibility is enabled"
+  },
+  {
+    "name": "type",
+    "description": "Cluster type (regional / zonal)"
+  },
+  {
+    "name": "monitoring_service",
+    "description": "Monitoring service used"
+  },
+  {
+    "name": "network_policy_enabled",
+    "description": "Whether network policy enabled"
+  },
+  {
+    "name": "istio_enabled",
+    "description": "Whether Istio is enabled"
+  },
+  {
+    "name": "pod_security_policy_enabled",
+    "description": "Whether pod security policy is enabled"
+  },
+  {
+    "name": "vertical_pod_autoscaling_enabled",
+    "description": "Whether veritical pod autoscaling is enabled"
+  },
+  {
+    "name": "zones",
+    "description": "List of zones in which the cluster resides"
+  },
+  {
+    "name": "logging_service",
+    "description": "Logging service used"
+  },
+  {
+    "name": "region",
+    "description": "Cluster region"
+  },
+  {
+    "name": "ca_certificate",
+    "description": "Cluster ca certificate (base64 encoded)"
+  },
+  {
+    "name": "node_pools_versions",
+    "description": "List of node pools versions"
+  },
+  {
+    "name": "master_authorized_networks_config",
+    "description": "Networks from which access to master is permitted"
+  },
+  {
+    "name": "master_version",
+    "description": "Current master kubernetes version"
+  },
+  {
+    "name": "http_load_balancing_enabled",
+    "description": "Whether http load balancing enabled"
+  },
+  {
+    "name": "node_pools_names",
+    "description": "List of node pools names"
+  },
+  {
+    "name": "service_account",
+    "description": "The service account to default running nodes as if not overridden in `node_pools`."
+  },
+  {
+    "name": "location",
+    "description": "Cluster location (region if regional cluster, zone if zonal cluster)"
+  },
+  {
+    "name": "endpoint",
+    "description": "Cluster endpoint"
+  },
+  {
+    "name": "min_master_version",
+    "description": "Minimum master kubernetes version"
+  },
+  {
+    "name": "cloudrun_enabled",
+    "description": "Whether CloudRun enabled"
+  }
+]

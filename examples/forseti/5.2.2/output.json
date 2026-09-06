@@ -1,0 +1,66 @@
+[
+  {
+    "name": "forseti-server-vm-ip",
+    "description": "Forseti Server VM private IP address"
+  },
+  {
+    "name": "forseti-cai-storage-bucket",
+    "description": "Forseti CAI storage bucket"
+  },
+  {
+    "name": "forseti-client-vm-ip",
+    "description": "Forseti Client VM private IP address"
+  },
+  {
+    "name": "forseti-cloudsql-user",
+    "description": "CloudSQL user"
+  },
+  {
+    "name": "forseti-server-service-account",
+    "description": "Forseti Server service account"
+  },
+  {
+    "name": "forseti-server-vm-internal-dns",
+    "description": "Forseti Server internal DNS"
+  },
+  {
+    "name": "forseti-client-service-account",
+    "description": "Forseti Client service account"
+  },
+  {
+    "name": "forseti-client-vm-name",
+    "description": "Forseti Client VM name"
+  },
+  {
+    "name": "forseti-cloudsql-password",
+    "description": "CloudSQL password"
+  },
+  {
+    "name": "suffix",
+    "description": "The random suffix appended to Forseti resources"
+  },
+  {
+    "name": "forseti-client-storage-bucket",
+    "description": "Forseti Client storage bucket"
+  },
+  {
+    "name": "forseti-cloudsql-connection-name",
+    "description": "Forseti CloudSQL Connection String"
+  },
+  {
+    "name": "forseti-server-git-public-key-openssh",
+    "description": "The public OpenSSH key generated to allow the Forseti Server to clone the policy library repository."
+  },
+  {
+    "name": "forseti-cloudsql-instance-ip",
+    "description": "The IP of the master CloudSQL instance"
+  },
+  {
+    "name": "forseti-server-storage-bucket",
+    "description": "Forseti Server storage bucket"
+  },
+  {
+    "name": "forseti-server-vm-name",
+    "description": "Forseti Server VM name"
+  }
+]

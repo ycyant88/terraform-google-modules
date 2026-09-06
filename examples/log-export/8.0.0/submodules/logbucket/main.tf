@@ -1,0 +1,15 @@
+module "log-export" {
+  source                        = "terraform-google-modules/log-export/google"
+  version                       = "8.0.0"
+  enable_analytics              = var.enable_analytics
+  grant_write_permission_on_bkt = var.grant_write_permission_on_bkt
+  kms_key_name                  = var.kms_key_name
+  linked_dataset_description    = var.linked_dataset_description
+  linked_dataset_id             = var.linked_dataset_id
+  location                      = var.location
+  locked                        = var.locked
+  log_sink_writer_identity      = var.log_sink_writer_identity
+  name                          = var.name
+  project_id                    = var.project_id
+  retention_days                = var.retention_days
+}

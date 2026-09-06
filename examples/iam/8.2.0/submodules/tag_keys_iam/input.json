@@ -1,0 +1,23 @@
+[
+  {
+    "name": "bindings",
+    "type": "map(any)",
+    "description": "Map of role (key) and list of members (value) to add the IAM policies/bindings",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "tag_keys",
+    "type": "list(string)",
+    "description": "List of tag keys to add the IAM policies/bindings",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "mode",
+    "type": "string",
+    "description": "Mode for adding the IAM policies/bindings, additive and authoritative",
+    "default": "\"additive\"",
+    "required": false
+  }
+]

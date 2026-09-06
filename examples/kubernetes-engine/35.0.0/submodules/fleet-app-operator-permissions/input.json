@@ -1,0 +1,37 @@
+[
+  {
+    "name": "role",
+    "type": "string",
+    "description": "The principals role for the Fleet Scope (`VIEW`/`EDIT`/`ADMIN`).",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "fleet_project_id",
+    "type": "string",
+    "description": "The project to which the Fleet belongs.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "scope_id",
+    "type": "string",
+    "description": "The scope for which IAM and RBAC role bindings are created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "users",
+    "type": "list(string)",
+    "description": "The list of app operator user principals, e.g., `person@google.com`, `principal://iam.googleapis.com/locations/global/workforcePools/my-pool/subject/person`, `serviceAccount:my-service-account@my-project.iam.gserviceaccount.com`.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "groups",
+    "type": "list(string)",
+    "description": "The list of app operator group principals, e.g., `people@google.com`, `principalSet://iam.googleapis.com/locations/global/workforcePools/my-pool/group/people`.",
+    "default": "[]",
+    "required": false
+  }
+]

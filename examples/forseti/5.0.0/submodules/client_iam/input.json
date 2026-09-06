@@ -1,0 +1,16 @@
+[
+  {
+    "name": "suffix",
+    "type": "string",
+    "description": "The random suffix to append to all Forseti resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Google Project ID that you want Forseti deployed into",
+    "default": "",
+    "required": true
+  }
+]

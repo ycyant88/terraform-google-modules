@@ -1,0 +1,16 @@
+[
+  {
+    "name": "service_endpoint",
+    "type": "string",
+    "description": "Endpoint of the the CDF instance to check for health.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "access_token",
+    "type": "string",
+    "description": "Token for authenticating requests to the CDF instance.",
+    "default": "",
+    "required": true
+  }
+]

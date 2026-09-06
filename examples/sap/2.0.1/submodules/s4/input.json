@@ -1,0 +1,492 @@
+[
+  {
+    "name": "allow_stopping_for_update",
+    "type": "bool",
+    "description": "allow_stopping_for_update",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "db_disk_type",
+    "type": "string",
+    "description": "Disk type for the non log/data disks.",
+    "default": "\"pd-balanced\"",
+    "required": false
+  },
+  {
+    "name": "sap_boot_disk_image",
+    "type": "string",
+    "description": "sap_boot_disk_image",
+    "default": "\"projects/rhel-sap-cloud/global/images/rhel-8-4-sap-v20220719\"",
+    "required": false
+  },
+  {
+    "name": "filestore_tier",
+    "type": "string",
+    "description": "filestore_tier",
+    "default": "\"ENTERPRISE\"",
+    "required": false
+  },
+  {
+    "name": "network_project",
+    "type": "string",
+    "description": "network_project",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "app_vms_multiplier",
+    "type": "number",
+    "description": "Multiplies app VMs. E.g. if there is 2 VMs then with value 3 each VM will be multiplied by 3 (so there will be 6 total VMs)",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "ascs_machine_type",
+    "type": "string",
+    "description": "ascs_machine_type",
+    "default": "\"n1-standard-8\"",
+    "required": false
+  },
+  {
+    "name": "ascs_vm_names",
+    "type": "list(any)",
+    "description": "ascs_vm_names",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "db_vm_names",
+    "type": "list(any)",
+    "description": "db_vm_names",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "sap_instance_id_db",
+    "type": "string",
+    "description": "sap_instance_id_db",
+    "default": "\"00\"",
+    "required": false
+  },
+  {
+    "name": "public_ansible_runner_ip",
+    "type": "bool",
+    "description": "public_ansible_runner_ip",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "app_disk_usr_sap_size",
+    "type": "number",
+    "description": "app_disk_usr_sap_size",
+    "default": "128",
+    "required": false
+  },
+  {
+    "name": "db_sid",
+    "type": "string",
+    "description": "db_sid",
+    "default": "\"HD1\"",
+    "required": false
+  },
+  {
+    "name": "vpc_name",
+    "type": "string",
+    "description": "vpc_name",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "app_disk_type",
+    "type": "string",
+    "description": "app_disk_type",
+    "default": "\"pd-balanced\"",
+    "required": false
+  },
+  {
+    "name": "db_disk_usr_sap_size",
+    "type": "number",
+    "description": "db_disk_usr_sap_size",
+    "default": "32",
+    "required": false
+  },
+  {
+    "name": "hana_secret_name",
+    "type": "string",
+    "description": "hana_secret_name",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "disk_size_map",
+    "type": "map(number)",
+    "description": "disk_size_map",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "configuration_bucket_name",
+    "type": "string",
+    "description": "configuration_bucket_name",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "dns_zone_name_suffix",
+    "type": "string",
+    "description": "dns_zone_name_suffix",
+    "default": "\"gcp.sapcloud.goog.\"",
+    "required": false
+  },
+  {
+    "name": "filestore_gb",
+    "type": "number",
+    "description": "filestore_gb",
+    "default": "1024",
+    "required": false
+  },
+  {
+    "name": "ansible_sa_email",
+    "type": "string",
+    "description": "ansible_sa_email",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "app_machine_type",
+    "type": "string",
+    "description": "app_machine_type",
+    "default": "\"n1-highem-32\"",
+    "required": false
+  },
+  {
+    "name": "db_sa_email",
+    "type": "string",
+    "description": "db_sa_email",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "existing_dns_zone_name",
+    "type": "string",
+    "description": "existing_dns_zone_name",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "app_sid",
+    "type": "string",
+    "description": "app_sid",
+    "default": "\"ED1\"",
+    "required": false
+  },
+  {
+    "name": "deployment_name",
+    "type": "string",
+    "description": "deployment_name",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sap_version",
+    "type": "string",
+    "description": "sap_version",
+    "default": "\"2021\"",
+    "required": false
+  },
+  {
+    "name": "virtualize_disks",
+    "type": "bool",
+    "description": "virtualize_disks",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "app_sa_email",
+    "type": "string",
+    "description": "app_sa_email",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ascs_sa_email",
+    "type": "string",
+    "description": "ascs_sa_email",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "db_machine_type",
+    "type": "string",
+    "description": "db_machine_type",
+    "default": "\"n1-highmem-32\"",
+    "required": false
+  },
+  {
+    "name": "sap_boot_disk_image_app",
+    "type": "string",
+    "description": "sap_boot_disk_image_app",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "vm_prefix",
+    "type": "string",
+    "description": "vm_prefix",
+    "default": "\"sap\"",
+    "required": false
+  },
+  {
+    "name": "zone1_name",
+    "type": "string",
+    "description": "zone1_name",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "custom_app_metadata",
+    "type": "map(string)",
+    "description": "Optional - default is empty. Custom metadata to be added to the app VMs.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "deployment_has_dns",
+    "type": "bool",
+    "description": "Set to false to deploy without a DNS zone",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "log_stripe_size",
+    "type": "string",
+    "description": "log_stripe_size",
+    "default": "\"64k\"",
+    "required": false
+  },
+  {
+    "name": "number_data_disks",
+    "type": "number",
+    "description": "Optional - default is 1. Number of disks to use for data volume striping (if larger than 1).",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "db_disk_hana_shared_size",
+    "type": "number",
+    "description": "db_disk_hana_shared_size",
+    "default": "208",
+    "required": false
+  },
+  {
+    "name": "app_disk_export_interfaces_size",
+    "type": "number",
+    "description": "app_disk_export_interfaces_size",
+    "default": "128",
+    "required": false
+  },
+  {
+    "name": "create_comms_firewall",
+    "type": "bool",
+    "description": "create_comms_firewall",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "custom_tags",
+    "type": "list(any)",
+    "description": "custom_tags",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "db_data_disk_type",
+    "type": "string",
+    "description": "db_data_disk_type",
+    "default": "\"pd-balanced\"",
+    "required": false
+  },
+  {
+    "name": "is_test",
+    "type": "string",
+    "description": "is_test",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "primary_startup_url",
+    "type": "string",
+    "description": "primary_startup_url",
+    "default": "\"gs://cloudsapdeploy/deployments/latest/startup/ansible_runner_startup.sh\"",
+    "required": false
+  },
+  {
+    "name": "region_name",
+    "type": "string",
+    "description": "region_name",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sap_boot_disk_image_ascs",
+    "type": "string",
+    "description": "sap_boot_disk_image_ascs",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "db_disk_hana_data_size",
+    "type": "number",
+    "description": "db_disk_hana_data_size",
+    "default": "249",
+    "required": false
+  },
+  {
+    "name": "app_vm_names",
+    "type": "list(any)",
+    "description": "app_vm_names",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "application_secret_name",
+    "type": "string",
+    "description": "application_secret_name",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "ascs_disk_usr_sap_size",
+    "type": "number",
+    "description": "ascs_disk_usr_sap_size",
+    "default": "128",
+    "required": false
+  },
+  {
+    "name": "db_log_disk_type",
+    "type": "string",
+    "description": "db_log_disk_type",
+    "default": "\"pd-balanced\"",
+    "required": false
+  },
+  {
+    "name": "public_ip",
+    "type": "bool",
+    "description": "public_ip",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "data_stripe_size",
+    "type": "string",
+    "description": "data_stripe_size",
+    "default": "\"256k\"",
+    "required": false
+  },
+  {
+    "name": "sap_boot_disk_image_db",
+    "type": "string",
+    "description": "sap_boot_disk_image_db",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "sap_instance_id_app",
+    "type": "string",
+    "description": "sap_instance_id_app",
+    "default": "\"10\"",
+    "required": false
+  },
+  {
+    "name": "filestore_location",
+    "type": "string",
+    "description": "filestore_location",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "custom_ascs_metadata",
+    "type": "map(string)",
+    "description": "Optional - default is empty. Custom metadata to be added to the ASCS VMs.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "custom_db_metadata",
+    "type": "map(string)",
+    "description": "Optional - default is empty. Custom metadata to be added to the DB VMs.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "db_disk_backup_size",
+    "type": "number",
+    "description": "db_disk_backup_size",
+    "default": "128",
+    "required": false
+  },
+  {
+    "name": "ascs_disk_type",
+    "type": "string",
+    "description": "ascs_disk_type",
+    "default": "\"pd-balanced\"",
+    "required": false
+  },
+  {
+    "name": "media_bucket_name",
+    "type": "string",
+    "description": "media_bucket_name",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "db_disk_hana_log_size",
+    "type": "number",
+    "description": "db_disk_hana_log_size",
+    "default": "104",
+    "required": false
+  },
+  {
+    "name": "fstore_mount_point",
+    "type": "string",
+    "description": "Optional - default is empty. NFS mount point of the nfs to use. If none is provided one will be created.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "sap_instance_id_ascs",
+    "type": "string",
+    "description": "sap_instance_id_ascs",
+    "default": "\"11\"",
+    "required": false
+  },
+  {
+    "name": "gcp_project_id",
+    "type": "string",
+    "description": "gcp_project_id",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "number_log_disks",
+    "type": "number",
+    "description": "Optional - default is 1. Number of disks to use for log volume striping (if larger than 1).",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "package_location",
+    "type": "string",
+    "description": "package_location",
+    "default": "\"gs://cloudsapdeploy/deployments/latest\"",
+    "required": false
+  },
+  {
+    "name": "subnet_name",
+    "type": "string",
+    "description": "subnet_name",
+    "default": "\"default\"",
+    "required": false
+  }
+]

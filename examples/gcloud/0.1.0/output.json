@@ -1,0 +1,10 @@
+[
+  {
+    "name": "destroy_cmd_bin",
+    "description": "The full bin path & command used on destroy"
+  },
+  {
+    "name": "create_cmd_bin",
+    "description": "The full bin path & command used on create"
+  }
+]

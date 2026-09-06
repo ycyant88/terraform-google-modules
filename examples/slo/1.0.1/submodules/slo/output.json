@@ -1,0 +1,38 @@
+[
+  {
+    "name": "project_id",
+    "description": "Project id"
+  },
+  {
+    "name": "service_account_email",
+    "description": "Service account email used to run the Cloud Function"
+  },
+  {
+    "name": "scheduler_job_name",
+    "description": "Cloud Scheduler job name"
+  },
+  {
+    "name": "function_bucket_name",
+    "description": "Cloud Function bucket name"
+  },
+  {
+    "name": "config",
+    "description": "SLO Config"
+  },
+  {
+    "name": "function_name",
+    "description": "Cloud Function name"
+  },
+  {
+    "name": "function_zip_output_path",
+    "description": "Cloud Function zip output path"
+  },
+  {
+    "name": "slo_config_url",
+    "description": "SLO Config GCS URL"
+  },
+  {
+    "name": "error_budget_policy_url",
+    "description": "Error budget policy GCS URL"
+  }
+]

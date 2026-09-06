@@ -1,0 +1,34 @@
+[
+  {
+    "name": "dns_zone_gcr_name",
+    "description": "Name for Managed DNS zone for GCR"
+  },
+  {
+    "name": "dns_zone_pkg_dev_name",
+    "description": "Name for Managed DNS zone for PKG_DEV"
+  },
+  {
+    "name": "private_service_connect_name",
+    "description": "Private service connect name"
+  },
+  {
+    "name": "private_service_connect_ip",
+    "description": "Private service connect ip"
+  },
+  {
+    "name": "global_address_id",
+    "description": "An identifier for the global address created for the private service connect with format `projects/{{project}}/global/addresses/{{name}}`"
+  },
+  {
+    "name": "forwarding_rule_name",
+    "description": "Forwarding rule resource name."
+  },
+  {
+    "name": "forwarding_rule_target",
+    "description": "Target resource to receive the matched traffic. Only `all-apis` and `vpc-sc` are valid."
+  },
+  {
+    "name": "dns_zone_googleapis_name",
+    "description": "Name for Managed DNS zone for GoogleAPIs"
+  }
+]

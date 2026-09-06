@@ -1,0 +1,14 @@
+[
+  {
+    "name": "fw_policy",
+    "description": "Firewall policy created"
+  },
+  {
+    "name": "target_associations",
+    "description": "folders/orgs associations created"
+  },
+  {
+    "name": "rules",
+    "description": "Firewall policy rules created"
+  }
+]

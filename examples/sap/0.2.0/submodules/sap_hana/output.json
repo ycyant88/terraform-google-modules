@@ -1,0 +1,14 @@
+[
+  {
+    "name": "machine_type",
+    "description": ""
+  },
+  {
+    "name": "instance_name",
+    "description": ""
+  },
+  {
+    "name": "zone",
+    "description": ""
+  }
+]

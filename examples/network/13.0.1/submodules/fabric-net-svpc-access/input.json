@@ -1,0 +1,51 @@
+[
+  {
+    "name": "host_project_id",
+    "type": "string",
+    "description": "Project id of the shared VPC host project.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "service_project_ids",
+    "type": "list(string)",
+    "description": "Ids of the service projects that will be attached to the Shared VPC.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "host_subnets",
+    "type": "list(string)",
+    "description": "List of subnet names on which to grant network user role.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "host_subnet_regions",
+    "type": "list(string)",
+    "description": "List of subnet regions, one per subnet.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "host_subnet_users",
+    "type": "map(any)",
+    "description": "Map of comma-delimited IAM-style members to which network user roles for subnets will be assigned.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "host_service_agent_role",
+    "type": "bool",
+    "description": "Assign host service agent role to users in host_service_agent_users variable.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "host_service_agent_users",
+    "type": "list(string)",
+    "description": "List of IAM-style users that will be granted the host service agent role on the host project.",
+    "default": "[]",
+    "required": false
+  }
+]

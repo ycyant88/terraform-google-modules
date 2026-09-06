@@ -1,0 +1,13 @@
+module "bigquery" {
+  source            = "terraform-google-modules/bigquery/google"
+  version           = "2.0.0"
+  dataset_id        = var.dataset_id
+  dataset_labels    = var.dataset_labels
+  dataset_name      = var.dataset_name
+  description       = var.description
+  expiration        = var.expiration
+  location          = var.location
+  project_id        = var.project_id
+  tables            = var.tables
+  time_partitioning = var.time_partitioning
+}

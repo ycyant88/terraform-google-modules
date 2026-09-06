@@ -1,0 +1,13 @@
+module "bigquery" {
+  source                         = "terraform-google-modules/bigquery/google"
+  version                        = "10.0.2"
+  create_ignore_service_accounts = var.create_ignore_service_accounts
+  dataform_region                = var.dataform_region
+  deletion_protection            = var.deletion_protection
+  enable_apis                    = var.enable_apis
+  force_destroy                  = var.force_destroy
+  labels                         = var.labels
+  project_id                     = var.project_id
+  region                         = var.region
+  text_generation_model_name     = var.text_generation_model_name
+}

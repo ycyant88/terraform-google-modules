@@ -1,0 +1,72 @@
+[
+  {
+    "name": "download_forseti",
+    "type": "",
+    "description": "Whether to download the forseti repo or not. If false, a Forseti repo must be in the root of main.tf file. (Default 'true')",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "gcs_location",
+    "type": "",
+    "description": "The GCS bucket location",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "cloud_sql_region",
+    "type": "",
+    "description": "The Cloud SQL region",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "notification_recipient_email",
+    "type": "",
+    "description": "Notification recipient email",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "credentials_file_path",
+    "type": "",
+    "description": "Path to service account json",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sendgrid_api_key",
+    "type": "",
+    "description": "The Sendgrid api key for notifier",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "gsuite_admin_email",
+    "type": "",
+    "description": "The email of a GSuite super admin, used for pulling user directory information.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "",
+    "description": "The ID of the project where Forseti will be installed",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "forseti_repo_url",
+    "type": "",
+    "description": "Foresti git repository URL",
+    "default": "\"https://github.com/GoogleCloudPlatform/forseti-security.git\"",
+    "required": false
+  },
+  {
+    "name": "forseti_repo_branch",
+    "type": "",
+    "description": "Forseti repository branch",
+    "default": "\"stable\"",
+    "required": false
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "name": "http_enabled_state",
+    "type": "string",
+    "description": "The field allows HTTP_ENABLED or HTTP_DISABLED",
+    "default": "\"HTTP_DISABLED\"",
+    "required": false
+  },
+  {
+    "name": "public_key_certificates",
+    "type": "list(object({ format = string, certificate = string }))",
+    "description": "The list for public key certificates",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "event_notification_config",
+    "type": "object({\n    topic              = string\n    topic_labels       = map(string)\n    push_subscriptions = list(map(string))\n    pull_subscriptions = list(map(string))\n    create_topic       = bool\n  })",
+    "description": "The event notification configuration for the Cloud IoT registry. This contains `topic`, `topic_labels`, `pull_subscriptions` and `push_subscriptions` and `create_topic`.",
+    "default": "{\n  \"create_topic\": false,\n  \"pull_subscriptions\": [],\n  \"push_subscriptions\": [],\n  \"topic\": \"\",\n  \"topic_labels\": {}\n}",
+    "required": false
+  },
+  {
+    "name": "state_notification_config",
+    "type": "object({\n    topic              = string\n    topic_labels       = map(string)\n    push_subscriptions = list(map(string))\n    pull_subscriptions = list(map(string))\n    create_topic       = bool\n  })",
+    "description": "The state notification configuration for the Cloud IoT registry. This contains `topic`, `topic_labels`, `pull_subscriptions` and `push_subscriptions` and `create_topic`.",
+    "default": "{\n  \"create_topic\": false,\n  \"pull_subscriptions\": [],\n  \"push_subscriptions\": [],\n  \"topic\": \"\",\n  \"topic_labels\": {}\n}",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to manage the Cloud IoT resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region to host the registry",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The Cloud IoT registry name",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "mqtt_enabled_state",
+    "type": "string",
+    "description": "The field allows MQTT_ENABLED or MQTT_DISABLED",
+    "default": "\"MQTT_ENABLED\"",
+    "required": false
+  }
+]

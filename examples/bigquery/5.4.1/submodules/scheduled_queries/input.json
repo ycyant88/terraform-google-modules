@@ -1,0 +1,16 @@
+[
+  {
+    "name": "queries",
+    "type": "list(any)",
+    "description": "Data transfer configuration for creating scheduled queries",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project where scheduled queries are created",
+    "default": "",
+    "required": true
+  }
+]

@@ -1,0 +1,135 @@
+[
+  {
+    "name": "owners",
+    "type": "list(string)",
+    "description": "Optional list of IAM-format members to set as project owners.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "editors",
+    "type": "list(string)",
+    "description": "Optional list of IAM-format members to set as project editor.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "lien_reason",
+    "type": "string",
+    "description": "If non-empty, creates a project lien with this description.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "extra_bindings_roles",
+    "type": "list(string)",
+    "description": "List of roles for additional IAM bindings, pair with members list below.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "deletion_policy",
+    "type": "string",
+    "description": "The deletion policy for the project.",
+    "default": "\"PREVENT\"",
+    "required": false
+  },
+  {
+    "name": "activate_apis",
+    "type": "list(string)",
+    "description": "Service APIs to enable.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "oslogin_users",
+    "type": "list(string)",
+    "description": "List of IAM-format members that will get OS Login user role.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "parent",
+    "type": "string",
+    "description": "The resource name of the parent Folder or Organization. Must be of the form folders/folder_id or organizations/org_id.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Project name and id suffix.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "custom_roles",
+    "type": "map(string)",
+    "description": "Map of role name => comma-delimited list of permissions to create in this project.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "gce_service_account_roles",
+    "type": "list(string)",
+    "description": "List of project id=>role to assign to the default GCE service account.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "prefix",
+    "type": "string",
+    "description": "Prefix used to generate project id and name.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "billing_account",
+    "type": "string",
+    "description": "Billing account id.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "viewers",
+    "type": "list(string)",
+    "description": "Optional list of IAM-format members to set as project viewers.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "oslogin",
+    "type": "bool",
+    "description": "Enable oslogin.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "oslogin_admins",
+    "type": "list(string)",
+    "description": "List of IAM-format members that will get OS Login admin role.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "extra_bindings_members",
+    "type": "list(string)",
+    "description": "List of comma-delimited IAM-format members for additional IAM bindings, one item per role.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "auto_create_network",
+    "type": "bool",
+    "description": "Whether to create the default network for the project",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "Resource labels.",
+    "default": "{}",
+    "required": false
+  }
+]

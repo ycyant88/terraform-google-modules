@@ -1,0 +1,51 @@
+[
+  {
+    "name": "suffix",
+    "type": "string",
+    "description": "The random suffix to append to all Forseti resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "services",
+    "type": "list(string)",
+    "description": "An artificial dependency to bypass #10462",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "storage_bucket_location",
+    "type": "string",
+    "description": "GCS storage bucket location",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "bucket_cai_location",
+    "type": "string",
+    "description": "GCS CAI storage bucket location",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "bucket_cai_lifecycle_age",
+    "type": "string",
+    "description": "GCS CAI lifecycle age value",
+    "default": "\"14\"",
+    "required": false
+  },
+  {
+    "name": "enable_cai_bucket",
+    "type": "bool",
+    "description": "Create a GCS bucket for CAI exports",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Google Project ID that you want Forseti deployed into",
+    "default": "",
+    "required": true
+  }
+]

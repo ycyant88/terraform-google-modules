@@ -1,0 +1,22 @@
+[
+  {
+    "name": "project",
+    "description": "The project in which the log bucket was created."
+  },
+  {
+    "name": "resource_name",
+    "description": "The resource name for the destination log bucket"
+  },
+  {
+    "name": "destination_uri",
+    "description": "The destination URI for the log bucket."
+  },
+  {
+    "name": "linked_dataset_name",
+    "description": "The resource name of the linked BigQuery dataset."
+  },
+  {
+    "name": "console_link",
+    "description": "The console link to the destination log buckets"
+  }
+]

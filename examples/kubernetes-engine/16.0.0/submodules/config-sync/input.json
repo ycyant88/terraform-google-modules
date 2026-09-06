@@ -1,0 +1,107 @@
+[
+  {
+    "name": "policy_dir",
+    "type": "string",
+    "description": "Subfolder containing configs in ACM Git repo. If un-set, uses Config Management default.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ssh_auth_key",
+    "type": "string",
+    "description": "Key for Git authentication. Overrides 'create_ssh_key' variable. Can be set using 'file(path/to/file)'-function.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "hierarchy_controller",
+    "type": "map(any)",
+    "description": "Configurations for Hierarchy Controller. See [Hierarchy Controller docs](https://cloud.google.com/kubernetes-engine/docs/add-on/config-sync/how-to/installing-hierarchy-controller) for more details.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "GCP location used to reach cluster.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "operator_path",
+    "type": "string",
+    "description": "Path to the operator yaml config. If unset, will download from GCS releases.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "secret_type",
+    "type": "string",
+    "description": "credential secret type, passed through to ConfigManagement spec.git.secretType. Overriden to value 'ssh' if `create_ssh_key` is true",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "GCP cluster name used to reach cluster and which becomes the cluster name in the Config Sync kubernetes custom resource.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enable_multi_repo",
+    "type": "bool",
+    "description": "Whether to use ACM Config Sync [multi-repo mode](https://cloud.google.com/kubernetes-engine/docs/add-on/config-sync/how-to/multi-repo).",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sync_revision",
+    "type": "string",
+    "description": "ACM repo Git revision. If un-set, uses Config Management default.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "source_format",
+    "type": "string",
+    "description": "Configures a non-hierarchical repo if set to 'unstructured'. Uses [Config Sync defaults](https://cloud.google.com/kubernetes-engine/docs/add-on/config-sync/how-to/installing#configuring-config-management-operator) when unset.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "sync_branch",
+    "type": "string",
+    "description": "ACM repo Git branch. If un-set, uses Config Management default.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_endpoint",
+    "type": "string",
+    "description": "Kubernetes cluster endpoint.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "create_ssh_key",
+    "type": "bool",
+    "description": "Controls whether a key will be generated for Git authentication",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "GCP project_id used to reach cluster.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sync_repo",
+    "type": "string",
+    "description": "ACM Git repo address",
+    "default": "",
+    "required": true
+  }
+]

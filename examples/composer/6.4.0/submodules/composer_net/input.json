@@ -1,0 +1,107 @@
+[
+  {
+    "name": "composer_env_name",
+    "type": "string",
+    "description": "Name of Cloud Composer Environment",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "dns_zone_name",
+    "type": "string",
+    "description": "Composer DNS private zone name",
+    "default": "\"composer-google-cloud-dns\"",
+    "required": false
+  },
+  {
+    "name": "gke_pods_services_ip_ranges",
+    "type": "list(string)",
+    "description": "The secondary IP ranges for the GKE Pods and Services IP ranges",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "composer_sa_name",
+    "type": "string",
+    "description": "Service Account name to be used for running Cloud Composer Environment.",
+    "default": "\"composer-sa\"",
+    "required": false
+  },
+  {
+    "name": "service_project_id",
+    "type": "string",
+    "description": "Project ID where Cloud Composer Environment is created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "The VPC network to host the composer cluster.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "master_ipv4_cidr",
+    "type": "string",
+    "description": "The CIDR block from which IP range in tenant project will be reserved for the master.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_firewall_logging",
+    "type": "bool",
+    "description": "Enable logging for firewall rules",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "network_project_id",
+    "type": "string",
+    "description": "The project ID of the shared VPC's host (for shared vpc support)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The subnetwork to host the composer cluster.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cloud_composer_network_ipv4_cidr_block",
+    "type": "string",
+    "description": "The CIDR block from which IP range in tenant project will be reserved.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "dns_name",
+    "type": "string",
+    "description": "The DNS name of the managed zone",
+    "default": "\"composer.cloud.google.com.\"",
+    "required": false
+  },
+  {
+    "name": "firewall_logging_metadata",
+    "type": "string",
+    "description": "The logging metadata to include in firewall logs. Options: INCLUDE_ALL_METADATA or EXCLUDE_ALL_METADATA",
+    "default": "\"INCLUDE_ALL_METADATA\"",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the Cloud Composer Environment is created.",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "gke_subnet_ip_range",
+    "type": "list(string)",
+    "description": "The GKE subnet IP range",
+    "default": "",
+    "required": true
+  }
+]

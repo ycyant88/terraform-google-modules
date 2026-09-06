@@ -1,0 +1,10 @@
+[
+  {
+    "name": "cloud_build_repositories_2nd_gen_connection",
+    "description": "  The unique identifier of the Cloud Build connection created within the specified Google Cloud project.\n  Example format: projects/{{project}}/locations/{{location}}/connections/{{name}}\n"
+  },
+  {
+    "name": "cloud_build_repositories_2nd_gen_repositories",
+    "description": "A map of created repositories associated with the Cloud Build connection.\nEach entry contains the repository's unique identifier and its remote URL.\nExample format:\n\"key_name\" = {\n  \"id\" =  \"projects/{{project}}/locations/{{location}}/connections/{{parent_connection}}/repositories/{{name}}\",\n  \"url\" = \"https://github.com/{{account/org}}/{{repository_name}}.git\"\n}\n"
+  }
+]

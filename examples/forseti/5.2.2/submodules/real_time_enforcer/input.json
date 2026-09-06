@@ -1,0 +1,135 @@
+[
+  {
+    "name": "storage_bucket_location",
+    "type": "string",
+    "description": "GCS storage bucket location",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "The VPC where the Forseti real time enforcer will be created",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The VPC subnetwork where the Forseti real time enforcer will be created",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "enforcer_ssh_allow_ranges",
+    "type": "list(string)",
+    "description": "List of CIDRs that will be allowed ssh access to forseti real time enforcer",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "suffix",
+    "type": "string",
+    "description": "The random suffix to append to all Forseti resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enforcer_viewer_role",
+    "type": "string",
+    "description": "An IAM role granting the enforcer service account the rights to check for policy violations.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "client_region",
+    "type": "string",
+    "description": "Forseti real time enforcer region",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "enforcer_region",
+    "type": "string",
+    "description": "GCE Forseti Client role region size",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "network_project",
+    "type": "string",
+    "description": "The project containing the VPC and subnetwork where the Forseti real time enforcer will be created",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "manage_firewall_rules",
+    "type": "bool",
+    "description": "Create enforcer firewall rules",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Google Project ID that you want Forseti deployed into",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enforcer_type",
+    "type": "string",
+    "description": "Forseti real time enforcer instance type",
+    "default": "\"n1-standard-2\"",
+    "required": false
+  },
+  {
+    "name": "enforcer_boot_image",
+    "type": "string",
+    "description": "Forseti real time enforcer boot image",
+    "default": "\"cos-cloud/cos-stable-72-11316-136-0\"",
+    "required": false
+  },
+  {
+    "name": "enforcer_instance_metadata",
+    "type": "map(string)",
+    "description": "Metadata key/value pairs to make available from within the real time enforcer instance.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "GCP Organization ID that Forseti will have purview over",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enforcer_instance_private",
+    "type": "string",
+    "description": "Enable enforcer instance private IP",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "enforcer_writer_role",
+    "type": "string",
+    "description": "An IAM role granting the enforcer service account the rights to enforce policy.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "topic",
+    "type": "string",
+    "description": "The pubsub topic receiving exported logs.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enforcer_instance_access_config",
+    "type": "map(any)",
+    "description": "Enforcer instance 'access_config' block",
+    "default": "{}",
+    "required": false
+  }
+]

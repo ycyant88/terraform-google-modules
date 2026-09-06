@@ -1,0 +1,10 @@
+[
+  {
+    "name": "forseti-client-vm-name",
+    "description": "Forseti Client VM name"
+  },
+  {
+    "name": "forseti-client-vm-ip",
+    "description": "Forseti Client VM private IP address"
+  }
+]

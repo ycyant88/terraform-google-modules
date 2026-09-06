@@ -1,0 +1,114 @@
+[
+  {
+    "name": "encryption_key_name",
+    "type": "string",
+    "description": "Customer supplied encryption key used by the Dataproc cluster",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the profile",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "label",
+    "type": "string",
+    "description": "CDAP Label of the profile",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "ID of the project hosting the Dataproc cluster",
+    "default": "\"auto-detect\"",
+    "required": false
+  },
+  {
+    "name": "subnet",
+    "type": "string",
+    "description": "Subnet to use for the Dataproc cluster",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "account_key",
+    "type": "string",
+    "description": "Service account key to use for authentication",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "extra_properties",
+    "type": "map(string)",
+    "description": "Extra properties for the CDAP Profile payload. This can include Dataproc Cluster Properties https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/cluster-properties",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "namespace",
+    "type": "string",
+    "description": "Namespace to deploy profile in",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region of the Dataproc cluster",
+    "default": "\"auto-detect\"",
+    "required": false
+  },
+  {
+    "name": "service_account",
+    "type": "string",
+    "description": "Service account to run the Dataproc cluster as",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "image_version",
+    "type": "string",
+    "description": "Dataproc image version to use for the Dataproc cluster",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "worker",
+    "type": "object({\n    num_nodes = number\n    num_cpus  = number\n    memory_gb = number\n    disk_gb   = number\n  })",
+    "description": "Config of the Dataproc cluster worker",
+    "default": "{\n  \"disk_gb\": 1000,\n  \"memory_gb\": 52,\n  \"num_cpus\": 8,\n  \"num_nodes\": 5\n}",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Network to use for the Dataproc cluster",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "network_host_project_id",
+    "type": "string",
+    "description": "Project ID of the network",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "gcs_bucket",
+    "type": "string",
+    "description": "Dataproc Staging Bucket for job staging job artifacts and driver logs.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "master",
+    "type": "object({\n    num_nodes = number\n    num_cpus  = number\n    memory_gb = number\n    disk_gb   = number\n  })",
+    "description": "Config of the Dataproc cluster master",
+    "default": "{\n  \"disk_gb\": 1000,\n  \"memory_gb\": 52,\n  \"num_cpus\": 8,\n  \"num_nodes\": 1\n}",
+    "required": false
+  }
+]

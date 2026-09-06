@@ -1,0 +1,14 @@
+[
+  {
+    "name": "forseti-server-storage-bucket",
+    "description": "Forseti Server storage bucket"
+  },
+  {
+    "name": "forseti-cai-storage-bucket",
+    "description": "Forseti CAI storage bucket"
+  },
+  {
+    "name": "forseti-cai-bucket-enabled",
+    "description": "Whether or not the GCS bucket for CAI exports is enabled"
+  }
+]

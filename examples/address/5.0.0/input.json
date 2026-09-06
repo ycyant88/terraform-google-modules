@@ -1,0 +1,156 @@
+[
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region to create the address in",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "addresses",
+    "type": "list(string)",
+    "description": "A list of IP addresses to create.  GCP will reserve unreserved addresses if given the value \"\".  If multiple names are given the default value is sufficient to have multiple addresses automatically picked for each name.",
+    "default": "[\n  \"\"\n]",
+    "required": false
+  },
+  {
+    "name": "dns_short_names",
+    "type": "list(string)",
+    "description": "A list of DNS short names to register within Cloud DNS.  Names corresponding to addresses must align by their list index position in the two input variables, `names` and `dns_short_names`.  If an empty list, no domain names are registered.  Multiple names may be registered to the same address by passing a single element list to names and multiple elements to dns_short_names.  (e.g. [\"gusw1-dev-fooapp-fe-0001-a-001\"])",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_cloud_dns",
+    "type": "bool",
+    "description": "If a value is set, register records in Cloud DNS.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_reverse_dns",
+    "type": "bool",
+    "description": "If a value is set, register reverse DNS PTR records in Cloud DNS in the managed zone specified by dns_reverse_zone",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "purpose",
+    "type": "string",
+    "description": "The purpose of the resource(GCE_ENDPOINT, SHARED_LOADBALANCER_VIP, VPC_PEERING).",
+    "default": "\"GCE_ENDPOINT\"",
+    "required": false
+  },
+  {
+    "name": "prefix_length",
+    "type": "number",
+    "description": "The prefix length of the IP range.",
+    "default": "16",
+    "required": false
+  },
+  {
+    "name": "ip_version",
+    "type": "string",
+    "description": "The IP Version that will be used by this address.",
+    "default": "\"IPV4\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to create the address in",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "dns_managed_zone",
+    "type": "string",
+    "description": "The name of the managed zone to create records within.  This managed zone must exist in the host project.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "network_tier",
+    "type": "string",
+    "description": "The networking tier used for configuring this address.",
+    "default": "\"PREMIUM\"",
+    "required": false
+  },
+  {
+    "name": "descriptions",
+    "type": "list(string)",
+    "description": "A list of descriptions to add to each address.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "names",
+    "type": "list(string)",
+    "description": "A list of IP address resource names to create. This is the GCP resource name and not the associated hostname of the IP address. Existing resource names may be found with `gcloud compute addresses list` (e.g. [\"gusw1-dev-fooapp-fe-0001-a-001-ip\"])",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "dns_domain",
+    "type": "string",
+    "description": "The domain to append to DNS short names when registering in Cloud DNS.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "dns_project",
+    "type": "string",
+    "description": "The project where DNS A records will be configured.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "dns_ttl",
+    "type": "number",
+    "description": "The DNS TTL in seconds for records created in Cloud DNS.  The default value should be used unless the application demands special handling.",
+    "default": "300",
+    "required": false
+  },
+  {
+    "name": "dns_reverse_zone",
+    "type": "string",
+    "description": "The name of the managed zone to create PTR records within.  This managed zone must exist in the host project.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The subnet containing the address.  For EXTERNAL addresses use the empty string, \"\".  (e.g. \"projects/<project-name>/regions/<region-name>/subnetworks/<subnetwork-name>\")",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "address_type",
+    "type": "string",
+    "description": "The type of address to reserve, either \"INTERNAL\" or \"EXTERNAL\". If unspecified, defaults to \"INTERNAL\".",
+    "default": "\"INTERNAL\"",
+    "required": false
+  },
+  {
+    "name": "global",
+    "type": "bool",
+    "description": "The scope in which the address should live. If set to true, the IP address will be globally scoped. Defaults to false, i.e. regionally scoped. When set to true, do not provide a subnetwork.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "dns_record_type",
+    "type": "string",
+    "description": "The type of records to create in the managed zone.  (e.g. \"A\")",
+    "default": "\"A\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "Labels to apply to this address.",
+    "default": "{}",
+    "required": false
+  }
+]

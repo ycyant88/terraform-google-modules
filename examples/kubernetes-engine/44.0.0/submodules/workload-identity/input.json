@@ -1,0 +1,149 @@
+[
+  {
+    "name": "automount_service_account_token",
+    "type": "bool",
+    "description": "Enable automatic mounting of the service account token",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name for both service accounts. The GCP SA will be truncated to the first 30 chars if necessary.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "GCP project ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "use_existing_context",
+    "type": "bool",
+    "description": "An optional flag to use local kubectl config context.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "gcp_sa_name",
+    "type": "string",
+    "description": "Name for the Google service account; overrides `var.name`.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "Cluster name. Required if using existing KSA.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "annotate_k8s_sa",
+    "type": "bool",
+    "description": "Annotate the kubernetes service account with 'iam.gke.io/gcp-service-account' annotation. Valid in cases when an existing SA is used.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "image_pull_secrets",
+    "type": "list(string)",
+    "description": "A list of references to secrets in the same namespace to use for pulling any images in pods that reference this Service Account",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "roles",
+    "type": "list(string)",
+    "description": "A list of roles to be added to the created service account",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "module_depends_on",
+    "type": "list(any)",
+    "description": "List of modules or resources to depend on before annotating KSA. If multiple, all items must be the same type.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "use_existing_gcp_sa",
+    "type": "bool",
+    "description": "Use an existing Google service account instead of creating one",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "Cluster location (region if regional cluster, zone if zonal cluster). Required if using existing KSA.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "k8s_sa_name",
+    "type": "string",
+    "description": "Name for the Kubernetes service account; overrides `var.name`. `cluster_name` and `location` must be set when this input is specified.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "k8s_sa_project_id",
+    "type": "string",
+    "description": "GCP project ID of the k8s service account; overrides `var.project_id`.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "namespace",
+    "type": "string",
+    "description": "Namespace for the Kubernetes service account",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "use_existing_k8s_sa",
+    "type": "bool",
+    "description": "Use an existing kubernetes service account instead of creating one",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "gcp_sa_display_name",
+    "type": "string",
+    "description": "The Google service account display name; if null, a default string will be used",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "impersonate_service_account",
+    "type": "string",
+    "description": "An optional service account to impersonate for gcloud commands. If this service account is not specified, the module will use Application Default Credentials.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "additional_projects",
+    "type": "map(list(string))",
+    "description": "A list of roles to be added to the created service account for additional projects",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "gcp_sa_description",
+    "type": "string",
+    "description": "The Service Google service account desciption; if null, will be left out",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "gcp_sa_create_ignore_already_exists",
+    "type": "bool",
+    "description": "If set to true, skip service account creation if a service account with the same email already exists.",
+    "default": "null",
+    "required": false
+  }
+]

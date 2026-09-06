@@ -1,0 +1,17 @@
+module "gcloud" {
+  source                  = "terraform-google-modules/gcloud/google"
+  version                 = "1.2.0"
+  additional_components   = var.additional_components
+  cluster_location        = var.cluster_location
+  cluster_name            = var.cluster_name
+  create_cmd_triggers     = var.create_cmd_triggers
+  enabled                 = var.enabled
+  gcloud_sdk_version      = var.gcloud_sdk_version
+  kubectl_create_command  = var.kubectl_create_command
+  kubectl_destroy_command = var.kubectl_destroy_command
+  module_depends_on       = var.module_depends_on
+  project_id              = var.project_id
+  skip_download           = var.skip_download
+  upgrade                 = var.upgrade
+  use_existing_context    = var.use_existing_context
+}

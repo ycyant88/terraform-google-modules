@@ -1,0 +1,15 @@
+module "datalab" {
+  source                    = "terraform-google-modules/datalab/google"
+  version                   = "0.1.0"
+  cloud_config              = var.cloud_config
+  datalab_console_log_level = var.datalab_console_log_level
+  datalab_disk_name         = var.datalab_disk_name
+  datalab_docker_image      = var.datalab_docker_image
+  datalab_enable_backup     = var.datalab_enable_backup
+  datalab_enable_swap       = var.datalab_enable_swap
+  datalab_idle_timeout      = var.datalab_idle_timeout
+  datalab_user_email        = var.datalab_user_email
+  fluentd_docker_image      = var.fluentd_docker_image
+  gpu_count                 = var.gpu_count
+  gpu_device_map            = var.gpu_device_map
+}

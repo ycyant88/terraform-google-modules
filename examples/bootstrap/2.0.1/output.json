@@ -1,0 +1,18 @@
+[
+  {
+    "name": "seed_project_id",
+    "description": "Project where service accounts and core APIs will be enabled."
+  },
+  {
+    "name": "terraform_sa_email",
+    "description": "Email for privileged service account for Terraform."
+  },
+  {
+    "name": "terraform_sa_name",
+    "description": "Fully qualified name for privileged service account for Terraform."
+  },
+  {
+    "name": "gcs_bucket_tfstate",
+    "description": "Bucket used for storing terraform state for foundations pipelines in seed project."
+  }
+]

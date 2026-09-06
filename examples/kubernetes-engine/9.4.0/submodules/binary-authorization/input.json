@@ -1,0 +1,30 @@
+[
+  {
+    "name": "crypto-algorithm",
+    "type": "string",
+    "description": "Algorithm used for the async signing keys",
+    "default": "\"RSA_SIGN_PKCS1_4096_SHA512\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project ID to apply services into",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "attestor-name",
+    "type": "string",
+    "description": "Name of the attestor",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "keyring-id",
+    "type": "string",
+    "description": "Keyring ID to attach attestor keys",
+    "default": "",
+    "required": true
+  }
+]

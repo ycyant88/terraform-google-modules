@@ -1,0 +1,22 @@
+module "cloud-router" {
+  source                   = "terraform-google-modules/cloud-router/google"
+  version                  = "7.0.0"
+  admin_enabled            = var.admin_enabled
+  bandwidth                = var.bandwidth
+  candidate_subnets        = var.candidate_subnets
+  create_interface         = var.create_interface
+  description              = var.description
+  edge_availability_domain = var.edge_availability_domain
+  encryption               = var.encryption
+  interconnect             = var.interconnect
+  interface                = var.interface
+  ipsec_internal_addresses = var.ipsec_internal_addresses
+  mtu                      = var.mtu
+  name                     = var.name
+  peer                     = var.peer
+  project                  = var.project
+  region                   = var.region
+  router                   = var.router
+  type                     = var.type
+  vlan_tag8021q            = var.vlan_tag8021q
+}

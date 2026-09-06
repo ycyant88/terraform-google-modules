@@ -1,0 +1,8 @@
+module "kubernetes-engine" {
+  source                      = "terraform-google-modules/kubernetes-engine/google"
+  version                     = "20.0.0"
+  disable_dependent_services  = var.disable_dependent_services
+  disable_services_on_destroy = var.disable_services_on_destroy
+  enable_apis                 = var.enable_apis
+  project_id                  = var.project_id
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "folder_id",
+    "type": "",
+    "description": "The folder id for putting the policy",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "",
+    "description": "The project id for putting the policy",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "enforce",
+    "type": "",
+    "description": "If boolean constraint, whether the policy is enforced at the root; if list constraint, whether to deny all (true) or allow all",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "allow",
+    "type": "",
+    "description": "(Only for list constraints) List of values which should be allowed",
+    "default": "[\n  \"\"\n]",
+    "required": false
+  },
+  {
+    "name": "policy_type",
+    "type": "",
+    "description": "The constraint type to work with (either 'boolean' or 'list')",
+    "default": "\"list\"",
+    "required": false
+  },
+  {
+    "name": "organization_id",
+    "type": "",
+    "description": "The organization id for putting the policy",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "deny",
+    "type": "",
+    "description": "(Only for list constraints) List of values which should be denied",
+    "default": "[\n  \"\"\n]",
+    "required": false
+  },
+  {
+    "name": "exclude_folders",
+    "type": "",
+    "description": "List of folders to exclude from the policy",
+    "default": "[\n  \"\"\n]",
+    "required": false
+  },
+  {
+    "name": "exclude_projects",
+    "type": "",
+    "description": "List of projects to exclude from the policy",
+    "default": "[\n  \"\"\n]",
+    "required": false
+  },
+  {
+    "name": "constraint",
+    "type": "",
+    "description": "The constraint to be applied",
+    "default": "",
+    "required": true
+  }
+]

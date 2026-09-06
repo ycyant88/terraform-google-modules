@@ -1,0 +1,30 @@
+[
+  {
+    "name": "service_account_address",
+    "type": "string",
+    "description": "Service account address",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project id",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_roles",
+    "type": "list(string)",
+    "description": "List of IAM roles",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "prefix",
+    "type": "string",
+    "description": "Prefix member or group or serviceaccount",
+    "default": "\"serviceAccount\"",
+    "required": false
+  }
+]

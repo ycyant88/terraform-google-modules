@@ -1,0 +1,10 @@
+[
+  {
+    "name": "sink_name",
+    "description": "The organization log sink name."
+  },
+  {
+    "name": "topic",
+    "description": "The pubsub topic receiving exported logs."
+  }
+]

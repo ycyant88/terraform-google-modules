@@ -1,0 +1,16 @@
+[
+  {
+    "name": "indexes",
+    "type": "string",
+    "description": "The contents of a index.yaml file, to apply indexes from",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The project id",
+    "default": "",
+    "required": true
+  }
+]

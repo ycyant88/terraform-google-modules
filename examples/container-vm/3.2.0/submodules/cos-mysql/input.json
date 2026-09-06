@@ -1,0 +1,191 @@
+[
+  {
+    "name": "instance_type",
+    "type": "string",
+    "description": "Instance machine type.",
+    "default": "\"n1-standard-2\"",
+    "required": false
+  },
+  {
+    "name": "stackdriver_monitoring",
+    "type": "bool",
+    "description": "Enable the Stackdriver monitoring agent.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "instance_count",
+    "type": "number",
+    "description": "Number of instances to create.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "network_tag",
+    "type": "string",
+    "description": "Network tag that identifies the instances.",
+    "default": "\"mysql\"",
+    "required": false
+  },
+  {
+    "name": "scopes",
+    "type": "list(string)",
+    "description": "Instance scopes.",
+    "default": "[\n  \"https://www.googleapis.com/auth/devstorage.read_only\",\n  \"https://www.googleapis.com/auth/logging.write\",\n  \"https://www.googleapis.com/auth/monitoring.write\",\n  \"https://www.googleapis.com/auth/pubsub\",\n  \"https://www.googleapis.com/auth/service.management.readonly\",\n  \"https://www.googleapis.com/auth/servicecontrol\",\n  \"https://www.googleapis.com/auth/trace.append\"\n]",
+    "required": false
+  },
+  {
+    "name": "boot_disk_size",
+    "type": "number",
+    "description": "Size of boot disk.",
+    "default": "40",
+    "required": false
+  },
+  {
+    "name": "log_driver",
+    "type": "string",
+    "description": "Docker log driver to use for CoreDNS.",
+    "default": "\"gcplogs\"",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "Self link of the VPC subnet to use for the internal interface.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "kms_data",
+    "type": "map(string)",
+    "description": "Map with KMS project_id, keyring, location and key if password is encrypted with KMS.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "data_disk_size",
+    "type": "number",
+    "description": "Size of data disk.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "data_disk_type",
+    "type": "string",
+    "description": "Type of data disk.",
+    "default": "\"pd-ssd\"",
+    "required": false
+  },
+  {
+    "name": "stackdriver_logging",
+    "type": "bool",
+    "description": "Enable the Stackdriver logging agent.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "vm_tags",
+    "type": "list(string)",
+    "description": "Additional network tags for the instances.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region for internal addresses.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Self link of the VPC subnet to use for firewall rules.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "my_cnf",
+    "type": "string",
+    "description": "Content of the my.cnf file that will be written on the instances.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "client_cidrs",
+    "type": "list(string)",
+    "description": "Client IP CIDR ranges to set in the firewall rule.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "container_image",
+    "type": "string",
+    "description": "MySQL container version.",
+    "default": "\"mysql:5.7\"",
+    "required": false
+  },
+  {
+    "name": "mysql_port",
+    "type": "number",
+    "description": "Port MySQL will listen on.",
+    "default": "3306",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project id where the instances will be created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "prefix",
+    "type": "string",
+    "description": "Prefix to prepend to resource names.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_firewall_rule",
+    "type": "bool",
+    "description": "Create tag-based firewall rule.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "password",
+    "type": "string",
+    "description": "Provide a plain text on KMS-encrypted password instead of using the auto-generated one.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "Labels to be attached to the resources",
+    "default": "{\n  \"service\": \"mysql\"\n}",
+    "required": false
+  },
+  {
+    "name": "host_project_id",
+    "type": "string",
+    "description": "VPC host project id if the instance is in a service project.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "service_account",
+    "type": "string",
+    "description": "Instance service account.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "Instance zone.",
+    "default": "",
+    "required": true
+  }
+]

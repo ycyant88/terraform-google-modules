@@ -1,0 +1,30 @@
+[
+  {
+    "name": "domain",
+    "type": "string",
+    "description": "The domain associated with the GCP Organization ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "server_gcs_module",
+    "type": "string",
+    "description": "The Forseti Server GCS module",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "manage_rules_enabled",
+    "type": "bool",
+    "description": "A toggle to enable or disable the management of rules",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "org_id",
+    "type": "string",
+    "description": "The organization ID",
+    "default": "",
+    "required": true
+  }
+]

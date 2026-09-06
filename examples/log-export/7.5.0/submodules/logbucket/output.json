@@ -1,0 +1,18 @@
+[
+  {
+    "name": "destination_uri",
+    "description": "The destination URI for the log bucket."
+  },
+  {
+    "name": "console_link",
+    "description": "The console link to the destination log buckets"
+  },
+  {
+    "name": "project",
+    "description": "The project in which the log bucket was created."
+  },
+  {
+    "name": "resource_name",
+    "description": "The resource name for the destination log bucket"
+  }
+]

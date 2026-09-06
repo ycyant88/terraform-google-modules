@@ -1,0 +1,34 @@
+[
+  {
+    "name": "names_list",
+    "description": "List of bucket names."
+  },
+  {
+    "name": "urls_list",
+    "description": "List of bucket URLs."
+  },
+  {
+    "name": "bucket",
+    "description": "Bucket resource (for single use)."
+  },
+  {
+    "name": "name",
+    "description": "Bucket name (for single use)."
+  },
+  {
+    "name": "url",
+    "description": "Bucket URL (for single use)."
+  },
+  {
+    "name": "buckets",
+    "description": "Bucket resources."
+  },
+  {
+    "name": "names",
+    "description": "Bucket names."
+  },
+  {
+    "name": "urls",
+    "description": "Bucket URLs."
+  }
+]

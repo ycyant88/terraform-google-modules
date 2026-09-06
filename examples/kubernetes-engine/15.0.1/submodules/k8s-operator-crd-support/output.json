@@ -1,0 +1,10 @@
+[
+  {
+    "name": "wait",
+    "description": "An output to use when you want to depend on cmd finishing"
+  },
+  {
+    "name": "git_creds_public",
+    "description": "Public key of SSH keypair to allow the Anthos Operator to authenticate to your Git repository."
+  }
+]

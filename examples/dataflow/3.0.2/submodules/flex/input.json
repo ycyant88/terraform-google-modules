@@ -1,0 +1,149 @@
+[
+  {
+    "name": "parameters",
+    "type": "map(string)",
+    "description": "Key/Value pairs to be passed to the Dataflow job (as used in the template).",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "sdk_container_image",
+    "type": "string",
+    "description": "Docker registry location of container image to use for the 'worker harness. Default is the container for the version of the SDK. Note this field is only valid for portable pipelines.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project in which the resource belongs. If it is not provided, the provider project is used.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "max_workers",
+    "type": "number",
+    "description": " The number of workers permitted to work on the job. More workers may improve processing speed at additional cost.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "network_name",
+    "type": "string",
+    "description": "The network to which VMs will be assigned.",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "launcher_machine_type",
+    "type": "string",
+    "description": "The machine type to use for launching the job.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "machine_type",
+    "type": "string",
+    "description": "The machine type to use for the job.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "skip_wait_on_job_termination",
+    "type": "bool",
+    "description": "If set to true, terraform will treat DRAINING and CANCELLING as terminal states when deleting the resource, and will remove the resource from terraform state and move on.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the dataflow job",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region in which the created job should run. Also determines the location of the staging bucket if created.",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The subnetwork to which VMs will be assigned. If provided, it should be of the form of 'regions/REGION/subnetworks/SUBNETWORK'.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "enable_streaming_engine",
+    "type": "bool",
+    "description": "Enable/disable the use of Streaming Engine for the job.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "User labels to be specified for the job.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "use_public_ips",
+    "type": "bool",
+    "description": "Specifies whether Dataflow workers use external IP addresses. If the value is set to false, Dataflow workers use internal IP addresses for all communication.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "temp_location",
+    "type": "string",
+    "description": "The Cloud Storage path to use for temporary files. Must be a valid Cloud Storage URL, beginning with gs://.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "on_delete",
+    "type": "string",
+    "description": "One of drain or cancel. Specifies behavior of deletion during terraform destroy. The default is cancel.",
+    "default": "\"cancel\"",
+    "required": false
+  },
+  {
+    "name": "service_account_email",
+    "type": "string",
+    "description": "The Service Account email that will be used to identify the VMs in which the jobs are running",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "kms_key_name",
+    "type": "string",
+    "description": "The name for the Cloud KMS key for the job. Key format is: projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "additional_experiments",
+    "type": "list(string)",
+    "description": "List of experiments that should be used by the job. An example value is `['enable_stackdriver_agent_metrics']`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "container_spec_gcs_path",
+    "type": "string",
+    "description": "The GCS path to the Dataflow job Flex Template.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "autoscaling_algorithm",
+    "type": "string",
+    "description": "The algorithm to use for autoscaling.",
+    "default": "null",
+    "required": false
+  }
+]

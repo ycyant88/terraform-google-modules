@@ -1,0 +1,296 @@
+[
+  {
+    "name": "network_subnet_cidr_range",
+    "type": "string",
+    "description": "CIDR block range for the subnet.\n",
+    "default": "\"10.127.0.0/20\"",
+    "required": false
+  },
+  {
+    "name": "ssh_allowed_cidrs",
+    "type": "list(string)",
+    "description": "List of CIDR blocks to allow access to SSH into nodes. To disable, set to the\nempty list [].\n",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "kms_crypto_key",
+    "type": "string",
+    "description": "The name of the Cloud KMS Key used for encrypting initial TLS certificates and\nfor configuring Vault auto-unseal. Terraform will create this key.\n",
+    "default": "\"vault-init\"",
+    "required": false
+  },
+  {
+    "name": "storage_bucket_location",
+    "type": "string",
+    "description": "Location for the Google Cloud Storage bucket in which Vault data will be stored.\n",
+    "default": "\"us\"",
+    "required": false
+  },
+  {
+    "name": "storage_bucket_force_destroy",
+    "type": "string",
+    "description": "Set to true to force deletion of backend bucket on `terraform destroy`.\n",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "tls_ca_subject",
+    "type": "object({\n    common_name         = string,\n    organization        = string,\n    organizational_unit = string,\n    street_address      = list(string),\n    locality            = string,\n    province            = string,\n    country             = string,\n    postal_code         = string,\n  })",
+    "description": "The `subject` block for the root CA certificate.",
+    "default": "{\n  \"common_name\": \"Example Inc. Root\",\n  \"country\": \"US\",\n  \"locality\": \"The Intranet\",\n  \"organization\": \"Example, Inc\",\n  \"organizational_unit\": \"Department of Certificate Authority\",\n  \"postal_code\": \"95559-1227\",\n  \"province\": \"CA\",\n  \"street_address\": [\n    \"123 Example Street\"\n  ]\n}",
+    "required": false
+  },
+  {
+    "name": "tls_ou",
+    "type": "string",
+    "description": "The TLS Organizational Unit for the TLS certificate",
+    "default": "\"IT Security Operations\"",
+    "required": false
+  },
+  {
+    "name": "vault_log_level",
+    "type": "string",
+    "description": "Log level to run Vault in. See the Vault documentation for valid values.\n",
+    "default": "\"warn\"",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region in which to create resources.\n",
+    "default": "\"us-east4\"",
+    "required": false
+  },
+  {
+    "name": "tls_cn",
+    "type": "string",
+    "description": "The TLS Common Name for the TLS certificates",
+    "default": "\"vault.example.net\"",
+    "required": false
+  },
+  {
+    "name": "vault_min_num_servers",
+    "type": "string",
+    "description": "Minimum number of Vault server nodes in the autoscaling group. The group will\nnot have less than this number of nodes.\n",
+    "default": "\"1\"",
+    "required": false
+  },
+  {
+    "name": "vault_version",
+    "type": "string",
+    "description": "Version of vault to install. This version must be 1.0+ and must be published on\nthe HashiCorp releases service.\n",
+    "default": "\"1.1.3\"",
+    "required": false
+  },
+  {
+    "name": "service_account_name",
+    "type": "string",
+    "description": "Name of the Vault service account.\n",
+    "default": "\"vault-admin\"",
+    "required": false
+  },
+  {
+    "name": "vault_ca_cert_filename",
+    "type": "string",
+    "description": "GCS object path within the vault_tls_bucket. This is the root CA certificate.\n",
+    "default": "\"ca.crt\"",
+    "required": false
+  },
+  {
+    "name": "vault_tls_key_filename",
+    "type": "string",
+    "description": "Encrypted and base64 encoded GCS object path within the vault_tls_bucket. This is the Vault TLS private key.\n",
+    "default": "\"vault.key.enc\"",
+    "required": false
+  },
+  {
+    "name": "vault_machine_type",
+    "type": "string",
+    "description": "Machine type to use for Vault instances.\n",
+    "default": "\"n1-standard-1\"",
+    "required": false
+  },
+  {
+    "name": "vault_port",
+    "type": "string",
+    "description": "Numeric port on which to run and expose Vault. This should be a high-numbered\nport, since Vault does not run as a root user and therefore cannot bind to\nprivledged ports like 80 or 443. The default is 8200, the standard Vault port.\n",
+    "default": "\"8200\"",
+    "required": false
+  },
+  {
+    "name": "kms_keyring",
+    "type": "string",
+    "description": "Name of the Cloud KMS KeyRing for asset encryption. Terraform will create this\nkeyring.\n",
+    "default": "\"vault\"",
+    "required": false
+  },
+  {
+    "name": "kms_protection_level",
+    "type": "string",
+    "description": "The protection level to use for the KMS crypto key.\n",
+    "default": "\"software\"",
+    "required": false
+  },
+  {
+    "name": "vault_tls_cert_filename",
+    "type": "string",
+    "description": "GCS object path within the vault_tls_bucket. This is the vault server certificate.\n",
+    "default": "\"vault.crt\"",
+    "required": false
+  },
+  {
+    "name": "vault_instance_tags",
+    "type": "list(string)",
+    "description": "Additional tags to apply to the instances. Note \"allow-ssh\" and \"allow-vault\"\nwill be present on all instances.\n",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "vault_max_num_servers",
+    "type": "string",
+    "description": "Maximum number of Vault server nodes to run at one time. The group will not\nautoscale beyond this number.\n",
+    "default": "\"7\"",
+    "required": false
+  },
+  {
+    "name": "storage_bucket_name",
+    "type": "string",
+    "description": "Name of the Google Cloud Storage bucket for the Vault backend storage. This must\nbe globally unique across of of GCP. If left as the empty string, this will\ndefault to: \"<project-id>-vault-data\".\n",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "service_account_project_additional_iam_roles",
+    "type": "list(string)",
+    "description": "List of custom IAM roles to add to the project.\n",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "service_account_storage_bucket_iam_roles",
+    "type": "list(string)",
+    "description": "List of IAM roles for the Vault admin service account to have on the storage\nbucket.\n",
+    "default": "[\n  \"roles/storage.legacyBucketReader\",\n  \"roles/storage.objectAdmin\"\n]",
+    "required": false
+  },
+  {
+    "name": "manage_tls",
+    "type": "string",
+    "description": "Set to \"false\" if you'd like to manage and upload your own TLS files, if you do not want this module\nto generate them. By default this module expects the following files at the root of the bucket, but these\ncan be overriden:\n- `ca.crt`: Root CA public certificate\n- `vault.crt`: Vault server public certificate, signed by the ca.crt\n- `vault.key.enc` Vault server certificate private key, encrypted with the kms key provided and base64 encoded.\n",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "tls_dns_names",
+    "type": "list(string)",
+    "description": "List of DNS names added to the Vault server self-signed certificate",
+    "default": "[\n  \"vault.example.net\"\n]",
+    "required": false
+  },
+  {
+    "name": "vault_allowed_cidrs",
+    "type": "list(string)",
+    "description": "List of CIDR blocks to allow access to the Vault nodes. Since the load balancer\nis a pass-through load balancer, this must also include all IPs from which you\nwill access Vault. The default is unrestricted (any IP address can access\nVault). It is recommended that you reduce this to a smaller list.\n\nTo disable, set to the empty list []. Even if disabled, internal rules will\nstill allow the health checker to probe the nodes for health.\n",
+    "default": "[\n  \"0.0.0.0/0\"\n]",
+    "required": false
+  },
+  {
+    "name": "vault_args",
+    "type": "string",
+    "description": "Additional command line arguments passed to Vault server/\n",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "project_services",
+    "type": "list(string)",
+    "description": "List of services to enable on the project where Vault will run. These services\nare required in order for this Vault setup to function.\n\nTo disable, set to the empty list []. You may want to disable this if the\nservices have already been enabled and the current user does not have permission\nto enable new services.\n",
+    "default": "[\n  \"cloudkms.googleapis.com\",\n  \"cloudresourcemanager.googleapis.com\",\n  \"compute.googleapis.com\",\n  \"iam.googleapis.com\",\n  \"logging.googleapis.com\",\n  \"monitoring.googleapis.com\"\n]",
+    "required": false
+  },
+  {
+    "name": "storage_bucket_lifecycle_rules",
+    "type": "list(object({\n    action    = map(any)\n    condition = map(any)\n  }))",
+    "description": "If you enable versioning, you may want to expire old versions to configure\na specific retention. Please, check the documentation for the map keys you\nshould use.\n\nThis is specified as a list of objects:\n\n    storage_lifecycle_rules = [\n      {\n        action = {\n          type = \"Delete\"\n        }\n\n        conditions = {\n          age     = 60\n          is_live = false\n        }\n      }\n    ]\n",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "vault_instance_labels",
+    "type": "map(string)",
+    "description": "Labels to apply to the Vault instances.\n",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "vault_ui_enabled",
+    "type": "string",
+    "description": "Controls whether the Vault UI is enabled and accessible.\n",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "vault_tls_bucket",
+    "type": "string",
+    "description": "GCS Bucket override where Vault will expect TLS certificates are stored.\n",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "vault_instance_metadata",
+    "type": "map(string)",
+    "description": "Additional metadata to add to the Vault instances.\n",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "vault_proxy_port",
+    "type": "string",
+    "description": "Port to expose Vault's health status endpoint on over HTTP on /. This is\nrequired for the health checks to verify Vault's status. Only the health status\nendpoint is exposed, and it is only accessible from Google's load balancer\naddresses.\n",
+    "default": "\"58200\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "ID of the project in which to create resources and add IAM bindings.\n",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "storage_bucket_class",
+    "type": "string",
+    "description": "Type of data storage to use. If you change this value, you will also need to\nchoose a storage_bucket_location which matches this parameter type.\n",
+    "default": "\"MULTI_REGIONAL\"",
+    "required": false
+  },
+  {
+    "name": "storage_bucket_enable_versioning",
+    "type": "string",
+    "description": "Set to true to enable object versioning in the GCS bucket.\n",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "service_account_project_iam_roles",
+    "type": "list(string)",
+    "description": "List of IAM roles for the Vault admin service account to function. If you need\nto add additional roles, update `service_account_project_additional_iam_roles`\ninstead.\n",
+    "default": "[\n  \"roles/logging.logWriter\",\n  \"roles/monitoring.metricWriter\",\n  \"roles/monitoring.viewer\"\n]",
+    "required": false
+  },
+  {
+    "name": "tls_ips",
+    "type": "list(string)",
+    "description": "List of IP addresses added to the Vault server self-signed certificate",
+    "default": "[\n  \"127.0.0.1\"\n]",
+    "required": false
+  },
+  {
+    "name": "vault_tls_disable_client_certs",
+    "type": "string",
+    "description": "Use and expect client certificates. You may want to disable this if users will\nnot be authenticating to Vault with client certificates.\n",
+    "default": "false",
+    "required": false
+  }
+]

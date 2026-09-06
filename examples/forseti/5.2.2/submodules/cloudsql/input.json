@@ -1,0 +1,107 @@
+[
+  {
+    "name": "suffix",
+    "type": "string",
+    "description": "The random suffix to append to all Forseti resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cloudsql_type",
+    "type": "string",
+    "description": "CloudSQL Instance size",
+    "default": "\"db-n1-standard-4\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_password",
+    "type": "string",
+    "description": "CloudSQL password",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "The VPC where the Forseti client and server will be created",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Google Project ID that you want Forseti deployed into",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "services",
+    "type": "list(string)",
+    "description": "An artificial dependency to bypass #10462",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "enable_service_networking",
+    "type": "bool",
+    "description": "Create a global service networking peering connection at the VPC level",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "cloudsql_db_name",
+    "type": "string",
+    "description": "CloudSQL database name",
+    "default": "\"forseti_security\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_private",
+    "type": "string",
+    "description": "Whether to enable private network and not to create public IP for CloudSQL Instance",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_net_write_timeout",
+    "type": "string",
+    "description": "See MySQL documentation: https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_write_timeout",
+    "default": "\"240\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_user_host",
+    "type": "string",
+    "description": "The host the user can connect from. Can be an IP address or IP address range. Changing this forces a new resource to be created.",
+    "default": "\"%\"",
+    "required": false
+  },
+  {
+    "name": "network_project",
+    "type": "string",
+    "description": "The project containing the VPC and subnetwork where the Forseti client and server will be created",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_region",
+    "type": "string",
+    "description": "CloudSQL region",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_disk_size",
+    "type": "string",
+    "description": "The size of data disk, in GB. Size of a running instance cannot be reduced but can be increased.",
+    "default": "\"25\"",
+    "required": false
+  },
+  {
+    "name": "cloudsql_user",
+    "type": "string",
+    "description": "CloudSQL user",
+    "default": "\"forseti_security_user\"",
+    "required": false
+  }
+]

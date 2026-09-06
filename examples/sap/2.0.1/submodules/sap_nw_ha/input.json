@@ -1,0 +1,324 @@
+[
+  {
+    "name": "sap_nw_abap",
+    "type": "bool",
+    "description": "Is this a Netweaver ABAP installation. Set 'false' for NW Java. Dual stack is not supported by this script.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "secondary_startup_url",
+    "type": "string",
+    "description": "DO NOT USE",
+    "default": "\"curl -s https://storage.googleapis.com/cloudsapdeploy/terraform/latest/terraform/sap_nw_ha/nw_ha_startup_ers.sh | bash -s https://storage.googleapis.com/cloudsapdeploy/terraform/latest/terraform\"",
+    "required": false
+  },
+  {
+    "name": "can_ip_forward",
+    "type": "bool",
+    "description": "Whether sending and receiving of packets with non-matching source or destination IPs is allowed.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "custom_primary_metadata",
+    "type": "map(string)",
+    "description": "Optional - default is empty. Custom metadata to be added to the primary VM.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "nfs_path",
+    "type": "string",
+    "description": "NFS path for shared file system, e.g. 10.163.58.114:/ssd",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "scs_backend_svc_name",
+    "type": "string",
+    "description": "Name of SCS backend service",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "swap_size",
+    "type": "number",
+    "description": "Size in GB of swap volume",
+    "default": "8",
+    "required": false
+  },
+  {
+    "name": "sap_ers_instance_number",
+    "type": "string",
+    "description": "ERS instance number",
+    "default": "\"10\"",
+    "required": false
+  },
+  {
+    "name": "pacemaker_cluster_name",
+    "type": "string",
+    "description": "Name of Pacemaker cluster.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "network_tags",
+    "type": "list(string)",
+    "description": "Network tags to apply to the instances",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "secondary_reservation_name",
+    "type": "string",
+    "description": "Use a reservation specified by RESERVATION_NAME.\nBy default ANY_RESERVATION is used when this variable is empty.\nIn order for a reservation to be used it must be created with the\n\"Select specific reservation\" selected (specificReservationRequired set to true)\nBe sure to create your reservation with the correct Min CPU Platform for the\nfollowing instance types:\nn1-highmem-32 : Intel Broadwell\nn1-highmem-64 : Intel Broadwell\nn1-highmem-96 : Intel Skylake\nn1-megamem-96 : Intel Skylake\nm1-megamem-96 : \"Intel Skylake\"\nAll other instance types can have automatic Min CPU Platform\"\n",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "post_deployment_script",
+    "type": "string",
+    "description": "Specifies the location of a script to run after the deployment is complete.\nThe script should be hosted on a web server or in a GCS bucket. The URL should\nbegin with http:// https:// or gs://. Note that this script will be executed\non all VM's that the template creates. If you only want to run it on the master\ninstance you will need to add a check at the top of your script.\n",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "sap_secondary_instance",
+    "type": "string",
+    "description": "Name of second instance (initial ERS location)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "hc_network_tag",
+    "type": "list(string)",
+    "description": "Network tag for the health check firewall rule",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "service_account",
+    "type": "string",
+    "description": "Service account that will be used as the service account on the created instance.\nLeave this blank to use the project default service account\n",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "custom_secondary_metadata",
+    "type": "map(string)",
+    "description": "Optional - default is empty. Custom metadata to be added to the secondary VM.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "scs_hc_name",
+    "type": "string",
+    "description": "Name of SCS health check",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ers_hc_port",
+    "type": "string",
+    "description": "Port of ERS health check",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ers_vip_address",
+    "type": "string",
+    "description": "Address of ERS virtual IP",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "primary_reservation_name",
+    "type": "string",
+    "description": "Use a reservation specified by RESERVATION_NAME.\nBy default ANY_RESERVATION is used when this variable is empty.\nIn order for a reservation to be used it must be created with the\n\"Select specific reservation\" selected (specificReservationRequired set to true)\nBe sure to create your reservation with the correct Min CPU Platform for the\nfollowing instance types:\nn1-highmem-32 : Intel Broadwell\nn1-highmem-64 : Intel Broadwell\nn1-highmem-96 : Intel Skylake\nn1-megamem-96 : Intel Skylake\nm1-megamem-96 : \"Intel Skylake\"\nAll other instance types can have automatic Min CPU Platform\"\n",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "machine_type",
+    "type": "string",
+    "description": "Machine type for the instances",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "Subnetwork for the instances",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "hc_firewall_rule_name",
+    "type": "string",
+    "description": "Name of firewall rule for the health check",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "scs_inst_group_name",
+    "type": "string",
+    "description": "Name of SCS instance group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ers_inst_group_name",
+    "type": "string",
+    "description": "Name of ERS instance group",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "primary_startup_url",
+    "type": "string",
+    "description": "DO NOT USE",
+    "default": "\"curl -s https://storage.googleapis.com/cloudsapdeploy/terraform/latest/terraform/sap_nw_ha/nw_ha_startup_scs.sh | bash -s https://storage.googleapis.com/cloudsapdeploy/terraform/latest/terraform\"",
+    "required": false
+  },
+  {
+    "name": "linux_image",
+    "type": "string",
+    "description": "Linux image name",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sap_primary_instance",
+    "type": "string",
+    "description": "Name of first instance (initial SCS location)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sap_secondary_zone",
+    "type": "string",
+    "description": "Zone where the second instance will be created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "scs_vip_name",
+    "type": "string",
+    "description": "Name of SCS virtual IP",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ers_hc_name",
+    "type": "string",
+    "description": "Name of ERS health check",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ers_vip_name",
+    "type": "string",
+    "description": "Name of ERS virtual IP",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "usr_sap_size",
+    "type": "number",
+    "description": "Size of /usr/sap in GB",
+    "default": "8",
+    "required": false
+  },
+  {
+    "name": "sap_scs_instance_number",
+    "type": "string",
+    "description": "SCS instance number",
+    "default": "\"00\"",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Network for the instances",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "linux_image_project",
+    "type": "string",
+    "description": "Linux image project",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sap_primary_zone",
+    "type": "string",
+    "description": "Zone where the first instance will be created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sap_sid",
+    "type": "string",
+    "description": "SAP System ID",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "scs_vip_address",
+    "type": "string",
+    "description": "Address of SCS virtual IP",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ers_forw_rule_name",
+    "type": "string",
+    "description": "Name of ERS forwarding rule",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "public_ip",
+    "type": "bool",
+    "description": "Create an ephemeral public ip for the instances",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sap_deployment_debug",
+    "type": "bool",
+    "description": "Debug log level for deployment",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project id where the instances will be created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "scs_hc_port",
+    "type": "string",
+    "description": "Port of SCS health check",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "scs_forw_rule_name",
+    "type": "string",
+    "description": "Name of SCS forwarding rule",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "ers_backend_svc_name",
+    "type": "string",
+    "description": "Name of ERS backend service",
+    "default": "\"\"",
+    "required": false
+  }
+]

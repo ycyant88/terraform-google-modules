@@ -1,0 +1,100 @@
+[
+  {
+    "name": "suffix",
+    "type": "string",
+    "description": "The random suffix to append to all Forseti resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Google Project ID that you want Forseti deployed into",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_project",
+    "type": "string",
+    "description": "The project containing the VPC and subnetwork where the Forseti client and server will be created",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "services",
+    "type": "list",
+    "description": "An artificial dependency to bypass #10462",
+    "default": "[\n  \"\"\n]",
+    "required": false
+  },
+  {
+    "name": "client_type",
+    "type": "string",
+    "description": "GCE Forseti Client role instance size",
+    "default": "\"n1-standard-2\"",
+    "required": false
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The VPC subnetwork where the Forseti client and server will be created",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "client_region",
+    "type": "string",
+    "description": "GCE Forseti Client role region size",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "client_instance_metadata",
+    "type": "map",
+    "description": "Metadata key/value pairs to make available from within the client instance.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "forseti_version",
+    "type": "string",
+    "description": "The version of Forseti to install",
+    "default": "\"v2.10.0\"",
+    "required": false
+  },
+  {
+    "name": "client_boot_image",
+    "type": "string",
+    "description": "GCE Forseti Client role instance size",
+    "default": "\"ubuntu-os-cloud/ubuntu-1804-lts\"",
+    "required": false
+  },
+  {
+    "name": "storage_bucket_location",
+    "type": "string",
+    "description": "GCS storage bucket location",
+    "default": "\"us-central1\"",
+    "required": false
+  },
+  {
+    "name": "server_address",
+    "type": "string",
+    "description": "The Forseti server address",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "forseti_repo_url",
+    "type": "string",
+    "description": "Git repo for the Forseti installation",
+    "default": "\"https://github.com/GoogleCloudPlatform/forseti-security\"",
+    "required": false
+  },
+  {
+    "name": "forseti_home",
+    "type": "string",
+    "description": "Forseti installation directory",
+    "default": "\"$USER_HOME/forseti-security\"",
+    "required": false
+  }
+]

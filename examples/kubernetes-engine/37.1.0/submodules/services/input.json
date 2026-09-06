@@ -1,0 +1,30 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The GCP project you want to enable APIs on",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enable_apis",
+    "type": "bool",
+    "description": "Whether to actually enable the APIs. If false, this module is a no-op.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "disable_services_on_destroy",
+    "type": "bool",
+    "description": "Whether project services will be disabled when the resources are destroyed. https://www.terraform.io/docs/providers/google/r/google_project_service.html#disable_on_destroy",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "disable_dependent_services",
+    "type": "bool",
+    "description": "Whether services that are enabled and which depend on this service should also be disabled when this service is destroyed. https://www.terraform.io/docs/providers/google/r/google_project_service.html#disable_dependent_services",
+    "default": "false",
+    "required": false
+  }
+]

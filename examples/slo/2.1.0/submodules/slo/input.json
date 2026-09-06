@@ -1,0 +1,184 @@
+[
+  {
+    "name": "grant_iam_roles",
+    "type": "string",
+    "description": "Grant IAM roles to created service accounts",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "message_data",
+    "type": "string",
+    "description": "The data to send in the topic message.",
+    "default": "\"dGVzdA==\"",
+    "required": false
+  },
+  {
+    "name": "bucket_force_destroy",
+    "type": "string",
+    "description": "When deleting the GCS bucket containing the cloud function, delete all objects in the bucket first.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "SLO project id",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "schedule",
+    "type": "string",
+    "description": "Cron-like schedule for Cloud Scheduler",
+    "default": "\"* * * * */1\"",
+    "required": false
+  },
+  {
+    "name": "slo_generator_version",
+    "type": "string",
+    "description": "SLO generator library version",
+    "default": "\"1.4.0\"",
+    "required": false
+  },
+  {
+    "name": "service_account_name",
+    "type": "string",
+    "description": "Service account name (in case the generated one is too long)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "function_labels",
+    "type": "map(string)",
+    "description": "A set of key/value label pairs to assign to the function.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "extra_files",
+    "type": "list(object({\n    content  = string,\n    filename = string\n  }))",
+    "description": "Extra files to add to the Google Cloud Function code",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "config_bucket_region",
+    "type": "string",
+    "description": "Config bucket region",
+    "default": "\"EU\"",
+    "required": false
+  },
+  {
+    "name": "vpc_connector_egress_settings",
+    "type": "string",
+    "description": "VPC Connector Egress Settings. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "function_memory",
+    "type": "string",
+    "description": "Memory in MB for the Cloud Function (increases with no. of SLOs)",
+    "default": "128",
+    "required": false
+  },
+  {
+    "name": "use_custom_service_account",
+    "type": "bool",
+    "description": "Use a custom service account (pass service_account_email if true)",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "service_account_email",
+    "type": "string",
+    "description": "Service account email (optional)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "function_name",
+    "type": "string",
+    "description": "Cloud Function name. Defaults to slo-{service}-{feature}-{slo}",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "function_timeout",
+    "type": "number",
+    "description": "The amount of time in seconds allotted for the execution of the function.",
+    "default": "60",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region to deploy the Cloud Function in",
+    "default": "\"us-east1\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map",
+    "description": "Labels to apply to all resources created",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "config_bucket",
+    "type": "string",
+    "description": "SLO generator GCS bucket to store configs and GCF code.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "vpc_connector",
+    "type": "string",
+    "description": "VPC Connector. The format of this field is projects/*/locations/*/connectors/*.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "function_source_directory",
+    "type": "string",
+    "description": "The contents of this directory will be archived and used as the function source. (defaults to standard SLO generator code)",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "function_environment_variables",
+    "type": "map(string)",
+    "description": "Cloud Function environment variables.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "config",
+    "type": "object({\n    slo_name        = string\n    slo_target      = number\n    slo_description = string\n    service_name    = string\n    feature_name    = string\n    metadata        = map(string)\n    backend         = any\n    exporters       = any\n  })",
+    "description": "SLO Configuration",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "error_budget_policy",
+    "type": "list(object({\n    error_budget_policy_step_name  = string\n    measurement_window_seconds     = number\n    alerting_burn_rate_threshold   = number\n    urgent_notification            = bool\n    overburned_consequence_message = string\n    achieved_consequence_message   = string\n  }))",
+    "description": "Error budget policy config",
+    "default": "[\n  {\n    \"achieved_consequence_message\": \"Last hour on track\",\n    \"alerting_burn_rate_threshold\": 9,\n    \"error_budget_policy_step_name\": \"a.Last 1 hour\",\n    \"measurement_window_seconds\": 3600,\n    \"overburned_consequence_message\": \"Page the SRE team to defend the SLO\",\n    \"urgent_notification\": true\n  },\n  {\n    \"achieved_consequence_message\": \"Last 12 hours on track\",\n    \"alerting_burn_rate_threshold\": 3,\n    \"error_budget_policy_step_name\": \"b.Last 12 hours\",\n    \"measurement_window_seconds\": 43200,\n    \"overburned_consequence_message\": \"Page the SRE team to defend the SLO\",\n    \"urgent_notification\": true\n  },\n  {\n    \"achieved_consequence_message\": \"Last week on track\",\n    \"alerting_burn_rate_threshold\": 1.5,\n    \"error_budget_policy_step_name\": \"c.Last 7 days\",\n    \"measurement_window_seconds\": 604800,\n    \"overburned_consequence_message\": \"Dev team dedicates two Engineers to the action items of the post-mortem\",\n    \"urgent_notification\": false\n  },\n  {\n    \"achieved_consequence_message\": \"Unfreeze release, per the agreed roll-out policy\",\n    \"alerting_burn_rate_threshold\": 1,\n    \"error_budget_policy_step_name\": \"d.Last 28 days\",\n    \"measurement_window_seconds\": 2419200,\n    \"overburned_consequence_message\": \"Freeze release, unless related to reliability or security\",\n    \"urgent_notification\": false\n  }\n]",
+    "required": false
+  },
+  {
+    "name": "time_zone",
+    "type": "string",
+    "description": "The timezone to use in scheduler",
+    "default": "\"Etc/UTC\"",
+    "required": false
+  },
+  {
+    "name": "function_source_archive_bucket_labels",
+    "type": "map(string)",
+    "description": "A set of key/value label pairs to assign to the function source archive bucket.",
+    "default": "{}",
+    "required": false
+  }
+]

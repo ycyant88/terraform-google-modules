@@ -1,0 +1,19 @@
+module "event-function" {
+  source                        = "terraform-google-modules/event-function/google"
+  version                       = "2.0.0"
+  available_memory_mb           = var.available_memory_mb
+  description                   = var.description
+  entry_point                   = var.entry_point
+  environment_variables         = var.environment_variables
+  event_trigger                 = var.event_trigger
+  ingress_settings              = var.ingress_settings
+  labels                        = var.labels
+  name                          = var.name
+  project_id                    = var.project_id
+  region                        = var.region
+  runtime                       = var.runtime
+  source_repository_url         = var.source_repository_url
+  timeout_s                     = var.timeout_s
+  vpc_connector                 = var.vpc_connector
+  vpc_connector_egress_settings = var.vpc_connector_egress_settings
+}

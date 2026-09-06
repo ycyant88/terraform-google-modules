@@ -1,0 +1,22 @@
+[
+  {
+    "name": "name",
+    "description": "The name of the dataflow job"
+  },
+  {
+    "name": "container_spec_gcs_path",
+    "description": "The GCS path to the Dataflow job Flex Template."
+  },
+  {
+    "name": "temp_location",
+    "description": "The Cloud Storage path to use for temporary files. Must be a valid Cloud Storage URL, beginning with gs://."
+  },
+  {
+    "name": "state",
+    "description": "The state of the newly created Dataflow job"
+  },
+  {
+    "name": "id",
+    "description": "The unique Id of the newly created Dataflow job"
+  }
+]

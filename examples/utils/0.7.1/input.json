@@ -1,0 +1,16 @@
+[
+  {
+    "name": "additional_regions",
+    "type": "list(string)",
+    "description": "A user-supplied list of regions to extend the lookup map.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The GCP region to retrieve a short name for (ex. `us-central1).",
+    "default": "null",
+    "required": false
+  }
+]

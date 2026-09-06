@@ -1,0 +1,66 @@
+[
+  {
+    "name": "subnets_self_links",
+    "description": "The self-links of subnets being created"
+  },
+  {
+    "name": "subnets_flow_logs",
+    "description": "Whether the subnets will have VPC flow logs enabled"
+  },
+  {
+    "name": "subnets_by_region_purpose",
+    "description": "A list of subnet summary objects containing id, purpose, and region extracted from the subnets map."
+  },
+  {
+    "name": "network_name",
+    "description": "The name of the VPC being created"
+  },
+  {
+    "name": "subnets_ids",
+    "description": "The IDs of the subnets being created"
+  },
+  {
+    "name": "subnets_ips",
+    "description": "The IPs and CIDRs of the subnets being created"
+  },
+  {
+    "name": "route_names",
+    "description": "The route names associated with this VPC"
+  },
+  {
+    "name": "subnets",
+    "description": "A map with keys of form subnet_region/subnet_name and values being the outputs of the google_compute_subnetwork resources used to create corresponding subnets."
+  },
+  {
+    "name": "project_id",
+    "description": "VPC project id"
+  },
+  {
+    "name": "network_self_link",
+    "description": "The URI of the VPC being created"
+  },
+  {
+    "name": "subnets_regions",
+    "description": "The region where the subnets will be created"
+  },
+  {
+    "name": "subnets_private_access",
+    "description": "Whether the subnets will have access to Google API's without a public IP"
+  },
+  {
+    "name": "subnets_secondary_ranges",
+    "description": "The secondary ranges associated with these subnets"
+  },
+  {
+    "name": "network",
+    "description": "The created network"
+  },
+  {
+    "name": "network_id",
+    "description": "The ID of the VPC being created"
+  },
+  {
+    "name": "subnets_names",
+    "description": "The names of the subnets being created"
+  }
+]

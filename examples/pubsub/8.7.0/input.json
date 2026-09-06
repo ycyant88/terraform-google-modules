@@ -1,0 +1,121 @@
+[
+  {
+    "name": "push_subscriptions",
+    "type": "list(object({\n    name                       = string,\n    ack_deadline_seconds       = optional(number),\n    push_endpoint              = optional(string),\n    x-goog-version             = optional(string),\n    oidc_service_account_email = optional(string),\n    audience                   = optional(string),\n    expiration_policy          = optional(string),\n    dead_letter_topic          = optional(string),\n    retain_acked_messages      = optional(bool),\n    message_retention_duration = optional(string),\n    max_delivery_attempts      = optional(number),\n    maximum_backoff            = optional(string),\n    minimum_backoff            = optional(string),\n    filter                     = optional(string),\n    enable_message_ordering    = optional(bool),\n    no_wrapper                 = optional(bool),\n    write_metadata             = optional(bool),\n  }))",
+    "description": "The list of the push subscriptions.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "pull_subscriptions",
+    "type": "list(object({\n    name                         = string,\n    ack_deadline_seconds         = optional(number),\n    expiration_policy            = optional(string),\n    dead_letter_topic            = optional(string),\n    max_delivery_attempts        = optional(number),\n    retain_acked_messages        = optional(bool),\n    message_retention_duration   = optional(string),\n    maximum_backoff              = optional(string),\n    minimum_backoff              = optional(string),\n    filter                       = optional(string),\n    enable_message_ordering      = optional(bool),\n    service_account              = optional(string),\n    enable_exactly_once_delivery = optional(bool),\n  }))",
+    "description": "The list of the pull subscriptions.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "schema",
+    "type": "object({\n    name       = string\n    type       = string\n    definition = string\n    encoding   = string\n  })",
+    "description": "Schema for the topic.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "create_subscriptions",
+    "type": "bool",
+    "description": "Specify true if you want to create subscriptions.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "subscription_labels",
+    "type": "map(string)",
+    "description": "A map of labels to assign to every Pub/Sub subscription.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "message_storage_policy",
+    "type": "map(any)",
+    "description": "A map of storage policies. Default - inherit from organization's Resource Location Restriction policy.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID to manage the Pub/Sub resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "topic",
+    "type": "string",
+    "description": "The Pub/Sub topic name.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "create_topic",
+    "type": "bool",
+    "description": "Specify true if you want to create a topic.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "topic_labels",
+    "type": "map(string)",
+    "description": "A map of labels to assign to the Pub/Sub topic.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "cloud_storage_subscriptions",
+    "type": "list(object({\n    name                       = string,\n    bucket                     = string,\n    filename_prefix            = optional(string),\n    filename_suffix            = optional(string),\n    filename_datetime_format   = optional(string),\n    max_duration               = optional(string),\n    max_bytes                  = optional(string),\n    max_messages               = optional(string),\n    output_format              = optional(string),\n    write_metadata             = optional(bool),\n    use_topic_schema           = optional(bool),\n    ack_deadline_seconds       = optional(number),\n    retain_acked_messages      = optional(bool),\n    message_retention_duration = optional(string),\n    enable_message_ordering    = optional(bool),\n    expiration_policy          = optional(string),\n    filter                     = optional(string),\n    dead_letter_topic          = optional(string),\n    max_delivery_attempts      = optional(number),\n    maximum_backoff            = optional(string),\n    minimum_backoff            = optional(string)\n  }))",
+    "description": "The list of the Cloud Storage push subscriptions.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "topic_message_retention_duration",
+    "type": "string",
+    "description": "The minimum duration in seconds to retain a message after it is published to the topic.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "grant_cloud_storage_project_roles",
+    "type": "bool",
+    "description": "Specify true if you want to add storage.admin role to the default Pub/Sub SA.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "bigquery_subscriptions",
+    "type": "list(object({\n    name                       = string,\n    table                      = string,\n    use_topic_schema           = optional(bool),\n    use_table_schema           = optional(bool),\n    write_metadata             = optional(bool),\n    drop_unknown_fields        = optional(bool),\n    ack_deadline_seconds       = optional(number),\n    retain_acked_messages      = optional(bool),\n    message_retention_duration = optional(string),\n    enable_message_ordering    = optional(bool),\n    expiration_policy          = optional(string),\n    filter                     = optional(string),\n    dead_letter_topic          = optional(string),\n    max_delivery_attempts      = optional(number),\n    maximum_backoff            = optional(string),\n    minimum_backoff            = optional(string),\n    service_account_email      = optional(string)\n  }))",
+    "description": "The list of the Bigquery push subscriptions.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "topic_kms_key_name",
+    "type": "string",
+    "description": "The resource name of the Cloud KMS CryptoKey to be used to protect access to messages published on this topic.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "grant_bigquery_project_roles",
+    "type": "bool",
+    "description": "Specify true if you want to add bigquery.metadataViewer and bigquery.dataEditor roles to the default Pub/Sub SA.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "grant_token_creator",
+    "type": "bool",
+    "description": "Specify true if you want to add token creator role to the default Pub/Sub SA.",
+    "default": "true",
+    "required": false
+  }
+]

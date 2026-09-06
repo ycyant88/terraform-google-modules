@@ -1,0 +1,8 @@
+module "forseti" {
+  source               = "terraform-google-modules/forseti/google"
+  version              = "5.2.2"
+  domain               = var.domain
+  manage_rules_enabled = var.manage_rules_enabled
+  org_id               = var.org_id
+  server_gcs_module    = var.server_gcs_module
+}

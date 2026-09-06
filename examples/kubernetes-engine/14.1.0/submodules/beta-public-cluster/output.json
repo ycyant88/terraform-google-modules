@@ -1,0 +1,114 @@
+[
+  {
+    "name": "logging_service",
+    "description": "Logging service used"
+  },
+  {
+    "name": "instance_group_urls",
+    "description": "List of GKE generated instance groups"
+  },
+  {
+    "name": "dns_cache_enabled",
+    "description": "Whether DNS Cache enabled"
+  },
+  {
+    "name": "tpu_ipv4_cidr_block",
+    "description": "The IP range in CIDR notation used for the TPUs"
+  },
+  {
+    "name": "location",
+    "description": "Cluster location (region if regional cluster, zone if zonal cluster)"
+  },
+  {
+    "name": "node_pools_versions",
+    "description": "List of node pools versions"
+  },
+  {
+    "name": "vertical_pod_autoscaling_enabled",
+    "description": "Whether veritical pod autoscaling is enabled"
+  },
+  {
+    "name": "name",
+    "description": "Cluster name"
+  },
+  {
+    "name": "zones",
+    "description": "List of zones in which the cluster resides"
+  },
+  {
+    "name": "min_master_version",
+    "description": "Minimum master kubernetes version"
+  },
+  {
+    "name": "master_version",
+    "description": "Current master kubernetes version"
+  },
+  {
+    "name": "network_policy_enabled",
+    "description": "Whether network policy enabled"
+  },
+  {
+    "name": "istio_enabled",
+    "description": "Whether Istio is enabled"
+  },
+  {
+    "name": "region",
+    "description": "Cluster region"
+  },
+  {
+    "name": "node_pools_names",
+    "description": "List of node pools names"
+  },
+  {
+    "name": "monitoring_service",
+    "description": "Monitoring service used"
+  },
+  {
+    "name": "ca_certificate",
+    "description": "Cluster ca certificate (base64 encoded)"
+  },
+  {
+    "name": "horizontal_pod_autoscaling_enabled",
+    "description": "Whether horizontal pod autoscaling enabled"
+  },
+  {
+    "name": "identity_namespace",
+    "description": "Workload Identity namespace"
+  },
+  {
+    "name": "pod_security_policy_enabled",
+    "description": "Whether pod security policy is enabled"
+  },
+  {
+    "name": "master_authorized_networks_config",
+    "description": "Networks from which access to master is permitted"
+  },
+  {
+    "name": "http_load_balancing_enabled",
+    "description": "Whether http load balancing enabled"
+  },
+  {
+    "name": "service_account",
+    "description": "The service account to default running nodes as if not overridden in `node_pools`."
+  },
+  {
+    "name": "type",
+    "description": "Cluster type (regional / zonal)"
+  },
+  {
+    "name": "endpoint",
+    "description": "Cluster endpoint"
+  },
+  {
+    "name": "release_channel",
+    "description": "The release channel of this cluster"
+  },
+  {
+    "name": "cloudrun_enabled",
+    "description": "Whether CloudRun enabled"
+  },
+  {
+    "name": "intranode_visibility_enabled",
+    "description": "Whether intra-node visibility is enabled"
+  }
+]

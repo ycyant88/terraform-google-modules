@@ -1,0 +1,65 @@
+[
+  {
+    "name": "domain",
+    "type": "string",
+    "description": "Zone domain, must end with a period.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "target_name_servers",
+    "type": "list",
+    "description": "List of target name servers for forwarding zone.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "record_names",
+    "type": "list",
+    "description": "List of record names for static zones.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "record_data",
+    "type": "list",
+    "description": "List of maps with type, rrdatas and optional ttl for static zone records.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "zone_type",
+    "type": "string",
+    "description": "Type of zone to create, valid values are 'public', 'private', 'forwarding', 'peering'.",
+    "default": "\"private\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project id for the zone.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "private_visibility_config",
+    "type": "list",
+    "description": "List of private visibility config maps, not used for public zones.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "target_network",
+    "type": "string",
+    "description": "Peering network.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Zone name, must be unique within the project.",
+    "default": "",
+    "required": true
+  }
+]

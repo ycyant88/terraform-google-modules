@@ -1,0 +1,23 @@
+[
+  {
+    "name": "domain",
+    "type": "",
+    "description": "The domain name",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "",
+    "description": "The name of the group.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "org_id",
+    "type": "",
+    "description": "The organization ID.",
+    "default": "",
+    "required": true
+  }
+]

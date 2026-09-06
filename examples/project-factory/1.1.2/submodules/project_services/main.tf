@@ -1,0 +1,8 @@
+module "project-factory" {
+  source                      = "terraform-google-modules/project-factory/google"
+  version                     = "1.1.2"
+  activate_apis               = var.activate_apis
+  disable_services_on_destroy = var.disable_services_on_destroy
+  enable_apis                 = var.enable_apis
+  project_id                  = var.project_id
+}

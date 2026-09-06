@@ -1,0 +1,14 @@
+[
+  {
+    "name": "available_zones",
+    "description": "List of available zones in region"
+  },
+  {
+    "name": "instances_self_links",
+    "description": "List of self-links for compute instances"
+  },
+  {
+    "name": "instances_details",
+    "description": "List of all details for compute instances"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "instance_group",
+    "description": "Instance-group url of managed instance group"
+  },
+  {
+    "name": "self_link",
+    "description": "Self-link of managed instance group"
+  }
+]

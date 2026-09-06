@@ -1,0 +1,6 @@
+[
+  {
+    "name": "ops_agent_policy",
+    "description": "The generated policy for installing/uninstalling the ops agent."
+  }
+]

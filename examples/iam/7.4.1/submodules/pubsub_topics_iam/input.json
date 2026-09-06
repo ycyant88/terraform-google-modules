@@ -1,0 +1,30 @@
+[
+  {
+    "name": "project",
+    "type": "string",
+    "description": "Project to add the IAM policies/bindings",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "pubsub_topics",
+    "type": "list(string)",
+    "description": "PubSub Topics list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "mode",
+    "type": "string",
+    "description": "Mode for adding the IAM policies/bindings, additive and authoritative",
+    "default": "\"additive\"",
+    "required": false
+  },
+  {
+    "name": "bindings",
+    "type": "map(any)",
+    "description": "Map of role (key) and list of members (value) to add the IAM policies/bindings",
+    "default": "",
+    "required": true
+  }
+]

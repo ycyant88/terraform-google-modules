@@ -1,0 +1,1025 @@
+variable "admin_disable_polling" {
+  description = "Whether to disable polling for Admin API"
+  type        = bool
+  default     = false
+}
+
+variable "admin_max_calls" {
+  description = "Maximum calls that can be made to Admin API"
+  type        = string
+  default     = "14"
+}
+
+variable "admin_period" {
+  description = "The period of max calls for the Admin API (in seconds)"
+  type        = string
+  default     = "1.0"
+}
+
+variable "appengine_disable_polling" {
+  description = "Whether to disable polling for App Engine API"
+  type        = bool
+  default     = false
+}
+
+variable "appengine_max_calls" {
+  description = "Maximum calls that can be made to App Engine API"
+  type        = string
+  default     = "18"
+}
+
+variable "appengine_period" {
+  description = "The period of max calls for the App Engine API (in seconds)"
+  type        = string
+  default     = "1.0"
+}
+
+variable "audit_logging_enabled" {
+  description = "Audit Logging scanner enabled."
+  type        = bool
+  default     = false
+}
+
+variable "audit_logging_violations_should_notify" {
+  description = "Notify for Audit logging violations"
+  type        = bool
+  default     = true
+}
+
+variable "bigquery_acl_violations_should_notify" {
+  description = "Notify for BigQuery ACL violations"
+  type        = bool
+  default     = true
+}
+
+variable "bigquery_disable_polling" {
+  description = "Whether to disable polling for Big Query API"
+  type        = bool
+  default     = false
+}
+
+variable "bigquery_enabled" {
+  description = "Big Query scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "bigquery_max_calls" {
+  description = "Maximum calls that can be made to Big Query API"
+  type        = string
+  default     = "160"
+}
+
+variable "bigquery_period" {
+  description = "The period of max calls for the Big Query API (in seconds)"
+  type        = string
+  default     = "1.0"
+}
+
+variable "blacklist_enabled" {
+  description = "Blacklist scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "blacklist_violations_should_notify" {
+  description = "Notify for Blacklist violations"
+  type        = bool
+  default     = true
+}
+
+variable "bucket_acl_enabled" {
+  description = "Bucket ACL scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "bucket_cai_lifecycle_age" {
+  description = "GCS CAI lifecycle age value"
+  type        = string
+  default     = "14"
+}
+
+variable "bucket_cai_location" {
+  description = "GCS CAI storage bucket location"
+  type        = string
+  default     = "us-central1"
+}
+
+variable "buckets_acl_violations_should_notify" {
+  description = "Notify for Buckets ACL violations"
+  type        = bool
+  default     = true
+}
+
+variable "cai_api_timeout" {
+  description = "Timeout in seconds to wait for the exportAssets API to return success."
+  type        = string
+  default     = "3600"
+}
+
+variable "client_access_config" {
+  description = "Client instance 'access_config' block"
+  type        = map(any)
+  default     = {}
+}
+
+variable "client_boot_image" {
+  description = "GCE Forseti Client boot image"
+  type        = string
+  default     = "ubuntu-os-cloud/ubuntu-1804-lts"
+}
+
+variable "client_enabled" {
+  description = "Enable Client VM"
+  type        = bool
+  default     = true
+}
+
+variable "client_instance_metadata" {
+  description = "Metadata key/value pairs to make available from within the client instance."
+  type        = map(string)
+  default     = {}
+}
+
+variable "client_private" {
+  description = "Private GCE Forseti Client VM (no public IP)"
+  type        = bool
+  default     = false
+}
+
+variable "client_region" {
+  description = "GCE Forseti Client region"
+  type        = string
+  default     = "us-central1"
+}
+
+variable "client_ssh_allow_ranges" {
+  description = "List of CIDRs that will be allowed ssh access to forseti client"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
+variable "client_tags" {
+  description = "GCE Forseti Client VM Tags"
+  type        = list(string)
+  default     = []
+}
+
+variable "client_type" {
+  description = "GCE Forseti Client machine type"
+  type        = string
+  default     = "n1-standard-2"
+}
+
+variable "cloud_profiler_enabled" {
+  description = "Enable the Cloud Profiler"
+  type        = bool
+  default     = false
+}
+
+variable "cloudasset_disable_polling" {
+  description = "Whether to disable polling for Cloud Asset API"
+  type        = bool
+  default     = false
+}
+
+variable "cloudasset_max_calls" {
+  description = "Maximum calls that can be made to Cloud Asset API"
+  type        = string
+  default     = "1"
+}
+
+variable "cloudasset_period" {
+  description = "The period of max calls for the Cloud Asset API (in seconds)"
+  type        = string
+  default     = "1.0"
+}
+
+variable "cloudbilling_disable_polling" {
+  description = "Whether to disable polling for Cloud Billing API"
+  type        = bool
+  default     = false
+}
+
+variable "cloudbilling_max_calls" {
+  description = "Maximum calls that can be made to Cloud Billing API"
+  type        = string
+  default     = "5"
+}
+
+variable "cloudbilling_period" {
+  description = "The period of max calls for the Cloud Billing API (in seconds)"
+  type        = string
+  default     = "1.2"
+}
+
+variable "cloudsql_acl_enabled" {
+  description = "Cloud SQL scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "cloudsql_acl_violations_should_notify" {
+  description = "Notify for CloudSQL ACL violations"
+  type        = bool
+  default     = true
+}
+
+variable "cloudsql_db_name" {
+  description = "CloudSQL database name"
+  type        = string
+  default     = "forseti_security"
+}
+
+variable "cloudsql_disk_size" {
+  description = "The size of data disk, in GB. Size of a running instance cannot be reduced but can be increased."
+  type        = string
+  default     = "25"
+}
+
+variable "cloudsql_net_write_timeout" {
+  description = "See MySQL documentation: https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_write_timeout"
+  type        = string
+  default     = "240"
+}
+
+variable "cloudsql_password" {
+  description = "CloudSQL password"
+  type        = string
+  default     = ""
+}
+
+variable "cloudsql_private" {
+  description = "Whether to enable private network and not to create public IP for CloudSQL Instance"
+  type        = bool
+  default     = false
+}
+
+variable "cloudsql_region" {
+  description = "CloudSQL region"
+  type        = string
+  default     = "us-central1"
+}
+
+variable "cloudsql_type" {
+  description = "CloudSQL Instance size"
+  type        = string
+  default     = "db-n1-standard-4"
+}
+
+variable "cloudsql_user" {
+  description = "CloudSQL user"
+  type        = string
+  default     = "forseti_security_user"
+}
+
+variable "cloudsql_user_host" {
+  description = "The host the user can connect from.  Can be an IP address or IP address range. Changing this forces a new resource to be created."
+  type        = string
+  default     = "%"
+}
+
+variable "composite_root_resources" {
+  description = "A list of root resources that Forseti will monitor. This supersedes the root_resource_id when set."
+  type        = list(string)
+  default     = []
+}
+
+variable "compute_disable_polling" {
+  description = "Whether to disable polling for Compute API"
+  type        = bool
+  default     = false
+}
+
+variable "compute_max_calls" {
+  description = "Maximum calls that can be made to Compute API"
+  type        = string
+  default     = "18"
+}
+
+variable "compute_period" {
+  description = "The period of max calls for the Compute API (in seconds)"
+  type        = string
+  default     = "1.0"
+}
+
+variable "config_validator_enabled" {
+  description = "Config Validator scanner enabled."
+  type        = bool
+  default     = false
+}
+
+variable "config_validator_violations_should_notify" {
+  description = "Notify for Config Validator violations."
+  type        = bool
+  default     = true
+}
+
+variable "container_disable_polling" {
+  description = "Whether to disable polling for Container API"
+  type        = bool
+  default     = false
+}
+
+variable "container_max_calls" {
+  description = "Maximum calls that can be made to Container API"
+  type        = string
+  default     = "9"
+}
+
+variable "container_period" {
+  description = "The period of max calls for the Container API (in seconds)"
+  type        = string
+  default     = "1.0"
+}
+
+variable "crm_disable_polling" {
+  description = "Whether to disable polling for CRM API"
+  type        = bool
+  default     = false
+}
+
+variable "crm_max_calls" {
+  description = "Maximum calls that can be made to CRN API"
+  type        = string
+  default     = "4"
+}
+
+variable "crm_period" {
+  description = "The period of max calls for the CRM  API (in seconds)"
+  type        = string
+  default     = "1.2"
+}
+
+variable "cscc_source_id" {
+  description = "Source ID for CSCC Beta API"
+  type        = string
+  default     = ""
+}
+
+variable "cscc_violations_enabled" {
+  description = "Notify for CSCC violations"
+  type        = bool
+  default     = false
+}
+
+variable "domain" {
+  description = "The domain associated with the GCP Organization ID"
+  type        = string
+  default     = ""
+}
+
+variable "enable_cai_bucket" {
+  description = "Create a GCS bucket for CAI exports"
+  type        = bool
+  default     = true
+}
+
+variable "enable_service_networking" {
+  description = "Create a global service networking peering connection at the VPC level"
+  type        = bool
+  default     = true
+}
+
+variable "enable_write" {
+  description = "Enabling/Disabling write actions"
+  type        = bool
+  default     = false
+}
+
+variable "enabled_apis_enabled" {
+  description = "Enabled APIs scanner enabled."
+  type        = bool
+  default     = false
+}
+
+variable "enabled_apis_violations_should_notify" {
+  description = "Notify for enabled APIs violations"
+  type        = bool
+  default     = true
+}
+
+variable "excluded_resources" {
+  description = "A list of resources to exclude during the inventory phase."
+  type        = list(string)
+  default     = []
+}
+
+variable "external_project_access_violations_should_notify" {
+  description = "Notify for External Project Access violations"
+  type        = bool
+  default     = true
+}
+
+variable "firewall_rule_enabled" {
+  description = "Firewall rule scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "firewall_rule_violations_should_notify" {
+  description = "Notify for Firewall rule violations"
+  type        = bool
+  default     = true
+}
+
+variable "folder_id" {
+  description = "GCP Folder that the Forseti project will be deployed into"
+  type        = string
+  default     = ""
+}
+
+variable "forseti_email_recipient" {
+  description = "Email address that receives Forseti notifications"
+  type        = string
+  default     = ""
+}
+
+variable "forseti_email_sender" {
+  description = "Email address that sends the Forseti notifications"
+  type        = string
+  default     = ""
+}
+
+variable "forseti_home" {
+  description = "Forseti installation directory"
+  type        = string
+  default     = "$USER_HOME/forseti-security"
+}
+
+variable "forseti_repo_url" {
+  description = "Git repo for the Forseti installation"
+  type        = string
+  default     = "https://github.com/forseti-security/forseti-security"
+}
+
+variable "forseti_run_frequency" {
+  description = "Schedule of running the Forseti scans"
+  type        = string
+  default     = ""
+}
+
+variable "forseti_version" {
+  description = "The version of Forseti to install"
+  type        = string
+  default     = "v2.25.2"
+}
+
+variable "forwarding_rule_enabled" {
+  description = "Forwarding rule scanner enabled."
+  type        = bool
+  default     = false
+}
+
+variable "forwarding_rule_violations_should_notify" {
+  description = "Notify for forwarding rule violations"
+  type        = bool
+  default     = true
+}
+
+variable "git_sync_image" {
+  description = "The container image used by the config-validator git-sync side-car"
+  type        = string
+  default     = "gcr.io/google-containers/git-sync"
+}
+
+variable "git_sync_private_ssh_key_file" {
+  description = "The file containing the private SSH key allowing the git-sync to clone the policy library repository."
+  type        = string
+  default     = ""
+}
+
+variable "git_sync_wait" {
+  description = "The time number of seconds between git-syncs"
+  type        = string
+  default     = 30
+}
+
+variable "gke_node_pool_name" {
+  description = "The name of the GKE node-pool where Forseti is being deployed"
+  type        = string
+  default     = "default-pool"
+}
+
+variable "group_enabled" {
+  description = "Group scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "groups_settings_disable_polling" {
+  description = "Whether to disable polling for the G Suite Groups API"
+  type        = bool
+  default     = false
+}
+
+variable "groups_settings_enabled" {
+  description = "Groups settings scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "groups_settings_max_calls" {
+  description = "Maximum calls that can be made to the G Suite Groups API"
+  type        = string
+  default     = "5"
+}
+
+variable "groups_settings_period" {
+  description = "the period of max calls to the G Suite Groups API"
+  type        = string
+  default     = "1.1"
+}
+
+variable "groups_settings_violations_should_notify" {
+  description = "Notify for groups settings violations"
+  type        = bool
+  default     = true
+}
+
+variable "groups_violations_should_notify" {
+  description = "Notify for Groups violations"
+  type        = bool
+  default     = true
+}
+
+variable "gsuite_admin_email" {
+  description = "G-Suite administrator email address to manage your Forseti installation"
+  type        = string
+  default     = ""
+}
+
+variable "helm_chart_version" {
+  description = "The version of the Helm chart to use"
+  type        = string
+  default     = "2.2.0"
+}
+
+variable "helm_repository_url" {
+  description = "The Helm repository containing the 'forseti-security' Helm charts"
+  type        = string
+  default     = "https://forseti-security-charts.storage.googleapis.com/release/"
+}
+
+variable "iam_disable_polling" {
+  description = "Whether to disable polling for IAM API"
+  type        = bool
+  default     = false
+}
+
+variable "iam_max_calls" {
+  description = "Maximum calls that can be made to IAM API"
+  type        = string
+  default     = "90"
+}
+
+variable "iam_period" {
+  description = "The period of max calls for the IAM API (in seconds)"
+  type        = string
+  default     = "1.0"
+}
+
+variable "iam_policy_enabled" {
+  description = "IAM Policy scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "iam_policy_violations_should_notify" {
+  description = "Notify for IAM Policy violations"
+  type        = bool
+  default     = true
+}
+
+variable "iam_policy_violations_slack_webhook" {
+  description = "Slack webhook for IAM Policy violations"
+  type        = string
+  default     = ""
+}
+
+variable "iap_enabled" {
+  description = "IAP scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "iap_violations_should_notify" {
+  description = "Notify for IAP violations"
+  type        = bool
+  default     = true
+}
+
+variable "instance_network_interface_enabled" {
+  description = "Instance network interface scanner enabled."
+  type        = bool
+  default     = false
+}
+
+variable "instance_network_interface_violations_should_notify" {
+  description = "Notify for instance network interface violations"
+  type        = bool
+  default     = true
+}
+
+variable "inventory_email_summary_enabled" {
+  description = "Email summary for inventory enabled"
+  type        = bool
+  default     = false
+}
+
+variable "inventory_gcs_summary_enabled" {
+  description = "GCS summary for inventory enabled"
+  type        = bool
+  default     = true
+}
+
+variable "inventory_retention_days" {
+  description = "Number of days to retain inventory data."
+  type        = string
+  default     = "-1"
+}
+
+variable "k8s_config_validator_image" {
+  description = "The container image used by the config-validator"
+  type        = string
+  default     = "gcr.io/forseti-containers/config-validator"
+}
+
+variable "k8s_config_validator_image_tag" {
+  description = "The tag for the config-validator image."
+  type        = string
+  default     = "572e207"
+}
+
+variable "k8s_forseti_namespace" {
+  description = "The Kubernetes namespace in which to deploy Forseti."
+  type        = string
+  default     = "forseti"
+}
+
+variable "k8s_forseti_orchestrator_image" {
+  description = "The container image for the Forseti orchestrator"
+  type        = string
+  default     = "gcr.io/forseti-containers/forseti"
+}
+
+variable "k8s_forseti_orchestrator_image_tag" {
+  description = "The tag for the container image for the Forseti orchestrator"
+  type        = string
+  default     = "v2.25.2"
+}
+
+variable "k8s_forseti_server_image" {
+  description = "The container image for the Forseti server"
+  type        = string
+  default     = "gcr.io/forseti-containers/forseti"
+}
+
+variable "k8s_forseti_server_image_tag" {
+  description = "The tag for the container image for the Forseti server"
+  type        = string
+  default     = "v2.25.2"
+}
+
+variable "k8s_forseti_server_ingress_cidr" {
+  description = "If network_policy is true, k8s_forseti_server_ingress_cidr will restrict connections to the Forseti Server service from the CIDR's specified"
+  type        = string
+  default     = ""
+}
+
+variable "k8s_tiller_sa_name" {
+  description = "The Kubernetes Service Account used by Tiller"
+  type        = string
+  default     = "tiller"
+}
+
+variable "ke_scanner_enabled" {
+  description = "KE scanner enabled."
+  type        = bool
+  default     = false
+}
+
+variable "ke_version_scanner_enabled" {
+  description = "KE version scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "ke_version_violations_should_notify" {
+  description = "Notify for KE version violations"
+  type        = bool
+  default     = true
+}
+
+variable "ke_violations_should_notify" {
+  description = "Notify for KE violations"
+  type        = bool
+  default     = true
+}
+
+variable "kms_scanner_enabled" {
+  description = "KMS scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "kms_violations_should_notify" {
+  description = "Notify for KMS violations"
+  type        = bool
+  default     = true
+}
+
+variable "kms_violations_slack_webhook" {
+  description = "Slack webhook for KMS violations"
+  type        = string
+  default     = ""
+}
+
+variable "lien_enabled" {
+  description = "Lien scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "lien_violations_should_notify" {
+  description = "Notify for lien violations"
+  type        = bool
+  default     = true
+}
+
+variable "load_balancer" {
+  description = "The type of load balancer to deploy for the forseti-server if desired: none, external, internal"
+  type        = string
+  default     = "internal"
+}
+
+variable "location_enabled" {
+  description = "Location scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "location_violations_should_notify" {
+  description = "Notify for location violations"
+  type        = bool
+  default     = true
+}
+
+variable "log_sink_enabled" {
+  description = "Log sink scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "log_sink_violations_should_notify" {
+  description = "Notify for log sink violations"
+  type        = bool
+  default     = true
+}
+
+variable "logging_disable_polling" {
+  description = "Whether to disable polling for Logging API"
+  type        = bool
+  default     = false
+}
+
+variable "logging_max_calls" {
+  description = "Maximum calls that can be made to Logging API"
+  type        = string
+  default     = "9"
+}
+
+variable "logging_period" {
+  description = "The period of max calls for the Logging API (in seconds)"
+  type        = string
+  default     = "1.0"
+}
+
+variable "manage_firewall_rules" {
+  description = "Create client firewall rules"
+  type        = bool
+  default     = true
+}
+
+variable "manage_rules_enabled" {
+  description = "A toggle to enable or disable the management of rules"
+  type        = bool
+  default     = true
+}
+
+variable "network" {
+  description = "The VPC where the Forseti client and server will be created"
+  type        = string
+  default     = "default"
+}
+
+variable "network_policy" {
+  description = "Apply pod network policies"
+  type        = bool
+  default     = false
+}
+
+variable "network_project" {
+  description = "The project containing the VPC and subnetwork where the Forseti client and server will be created"
+  type        = string
+  default     = ""
+}
+
+variable "org_id" {
+  description = "GCP Organization ID that Forseti will have purview over"
+  type        = string
+  default     = ""
+}
+
+variable "policy_library_repository_branch" {
+  description = "The specific git branch containing the policies."
+  type        = string
+  default     = "master"
+}
+
+variable "policy_library_repository_url" {
+  description = "The git repository containing the policy-library."
+  type        = string
+  default     = ""
+}
+
+variable "policy_library_sync_enabled" {
+  description = "Sync config validator policy library from private repository."
+  type        = bool
+  default     = false
+}
+
+variable "policy_library_sync_gcs_directory_name" {
+  description = "The directory name of the GCS folder used for the policy library sync config."
+  type        = string
+  default     = "policy_library_sync"
+}
+
+variable "policy_library_sync_git_sync_tag" {
+  description = "Tag for the git-sync image."
+  type        = string
+  default     = "v3.1.2"
+}
+
+variable "production" {
+  description = "Whether or not to deploy Forseti on GKE in a production configuration"
+  type        = bool
+  default     = true
+}
+
+variable "project_id" {
+  description = "Google Project ID that you want Forseti deployed into"
+  type        = string
+  default     = ""
+}
+
+variable "recreate_pods" {
+  description = "Instructs the helm_release resource to, on update, perform pod restarts for the resources if applicable."
+  type        = bool
+  default     = true
+}
+
+variable "resource_enabled" {
+  description = "Resource scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "resource_name_suffix" {
+  description = "A suffix which will be appended to resource names."
+  type        = string
+  default     = ""
+}
+
+variable "resource_violations_should_notify" {
+  description = "Notify for resource violations"
+  type        = bool
+  default     = true
+}
+
+variable "role_enabled" {
+  description = "Role scanner enabled."
+  type        = bool
+  default     = false
+}
+
+variable "role_violations_should_notify" {
+  description = "Notify for role violations"
+  type        = bool
+  default     = true
+}
+
+variable "role_violations_slack_webhook" {
+  description = "Slack webhook for role violations"
+  type        = string
+  default     = ""
+}
+
+variable "securitycenter_disable_polling" {
+  description = "Whether to disable polling for Security Center API"
+  type        = bool
+  default     = false
+}
+
+variable "securitycenter_max_calls" {
+  description = "Maximum calls that can be made to Security Center API"
+  type        = string
+  default     = "14"
+}
+
+variable "securitycenter_period" {
+  description = "The period of max calls for the Security Center API (in seconds)"
+  type        = string
+  default     = "1.0"
+}
+
+variable "sendgrid_api_key" {
+  description = "Sendgrid.com API key to enable email notifications"
+  type        = string
+  default     = ""
+}
+
+variable "server_log_level" {
+  description = "The log level of the Forseti server container."
+  type        = string
+  default     = "info"
+}
+
+variable "service_account_key_enabled" {
+  description = "Service account key scanner enabled."
+  type        = bool
+  default     = true
+}
+
+variable "service_account_key_violations_should_notify" {
+  description = "Notify for service account key violations"
+  type        = bool
+  default     = true
+}
+
+variable "servicemanagement_disable_polling" {
+  description = "Whether to disable polling for Service Management API"
+  type        = bool
+  default     = false
+}
+
+variable "servicemanagement_max_calls" {
+  description = "Maximum calls that can be made to Service Management API"
+  type        = string
+  default     = "2"
+}
+
+variable "servicemanagement_period" {
+  description = "The period of max calls for the Service Management API (in seconds)"
+  type        = string
+  default     = "1.1"
+}
+
+variable "sqladmin_disable_polling" {
+  description = "Whether to disable polling for SQL Admin API"
+  type        = bool
+  default     = false
+}
+
+variable "sqladmin_max_calls" {
+  description = "Maximum calls that can be made to SQL Admin API"
+  type        = string
+  default     = "1"
+}
+
+variable "sqladmin_period" {
+  description = "The period of max calls for the SQL Admin API (in seconds)"
+  type        = string
+  default     = "1.1"
+}
+
+variable "storage_bucket_location" {
+  description = "GCS storage bucket location"
+  type        = string
+  default     = "us-central1"
+}
+
+variable "storage_disable_polling" {
+  description = "Whether to disable polling for Storage API"
+  type        = bool
+  default     = false
+}
+
+variable "subnetwork" {
+  description = "The VPC subnetwork where the Forseti client and server will be created"
+  type        = string
+  default     = "default"
+}
+
+variable "verify_policy_library" {
+  description = "Verify the Policy Library is setup correctly for the Config Validator scanner"
+  type        = bool
+  default     = false
+}
+
+variable "violations_slack_webhook" {
+  description = "Slack webhook for any violation. Will apply to all scanner violation notifiers."
+  type        = string
+  default     = ""
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "project",
+    "description": "Project where the dataset and tables are created"
+  },
+  {
+    "name": "table_ids",
+    "description": "Unique id for the table being provisioned"
+  },
+  {
+    "name": "table_names",
+    "description": "Friendly name for the table being provisioned"
+  },
+  {
+    "name": "view_ids",
+    "description": "Unique id for the view being provisioned"
+  },
+  {
+    "name": "view_names",
+    "description": "friendlyname for the view being provisioned"
+  },
+  {
+    "name": "bigquery_dataset",
+    "description": "Bigquery dataset resource."
+  },
+  {
+    "name": "bigquery_tables",
+    "description": "Map of bigquery table resources being provisioned."
+  },
+  {
+    "name": "bigquery_views",
+    "description": "Map of bigquery view resources being provisioned."
+  }
+]

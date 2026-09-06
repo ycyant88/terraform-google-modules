@@ -1,0 +1,26 @@
+[
+  {
+    "name": "cloud_function_service_account_email",
+    "description": "The email of the service account created to be used by the Cloud Function"
+  },
+  {
+    "name": "bq_views_dataset_id",
+    "description": "The ID of the BigQuery Views dataset"
+  },
+  {
+    "name": "cloud_scheduler_job_name",
+    "description": "The name of the Cloud Scheduler job created"
+  },
+  {
+    "name": "pubsub_topic_name",
+    "description": "Pub/Sub topic name"
+  },
+  {
+    "name": "cloud_scheduler_job",
+    "description": "The Cloud Scheduler job instance"
+  },
+  {
+    "name": "source_name",
+    "description": "The Security Command Center Source name for the \"BQ Log Alerts\" Source"
+  }
+]

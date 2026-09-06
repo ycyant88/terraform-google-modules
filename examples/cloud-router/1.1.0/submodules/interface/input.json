@@ -1,0 +1,58 @@
+[
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The project ID to deploy to",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "router",
+    "type": "string",
+    "description": "Name of the router the interface resides",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region where the interface resides",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ip_range",
+    "type": "string",
+    "description": "IP address and range of the interface",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "vpn_tunnel",
+    "type": "string",
+    "description": "The name or resource link to the VPN tunnel this interface will be linked to",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "interconnect_attachment",
+    "type": "string",
+    "description": "The name or resource link to the VLAN interconnect for this interface",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "peers",
+    "type": "any",
+    "description": "BGP peers for this interface.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the interface",
+    "default": "",
+    "required": true
+  }
+]

@@ -1,0 +1,12 @@
+module "healthcare" {
+  source        = "terraform-google-modules/healthcare/google"
+  version       = "0.1.0"
+  dicom_stores  = var.dicom_stores
+  fhir_stores   = var.fhir_stores
+  hl7_v2_stores = var.hl7_v2_stores
+  iam_members   = var.iam_members
+  location      = var.location
+  name          = var.name
+  project       = var.project
+  time_zone     = var.time_zone
+}

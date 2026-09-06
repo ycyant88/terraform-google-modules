@@ -1,0 +1,51 @@
+[
+  {
+    "name": "prefix",
+    "type": "string",
+    "description": "Optional prefix to enforce uniqueness of folder names.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "folder_admin_roles",
+    "type": "list(string)",
+    "description": "List of roles that will be applied to per folder owners on their respective folder.",
+    "default": "[\n  \"roles/owner\",\n  \"roles/resourcemanager.folderViewer\",\n  \"roles/resourcemanager.projectCreator\",\n  \"roles/compute.networkAdmin\"\n]",
+    "required": false
+  },
+  {
+    "name": "parent",
+    "type": "string",
+    "description": "The resource name of the parent Folder or Organization. Must be of the form folders/folder_id or organizations/org_id",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "names",
+    "type": "list(string)",
+    "description": "Folder names.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "set_roles",
+    "type": "bool",
+    "description": "Enable setting roles via the folder admin variables.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "per_folder_admins",
+    "type": "map(string)",
+    "description": "IAM-style members per folder who will get extended permissions.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "all_folder_admins",
+    "type": "list(string)",
+    "description": "List of IAM-style members that will get the extended permissions across all the folders.",
+    "default": "[]",
+    "required": false
+  }
+]

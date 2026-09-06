@@ -1,0 +1,14 @@
+[
+  {
+    "name": "members",
+    "description": "Members which were bound to the Subnetwork."
+  },
+  {
+    "name": "subnets",
+    "description": "Subnetworks which received bindings."
+  },
+  {
+    "name": "roles",
+    "description": "Roles which were assigned to members."
+  }
+]

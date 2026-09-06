@@ -1,0 +1,10 @@
+[
+  {
+    "name": "startup_script",
+    "description": "Rendered startup script"
+  },
+  {
+    "name": "cloud_config",
+    "description": "Rendered cloud config from template"
+  }
+]

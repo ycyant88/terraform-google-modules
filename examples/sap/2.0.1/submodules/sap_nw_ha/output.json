@@ -1,0 +1,34 @@
+[
+  {
+    "name": "nw_forwarding_rules",
+    "description": "Forwarding rules"
+  },
+  {
+    "name": "scs_instance",
+    "description": "SCS instance"
+  },
+  {
+    "name": "ers_instance",
+    "description": "ERS instance"
+  },
+  {
+    "name": "nw_vips",
+    "description": "NW virtual IPs"
+  },
+  {
+    "name": "nw_instance_groups",
+    "description": "NW Instance Groups"
+  },
+  {
+    "name": "nw_hc",
+    "description": "Health Checks"
+  },
+  {
+    "name": "nw_hc_firewall",
+    "description": "Firewall rule for the Health Checks"
+  },
+  {
+    "name": "nw_regional_backend_services",
+    "description": "Backend Services"
+  }
+]

@@ -1,0 +1,219 @@
+[
+  {
+    "name": "url_map",
+    "type": "string",
+    "description": "The url_map resource to use. Default is to send all traffic to first backend.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ssl_certificates",
+    "type": "list(string)",
+    "description": "SSL cert self_link list. Requires `ssl` to be set to `true`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name for the forwarding rule and prefix for supporting resources",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "create_ipv6_address",
+    "type": "bool",
+    "description": "Allocate a new IPv6 address. Conflicts with \"ipv6_address\" - if both specified, \"create_ipv6_address\" takes precedence.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "address",
+    "type": "string",
+    "description": "Existing IPv4 address to use (the actual IP address value)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "http_forward",
+    "type": "bool",
+    "description": "Set to `false` to disable HTTP port 80 forward",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_ssl_certificate",
+    "type": "bool",
+    "description": "If `true`, Create certificate using `private_key/certificate`",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "certificate",
+    "type": "string",
+    "description": "Content of the SSL certificate. Requires `ssl` to be set to `true` and `create_ssl_certificate` set to `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "load_balancing_scheme",
+    "type": "string",
+    "description": "Load balancing scheme type (EXTERNAL for classic external load balancer, EXTERNAL_MANAGED for Envoy-based load balancer, and INTERNAL_SELF_MANAGED for traffic director)",
+    "default": "\"EXTERNAL\"",
+    "required": false
+  },
+  {
+    "name": "http_keep_alive_timeout_sec",
+    "type": "number",
+    "description": "Specifies how long to keep a connection open, after completing a response, while there is no matching traffic (in seconds).",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The project to deploy to, if not set the default provider project is used.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "create_address",
+    "type": "bool",
+    "description": "Create a new global IPv4 address",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_url_map",
+    "type": "bool",
+    "description": "Set to `false` if url_map variable is provided.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "random_certificate_suffix",
+    "type": "bool",
+    "description": "Bool to enable/disable random certificate name generation. Set and keep this to true if you need to change the SSL cert.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Network for INTERNAL_SELF_MANAGED load balancing scheme",
+    "default": "\"default\"",
+    "required": false
+  },
+  {
+    "name": "ssl",
+    "type": "bool",
+    "description": "Set to `true` to enable SSL support. If `true` then at least one of these are required: 1) `ssl_certificates` OR 2) `create_ssl_certificate` set to `true` and `private_key/certificate` OR  3) `managed_ssl_certificate_domains`, OR 4) `certificate_map`",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "enable_ipv6",
+    "type": "bool",
+    "description": "Enable IPv6 address on the CDN load-balancer",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "private_key",
+    "type": "string",
+    "description": "Content of the private SSL key. Requires `ssl` to be set to `true` and `create_ssl_certificate` set to `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "quic",
+    "type": "bool",
+    "description": "Specifies the QUIC override policy for this resource. Set true to enable HTTP/3 and Google QUIC support, false to disable both. Defaults to null which enables support for HTTP/3 only.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "http_port",
+    "type": "number",
+    "description": "The port for the HTTP load balancer",
+    "default": "80",
+    "required": false
+  },
+  {
+    "name": "https_port",
+    "type": "number",
+    "description": "The port for the HTTPS load balancer",
+    "default": "443",
+    "required": false
+  },
+  {
+    "name": "ipv6_address",
+    "type": "string",
+    "description": "An existing IPv6 address to use (the actual IP address value)",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "backends",
+    "type": "map(object({\n    project                 = optional(string)\n    protocol                = optional(string)\n    port_name               = optional(string)\n    description             = optional(string)\n    enable_cdn              = optional(bool)\n    compression_mode        = optional(string)\n    security_policy         = optional(string, null)\n    edge_security_policy    = optional(string, null)\n    custom_request_headers  = optional(list(string))\n    custom_response_headers = optional(list(string))\n\n    connection_draining_timeout_sec = optional(number)\n    session_affinity                = optional(string)\n    affinity_cookie_ttl_sec         = optional(number)\n    locality_lb_policy              = optional(string)\n\n\n    log_config = object({\n      enable      = optional(bool)\n      sample_rate = optional(number)\n    })\n\n    groups = list(object({\n      group       = string\n      description = optional(string)\n\n    }))\n\n    // serverless_neg_backends is mutually exclusive to groups.There can only be one serverless neg per region\n    // with one of cloud-run, cloud-functions and app-engine as service.\n    serverless_neg_backends = optional(list(object({\n      region  = string,\n      type    = string, // cloud-run, cloud-function and app-engine\n      service = object({ name : string, version : optional(string) })\n    })), [])\n\n    iap_config = optional(object({\n      enable               = bool\n      oauth2_client_id     = optional(string)\n      oauth2_client_secret = optional(string)\n    }))\n    cdn_policy = optional(object({\n      cache_mode                   = optional(string)\n      signed_url_cache_max_age_sec = optional(string)\n      default_ttl                  = optional(number)\n      max_ttl                      = optional(number)\n      client_ttl                   = optional(number)\n      negative_caching             = optional(bool)\n      negative_caching_policy = optional(object({\n        code = optional(number)\n        ttl  = optional(number)\n      }))\n      serve_while_stale = optional(number)\n      cache_key_policy = optional(object({\n        include_host           = optional(bool)\n        include_protocol       = optional(bool)\n        include_query_string   = optional(bool)\n        query_string_blacklist = optional(list(string))\n        query_string_whitelist = optional(list(string))\n        include_http_headers   = optional(list(string))\n        include_named_cookies  = optional(list(string))\n      }))\n      bypass_cache_on_request_headers = optional(list(string))\n    }))\n    outlier_detection = optional(object({\n      base_ejection_time = optional(object({\n        seconds = number\n        nanos   = optional(number)\n      }))\n      consecutive_errors                    = optional(number)\n      consecutive_gateway_failure           = optional(number)\n      enforcing_consecutive_errors          = optional(number)\n      enforcing_consecutive_gateway_failure = optional(number)\n      enforcing_success_rate                = optional(number)\n      interval = optional(object({\n        seconds = number\n        nanos   = optional(number)\n      }))\n      max_ejection_percent        = optional(number)\n      success_rate_minimum_hosts  = optional(number)\n      success_rate_request_volume = optional(number)\n      success_rate_stdev_factor   = optional(number)\n    }))\n  }))",
+    "description": "Map backend indices to list of backend maps.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "https_redirect",
+    "type": "bool",
+    "description": "Set to `true` to enable https redirect on the lb.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "managed_ssl_certificate_domains",
+    "type": "list(string)",
+    "description": "Create Google-managed SSL certificates for specified domains. Requires `ssl` to be set to `true`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "certificate_map",
+    "type": "string",
+    "description": "Certificate Map ID in format projects/{project}/locations/global/certificateMaps/{name}. Identifies a certificate map associated with the given target proxy.  Requires `ssl` to be set to `true`",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "ssl_policy",
+    "type": "string",
+    "description": "Selfink to SSL Policy",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "edge_security_policy",
+    "type": "string",
+    "description": "The resource URL for the edge security policy to associate with the backend service",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "The labels to attach to resources created by this module",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "security_policy",
+    "type": "string",
+    "description": "The resource URL for the security policy to associate with the backend service",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "server_tls_policy",
+    "type": "string",
+    "description": "The resource URL for the server TLS policy to associate with the https proxy service",
+    "default": "null",
+    "required": false
+  }
+]

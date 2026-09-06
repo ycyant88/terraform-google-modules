@@ -1,0 +1,16 @@
+[
+  {
+    "name": "log_sink_writer_identity",
+    "type": "string",
+    "description": "The service account that logging uses to write log entries to the destination. (This is available as an output coming from the root module).",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project to which logs will be routed.",
+    "default": "",
+    "required": true
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "project_id",
+    "description": "Project id"
+  },
+  {
+    "name": "name",
+    "description": "The full resource name for the SLO"
+  }
+]

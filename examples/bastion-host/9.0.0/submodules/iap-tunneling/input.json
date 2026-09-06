@@ -1,0 +1,79 @@
+[
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The project ID to deploy to.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "fw_name_allow_ssh_from_iap",
+    "type": "string",
+    "description": "Firewall rule name for allowing SSH from IAP.",
+    "default": "\"allow-ssh-from-iap-to-tunnel\"",
+    "required": false
+  },
+  {
+    "name": "fw_priority",
+    "type": "number",
+    "description": "Firewall rule priority for allowing SSH from IAP.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Self link of the network to attach the firewall to.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "members",
+    "type": "list(string)",
+    "description": "List of IAM resources to allow using the IAP tunnel.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "additional_ports",
+    "type": "list(string)",
+    "description": "A list of additional ports/ranges to open access to on the instances from IAP.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "service_accounts",
+    "type": "list(string)",
+    "description": "Service account emails associated with the instances to allow SSH from IAP. Exactly one of service_accounts or network_tags should be specified.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "network_tags",
+    "type": "list(string)",
+    "description": "Network tags associated with the instances to allow SSH from IAP. Exactly one of service_accounts or network_tags should be specified.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "instances",
+    "type": "list(object({\n    name = string\n    zone = string\n  }))",
+    "description": "Names and zones of the instances to allow SSH from IAP.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "create_firewall_rule",
+    "type": "bool",
+    "description": "If we need to create the firewall rule or not.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "host_project",
+    "type": "string",
+    "description": "The network host project ID.",
+    "default": "\"\"",
+    "required": false
+  }
+]

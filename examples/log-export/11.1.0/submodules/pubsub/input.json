@@ -1,0 +1,79 @@
+[
+  {
+    "name": "push_subscription_expiration_ttl",
+    "type": "string",
+    "description": "Pubsub push subscription expiration policy ttl.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "push_endpoint",
+    "type": "string",
+    "description": "The URL locating the endpoint to which messages should be pushed.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "log_sink_writer_identity",
+    "type": "string",
+    "description": "The service account that logging uses to write log entries to the destination. (This is available as an output coming from the root module).",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project in which the pubsub topic will be created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "topic_labels",
+    "type": "map(string)",
+    "description": "A set of key/value label pairs to assign to the pubsub topic.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_subscriber",
+    "type": "bool",
+    "description": "Whether to create a subscription to the topic that was created and used for log entries matching the filter. If 'true', a pull subscription is created along with a service account that is granted roles/pubsub.subscriber and roles/pubsub.viewer to the topic.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "subscription_labels",
+    "type": "map(string)",
+    "description": "A set of key/value label pairs to assign to the pubsub subscription or pubsub push subscription.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "create_push_subscriber",
+    "type": "bool",
+    "description": "Whether to add a push configuration to the subcription. If 'true', a push subscription is created for push_endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "topic_name",
+    "type": "string",
+    "description": "The name of the pubsub topic to be created and used for log entries matching the filter.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "kms_key_name",
+    "type": "string",
+    "description": "ID of a Cloud KMS CryptoKey to be used to protect access to messages published on this topic. Your project's PubSub service account requires access to this encryption key.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "subscriber_id",
+    "type": "string",
+    "description": "The ID to give the pubsub pull subscriber service account (optional).",
+    "default": "\"\"",
+    "required": false
+  }
+]

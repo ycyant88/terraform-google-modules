@@ -1,0 +1,10 @@
+[
+  {
+    "name": "forseti-rt-enforcer-viewer-role-id",
+    "description": "The forseti real time enforcer viewer Role ID."
+  },
+  {
+    "name": "forseti-rt-enforcer-writer-role-id",
+    "description": "The forseti real time enforcer writer Role ID."
+  }
+]

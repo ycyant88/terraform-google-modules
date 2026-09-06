@@ -1,0 +1,72 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project in which the storage bucket will be created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "storage_bucket_name",
+    "type": "string",
+    "description": "The name of the storage bucket to be created and used for log entries matching the filter.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "uniform_bucket_level_access",
+    "type": "bool",
+    "description": "Enables Uniform bucket-level access to a bucket.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "expiration_days",
+    "type": "number",
+    "description": "Object expiration time. If unset logs will never be deleted.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "retention_policy",
+    "type": "object({\n    is_locked             = bool\n    retention_period_days = number\n  })",
+    "description": "Configuration of the bucket's data retention policy for how long objects in the bucket should be retained.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "log_sink_writer_identity",
+    "type": "string",
+    "description": "The service account that logging uses to write log entries to the destination. (This is available as an output coming from the root module).",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The location of the storage bucket.",
+    "default": "\"US\"",
+    "required": false
+  },
+  {
+    "name": "storage_class",
+    "type": "string",
+    "description": "The storage class of the storage bucket.",
+    "default": "\"STANDARD\"",
+    "required": false
+  },
+  {
+    "name": "force_destroy",
+    "type": "bool",
+    "description": "When deleting a bucket, this boolean option will delete all contained objects.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "versioning",
+    "type": "bool",
+    "description": "Toggles bucket versioning, ability to retain a non-current object version when the live object version gets replaced or deleted.",
+    "default": "false",
+    "required": false
+  }
+]

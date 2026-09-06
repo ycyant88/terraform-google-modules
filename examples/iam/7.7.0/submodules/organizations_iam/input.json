@@ -1,0 +1,30 @@
+[
+  {
+    "name": "conditional_bindings",
+    "type": "list(object({\n    role        = string\n    title       = string\n    description = string\n    expression  = string\n    members     = list(string)\n  }))",
+    "description": "List of maps of role and respective conditions, and the members to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "organizations",
+    "type": "list(string)",
+    "description": "Organizations list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "mode",
+    "type": "string",
+    "description": "Mode for adding the IAM policies/bindings, additive and authoritative",
+    "default": "\"additive\"",
+    "required": false
+  },
+  {
+    "name": "bindings",
+    "type": "map(list(string))",
+    "description": "Map of role (key) and list of members (value) to add the IAM policies/bindings",
+    "default": "{}",
+    "required": false
+  }
+]

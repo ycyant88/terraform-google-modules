@@ -1,0 +1,54 @@
+[
+  {
+    "name": "service_account_name",
+    "description": "The fully-qualified name of the default service account"
+  },
+  {
+    "name": "project_bucket_name",
+    "description": "The name of the projec's bucket"
+  },
+  {
+    "name": "project_bucket_url",
+    "description": "Project's bucket url"
+  },
+  {
+    "name": "project_name",
+    "description": ""
+  },
+  {
+    "name": "project_number",
+    "description": ""
+  },
+  {
+    "name": "service_account_display_name",
+    "description": "The display name of the default service account"
+  },
+  {
+    "name": "service_account_unique_id",
+    "description": "The unique id of the default service account"
+  },
+  {
+    "name": "project_bucket_self_link",
+    "description": "Project's bucket selfLink"
+  },
+  {
+    "name": "api_s_account",
+    "description": "API service account email"
+  },
+  {
+    "name": "api_s_account_fmt",
+    "description": "API service account email formatted for terraform use"
+  },
+  {
+    "name": "project_id",
+    "description": ""
+  },
+  {
+    "name": "service_account_id",
+    "description": "The id of the default service account"
+  },
+  {
+    "name": "service_account_email",
+    "description": "The email of the default service account"
+  }
+]

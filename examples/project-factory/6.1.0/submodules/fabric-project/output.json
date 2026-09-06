@@ -1,0 +1,30 @@
+[
+  {
+    "name": "project_id",
+    "description": "Project id (depends on services)."
+  },
+  {
+    "name": "name",
+    "description": "Name (depends on services)."
+  },
+  {
+    "name": "number",
+    "description": "Project number (depends on services)."
+  },
+  {
+    "name": "cloudsvc_service_account",
+    "description": "Cloud services service account (depends on services)."
+  },
+  {
+    "name": "gce_service_account",
+    "description": "Default GCE service account (depends on services)."
+  },
+  {
+    "name": "gke_service_account",
+    "description": "Default GKE service account (depends on services)."
+  },
+  {
+    "name": "custom_roles",
+    "description": "Ids of the created custom roles."
+  }
+]

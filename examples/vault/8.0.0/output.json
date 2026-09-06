@@ -1,0 +1,42 @@
+[
+  {
+    "name": "vault_addr",
+    "description": "Full protocol, address, and port (FQDN) pointing to the Vault load balancer.This is a drop-in to VAULT_ADDR: `export VAULT_ADDR=\"$(terraform output vault_addr)\"`. And then continue to use Vault commands as usual."
+  },
+  {
+    "name": "vault_storage_bucket",
+    "description": "GCS Bucket Vault is using as a backend/database"
+  },
+  {
+    "name": "vault_network",
+    "description": "The network in which the Vault cluster resides"
+  },
+  {
+    "name": "ca_cert_pem",
+    "description": "CA certificate used to verify Vault TLS client connections."
+  },
+  {
+    "name": "ca_key_pem",
+    "description": "Private key for the CA."
+  },
+  {
+    "name": "service_account_email",
+    "description": "Email for the vault-admin service account."
+  },
+  {
+    "name": "vault_lb_addr",
+    "description": "Address of the load balancer without port or protocol information. You probably want to use `vault_addr`."
+  },
+  {
+    "name": "vault_lb_port",
+    "description": "Port where Vault is exposed on the load balancer."
+  },
+  {
+    "name": "vault_subnet",
+    "description": "The subnetwork in which the Vault cluster resides"
+  },
+  {
+    "name": "vault_nat_ips",
+    "description": "The NAT-ips that the vault nodes will use to communicate with external services."
+  }
+]

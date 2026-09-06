@@ -1,0 +1,14 @@
+[
+  {
+    "name": "gitlab_address",
+    "description": "IP address where you can connect to your GitLab instance"
+  },
+  {
+    "name": "gitlab_url",
+    "description": "URL where you can access your GitLab instance"
+  },
+  {
+    "name": "root_password_instructions",
+    "description": "Instructions for getting the root user's password for initial setup"
+  }
+]

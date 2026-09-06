@@ -1,0 +1,26 @@
+[
+  {
+    "name": "project",
+    "description": "The project in which the bigquery dataset was created."
+  },
+  {
+    "name": "resource_name",
+    "description": "The resource name for the destination bigquery dataset"
+  },
+  {
+    "name": "resource_id",
+    "description": "The resource id for the destination bigquery dataset"
+  },
+  {
+    "name": "self_link",
+    "description": "The self_link URI for the destination bigquery dataset"
+  },
+  {
+    "name": "destination_uri",
+    "description": "The destination URI for the bigquery dataset."
+  },
+  {
+    "name": "console_link",
+    "description": "The console link to the destination bigquery dataset"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "scheduler_job_name",
+    "description": "Cloud Scheduler job name"
+  },
+  {
+    "name": "function_zip_output_path",
+    "description": "Cloud Function zip output path"
+  },
+  {
+    "name": "project_id",
+    "description": "Project id"
+  },
+  {
+    "name": "config",
+    "description": "SLO Config"
+  },
+  {
+    "name": "service_account_email",
+    "description": "Service account email used to run the Cloud Function"
+  }
+]

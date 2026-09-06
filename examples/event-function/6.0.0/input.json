@@ -1,0 +1,226 @@
+[
+  {
+    "name": "available_memory_mb",
+    "type": "number",
+    "description": "The amount of memory in megabytes allotted for the function to use.",
+    "default": "256",
+    "required": false
+  },
+  {
+    "name": "trigger_http",
+    "type": "bool",
+    "description": "Wheter to use HTTP trigger instead of the event trigger.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region in which resources will be applied.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "runtime",
+    "type": "string",
+    "description": "The runtime in which the function will be executed.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "event_trigger_failure_policy_retry",
+    "type": "bool",
+    "description": "A toggle to determine if the function should be retried on failure.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "ingress_settings",
+    "type": "string",
+    "description": "The ingress settings for the function. Allowed values are ALLOW_ALL, ALLOW_INTERNAL_AND_GCLB and ALLOW_INTERNAL_ONLY. Changes to this field will recreate the cloud function.",
+    "default": "\"ALLOW_ALL\"",
+    "required": false
+  },
+  {
+    "name": "kms_key_name",
+    "type": "string",
+    "description": "Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "environment_variables",
+    "type": "map(string)",
+    "description": "A set of key/value environment variable pairs to assign to the function.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name to apply to any nameable resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "log_object_prefix",
+    "type": "string",
+    "description": "Log object prefix",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "event_trigger",
+    "type": "map(string)",
+    "description": "A source that fires events in response to a condition in another service.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project to which resources will be applied.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "secret_environment_variables",
+    "type": "list(map(string))",
+    "description": "A list of maps which contains key, project_id, secret_name (not the full secret id) and version to assign to the function as a set of secret environment variables.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "service_account_email",
+    "type": "string",
+    "description": "The service account to run the function as.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "vpc_connector",
+    "type": "string",
+    "description": "The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "docker_registry",
+    "type": "string",
+    "description": "Docker Registry to use for storing the function's Docker images. Allowed values are CONTAINER_REGISTRY (default) and ARTIFACT_REGISTRY.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "source_directory",
+    "type": "string",
+    "description": "The pathname of the directory which contains the function source code.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "source_dependent_files",
+    "type": "list(object({\n    filename = string\n    id       = string\n  }))",
+    "description": "A list of any Terraform created `local_file`s that the module will wait for before creating the archive.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "timeout_s",
+    "type": "number",
+    "description": "The amount of time in seconds allotted for the execution of the function.",
+    "default": "60",
+    "required": false
+  },
+  {
+    "name": "bucket_labels",
+    "type": "map(string)",
+    "description": "A set of key/value label pairs to assign to the function source archive bucket.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "bucket_name",
+    "type": "string",
+    "description": "The name to apply to the bucket. Will default to a string of the function name.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "bucket_force_destroy",
+    "type": "bool",
+    "description": "When deleting the GCS bucket containing the cloud function, delete all objects in the bucket first.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "entry_point",
+    "type": "string",
+    "description": "The name of a method in the function source which will be invoked when the function is executed.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "log_bucket",
+    "type": "string",
+    "description": "Log bucket",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "A set of key/value label pairs to assign to the Cloud Function.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "build_environment_variables",
+    "type": "map(string)",
+    "description": "A set of key/value environment variable pairs available during build time.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "docker_repository",
+    "type": "string",
+    "description": "User managed repository created in Artifact Registry optionally with a customer managed encryption key. If specified, deployments will use Artifact Registry.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "The description of the function.",
+    "default": "\"Processes events.\"",
+    "required": false
+  },
+  {
+    "name": "files_to_exclude_in_source_dir",
+    "type": "list(string)",
+    "description": "Specify files to ignore when reading the source_dir",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "max_instances",
+    "type": "number",
+    "description": "The maximum number of parallel executions of the function.",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "create_bucket",
+    "type": "bool",
+    "description": "Whether to create a new bucket or use an existing one. If false, `bucket_name` should reference the name of the alternate bucket to use.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "vpc_connector_egress_settings",
+    "type": "string",
+    "description": "The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value.",
+    "default": "null",
+    "required": false
+  }
+]

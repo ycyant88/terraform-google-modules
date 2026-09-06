@@ -1,0 +1,11 @@
+module "network" {
+  source           = "terraform-google-modules/network/google"
+  version          = "0.5.0"
+  network_name     = var.network_name
+  project_id       = var.project_id
+  routes           = var.routes
+  routing_mode     = var.routing_mode
+  secondary_ranges = var.secondary_ranges
+  shared_vpc_host  = var.shared_vpc_host
+  subnets          = var.subnets
+}

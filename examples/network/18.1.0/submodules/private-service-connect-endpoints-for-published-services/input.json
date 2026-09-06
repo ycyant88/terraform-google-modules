@@ -1,0 +1,79 @@
+[
+  {
+    "name": "address_name",
+    "type": "string",
+    "description": "Private Service Connect Endpoint address name.",
+    "default": "\"psc-for-published-services-endpoint-address\"",
+    "required": false
+  },
+  {
+    "name": "ip_version",
+    "type": "string",
+    "description": "`IPv4`or `IPv6`. Only set this field when private_service_connect_ip is unset. If both ip_address and ip_version are unset, GCP will pick an IPv4 address.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "service_attachment",
+    "type": "string",
+    "description": "The target service attachment resource URL for this Private Service Connect Endpoint.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "service_directory_namespace",
+    "type": "string",
+    "description": "Service Directory namespace to register the forwarding rule under.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project ID in which to provision the resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region in which to provision the resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "ip_address",
+    "type": "string",
+    "description": "Private Service Connect Endpoint IP address. GCP will pick an IP if left unset.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "psc_global_access",
+    "type": "bool",
+    "description": "Whether to allow Private Service Connect global access.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Name, id or self link of the network to create resources in. For Shared VPC case, use network self link.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "Name, id or self link of the subnetwork to create resources in. For Shared VPC case, use subnetwork self link.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "forwarding_rule_name",
+    "type": "string",
+    "description": "Private Service Connect Forwarding Rule resource name. Follow regular GCE naming pattern: https://docs.cloud.google.com/compute/docs/naming-resources#resource-name-format.",
+    "default": "\"psc-for-published-services-endpoint\"",
+    "required": false
+  }
+]

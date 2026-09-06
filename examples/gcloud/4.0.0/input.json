@@ -1,0 +1,128 @@
+[
+  {
+    "name": "platform",
+    "type": "string",
+    "description": "Platform CLI will run on. Defaults to linux. Valid values: linux, darwin",
+    "default": "\"linux\"",
+    "required": false
+  },
+  {
+    "name": "service_account_key_file",
+    "type": "string",
+    "description": "Path to service account key file to run `gcloud auth activate-service-account` with. Optional.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "activate_service_account",
+    "type": "bool",
+    "description": "Set to false to skip running `gcloud auth activate-service-account`. Optional.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "gcloud_sdk_version",
+    "type": "string",
+    "description": "The gcloud sdk version to download.",
+    "default": "\"481.0.0\"",
+    "required": false
+  },
+  {
+    "name": "enabled",
+    "type": "bool",
+    "description": "Flag to optionally disable usage of this module.",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "skip_download",
+    "type": "bool",
+    "description": "Whether to skip downloading gcloud (assumes gcloud is already available outside the module)",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "create_cmd_entrypoint",
+    "type": "string",
+    "description": "On create, the command entrypoint you'd like to use. Can also be set to a custom script. Module's bin directory will be prepended to path.",
+    "default": "\"gcloud\"",
+    "required": false
+  },
+  {
+    "name": "create_cmd_triggers",
+    "type": "map(any)",
+    "description": "List of any additional triggers to re-run the create command execution when either of values in the maps change. Some keys are reserved and will be overwritten if specified in this option. (eg. `md5`, `arguments`, `download_gcloud_command`, `download_jq_command`, etc. See details in [the source](https://github.com/terraform-google-modules/terraform-google-gcloud/blob/master/main.tf).)",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "destroy_cmd_body",
+    "type": "string",
+    "description": "On destroy, the command body you'd like to run with your entrypoint.",
+    "default": "\"info\"",
+    "required": false
+  },
+  {
+    "name": "gcloud_download_url",
+    "type": "string",
+    "description": "Custom gcloud download url. Optional.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "upgrade",
+    "type": "bool",
+    "description": "Whether to upgrade gcloud at runtime",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "module_depends_on",
+    "type": "list(any)",
+    "description": "List of modules or resources this module depends on.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "destroy_cmd_entrypoint",
+    "type": "string",
+    "description": "On destroy, the command entrypoint you'd like to use.  Can also be set to a custom script. Module's bin directory will be prepended to path.",
+    "default": "\"gcloud\"",
+    "required": false
+  },
+  {
+    "name": "jq_download_url",
+    "type": "string",
+    "description": "Custom jq download url. Optional.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "create_cmd_body",
+    "type": "string",
+    "description": "On create, the command body you'd like to run with your entrypoint.",
+    "default": "\"info\"",
+    "required": false
+  },
+  {
+    "name": "additional_components",
+    "type": "list(string)",
+    "description": "Additional gcloud CLI components to install. Defaults to none. Valid value are components listed in `gcloud components list`",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "use_tf_google_credentials_env_var",
+    "type": "bool",
+    "description": "Use `GOOGLE_CREDENTIALS` environment variable to run `gcloud auth activate-service-account` with. Optional.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "jq_version",
+    "type": "string",
+    "description": "The jq version to download.",
+    "default": "\"1.6\"",
+    "required": false
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "ids",
+    "description": "Folder ids."
+  },
+  {
+    "name": "id",
+    "description": "Folder id (for single use)."
+  },
+  {
+    "name": "folders",
+    "description": "Folder resources as list."
+  },
+  {
+    "name": "folders_map",
+    "description": "Folder resources by name."
+  },
+  {
+    "name": "names",
+    "description": "Folder names."
+  },
+  {
+    "name": "ids_list",
+    "description": "List of folder ids."
+  },
+  {
+    "name": "names_list",
+    "description": "List of folder names."
+  },
+  {
+    "name": "per_folder_admins",
+    "description": "IAM-style members per folder who will get extended permissions."
+  },
+  {
+    "name": "folder",
+    "description": "Folder resource (for single use)."
+  },
+  {
+    "name": "name",
+    "description": "Folder name (for single use)."
+  }
+]

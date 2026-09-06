@@ -1,0 +1,184 @@
+[
+  {
+    "name": "region",
+    "type": "string",
+    "description": "Region to deploy the resources. Should be in the same region as the zone.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "instance_name",
+    "type": "string",
+    "description": "A unique name for the resource, required by GCE. Changing this forces a new resource to be created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "linux_image_family",
+    "type": "string",
+    "description": "GCE image family.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "pd_kms_key",
+    "type": "string",
+    "description": "Customer managed encryption key to use in persistent disks. If none provided, a Google managed key will be used.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subnetwork",
+    "type": "string",
+    "description": "The name or self_link of the subnetwork where the isntance will be deployed. The subnetwork must exist in the same region this instance will be created in.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sap_deployment_debug",
+    "type": "string",
+    "description": "Debug flag for Netweaver deployment.",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "linux_image_project",
+    "type": "string",
+    "description": "Project name containing the linux image.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "usr_sap_size",
+    "type": "string",
+    "description": "USR SAP size",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "swap_size",
+    "type": "string",
+    "description": "SWAP Size",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "disk_type",
+    "type": "string",
+    "description": "The GCE data disk type. May be set to pd-standard (for PD HDD) or pd-ssd.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "device_0",
+    "type": "string",
+    "description": "Device name",
+    "default": "\"boot\"",
+    "required": false
+  },
+  {
+    "name": "device_3",
+    "type": "string",
+    "description": "Device name",
+    "default": "\"swap\"",
+    "required": false
+  },
+  {
+    "name": "startup_script",
+    "type": "string",
+    "description": "This will reference the startup.sh script files in the files folder for netweaver set up in the instance",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "The zone that the instance should be created in.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "sap_mnt_size",
+    "type": "string",
+    "description": "SAP mount size",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "boot_disk_size",
+    "type": "string",
+    "description": "Root disk size in GB.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "boot_disk_type",
+    "type": "string",
+    "description": "The GCE boot disk type. May be set to pd-standard (for PD HDD) or pd-ssd.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "public_ip",
+    "type": "string",
+    "description": "Determines whether a public IP address is added to your VM instance.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "device_1",
+    "type": "string",
+    "description": "Device name",
+    "default": "\"usrsap\"",
+    "required": false
+  },
+  {
+    "name": "device_2",
+    "type": "string",
+    "description": "Device name",
+    "default": "\"sapmnt\"",
+    "required": false
+  },
+  {
+    "name": "post_deployment_script",
+    "type": "string",
+    "description": "Netweaver post deployment script. Must be a gs:// or https:// link to the script.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project in which the resources will be deployed.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "instance_type",
+    "type": "string",
+    "description": "The GCE instance/machine type.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "autodelete_disk",
+    "type": "string",
+    "description": "Whether the disk will be auto-deleted when the instance is deleted.",
+    "default": "\"false\"",
+    "required": false
+  },
+  {
+    "name": "service_account_email",
+    "type": "string",
+    "description": "Email of service account to attach to the instance.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_tags",
+    "type": "list",
+    "description": "List of network tags to attach to the instance.",
+    "default": "[]",
+    "required": false
+  }
+]

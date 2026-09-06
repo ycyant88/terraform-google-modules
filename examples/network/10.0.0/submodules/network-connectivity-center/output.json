@@ -1,0 +1,22 @@
+[
+  {
+    "name": "router_appliance_spokes",
+    "description": "All router appliance spoke objects"
+  },
+  {
+    "name": "spokes",
+    "description": "All spoke objects prefixed with the type of spoke (vpc, hybrid, appliance)"
+  },
+  {
+    "name": "ncc_hub",
+    "description": "The NCC Hub object"
+  },
+  {
+    "name": "vpc_spokes",
+    "description": "All vpc spoke objects"
+  },
+  {
+    "name": "hybrid_spokes",
+    "description": "All hybrid spoke objects"
+  }
+]

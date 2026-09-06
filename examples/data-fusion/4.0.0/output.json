@@ -1,0 +1,10 @@
+[
+  {
+    "name": "instance",
+    "description": "The created CDF instance"
+  },
+  {
+    "name": "tenant_project",
+    "description": "The Google managed tenant project ID in which the instance will run its jobs"
+  }
+]

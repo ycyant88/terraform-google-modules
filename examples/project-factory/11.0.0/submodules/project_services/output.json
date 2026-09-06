@@ -1,0 +1,14 @@
+[
+  {
+    "name": "project_id",
+    "description": "The GCP project you want to enable APIs on"
+  },
+  {
+    "name": "enabled_apis",
+    "description": "Enabled APIs in the project"
+  },
+  {
+    "name": "enabled_api_identities",
+    "description": "Enabled API identities in the project"
+  }
+]

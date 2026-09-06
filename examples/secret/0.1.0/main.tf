@@ -1,0 +1,9 @@
+module "secret" {
+  source                = "terraform-google-modules/secret/google"
+  version               = "0.1.0"
+  application_name      = var.application_name
+  credentials_file_path = var.credentials_file_path
+  env                   = var.env
+  secret                = var.secret
+  shared                = var.shared
+}

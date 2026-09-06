@@ -1,0 +1,86 @@
+[
+  {
+    "name": "include_children",
+    "type": "bool",
+    "description": "Only valid if 'organization' or 'folder' is chosen as var.parent_resource.type. Determines whether or not to include children organizations/folders in the sink export. If true, logs associated with child projects are also exported; otherwise only logs relating to the provided organization/folder are included.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "log_sink_name",
+    "type": "string",
+    "description": "The name of the log sink to be created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "parent_resource_id",
+    "type": "string",
+    "description": "The ID of the GCP resource in which you create the log sink. If var.parent_resource_type is set to 'project', then this is the Project ID (and etc).",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "unique_writer_identity",
+    "type": "bool",
+    "description": "Whether or not to create a unique identity associated with this sink. If false (the default), then the writer_identity used is serviceAccount:cloud-logs@system.gserviceaccount.com. If true, then a unique service account is created and used for the logging sink.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "exclusions",
+    "type": "list(object({\n    name        = string,\n    description = string,\n    filter      = string,\n    disabled    = bool\n  }))",
+    "description": "(Optional) A list of sink exclusion filters.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "destination_uri",
+    "type": "string",
+    "description": "The self_link URI of the destination resource (This is available as an output coming from one of the destination submodules)",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "filter",
+    "type": "string",
+    "description": "The filter to apply when exporting logs. Only log entries that match the filter are exported. Default is '' which exports all logs.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "intercept_children",
+    "type": "bool",
+    "description": "Only valid if 'organization' or 'folder' is chosen as var.parent_resource.type. Whether or not to intercept logs from child projects. If true, matching logs will not match with sinks in child resources, except _Required sinks. This sink will be visible to child resources when listing sinks.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "A description of this sink. The maximum length of the description is 8000 characters.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "parent_resource_type",
+    "type": "string",
+    "description": "The GCP resource in which you create the log sink. The value must not be computed, and must be one of the following: 'project', 'folder', 'billing_account', or 'organization'.",
+    "default": "\"project\"",
+    "required": false
+  },
+  {
+    "name": "bigquery_options",
+    "type": "object({\n    use_partitioned_tables = bool\n  })",
+    "description": "(Optional) Options that affect sinks exporting data to BigQuery. use_partitioned_tables - (Required) Whether to use BigQuery's partition tables.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "disabled",
+    "type": "bool",
+    "description": "(Optional) If set to true, then the sink is disabled and it does not export any log entries.",
+    "default": "false",
+    "required": false
+  }
+]

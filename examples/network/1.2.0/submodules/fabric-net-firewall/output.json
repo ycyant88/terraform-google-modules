@@ -1,0 +1,10 @@
+[
+  {
+    "name": "internal_ranges",
+    "description": "Internal ranges."
+  },
+  {
+    "name": "admin_ranges",
+    "description": "Admin ranges data."
+  }
+]

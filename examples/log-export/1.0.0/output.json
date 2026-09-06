@@ -1,0 +1,14 @@
+[
+  {
+    "name": "sink",
+    "description": ""
+  },
+  {
+    "name": "destination",
+    "description": ""
+  },
+  {
+    "name": "pubsub_subscriber",
+    "description": ""
+  }
+]

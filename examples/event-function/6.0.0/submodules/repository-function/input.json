@@ -1,0 +1,142 @@
+[
+  {
+    "name": "environment_variables",
+    "type": "map(string)",
+    "description": "A set of key/value environment variable pairs to assign to the function.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "event_trigger",
+    "type": "map(string)",
+    "description": "A source that fires events in response to a condition in another service.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "A set of key/value label pairs to assign to any lableable resources.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "service_account_email",
+    "type": "string",
+    "description": "The service account to run the function as.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "max_instances",
+    "type": "number",
+    "description": "The maximum number of parallel executions of the function.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "The description of the function.",
+    "default": "\"Processes events.\"",
+    "required": false
+  },
+  {
+    "name": "entry_point",
+    "type": "string",
+    "description": "The name of a method in the function source which will be invoked when the function is executed.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project to which resources will be applied.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "source_repository_url",
+    "type": "string",
+    "description": "The URL of the repository which contains the function source code.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "timeout_s",
+    "type": "number",
+    "description": "The amount of time in seconds allotted for the execution of the function.",
+    "default": "60",
+    "required": false
+  },
+  {
+    "name": "event_trigger_failure_policy_retry",
+    "type": "bool",
+    "description": "A toggle to determine if the function should be retried on failure.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "map(string)",
+    "description": "Timeout setting to customize how long certain operations(create, update, delete) are allowed to take before being considered to have failed.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "trigger_http",
+    "type": "bool",
+    "description": "Wheter to use HTTP trigger instead of the event trigger.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name to apply to any nameable resources.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region in which resources will be applied.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "runtime",
+    "type": "string",
+    "description": "The runtime in which the function will be executed.",
+    "default": "\"nodejs6\"",
+    "required": false
+  },
+  {
+    "name": "ingress_settings",
+    "type": "string",
+    "description": "The ingress settings for the function. Allowed values are ALLOW_ALL, ALLOW_INTERNAL_AND_GCLB and ALLOW_INTERNAL_ONLY. Changes to this field will recreate the cloud function.",
+    "default": "\"ALLOW_ALL\"",
+    "required": false
+  },
+  {
+    "name": "vpc_connector_egress_settings",
+    "type": "string",
+    "description": "The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "vpc_connector",
+    "type": "string",
+    "description": "The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "available_memory_mb",
+    "type": "number",
+    "description": "The amount of memory in megabytes allotted for the function to use.",
+    "default": "256",
+    "required": false
+  }
+]

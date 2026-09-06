@@ -1,0 +1,100 @@
+[
+  {
+    "name": "alternative_location_id",
+    "type": "string",
+    "description": "The alternative zone where the instance will be provisioned.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "display_name",
+    "type": "string",
+    "description": "An arbitrary and optional user-provided name for the instance.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "reserved_ip_range",
+    "type": "string",
+    "description": "The CIDR range of internal addresses that are reserved for this instance.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "connect_mode",
+    "type": "string",
+    "description": "The connection mode of the Redis instance. Can be either DIRECT_PEERING or PRIVATE_SERVICE_ACCESS. The default connect mode if not provided is DIRECT_PEERING.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "The resource labels to represent user provided metadata.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The GCP region to use.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The ID of the project in which the resource belongs to.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The ID of the instance or a fully qualified identifier for the instance.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "authorized_network",
+    "type": "string",
+    "description": "The full name of the Google Compute Engine network to which the instance is connected. If left unspecified, the default network will be used.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "tier",
+    "type": "string",
+    "description": "The service tier of the instance. https://cloud.google.com/memorystore/docs/redis/reference/rest/v1/projects.locations.instances#Tier",
+    "default": "\"STANDARD_HA\"",
+    "required": false
+  },
+  {
+    "name": "memory_size_gb",
+    "type": "number",
+    "description": "Redis memory size in GiB. Defaulted to 1 GiB",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "location_id",
+    "type": "string",
+    "description": "The zone where the instance will be provisioned. If not provided, the service will choose a zone for the instance. For STANDARD_HA tier, instances will be created across two zones for protection against zonal failures. If [alternativeLocationId] is also provided, it must be different from [locationId].",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "redis_version",
+    "type": "string",
+    "description": "The version of Redis software.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "enable_apis",
+    "type": "bool",
+    "description": "Flag for enabling redis.googleapis.com in your project",
+    "default": "true",
+    "required": false
+  }
+]

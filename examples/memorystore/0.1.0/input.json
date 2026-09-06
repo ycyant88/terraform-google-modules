@@ -1,0 +1,93 @@
+[
+  {
+    "name": "alternative_location_id",
+    "type": "string",
+    "description": "The alternative zone where the instance will be provisioned.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "redis_version",
+    "type": "string",
+    "description": "The version of Redis software.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "reserved_ip_range",
+    "type": "string",
+    "description": "The CIDR range of internal addresses that are reserved for this instance.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map",
+    "description": "The resource labels to represent user provided metadata.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The GCP region to use.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The ID of the instance or a fully qualified identifier for the instance.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "authorized_network",
+    "type": "string",
+    "description": "The name of the memorystore authorized network.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "display_name",
+    "type": "string",
+    "description": "An arbitrary and optional user-provided name for the instance.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "enable_apis",
+    "type": "string",
+    "description": "Enable required APIs for Cloud Memorystore.",
+    "default": "\"true\"",
+    "required": false
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The ID of the project in which the resource belongs to.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "tier",
+    "type": "string",
+    "description": "The service tier of the instance.",
+    "default": "\"STANDARD_HA\"",
+    "required": false
+  },
+  {
+    "name": "memory_size_gb",
+    "type": "string",
+    "description": "Redis memory size in GiB.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location_id",
+    "type": "string",
+    "description": "The zone where the instance will be provisioned.",
+    "default": "\"\"",
+    "required": false
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "policy",
+    "description": "Resource snapshot policy details."
+  },
+  {
+    "name": "attachments",
+    "description": "Disk attachments to the resource policy."
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project in which the resource belongs.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The location (zone or region) this cluster has been created in.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "gcloud_sdk_version",
+    "type": "string",
+    "description": "The gcloud sdk version to use. Minimum required version is 293.0.0",
+    "default": "\"296.0.1\"",
+    "required": false
+  },
+  {
+    "name": "asm_dir",
+    "type": "string",
+    "description": "Name of directory to keep ASM resource config files.",
+    "default": "\"asm-dir\"",
+    "required": false
+  },
+  {
+    "name": "asm_version",
+    "type": "string",
+    "description": "ASM version to deploy. Available versions are documented in https://github.com/GoogleCloudPlatform/anthos-service-mesh-packages",
+    "default": "\"release-1.6-asm\"",
+    "required": false
+  },
+  {
+    "name": "service_account_key_file",
+    "type": "string",
+    "description": "Path to service account key file to auth as for running `gcloud container clusters get-credentials`.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "The unique name to identify the cluster in ASM.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cluster_endpoint",
+    "type": "string",
+    "description": "The GKE cluster endpoint.",
+    "default": "",
+    "required": true
+  }
+]

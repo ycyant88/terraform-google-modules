@@ -1,0 +1,146 @@
+[
+  {
+    "name": "cluster_id",
+    "description": "Cluster ID"
+  },
+  {
+    "name": "http_load_balancing_enabled",
+    "description": "Whether http load balancing enabled"
+  },
+  {
+    "name": "secret_manager_addon_enabled",
+    "description": "Whether Secret Manager add-on is enabled"
+  },
+  {
+    "name": "type",
+    "description": "Cluster type (regional / zonal)"
+  },
+  {
+    "name": "logging_service",
+    "description": "Logging service used"
+  },
+  {
+    "name": "monitoring_service",
+    "description": "Monitoring service used"
+  },
+  {
+    "name": "instance_group_urls",
+    "description": "List of GKE generated instance groups"
+  },
+  {
+    "name": "release_channel",
+    "description": "The release channel of this cluster"
+  },
+  {
+    "name": "fleet_membership",
+    "description": "Fleet membership (if registered)"
+  },
+  {
+    "name": "endpoint",
+    "description": "Cluster endpoint"
+  },
+  {
+    "name": "endpoint_dns",
+    "description": "Cluster endpoint DNS"
+  },
+  {
+    "name": "master_version",
+    "description": "Current master kubernetes version"
+  },
+  {
+    "name": "network_policy_enabled",
+    "description": "Whether network policy enabled"
+  },
+  {
+    "name": "gateway_api_channel",
+    "description": "The gateway api channel of this cluster."
+  },
+  {
+    "name": "cloudrun_enabled",
+    "description": "Whether CloudRun enabled"
+  },
+  {
+    "name": "pod_security_policy_enabled",
+    "description": "Whether pod security policy is enabled"
+  },
+  {
+    "name": "vertical_pod_autoscaling_enabled",
+    "description": "Whether vertical pod autoscaling enabled"
+  },
+  {
+    "name": "region",
+    "description": "Cluster region"
+  },
+  {
+    "name": "ca_certificate",
+    "description": "Cluster ca certificate (base64 encoded)"
+  },
+  {
+    "name": "node_pools_names",
+    "description": "List of node pools names"
+  },
+  {
+    "name": "node_pools_versions",
+    "description": "Node pool versions by node pool name"
+  },
+  {
+    "name": "intranode_visibility_enabled",
+    "description": "Whether intra-node visibility is enabled"
+  },
+  {
+    "name": "identity_namespace",
+    "description": "Workload Identity pool"
+  },
+  {
+    "name": "mesh_certificates_config",
+    "description": "Mesh certificates configuration"
+  },
+  {
+    "name": "name",
+    "description": "Cluster name"
+  },
+  {
+    "name": "location",
+    "description": "Cluster location (region if regional cluster, zone if zonal cluster)"
+  },
+  {
+    "name": "min_master_version",
+    "description": "Minimum master kubernetes version"
+  },
+  {
+    "name": "peering_name",
+    "description": "The name of the peering between this cluster and the Google owned VPC."
+  },
+  {
+    "name": "master_authorized_networks_config",
+    "description": "Networks from which access to master is permitted"
+  },
+  {
+    "name": "service_account",
+    "description": "The service account to default running nodes as if not overridden in `node_pools`."
+  },
+  {
+    "name": "master_ipv4_cidr_block",
+    "description": "The IP range in CIDR notation used for the hosted master network"
+  },
+  {
+    "name": "dns_cache_enabled",
+    "description": "Whether DNS Cache enabled"
+  },
+  {
+    "name": "zones",
+    "description": "List of zones in which the cluster resides"
+  },
+  {
+    "name": "horizontal_pod_autoscaling_enabled",
+    "description": "Whether horizontal pod autoscaling enabled"
+  },
+  {
+    "name": "tpu_ipv4_cidr_block",
+    "description": "The IP range in CIDR notation used for the TPUs"
+  },
+  {
+    "name": "identity_service_enabled",
+    "description": "Whether Identity Service is enabled"
+  }
+]

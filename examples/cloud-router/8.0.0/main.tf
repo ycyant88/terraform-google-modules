@@ -1,0 +1,12 @@
+module "cloud-router" {
+  source                        = "terraform-google-modules/cloud-router/google"
+  version                       = "8.0.0"
+  bgp                           = var.bgp
+  description                   = var.description
+  encrypted_interconnect_router = var.encrypted_interconnect_router
+  name                          = var.name
+  nats                          = var.nats
+  network                       = var.network
+  project_id                    = var.project_id
+  region                        = var.region
+}

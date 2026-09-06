@@ -1,0 +1,72 @@
+[
+  {
+    "name": "region",
+    "type": "string",
+    "description": "The region of the instance.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "type",
+    "type": "string",
+    "description": "Represents the type of the instance (BASIC or ENTERPRISE)",
+    "default": "\"ENTERPRISE\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "The resource labels for instance to use to annotate any related underlying resources, such as Compute Engine VMs.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "datafusion_version",
+    "type": "string",
+    "description": "Data Fusion Version to deploy.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "network",
+    "type": "string",
+    "description": "Name for VPC to create or reuse to be configured for use with private Data Fusion instance.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "An optional description of the instance.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "options",
+    "type": "map(string)",
+    "description": "Map of additional options used to configure the behavior of Data Fusion instance.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the instance.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project",
+    "type": "string",
+    "description": "The project ID to deploy to.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "dataproc_subnet",
+    "type": "string",
+    "description": "Name for subnet to create and configure for Dataproc clusters controlled by private Data Fusion instance.",
+    "default": "\"dataproc-subnet\"",
+    "required": false
+  }
+]

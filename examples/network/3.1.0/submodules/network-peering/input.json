@@ -1,0 +1,44 @@
+[
+  {
+    "name": "module_depends_on",
+    "type": "list(any)",
+    "description": "List of modules or resources this module depends on.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "prefix",
+    "type": "string",
+    "description": "Name prefix for the network peerings",
+    "default": "\"network-peering\"",
+    "required": false
+  },
+  {
+    "name": "local_network",
+    "type": "string",
+    "description": "Resource link of the network to add a peering to.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "peer_network",
+    "type": "string",
+    "description": "Resource link of the peer network.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "export_peer_custom_routes",
+    "type": "bool",
+    "description": "Export custom routes to local network from peer network.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "export_local_custom_routes",
+    "type": "bool",
+    "description": "Export custom routes to peer network from local network.",
+    "default": "false",
+    "required": false
+  }
+]

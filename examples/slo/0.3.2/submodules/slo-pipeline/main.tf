@@ -1,0 +1,22 @@
+module "slo" {
+  source                              = "terraform-google-modules/slo/google"
+  version                             = "0.3.2"
+  dataset_create                      = var.dataset_create
+  dataset_default_table_expiration_ms = var.dataset_default_table_expiration_ms
+  exporters                           = var.exporters
+  function_bucket_name                = var.function_bucket_name
+  function_memory                     = var.function_memory
+  function_name                       = var.function_name
+  function_source_directory           = var.function_source_directory
+  function_timeout                    = var.function_timeout
+  grant_iam_roles                     = var.grant_iam_roles
+  project_id                          = var.project_id
+  pubsub_topic_name                   = var.pubsub_topic_name
+  region                              = var.region
+  service_account_email               = var.service_account_email
+  service_account_name                = var.service_account_name
+  slo_generator_version               = var.slo_generator_version
+  storage_bucket_location             = var.storage_bucket_location
+  storage_bucket_storage_class        = var.storage_bucket_storage_class
+  use_custom_service_account          = var.use_custom_service_account
+}

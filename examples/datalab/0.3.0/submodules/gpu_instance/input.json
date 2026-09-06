@@ -1,0 +1,163 @@
+[
+  {
+    "name": "fluentd_docker_image",
+    "type": "string",
+    "description": "Fluentd docker image to use",
+    "default": "\"gcr.io/google-containers/fluentd-gcp:2.0.17\"",
+    "required": false
+  },
+  {
+    "name": "datalab_enable_swap",
+    "type": "bool",
+    "description": "Enable swap on the Datalab instance",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "datalab_user_email",
+    "type": "string",
+    "description": "Create the Datalab instance on behalf of the specified user",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "datalab_docker_image",
+    "type": "string",
+    "description": "Datalab docker image to use",
+    "default": "\"gcr.io/cloud-datalab/datalab-gpu:latest\"",
+    "required": false
+  },
+  {
+    "name": "service_account",
+    "type": "string",
+    "description": "The service account attached to the Datalab instance. If empty the default Google Compute Engine service account is used",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "create_disk",
+    "type": "bool",
+    "description": "Create a persistent data disk",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "gpu_count",
+    "type": "string",
+    "description": "Number of GPUs for the Datalab instance. Valid values are: 0, 1, 2, 4, 8",
+    "default": "0",
+    "required": false
+  },
+  {
+    "name": "boot_disk_size_gb",
+    "type": "string",
+    "description": "The boot disk size in gb for the Datalab instance",
+    "default": "20",
+    "required": false
+  },
+  {
+    "name": "existing_disk_name",
+    "type": "string",
+    "description": "Name of an existing persistent disk you want to use",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_name",
+    "type": "string",
+    "description": "The network the Datalab instance will be in",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "persistent_disk_size_gb",
+    "type": "number",
+    "description": "The persistent disk size in gb for the Datalab instance",
+    "default": "200",
+    "required": false
+  },
+  {
+    "name": "create_fw_rule",
+    "type": "bool",
+    "description": "Flag to create Firewall rule for SSH access to Datalab",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID used for the Datalab instance",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the Datalab instance",
+    "default": "\"datalab\"",
+    "required": false
+  },
+  {
+    "name": "machine_type",
+    "type": "string",
+    "description": "The machine type for the Datalab instance",
+    "default": "\"n1-standard-2\"",
+    "required": false
+  },
+  {
+    "name": "datalab_enable_backup",
+    "type": "bool",
+    "description": "Automatically backup the disk contents to Cloud Storage",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "datalab_console_log_level",
+    "type": "string",
+    "description": "The log level for which log entries from the Datalab instance will be written to StackDriver logging. Valid choices: (trace,debug,info,warn,error,fatal)",
+    "default": "\"warn\"",
+    "required": false
+  },
+  {
+    "name": "datalab_idle_timeout",
+    "type": "string",
+    "description": "Interval after which an idle Datalab instance will shut down. You can specify a mix of days, hours, minutes and seconds using those names or d, h, m and s, for example 1h 30m. Specify 0s to disable",
+    "default": "\"60m\"",
+    "required": false
+  },
+  {
+    "name": "gpu_type",
+    "type": "string",
+    "description": "The GPU type for the Datalab instance",
+    "default": "\"nvidia-tesla-k80\"",
+    "required": false
+  },
+  {
+    "name": "append_to_startup_script",
+    "type": "string",
+    "description": "Full path to file with content to be added to the startup script.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "The zone the Datalab instance will be deployed to",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "subnet_name",
+    "type": "string",
+    "description": "The subnet the Datalab instance will be in",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "A map of key/value label pairs to assign to the instance.",
+    "default": "{}",
+    "required": false
+  }
+]

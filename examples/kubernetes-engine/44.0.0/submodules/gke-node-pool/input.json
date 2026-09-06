@@ -1,0 +1,128 @@
+[
+  {
+    "name": "name_prefix",
+    "type": "string",
+    "description": "Creates a unique name for the node pool beginning with the specified prefix. Conflicts with name.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "network_config",
+    "type": "object({\n    create_pod_range     = optional(bool)\n    enable_private_nodes = optional(bool)\n    pod_ipv4_cidr_block  = optional(string)\n    pod_range            = optional(string)\n    additional_node_network_configs = optional(list(object({\n      network    = string\n      subnetwork = string\n    })))\n    additional_pod_network_configs = optional(list(object({\n      subnetwork          = string\n      secondary_pod_range = string\n      max_pods_per_node   = number\n    })))\n    pod_cidr_overprovision_config = optional(object({\n      disabled = bool\n    }))\n    network_performance_config = optional(object({\n      total_egress_bandwidth_tier = string\n    }))\n  })",
+    "description": "The network configuration of the pool.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "placement_policy",
+    "type": "object({\n    type         = string\n    policy_name  = optional(string)\n    tpu_topology = optional(string)\n  })",
+    "description": "  Specifies a custom placement policy for the nodes.\n    - type: The type of the policy. Supports a single value: COMPACT. Specifying COMPACT placement policy type places node pool's nodes in a closer physical proximity in order to reduce network latency between nodes.\n    - policy_name: If set, refers to the name of a custom resource policy supplied by the user. The resource policy must be in the same project and region as the node pool. If not found, InvalidArgument error is returned.\n    - tpu_topology: The TPU topology like \"2x4\" or \"2x2x2\".\n",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "queued_provisioning",
+    "type": "object({\n    enabled = bool\n  })",
+    "description": "  Specifies node pool-level settings of queued provisioning.\n    - enabled (Required) - Makes nodes obtainable through the ProvisioningRequest API exclusively.\n",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "timeouts",
+    "type": "object({\n    create = optional(string)\n    update = optional(string)\n    delete = optional(string)\n  })",
+    "description": "Timeout for cluster operations.",
+    "default": "{\n  \"create\": \"45m\",\n  \"delete\": \"45m\",\n  \"update\": \"45m\"\n}",
+    "required": false
+  },
+  {
+    "name": "cluster",
+    "type": "string",
+    "description": "The cluster to create the node pool for. Cluster must be present in location provided for clusters. May be specified in the format projects/{project_id}/locations/{location}/clusters/{cluster} or as just the name of the cluster.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "autoscaling",
+    "type": "object({\n    min_node_count       = optional(number)\n    max_node_count       = optional(number)\n    total_min_node_count = optional(number)\n    total_max_node_count = optional(number)\n    location_policy      = optional(string)\n  })",
+    "description": "Configuration required by cluster autoscaler to adjust the size of the node pool to the current cluster usage.",
+    "default": "{\n  \"max_node_count\": 100,\n  \"min_node_count\": 1\n}",
+    "required": false
+  },
+  {
+    "name": "management",
+    "type": "object({\n    auto_repair  = optional(bool)\n    auto_upgrade = optional(bool)\n  })",
+    "description": "Node management configuration, wherein auto-repair and auto-upgrade is configured.\n  - auto_repair: Whether the nodes will be automatically repaired. Enabled by default.\n  - auto_upgrade : Whether the nodes will be automatically upgraded. Enabled by default.\n",
+    "default": "{\n  \"auto_repair\": true,\n  \"auto_upgrade\": true\n}",
+    "required": false
+  },
+  {
+    "name": "max_pods_per_node",
+    "type": "number",
+    "description": "The maximum number of pods per node in this node pool. Note that this does not work on node pools which are 'route-based' - that is, node pools belonging to clusters that do not have IP Aliasing enabled. See the [official documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr) for more information.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The ID of the project in which to create the node pool.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "initial_node_count",
+    "type": "number",
+    "description": "The initial number of nodes for the pool. In regional or multi-zonal clusters, this is the number of nodes per zone.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "node_locations",
+    "type": "list(string)",
+    "description": "The list of zones in which the node pool's nodes should be located. Nodes must be in the region of their regional cluster or in the same region as their cluster's zone for zonal clusters. If unspecified, the cluster-level node_locations will be used. Note: node_locations will not revert to the cluster's default set of zones upon being unset. You must manually reconcile the list of zones with your cluster.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "node_count",
+    "type": "number",
+    "description": "The number of nodes per instance group. This field can be used to update the number of nodes per instance group but should not be used alongside autoscaling.",
+    "default": "1",
+    "required": false
+  },
+  {
+    "name": "upgrade_settings",
+    "type": "object({\n    max_surge       = optional(number)\n    max_unavailable = optional(number)\n    strategy        = optional(string)\n    blue_green_settings = optional(object({\n      standard_rollout_policy = object({\n        batch_percentage    = optional(number)\n        batch_node_count    = optional(number)\n        batch_soak_duration = optional(string)\n      })\n      node_pool_soak_duration = optional(string)\n    }))\n  })",
+    "description": "Specify node upgrade settings to change how GKE upgrades nodes.",
+    "default": "{\n  \"max_surge\": 1,\n  \"max_unavailable\": 0,\n  \"strategy\": \"SURGE\"\n}",
+    "required": false
+  },
+  {
+    "name": "kubernetes_version",
+    "type": "string",
+    "description": "The Kubernetes version for the nodes in this pool. Note that if this field and auto_upgrade are both specified, they will fight each other for what the node version should be, so setting both is highly discouraged. While a fuzzy version can be specified, it's recommended that you specify explicit versions as Terraform will see spurious diffs when fuzzy versions are used. See the google_container_engine_versions data source's version_prefix field to approximate fuzzy versions in a Terraform-compatible way.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The location (region or zone) of the cluster.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "The name of the node pool. If left blank, Terraform will auto-generate a unique name.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "node_config",
+    "type": "object({\n    confidential_nodes = optional(object({\n      enabled = bool\n    }))\n    disk_size_gb                = optional(number)\n    disk_type                   = optional(string)\n    enable_confidential_storage = optional(bool)\n    local_ssd_encryption_mode   = optional(string)\n    ephemeral_storage_config = optional(object({\n      local_ssd_count = number\n    }))\n    ephemeral_storage_local_ssd_config = optional(object({\n      local_ssd_count  = number\n      data_cache_count = optional(number)\n    }))\n    fast_socket = optional(object({\n      enabled = bool\n    }))\n    local_nvme_ssd_block_config = optional(object({\n      local_ssd_count = number\n    }))\n    logging_variant = optional(string)\n    secondary_boot_disks = optional(object({\n      disk_image = string\n      mode       = optional(string)\n    }))\n    gcfs_config = optional(object({\n      enabled = bool\n    }))\n    gvnic = optional(object({\n      enabled = bool\n    }))\n    guest_accelerator = optional(object({\n      type  = string\n      count = number\n      gpu_driver_installation_config = optional(object({\n        gpu_driver_version = string\n      }))\n      gpu_partition_size = optional(string)\n      gpu_sharing_config = optional(object({\n        gpu_sharing_strategy       = string\n        max_shared_clients_per_gpu = number\n      }))\n    }))\n    image_type       = optional(string)\n    labels           = optional(map(string))\n    resource_labels  = optional(map(string))\n    max_run_duration = optional(string)\n    flex_start       = optional(bool)\n    local_ssd_count  = optional(number)\n    machine_type     = optional(string)\n    metadata         = optional(map(string))\n    min_cpu_platform = optional(string)\n    oauth_scopes     = optional(list(string))\n    preemptible      = optional(bool)\n    reservation_affinity = optional(object({\n      consume_reservation_type = string\n      key                      = optional(string)\n      values                   = optional(list(string))\n    }))\n    spot = optional(bool)\n    sandbox_config = optional(object({\n      sandbox_type = string\n    }))\n    boot_disk_kms_key = optional(string)\n    service_account   = optional(string)\n    shielded_instance_config = optional(object({\n      enable_secure_boot          = optional(bool)\n      enable_integrity_monitoring = optional(bool)\n    }))\n    storage_pools         = optional(list(string))\n    tags                  = optional(list(string))\n    resource_manager_tags = optional(map(string))\n    taint = optional(list(object({\n      key    = string\n      value  = string\n      effect = string\n    })))\n    workload_metadata_config = optional(object({\n      mode = optional(string)\n    }))\n    kubelet_config = optional(object({\n      cpu_manager_policy                     = optional(string)\n      cpu_cfs_quota                          = optional(bool)\n      cpu_cfs_quota_period                   = optional(string)\n      insecure_kubelet_readonly_port_enabled = optional(bool)\n      pod_pids_limit                         = optional(number)\n      container_log_max_size                 = optional(string)\n      container_log_max_files                = optional(number)\n      image_gc_low_threshold_percent         = optional(number)\n      image_gc_high_threshold_percent        = optional(number)\n      image_minimum_gc_age                   = optional(string)\n      allowed_unsafe_sysctls                 = optional(list(string))\n    }))\n    linux_node_config = optional(object({\n      sysctls     = optional(map(string))\n      cgroup_mode = optional(string)\n      hugepages_config = optional(object({\n        hugepage_size_2m = optional(number)\n        hugepage_size_1g = optional(number)\n      }))\n    }))\n    windows_node_config = optional(object({\n      osversion = string\n    }))\n    containerd_config = optional(object({\n      private_registry_access_config = optional(object({\n        enabled = bool\n        certificate_authority_domain_config = optional(object({\n          fqdns = list(string)\n          gcp_secret_manager_certificate_config = object({\n            secret_uri = string\n          })\n        }))\n      }))\n    }))\n    node_group = optional(string)\n    sole_tenant_config = optional(object({\n      node_affinity = optional(object({\n        key      = string\n        operator = string\n        values   = list(string)\n      }))\n    }))\n  })",
+    "description": "Parameters used in creating the node pool.",
+    "default": "{\n  \"disk_size_gb\": 100,\n  \"disk_type\": \"pd-standard\",\n  \"image_type\": \"COS_CONTAINERD\",\n  \"kubelet_config\": {\n    \"insecure_kubelet_readonly_port_enabled\": false\n  },\n  \"machine_type\": \"e2-medium\",\n  \"workload_metadata_config\": {\n    \"mode\": \"GKE_METADATA\"\n  }\n}",
+    "required": false
+  }
+]

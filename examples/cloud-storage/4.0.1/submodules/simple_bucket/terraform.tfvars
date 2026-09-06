@@ -1,0 +1,35 @@
+bucket_policy_only = true
+
+cors = []
+
+custom_placement_config = null
+
+encryption = null
+
+force_destroy = false
+
+iam_members = []
+
+labels = null
+
+lifecycle_rules = []
+
+location = ""
+
+log_bucket = null
+
+log_object_prefix = null
+
+name = ""
+
+project_id = ""
+
+public_access_prevention = "inherited"
+
+retention_policy = null
+
+storage_class = null
+
+versioning = true
+
+website = {}

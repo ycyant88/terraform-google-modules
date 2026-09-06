@@ -1,0 +1,14 @@
+[
+  {
+    "name": "keyring",
+    "description": "Self link of the keyring."
+  },
+  {
+    "name": "keys",
+    "description": "Map of key name => key self link."
+  },
+  {
+    "name": "keyring_name",
+    "description": "Name of the keyring."
+  }
+]

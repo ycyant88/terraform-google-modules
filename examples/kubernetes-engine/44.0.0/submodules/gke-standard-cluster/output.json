@@ -1,0 +1,82 @@
+[
+  {
+    "name": "endpoint",
+    "description": "Cluster endpoint"
+  },
+  {
+    "name": "logging_service",
+    "description": "Logging service used"
+  },
+  {
+    "name": "master_authorized_networks_config",
+    "description": "Networks from which access to master is permitted"
+  },
+  {
+    "name": "horizontal_pod_autoscaling_enabled",
+    "description": "Whether horizontal pod autoscaling enabled"
+  },
+  {
+    "name": "cluster_name",
+    "description": "Cluster name"
+  },
+  {
+    "name": "node_locations",
+    "description": "The list of zones in which the cluster's nodes are located."
+  },
+  {
+    "name": "vertical_pod_autoscaling_enabled",
+    "description": "Whether vertical pod autoscaling enabled"
+  },
+  {
+    "name": "identity_service_enabled",
+    "description": "Whether Identity Service is enabled"
+  },
+  {
+    "name": "intranode_visibility_enabled",
+    "description": "Whether intra-node visibility is enabled"
+  },
+  {
+    "name": "location",
+    "description": "Cluster location (region if regional cluster, zone if zonal cluster)"
+  },
+  {
+    "name": "min_master_version",
+    "description": "Minimum master kubernetes version"
+  },
+  {
+    "name": "master_version",
+    "description": "Current master kubernetes version"
+  },
+  {
+    "name": "ca_certificate",
+    "description": "Cluster ca certificate (base64 encoded)"
+  },
+  {
+    "name": "addons_config",
+    "description": "The configuration for addons supported by GKE Autopilot."
+  },
+  {
+    "name": "http_load_balancing_enabled",
+    "description": "Whether http load balancing enabled"
+  },
+  {
+    "name": "cluster_id",
+    "description": "Cluster ID"
+  },
+  {
+    "name": "endpoint_dns",
+    "description": "Cluster endpoint DNS"
+  },
+  {
+    "name": "monitoring_service",
+    "description": "Monitoring service used"
+  },
+  {
+    "name": "network_policy_enabled",
+    "description": "Whether network policy enabled"
+  },
+  {
+    "name": "secret_manager_addon_enabled",
+    "description": "Whether Secret Manager add-on is enabled"
+  }
+]

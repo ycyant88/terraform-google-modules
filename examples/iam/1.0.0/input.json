@@ -1,0 +1,93 @@
+[
+  {
+    "name": "kms_key_rings",
+    "type": "",
+    "description": "Kms Key Rings list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "mode",
+    "type": "",
+    "description": "Mode for adding the IAM policies/bindings, additive and authoritative",
+    "default": "\"additive\"",
+    "required": false
+  },
+  {
+    "name": "bindings",
+    "type": "",
+    "description": "Map of role (key) and list of members (value) to add the IAM policies/bindings",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "pubsub_topics",
+    "type": "",
+    "description": "Pubsub topics list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "pubsub_subscriptions",
+    "type": "",
+    "description": "Pubsub subscriptions list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "folders",
+    "type": "",
+    "description": "Folders list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "organizations",
+    "type": "",
+    "description": "Organizations list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "service_accounts",
+    "type": "",
+    "description": "Service Accounts list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "storage_buckets",
+    "type": "",
+    "description": "Buckets list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "subnets",
+    "type": "",
+    "description": "Subnets list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "kms_crypto_keys",
+    "type": "",
+    "description": "Kms Crypto Key list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "project",
+    "type": "",
+    "description": "Project to add the IAM policies/bindings",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "projects",
+    "type": "",
+    "description": "Projects list to add the IAM policies/bindings",
+    "default": "[]",
+    "required": false
+  }
+]

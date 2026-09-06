@@ -1,0 +1,30 @@
+[
+  {
+    "name": "table_labels",
+    "description": "Key value pairs in a map for table labels"
+  },
+  {
+    "name": "dataset_id",
+    "description": "Unique id for the dataset being provisioned"
+  },
+  {
+    "name": "dataset_name",
+    "description": "Friendly name for the dataset being provisioned"
+  },
+  {
+    "name": "dataset_project",
+    "description": "Project wheree the dataset and table are created"
+  },
+  {
+    "name": "table_id",
+    "description": "Unique id for the table being provisioned"
+  },
+  {
+    "name": "table_name",
+    "description": "Friendly name for the table being provisioned"
+  },
+  {
+    "name": "dataset_labels",
+    "description": "Key value pairs in a map for dataset labels"
+  }
+]

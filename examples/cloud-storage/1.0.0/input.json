@@ -1,0 +1,128 @@
+[
+  {
+    "name": "labels",
+    "type": "map",
+    "description": "Labels to be attached to the buckets",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "set_viewer_roles",
+    "type": "string",
+    "description": "Grant roles/storage.objectViewer role to viewers and bucket_viewers.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Bucket project id.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "Bucket location.",
+    "default": "\"EU\"",
+    "required": false
+  },
+  {
+    "name": "versioning",
+    "type": "map",
+    "description": "Optional map of lowercase unprefixed name => boolean, defaults to false.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "admins",
+    "type": "list",
+    "description": "IAM-style members who will be granted roles/storage.objectAdmin on all buckets.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "bucket_creators",
+    "type": "map",
+    "description": "Map of lowercase unprefixed name => comma-delimited IAM-style bucket creators.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "set_admin_roles",
+    "type": "string",
+    "description": "Grant roles/storage.objectAdmin role to admins and bucket_admins.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "prefix",
+    "type": "string",
+    "description": "Prefix used to generate the bucket name.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "names",
+    "type": "list(string)",
+    "description": "Bucket name suffixes.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "storage_class",
+    "type": "string",
+    "description": "Bucket storage class.",
+    "default": "\"MULTI_REGIONAL\"",
+    "required": false
+  },
+  {
+    "name": "bucket_policy_only",
+    "type": "map",
+    "description": "Disable ad-hoc ACLs on specified buckets. Defaults to true. Map of lowercase unprefixed name => boolean",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "creators",
+    "type": "list",
+    "description": "IAM-style members who will be granted roles/storage.objectCreators on all buckets.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "viewers",
+    "type": "list",
+    "description": "IAM-style members who will be granted roles/storage.objectViewer on all buckets.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "set_creator_roles",
+    "type": "string",
+    "description": "Grant roles/storage.objectCreator role to creators and bucket_creators.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "force_destroy",
+    "type": "map",
+    "description": "Optional map of lowercase unprefixed name => boolean, defaults to false.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "bucket_admins",
+    "type": "map",
+    "description": "Map of lowercase unprefixed name => comma-delimited IAM-style bucket admins.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "bucket_viewers",
+    "type": "map",
+    "description": "Map of lowercase unprefixed name => comma-delimited IAM-style bucket viewers.",
+    "default": "{}",
+    "required": false
+  }
+]

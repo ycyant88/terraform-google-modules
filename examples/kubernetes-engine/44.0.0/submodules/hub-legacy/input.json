@@ -1,0 +1,100 @@
+[
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "The unique name to identify the cluster in ASM.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cluster_endpoint",
+    "type": "string",
+    "description": "The GKE cluster endpoint.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project in which the resource belongs.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The location (zone or region) this cluster has been created in.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "gke_hub_membership_name",
+    "type": "string",
+    "description": "Membership name that uniquely represents the cluster being registered on the Hub",
+    "default": "\"gke-hub-membership\"",
+    "required": false
+  },
+  {
+    "name": "module_depends_on",
+    "type": "list(any)",
+    "description": "List of modules or resources this module depends on.",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "use_kubeconfig",
+    "type": "bool",
+    "description": "Use existing kubeconfig to register membership. Set this to true for non GKE clusters. Assumes kubectl context is set to cluster to register.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "string",
+    "description": "Comma separated labels in the format name=value to apply to cluster in the GCP Console.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "hub_project_id",
+    "type": "string",
+    "description": "The project in which the GKE Hub belongs.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "use_tf_google_credentials_env_var",
+    "type": "bool",
+    "description": "Optional GOOGLE_CREDENTIALS environment variable to be activated.",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "gcloud_sdk_version",
+    "type": "string",
+    "description": "The gcloud sdk version to use. Minimum required version is 293.0.0",
+    "default": "\"296.0.1\"",
+    "required": false
+  },
+  {
+    "name": "gke_hub_sa_name",
+    "type": "string",
+    "description": "Name for the GKE Hub SA stored as a secret `creds-gcp` in the `gke-connect` namespace.",
+    "default": "\"gke-hub-sa\"",
+    "required": false
+  },
+  {
+    "name": "use_existing_sa",
+    "type": "bool",
+    "description": "Uses an existing service account to register membership. Requires sa_private_key",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "sa_private_key",
+    "type": "string",
+    "description": "Private key for service account base64 encoded. Required only if `use_existing_sa` is set to `true`.",
+    "default": "null",
+    "required": false
+  }
+]

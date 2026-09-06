@@ -1,0 +1,18 @@
+[
+  {
+    "name": "firewall_name",
+    "description": "The name of the firewall rule"
+  },
+  {
+    "name": "disk_name",
+    "description": "The name of the persistent disk"
+  },
+  {
+    "name": "disk_size",
+    "description": "The size of the persistent disk"
+  },
+  {
+    "name": "instance_name",
+    "description": "The instance name"
+  }
+]

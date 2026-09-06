@@ -1,0 +1,10 @@
+module "cloud-router" {
+  source  = "terraform-google-modules/cloud-router/google"
+  version = "0.2.0"
+  bgp     = var.bgp
+  name    = var.name
+  nats    = var.nats
+  network = var.network
+  project = var.project
+  region  = var.region
+}

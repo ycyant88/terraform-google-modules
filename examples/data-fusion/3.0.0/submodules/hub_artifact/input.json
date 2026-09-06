@@ -1,0 +1,44 @@
+[
+  {
+    "name": "bucket",
+    "type": "string",
+    "description": "Name of the GCS bucket for the hub.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "package",
+    "type": "string",
+    "description": "Name of the package within the hub bucket that contains the artifact.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "name",
+    "type": "string",
+    "description": "Name of the artifact within the package.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "artifact_version",
+    "type": "string",
+    "description": "Version of the artifact.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "package_version",
+    "type": "string",
+    "description": "Version of the package. If not set, the artifact version is used.",
+    "default": "null",
+    "required": false
+  },
+  {
+    "name": "namespace",
+    "type": "string",
+    "description": "Namespace to create the artifact in.",
+    "default": "null",
+    "required": false
+  }
+]

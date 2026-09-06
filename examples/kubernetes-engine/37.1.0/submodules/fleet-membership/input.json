@@ -1,0 +1,51 @@
+[
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "The GKE cluster name",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project in which the GKE cluster belongs.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "hub_project_id",
+    "type": "string",
+    "description": "The project in which the GKE Hub belongs. Defaults to GKE cluster project_id.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The location (zone or region) this cluster has been created in.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "enable_fleet_registration",
+    "type": "bool",
+    "description": "Enables GKE Hub Registration when set to true",
+    "default": "true",
+    "required": false
+  },
+  {
+    "name": "membership_name",
+    "type": "string",
+    "description": "Membership name that uniquely represents the cluster being registered. Defaults to `$project_id-$location-$cluster_name`.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "membership_location",
+    "type": "string",
+    "description": "Membership location for the cluster. Defaults to global.",
+    "default": "\"global\"",
+    "required": false
+  }
+]

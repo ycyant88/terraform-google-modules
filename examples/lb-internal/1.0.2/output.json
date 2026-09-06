@@ -1,0 +1,6 @@
+[
+  {
+    "name": "ip_address",
+    "description": "The internal IP assigned to the regional fowarding rule."
+  }
+]
