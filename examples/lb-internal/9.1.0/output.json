@@ -1,0 +1,14 @@
+[
+  {
+    "name": "ip_address",
+    "description": "The internal IP assigned to the regional forwarding rule."
+  },
+  {
+    "name": "forwarding_rule",
+    "description": "The forwarding rule self_link."
+  },
+  {
+    "name": "forwarding_rule_id",
+    "description": "The forwarding rule id."
+  }
+]

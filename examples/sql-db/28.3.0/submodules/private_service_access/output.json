@@ -1,0 +1,14 @@
+[
+  {
+    "name": "address",
+    "description": "First IP of the reserved range."
+  },
+  {
+    "name": "google_compute_global_address_name",
+    "description": "URL of the reserved range."
+  },
+  {
+    "name": "peering_completed",
+    "description": "Use for enforce ordering between resource creation"
+  }
+]

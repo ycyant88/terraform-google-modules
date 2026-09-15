@@ -1,0 +1,64 @@
+variable "description" {
+  description = "An optional description of this resource. Provide this property when you create the resource"
+  type        = string
+  default     = null
+}
+
+variable "parent_node" {
+  description = "The parent of the firewall policy. Parent should be in format organizations/<org-id> or folders/<folder_id>"
+  type        = string
+  default     = ""
+}
+
+variable "policy_name" {
+  description = "User-provided name of the hierarchical firewall policy"
+  type        = string
+  default     = ""
+}
+
+variable "rules" {
+  description = "List of Ingress/Egress rules"
+  type = list(object({
+    priority                = number
+    direction               = string
+    action                  = string
+    rule_name               = optional(string)
+    disabled                = optional(bool)
+    description             = optional(string)
+    enable_logging          = optional(bool)
+    target_service_accounts = optional(list(string), [])
+    target_resources        = optional(list(string), [])
+    match = object({
+      src_ip_ranges             = optional(list(string), [])
+      src_fqdns                 = optional(list(string), [])
+      src_region_codes          = optional(list(string), [])
+      src_threat_intelligences  = optional(list(string), [])
+      src_address_groups        = optional(list(string), [])
+      dest_ip_ranges            = optional(list(string), [])
+      dest_fqdns                = optional(list(string), [])
+      dest_region_codes         = optional(list(string), [])
+      dest_threat_intelligences = optional(list(string), [])
+      dest_address_groups       = optional(list(string), [])
+      layer4_configs = optional(list(object({
+        ip_protocol = optional(string, "all")
+        ports       = optional(list(string), [])
+      })), [{}])
+      src_networks       = optional(list(string), [])
+      src_network_scope  = optional(string)
+      dest_network_scope = optional(string)
+    })
+  }))
+  default = []
+}
+
+variable "target_folders" {
+  description = "List of target folders IDs that the firewall policy will be attached to"
+  type        = list(string)
+  default     = []
+}
+
+variable "target_org" {
+  description = "Target org id that the firewall policy will be attached to"
+  type        = string
+  default     = null
+}

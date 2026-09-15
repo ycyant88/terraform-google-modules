@@ -1,0 +1,37 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project id of the project that holds the network.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "network_name",
+    "type": "string",
+    "description": "Name of the network this set of firewall rules applies to.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "rules",
+    "type": "list(object({\n    name                    = string\n    description             = optional(string, null)\n    direction               = optional(string, \"INGRESS\")\n    disabled                = optional(bool, null)\n    priority                = optional(number, null)\n    ranges                  = optional(list(string), [])\n    source_tags             = optional(list(string))\n    source_service_accounts = optional(list(string))\n    target_tags             = optional(list(string))\n    target_service_accounts = optional(list(string))\n\n    allow = optional(list(object({\n      protocol = string\n      ports    = optional(list(string))\n    })), [])\n    deny = optional(list(object({\n      protocol = string\n      ports    = optional(list(string))\n    })), [])\n    log_config = optional(object({\n      metadata = string\n    }))\n  }))",
+    "description": "This is DEPRECATED and available for backward compatibility. Use ingress_rules and egress_rules variables. List of custom rule definitions",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "ingress_rules",
+    "type": "list(object({\n    name                    = string\n    description             = optional(string, null)\n    disabled                = optional(bool, null)\n    priority                = optional(number, null)\n    destination_ranges      = optional(list(string), [])\n    source_ranges           = optional(list(string), [])\n    source_tags             = optional(list(string))\n    source_service_accounts = optional(list(string))\n    target_tags             = optional(list(string))\n    target_service_accounts = optional(list(string))\n\n    allow = optional(list(object({\n      protocol = string\n      ports    = optional(list(string))\n    })), [])\n    deny = optional(list(object({\n      protocol = string\n      ports    = optional(list(string))\n    })), [])\n    log_config = optional(object({\n      metadata = string\n    }))\n  }))",
+    "description": "List of ingress rules. This will be ignored if variable 'rules' is non-empty",
+    "default": "[]",
+    "required": false
+  },
+  {
+    "name": "egress_rules",
+    "type": "list(object({\n    name                    = string\n    description             = optional(string, null)\n    disabled                = optional(bool, null)\n    priority                = optional(number, null)\n    destination_ranges      = optional(list(string), [])\n    source_ranges           = optional(list(string), [])\n    source_tags             = optional(list(string))\n    source_service_accounts = optional(list(string))\n    target_tags             = optional(list(string))\n    target_service_accounts = optional(list(string))\n\n    allow = optional(list(object({\n      protocol = string\n      ports    = optional(list(string))\n    })), [])\n    deny = optional(list(object({\n      protocol = string\n      ports    = optional(list(string))\n    })), [])\n    log_config = optional(object({\n      metadata = string\n    }))\n  }))",
+    "description": "List of egress rules. This will be ignored if variable 'rules' is non-empty",
+    "default": "[]",
+    "required": false
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project in which the vpc connector will be deployed.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "vpc_connectors",
+    "type": "list(object({\n    name            = string,\n    region          = string,\n    network         = optional(string, null),\n    subnet_name     = optional(string, null),\n    ip_cidr_range   = optional(string, null),\n    host_project_id = optional(string, null),\n    machine_type    = optional(string, null),\n    min_instances   = optional(number, null),\n    max_instances   = optional(number, null),\n    max_throughput  = optional(number, null)\n  }))",
+    "description": "List of VPC serverless connectors.",
+    "default": "[]",
+    "required": false
+  }
+]
