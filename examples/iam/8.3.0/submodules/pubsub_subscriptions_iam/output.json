@@ -1,0 +1,14 @@
+[
+  {
+    "name": "pubsub_subscriptions",
+    "description": "PubSub Subscriptions which received bindings."
+  },
+  {
+    "name": "roles",
+    "description": "Roles which were assigned to members."
+  },
+  {
+    "name": "members",
+    "description": "Members which were bound to the PubSub Subscription."
+  }
+]

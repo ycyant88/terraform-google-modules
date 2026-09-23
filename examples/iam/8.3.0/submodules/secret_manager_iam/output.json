@@ -1,0 +1,14 @@
+[
+  {
+    "name": "members",
+    "description": "Members which were bound to the Secret Manager Secrets."
+  },
+  {
+    "name": "secrets",
+    "description": "Secret Manager Secrets which received for bindings."
+  },
+  {
+    "name": "roles",
+    "description": "Roles which were assigned to members."
+  }
+]
