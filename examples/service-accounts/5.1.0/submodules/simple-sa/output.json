@@ -1,0 +1,22 @@
+[
+  {
+    "name": "email",
+    "description": "Service account email"
+  },
+  {
+    "name": "iam_email",
+    "description": "IAM format service account email"
+  },
+  {
+    "name": "id",
+    "description": "Service account id in the format 'projects/{{project}}/serviceAccounts/{{email}}'"
+  },
+  {
+    "name": "account_details",
+    "description": "Service account id and email"
+  },
+  {
+    "name": "env_vars",
+    "description": "Exported environment variables"
+  }
+]
