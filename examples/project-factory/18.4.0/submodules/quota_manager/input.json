@@ -1,0 +1,16 @@
+[
+  {
+    "name": "consumer_quotas",
+    "type": "list(object({\n    service    = string,\n    metric     = string,\n    dimensions = map(string),\n    limit      = string,\n    value      = string,\n  }))",
+    "description": "The quotas configuration you want to override for the project.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The GCP project where you want to manage the consumer quotas",
+    "default": "",
+    "required": true
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The GCP project you want to send Essential Contacts notifications for",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "essential_contacts",
+    "type": "map(list(string))",
+    "description": "A mapping of users or groups to be assigned as Essential Contacts to the project, specifying a notification category",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "language_tag",
+    "type": "string",
+    "description": "Language code to be used for essential contacts notifiactions",
+    "default": "",
+    "required": true
+  }
+]

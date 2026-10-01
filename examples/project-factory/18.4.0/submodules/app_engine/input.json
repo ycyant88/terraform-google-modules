@@ -1,0 +1,37 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project to enable app engine on.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "location_id",
+    "type": "string",
+    "description": "The location to serve the app from.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "auth_domain",
+    "type": "string",
+    "description": "The domain to authenticate users with when using App Engine's User API.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "serving_status",
+    "type": "string",
+    "description": "The serving status of the app.",
+    "default": "\"SERVING\"",
+    "required": false
+  },
+  {
+    "name": "feature_settings",
+    "type": "list(object({ split_health_checks = bool }))",
+    "description": "A list of maps of optional settings to configure specific App Engine features.",
+    "default": "[\n  {\n    \"split_health_checks\": true\n  }\n]",
+    "required": false
+  }
+]

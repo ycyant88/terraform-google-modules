@@ -1,0 +1,6 @@
+[
+  {
+    "name": "quota_overrides",
+    "description": "The server-generated names of the quota override."
+  }
+]
