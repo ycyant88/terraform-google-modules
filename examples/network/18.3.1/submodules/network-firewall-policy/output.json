@@ -1,0 +1,14 @@
+[
+  {
+    "name": "fw_policy",
+    "description": "Firewall policy created"
+  },
+  {
+    "name": "vpc_associations",
+    "description": "VPC associations created"
+  },
+  {
+    "name": "rules",
+    "description": "Firewall policy rules created"
+  }
+]
