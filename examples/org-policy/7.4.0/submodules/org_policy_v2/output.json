@@ -1,0 +1,14 @@
+[
+  {
+    "name": "policy_root",
+    "description": "Policy Root in the hierarchy for the given policy"
+  },
+  {
+    "name": "policy_root_id",
+    "description": "Project Root ID at which the policy is applied"
+  },
+  {
+    "name": "constraint",
+    "description": "Policy Constraint Identifier without constraints/ prefix"
+  }
+]
