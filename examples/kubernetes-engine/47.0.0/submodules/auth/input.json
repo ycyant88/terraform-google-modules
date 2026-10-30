@@ -1,0 +1,30 @@
+[
+  {
+    "name": "location",
+    "type": "string",
+    "description": "The location (region or zone) of the GKE cluster.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "cluster_name",
+    "type": "string",
+    "description": "The name of the GKE cluster.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "use_private_endpoint",
+    "type": "bool",
+    "description": "Connect on the private GKE cluster endpoint",
+    "default": "false",
+    "required": false
+  },
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The GCP project of the GKE cluster.",
+    "default": "",
+    "required": true
+  }
+]
