@@ -1,0 +1,10 @@
+[
+  {
+    "name": "instances",
+    "description": "Instance name => address map."
+  },
+  {
+    "name": "password",
+    "description": "Auto-generated password, if no password was set as a variable."
+  }
+]
