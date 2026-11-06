@@ -1,0 +1,30 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "Project ID where Cloud Composer Environment is created.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "zone",
+    "type": "string",
+    "description": "Zone where the Cloud Composer Kubernetes Master lives.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "gke_cluster",
+    "type": "string",
+    "description": "Name of the Cloud Composer Kubernetes cluster.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "master_authorized_networks",
+    "type": "list(object({ cidr_block = string, display_name = string }))",
+    "description": "List of master authorized networks. If null is provided this module will do nothing. If empty string then all public traffic will be denied",
+    "default": "null",
+    "required": false
+  }
+]
