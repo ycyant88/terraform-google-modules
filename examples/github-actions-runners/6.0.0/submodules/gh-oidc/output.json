@@ -1,0 +1,10 @@
+[
+  {
+    "name": "pool_name",
+    "description": "Pool name"
+  },
+  {
+    "name": "provider_name",
+    "description": "Provider name"
+  }
+]
