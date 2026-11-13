@@ -1,0 +1,10 @@
+[
+  {
+    "name": "https_trigger_url",
+    "description": "URL which triggers function execution."
+  },
+  {
+    "name": "name",
+    "description": "The name of the function."
+  }
+]
