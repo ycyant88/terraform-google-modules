@@ -1,0 +1,18 @@
+[
+  {
+    "name": "service_account",
+    "description": "The service account email running the scheduler and workflow"
+  },
+  {
+    "name": "region",
+    "description": "The region for running the scheduler and workflow"
+  },
+  {
+    "name": "backup_workflow_name",
+    "description": "The name for internal backup workflow"
+  },
+  {
+    "name": "export_workflow_name",
+    "description": "The name for export workflow"
+  }
+]

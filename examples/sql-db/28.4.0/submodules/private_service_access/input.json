@@ -1,0 +1,58 @@
+[
+  {
+    "name": "project_id",
+    "type": "string",
+    "description": "The project ID of the VPC network to peer. This can be a shared VPC host project.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "vpc_network",
+    "type": "string",
+    "description": "Name of the VPC network to peer.",
+    "default": "",
+    "required": true
+  },
+  {
+    "name": "address",
+    "type": "string",
+    "description": "First IP address of the IP range to allocate to CLoud SQL instances and other Private Service Access services. If not set, GCP will pick a valid one for you.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "description",
+    "type": "string",
+    "description": "An optional description of the Global Address resource.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "prefix_length",
+    "type": "number",
+    "description": "Prefix length of the IP range reserved for Cloud SQL instances and other Private Service Access services. Defaults to /16.",
+    "default": "16",
+    "required": false
+  },
+  {
+    "name": "ip_version",
+    "type": "string",
+    "description": "IP Version for the allocation. Can be IPV4 or IPV6.",
+    "default": "\"\"",
+    "required": false
+  },
+  {
+    "name": "labels",
+    "type": "map(string)",
+    "description": "The key/value labels for the IP range allocated to the peered network.",
+    "default": "{}",
+    "required": false
+  },
+  {
+    "name": "deletion_policy",
+    "type": "string",
+    "description": "The deletion policy for the service networking connection. Setting to ABANDON allows the resource to be abandoned rather than deleted. This will enable a successful terraform destroy when destroying CloudSQL instances. Use with care as it can lead to dangling resources.",
+    "default": "null",
+    "required": false
+  }
+]
